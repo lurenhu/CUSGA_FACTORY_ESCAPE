@@ -7,7 +7,8 @@ public class CipherNode : Node
     public int cipher;
     public int index;
 
-    private void OnMouseUp() {
+    protected override void OnMouseUp() {
+        base.OnMouseUp();
         if (cipher == 9)
             cipher = 0;
         else

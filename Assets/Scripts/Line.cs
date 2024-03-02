@@ -4,23 +4,6 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    // private const int NODENUMBER = 2;
-    // private LineRenderer lineRenderer;
-
-    // private void Awake() {
-    //     lineRenderer = GetComponent<LineRenderer>();
-    // }
-
-    // private void Start() {
-    //     lineRenderer.positionCount = NODENUMBER;
-    // }
-    
-    // public void SetPosition(Vector2 startPosition,Vector2 endPosition)
-    // {
-    //     lineRenderer.SetPosition(0,startPosition);
-    //     lineRenderer.SetPosition(1,endPosition);
-    // }
-
     private LineRenderer lineRenderer;
     private Transform startPoint;
     [HideInInspector] public Transform endPoint;
@@ -36,14 +19,19 @@ public class Line : MonoBehaviour
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
 
-        startPoint = transform;
+        startPoint = transform.parent;
     }
 
     private void Update()
     {
-        if (endPoint == null) return;
-
-        DrawRope();
+        if (endPoint != null)
+        {
+            if (!lineRenderer.enabled)
+            {
+                lineRenderer.enabled = true;
+            }
+            DrawRope();
+        }
     }
 
     private void DrawRope()

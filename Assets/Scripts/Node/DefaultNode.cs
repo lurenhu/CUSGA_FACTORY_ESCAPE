@@ -3,14 +3,15 @@ using UnityEngine;
 public class DefaultNode : Node
 {
 
-    private void OnMouseUp() {
+    protected override void OnMouseUp() {
+        base.OnMouseUp();
+        
         if (isSelected)
         {
             Debug.Log(gameObject.name + " has mission");
             
-            if (isPoping || hasPopUp) return;
-
-            PopUpChildNode(childNodes);
+            if (hasPopUp) return;
+            PopUpChildNode(nodeInfos);
             hasPopUp = true;
         }
         else

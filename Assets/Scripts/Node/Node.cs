@@ -5,18 +5,73 @@ using System;
 
 public class Node : MonoBehaviour
 {
-    protected Line line;
-    public List<NodeInfo> childNodes;// 存储子节点集
-    public Node parentNode;// 当前节点的父节点
-    [HideInInspector] public bool isPoping = false;// 判断是否处于弹出状态
-    [HideInInspector] public bool isDraging = false;
-    protected bool isSelected = false;// 判断是否处于被选中状体
-    protected bool hasPopUp = false;
+    [Space(10)]
+    [Header("NODE CLASS PROPERTISE")]
     
+    [Tooltip("弹出动画的持续时间")]
     [SerializeField] protected float tweenDuring = 2;// 弹出持续时间
+    [SerializeField] protected float popUpForce = 2;
+    [HideInInspector] public bool isPoping = false;// 判断是否处于弹出状态
+    [HideInInspector] public bool isDraging = false;// 判断是否处于拖拽状态
+    protected bool isSelected = false;// 判断是否处于被选中状体
+    protected bool hasPopUp = false;// 判断节点是否已经弹出子节点
 
-    private void Awake() {
-        line = GetComponentInChildren<Line>();
+    public string id;
+    [Tooltip("该节点的所有子节点")]
+    public List<string> childNodeIDList;// 存储子节点集
+    [Tooltip("该节点的父节点")]
+    public string parentNodeID;// 当前节点的父节点
+    public Rect rect;
+    public List<NodeInfo> nodeInfos;
+
+    /// <summary>
+    /// 初始化节点数据
+    /// </summary>
+    /// <param name="nodeInGraph"></param>
+    public void InitializeNode(NodeSO nodeInGraph)
+    {
+        this.id = nodeInGraph.id;
+        this.childNodeIDList = nodeInGraph.childrenNodeIdList;
+        if (nodeInGraph.parentNodeIdList.Count > 0)
+        {
+            this.parentNodeID = nodeInGraph.parentNodeIdList[0];
+        }
+        this.rect = nodeInGraph.rect;
+    }
+
+    protected virtual void Awake()
+    {
+        LoadNodeInfo();
+    }
+    
+    private void LoadNodeInfo()
+    {
+        if (childNodeIDList == null)
+        {
+            return;
+        }
+
+        foreach (string childNodeID in childNodeIDList)
+        {
+            NodeMapBuilder.Instance.nodeToBuildDictionary.TryGetValue(childNodeID,out Node childNode);
+
+            Vector2 direction = (childNode.rect.center - rect.center).normalized;
+
+            NodeInfo newNodeInfo = new NodeInfo()
+            {
+                node = childNode,
+                direction = direction
+            };
+
+            nodeInfos.Add(newNodeInfo);
+        }
+    }
+
+    protected virtual void OnMouseUp()
+    {
+        if (isDraging) isDraging = false;
+
+        if (isPoping) return;
     }
 
     protected virtual void OnMouseDrag() {
@@ -34,13 +89,16 @@ public class Node : MonoBehaviour
     {
         foreach (NodeInfo childNode in nodes)
         {
-            Node currentNode = Instantiate(childNode.node,transform.position,Quaternion.identity);
+            Node currentNode = childNode.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
 
-            currentNode.parentNode = this;
-            currentNode.transform.GetComponent<Line>().endPoint = currentNode.parentNode.transform;
+            currentNode.transform.position = transform.position;
+            currentNode.gameObject.SetActive(true);
+
+            NodeMapBuilder.Instance.nodeToBuildDictionary.TryGetValue(currentNode.parentNodeID,out Node parentNode);
+            currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
 
             currentNode.transform.DOMove(
-                new Vector3(childNode.offset.x,childNode.offset.y,0),tweenDuring
+                childNode.direction * popUpForce,tweenDuring
                 ).SetRelative().OnStart(() => 
                 {
                     currentNode.isPoping = true;
@@ -65,8 +123,7 @@ public class Node : MonoBehaviour
 [Serializable]
 public class NodeInfo
 {
-    public string text;
     public Node node;
-    public Vector2 offset;// 弹出方向偏移距离
+    public Vector2 direction;// 弹出方向偏移距离
 
 }
