@@ -35,7 +35,7 @@ public class ai : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reflesh(bot_id);
+        //reflesh(bot_id);
         setChatUIActive(true);
         send_button.onClick.AddListener(delegate {sendMessage(bot_id);});
         
