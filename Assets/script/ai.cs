@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+//using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -29,12 +30,14 @@ public class ai : MonoBehaviour
     /// 
     /// </summary>
 
-    private const string Url = "https://xuanheai.com/chat/sendStream.do";
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        reflesh(bot_id);
         setChatUIActive(true);
-        send_button.onClick.AddListener(delegate {send(bot_id);});
+        send_button.onClick.AddListener(delegate {sendMessage(bot_id);});
         
     }
 
@@ -49,7 +52,7 @@ public class ai : MonoBehaviour
         input_field.SetActive(activeSelf);
     }
 
-    public async void  send(long bot_id)
+    public async void  sendMessage(long bot_id)
     {
         
         if (chat_input_field.text.Equals(""))
@@ -57,11 +60,16 @@ public class ai : MonoBehaviour
         string content = chat_input_field.text;     //在这里获取文本的信息
         Debug.Log(content);
         chat_input_field.text = "";
-        await Post(bot_id,content);
+        await PostMessage(bot_id,content);
         //post(bot_id,content);
 
     }
-    public async Task  Post(long botid, string message)
+    public async void reflesh(long botid)
+    {
+        Debug.Log("reflesh");
+        StartCoroutine(RefleshRequest(botid));
+    }
+    public async Task PostMessage(long botid, string message)
     {
         Debug.Log("post");
         StartCoroutine(SendRequest(botid, message));
@@ -69,6 +77,7 @@ public class ai : MonoBehaviour
 
     private IEnumerator SendRequest(long botid, string message)
     {
+        string Url = "https://xuanheai.com/chat/sendStream.do";
         // 创建一个UnityWebRequest对象，指定请求方法为POST
         UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");
 
@@ -133,6 +142,44 @@ public class ai : MonoBehaviour
 
             Debug.Log(requestBody.input);
             Debug.Log(finalContent);
+        }
+        else
+        {
+            Debug.Log("请求失败，状态码：" + request.responseCode);
+        }
+    }
+    private IEnumerator RefleshRequest(long botid)
+    {
+        string Url = "https://xuanheai.com/chat/clear.do";
+        // 创建一个UnityWebRequest对象，指定请求方法为POST
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");
+
+        // 构建请求的内容
+        var requestBody = new
+        {
+            botId = botid,      // 角色id
+        };
+
+        // 将请求内容序列化为JSON字符串
+        string json = JsonConvert.SerializeObject(requestBody);
+
+        // 将JSON字符串作为请求体内容
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+
+        // 设置请求头
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Cookie", CookieValue);
+
+        // 发送请求并等待返回
+        yield return request.SendWebRequest();
+
+        // 处理返回结果
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            string responseContent = request.downloadHandler.text;
+            Debug.Log("成功发送信息！");
+            Debug.Log("响应内容：" + responseContent);
         }
         else
         {
