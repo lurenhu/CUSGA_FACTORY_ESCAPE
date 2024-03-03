@@ -24,7 +24,7 @@ public class ai : MonoBehaviour
     [SerializeField] public long bot_id;
     [Header("用户cookie")]
     //public  string CookieValue = "b-user-id=d968b1f3-c59c-5545-1f08-8abe63838109; app-satoken=6a905cdc-ca23-4b98-8ddb-71431b0729fc; Hm_lvt_11ee634290fd232d05132bc7c7c9ad3b=1708756486,1708909854; Hm_lpvt_11ee634290fd232d05132bc7c7c9ad3b=1708911528";
-    public string Apikey = "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";
+    public string Apikey = "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";
     /// <summary>
     /// 获取的文字在content里
     /// 
@@ -60,17 +60,17 @@ public class ai : MonoBehaviour
         string content = chat_input_field.text;     //在这里获取文本的信息
         Debug.Log(content);
         chat_input_field.text = "";
-        await PostMessage(bot_id,content);
+        await PostMessage(content);
         //post(bot_id,content);
 
     }
-    public async Task PostMessage(long botid, string message)
+    public async Task PostMessage(string message)
     {
         Debug.Log("post");
-        StartCoroutine(SendRequest(botid, message));
+        StartCoroutine(SendRequest(message));
     }
 
-    private IEnumerator SendRequest(long botid, string message)
+    private IEnumerator SendRequest(string message)
     {
         string Url = "https://api.openai.com/v1/chat/completions";
         // 创建一个UnityWebRequest对象，指定请求方法为POST
