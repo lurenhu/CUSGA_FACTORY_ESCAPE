@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonobehaviour<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<NodeGraphSO> nodeGraphSOs;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
     }
 }

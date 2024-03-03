@@ -81,8 +81,8 @@ public class NodeGraphEditor : EditorWindow
     private void OnGUI() {
         if (currentNodeGraph != null)
         {
-            DrawBackgroundGrid(gridSmall, 0.2f, Color.gray);
-            DrawBackgroundGrid(gridLarge, 0.2f, Color.gray);
+            //DrawBackgroundGrid(gridSmall, 0.2f, Color.gray);
+            //DrawBackgroundGrid(gridLarge, 0.2f, Color.gray);
 
             DrawDraggedLine();
 

@@ -119,7 +119,7 @@ public class NodeSO : ScriptableObject
             int selected = nodeTypeList.list.FindIndex(x => x == nodeType);
 
             int selection = EditorGUILayout.Popup("",selected,GetNodeTypesDisplay());
-            this.nodeText = EditorGUILayout.TextField("");
+            this.nodeText = EditorGUILayout.TextField("","nodeText");
 
             nodeType = nodeTypeList.list[selection];
         }
