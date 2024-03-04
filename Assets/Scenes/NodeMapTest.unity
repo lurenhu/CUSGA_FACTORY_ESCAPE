@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeGraphSOs:
-  - {fileID: 11400000, guid: a42da1e6eafe77548b29a94f4ad31544, type: 2}
+  - {fileID: 11400000, guid: 84eff8afe5f82c3459c185909c619271, type: 2}
 --- !u!4 &1052891442
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +297,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c845aa0a5134b914c9daa7895121cb0b, type: 2}
   - {fileID: 11400000, guid: 7ba1704fe025c4a45bae5bd612a1745d, type: 2}
   - {fileID: 11400000, guid: c2358fcf1e6f4ce4b93be82a598e5ad8, type: 2}
-  nodeTypeList: {fileID: 0}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

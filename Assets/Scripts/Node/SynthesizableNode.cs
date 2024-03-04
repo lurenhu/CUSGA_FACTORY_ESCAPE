@@ -21,7 +21,7 @@ public class SynthesizableNode : Node
 
             if (hasInTrigger)
             {
-                MergTwoNode();
+                MergeTwoNode();
             }
         }
         else
@@ -49,7 +49,7 @@ public class SynthesizableNode : Node
     /// <summary>
     /// 合成两个节点，生成子节点
     /// </summary>
-    private void MergTwoNode()
+    private void MergeTwoNode()
     {
         if (targetNode == currentNode)
         {

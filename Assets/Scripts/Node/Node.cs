@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
 using System;
+using UnityEditor.EditorTools;
 
 public class Node : MonoBehaviour
 {
@@ -9,20 +10,18 @@ public class Node : MonoBehaviour
     [Header("NODE CLASS PROPERTISE")]
     
     [Tooltip("弹出动画的持续时间")]
-    [SerializeField] protected float tweenDuring = 2;// 弹出持续时间
-    [SerializeField] protected float popUpForce = 2;
+    [SerializeField] protected float tweenDuring = 0.5f;// 弹出持续时间
+    [SerializeField] protected float popUpForce = 3;
     [HideInInspector] public bool isPoping = false;// 判断是否处于弹出状态
     [HideInInspector] public bool isDraging = false;// 判断是否处于拖拽状态
     protected bool isSelected = false;// 判断是否处于被选中状体
     protected bool hasPopUp = false;// 判断节点是否已经弹出子节点
 
+    [Tooltip("节点ID")]
     public string id;
-    [Tooltip("该节点的所有子节点")]
-    public List<string> childNodeIDList;// 存储子节点集
-    [Tooltip("该节点的父节点")]
-    public string parentNodeID;// 当前节点的父节点
-    public Rect rect;
-    public string nodeText;
+    [Tooltip("节点所有属性")]
+    public NodeProperty nodeProperty;
+    [Tooltip("生成节点及节点生成方向")]
     public List<NodeInfo> nodeInfos;
 
     /// <summary>
@@ -32,10 +31,7 @@ public class Node : MonoBehaviour
     public void InitializeNode(NodeProperty nodeInGraph)
     {
         this.id = nodeInGraph.id;
-        this.childNodeIDList = nodeInGraph.childIdList;
-        this.parentNodeID = nodeInGraph.parentID;
-        this.rect = nodeInGraph.rect;
-        this.nodeText = nodeInGraph.nodeText;
+        this.nodeProperty = nodeInGraph;
     }
 
     protected virtual void Start()
@@ -45,16 +41,16 @@ public class Node : MonoBehaviour
     
     private void LoadNodeInfo()
     {
-        if (childNodeIDList == null)
+        if (nodeProperty.childIdList == null)
         {
             return;
         }
 
-        foreach (string childNodeID in childNodeIDList)
+        foreach (string childNodeID in nodeProperty.childIdList)
         {
             NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
 
-            Vector2 direction = (childNode.rect.center - rect.center).normalized;
+            Vector2 direction = (childNode.nodeProperty.rect.center - nodeProperty.rect.center).normalized;
 
             NodeInfo newNodeInfo = new NodeInfo()
             {
@@ -93,7 +89,7 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(currentNode.parentNodeID,out Node parentNode);
+            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(currentNode.nodeProperty.parentID,out Node parentNode);
             currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
 
             currentNode.transform.DOMove(
@@ -127,13 +123,18 @@ public class NodeInfo
 
 }
 
+[Serializable]
 public class NodeProperty
 {
-    public Rect rect;
-    public string id;
+    [HideInInspector] public Rect rect;
+    [HideInInspector] public string id;
     public string nodeText;
     public string parentID;
     public List<string> childIdList;
-    public GameObject nodePrefab;
-    public Node node;
+    [HideInInspector] public GameObject nodePrefab;
+    [HideInInspector] public Node node;
+    [HideInInspector] public NodeTypeSO nodeType;
+
+    public string targetNodeID;
+    public int cipherNumber;
 }

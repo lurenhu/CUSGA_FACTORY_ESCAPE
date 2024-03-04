@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5928177701652278641
+--- !u!114 &-7535472757972048441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,25 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
   m_Name: Node
   m_EditorClassIdentifier: 
-  nodeText: 
-  id: c42f29ac-c331-4804-8dae-e8d32fc5a2ff
-  parentNodeIdList:
-  - db32165a-df04-496a-888b-04af63470400
-  childrenNodeIdList: []
+  nodeText: 1
+  id: a050c023-92eb-476e-a149-6abaaea9f280
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 3435765c-4a23-43c1-9884-ae96a9565ea3
+  - aa6c4f56-074c-4c9e-b0f3-a6d8d6ae19a2
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   tragetId: 
-  cipherNumber: 0
+  cipherNumber: -2147483648
   rect:
     serializedVersion: 2
-    x: 209
-    y: 371
+    x: 235
+    y: 186
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &-2600662736807548995
+--- !u!114 &-2310376226728726901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,20 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
   m_Name: Node
   m_EditorClassIdentifier: 
-  nodeText: 
-  id: 0e231edd-e846-443f-a308-a6430bfb22f8
+  nodeText: 2
+  id: aa6c4f56-074c-4c9e-b0f3-a6d8d6ae19a2
   parentNodeIdList:
-  - db32165a-df04-496a-888b-04af63470400
+  - a050c023-92eb-476e-a149-6abaaea9f280
   childrenNodeIdList: []
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   tragetId: 
-  cipherNumber: 0
+  cipherNumber: -2147483648
   rect:
     serializedVersion: 2
-    x: 488
-    y: 202
+    x: 559
+    y: 217
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -70,16 +71,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
-  m_Name: NodeGraph_
+  m_Name: NodeGraph_1
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 0}
   nodeList:
-  - {fileID: 3547762742182836995}
-  - {fileID: -2600662736807548995}
-  - {fileID: -5928177701652278641}
+  - {fileID: -7535472757972048441}
+  - {fileID: -2310376226728726901}
+  - {fileID: 6845684791829525174}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
---- !u!114 &3547762742182836995
+--- !u!114 &6845684791829525174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,22 +92,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
   m_Name: Node
   m_EditorClassIdentifier: 
-  nodeText: 
-  id: db32165a-df04-496a-888b-04af63470400
-  parentNodeIdList: []
-  childrenNodeIdList:
-  - 0e231edd-e846-443f-a308-a6430bfb22f8
-  - c42f29ac-c331-4804-8dae-e8d32fc5a2ff
+  nodeText: 2
+  id: 3435765c-4a23-43c1-9884-ae96a9565ea3
+  parentNodeIdList:
+  - a050c023-92eb-476e-a149-6abaaea9f280
+  childrenNodeIdList: []
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   tragetId: 
-  cipherNumber: 0
+  cipherNumber: -2147483648
   rect:
     serializedVersion: 2
-    x: 200
-    y: 200
+    x: 235
+    y: 4
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1

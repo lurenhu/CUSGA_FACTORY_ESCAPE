@@ -14,10 +14,10 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeTypeListSO nodeTypeList;
 
     // 合成节点属性参数
-    public string tragetId = null;
+    public string tragetId = string.Empty;
 
     //锁节点属性参数
-    public int cipherNumber = 0;
+    public int cipherNumber = int.MinValue;
 
     #if UNITY_EDITOR
     public Rect rect;
