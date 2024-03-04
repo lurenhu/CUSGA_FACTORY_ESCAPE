@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 8a84197d2aed01c4fac449d487199eda, type: 2}
+  - {fileID: 11400000, guid: a42da1e6eafe77548b29a94f4ad31544, type: 2}
 --- !u!4 &1052891442
 Transform:
   m_ObjectHideFlags: 0
@@ -290,7 +290,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ec024da847bbe438e901771d419bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeTemplateList: []
+  nodeTemplateList:
+  - {fileID: 11400000, guid: 6d89db79aea79b247a5c1a2eaae68880, type: 2}
+  - {fileID: 11400000, guid: 2f568e1d9188a2444a28875e62d467b8, type: 2}
+  - {fileID: 11400000, guid: 81cb1702a8728344aa4a3fcbbc8f5e1d, type: 2}
+  - {fileID: 11400000, guid: c845aa0a5134b914c9daa7895121cb0b, type: 2}
+  - {fileID: 11400000, guid: 7ba1704fe025c4a45bae5bd612a1745d, type: 2}
+  - {fileID: 11400000, guid: c2358fcf1e6f4ce4b93be82a598e5ad8, type: 2}
+  nodeTypeList: {fileID: 0}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

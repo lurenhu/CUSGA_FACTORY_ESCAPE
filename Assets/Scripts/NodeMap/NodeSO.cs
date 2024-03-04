@@ -13,8 +13,14 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
 
+    // 合成节点属性参数
+    public string tragetId = null;
+
+    //锁节点属性参数
+    public int cipherNumber = 0;
+
     #if UNITY_EDITOR
-    [HideInInspector] public Rect rect;
+    public Rect rect;
     [HideInInspector] public bool isLeftClickDragging = false;
     [HideInInspector] public bool isSelected = false;
 
@@ -110,19 +116,14 @@ public class NodeSO : ScriptableObject
 
         EditorGUI.BeginChangeCheck();
 
-        if (parentNodeIdList.Count > 0)
-        {
-            EditorGUILayout.LabelField(nodeType.nodeTypeName + "_" + nodeText);
-        }
-        else
-        {
-            int selected = nodeTypeList.list.FindIndex(x => x == nodeType);
+        int selected = nodeTypeList.list.FindIndex(x => x == nodeType);
 
-            int selection = EditorGUILayout.Popup("",selected,GetNodeTypesDisplay());
-            this.nodeText = EditorGUILayout.TextField("","nodeText");
+        int selection = EditorGUILayout.Popup("",selected,GetNodeTypesDisplay());
+        this.nodeText = EditorGUILayout.TextField(nodeText);
 
-            nodeType = nodeTypeList.list[selection];
-        }
+        nodeType = nodeTypeList.list[selection];
+
+        ShowDetailData();
 
         if (EditorGUI.EndChangeCheck())
             EditorUtility.SetDirty(this);
@@ -143,6 +144,22 @@ public class NodeSO : ScriptableObject
         }
 
         return nodeArray;
+    }
+
+    private void ShowDetailData()
+    {
+        if (nodeType.isEntrence || nodeType.isDefault)
+        {
+            return;
+        }
+        else if (nodeType.isSynthesizable)
+        {
+            tragetId = EditorGUILayout.TextField(tragetId);
+        }
+        else if (nodeType.isLocked)
+        {
+            cipherNumber = EditorGUILayout.IntField(cipherNumber);
+        }
     }
 #endregion 绘制节点
 

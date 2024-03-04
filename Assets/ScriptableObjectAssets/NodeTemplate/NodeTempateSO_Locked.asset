@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
   m_Name: NodeTempateSO_Locked
   m_EditorClassIdentifier: 
+  guid: 70d720c4b8a088e41800c0a5dbc93d8f
   nodePrefab: {fileID: 2799066714883787140, guid: 53f000e530647fb4695e7e2697334731, type: 3}
+  previousPrefab: {fileID: 2799066714883787140, guid: 53f000e530647fb4695e7e2697334731, type: 3}
   nodeType: {fileID: 11400000, guid: 85ceb1ccedfeb724aad7b4128a36075d, type: 2}

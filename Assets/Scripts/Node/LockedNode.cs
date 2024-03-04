@@ -12,10 +12,8 @@ public class LockedNode : Node
     private bool isLocked = true;
     private bool hasPopUpCipherNode = false;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-
         LoadCipherNodes();
 
         LoadCipherDictionary();

@@ -22,24 +22,23 @@ public class Node : MonoBehaviour
     [Tooltip("该节点的父节点")]
     public string parentNodeID;// 当前节点的父节点
     public Rect rect;
+    public string nodeText;
     public List<NodeInfo> nodeInfos;
 
     /// <summary>
     /// 初始化节点数据
     /// </summary>
     /// <param name="nodeInGraph"></param>
-    public void InitializeNode(NodeSO nodeInGraph)
+    public void InitializeNode(NodeProperty nodeInGraph)
     {
         this.id = nodeInGraph.id;
-        this.childNodeIDList = nodeInGraph.childrenNodeIdList;
-        if (nodeInGraph.parentNodeIdList.Count > 0)
-        {
-            this.parentNodeID = nodeInGraph.parentNodeIdList[0];
-        }
+        this.childNodeIDList = nodeInGraph.childIdList;
+        this.parentNodeID = nodeInGraph.parentID;
         this.rect = nodeInGraph.rect;
+        this.nodeText = nodeInGraph.nodeText;
     }
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         LoadNodeInfo();
     }
@@ -53,7 +52,7 @@ public class Node : MonoBehaviour
 
         foreach (string childNodeID in childNodeIDList)
         {
-            NodeMapBuilder.Instance.nodeToBuildDictionary.TryGetValue(childNodeID,out Node childNode);
+            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
 
             Vector2 direction = (childNode.rect.center - rect.center).normalized;
 
@@ -94,7 +93,7 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-            NodeMapBuilder.Instance.nodeToBuildDictionary.TryGetValue(currentNode.parentNodeID,out Node parentNode);
+            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(currentNode.parentNodeID,out Node parentNode);
             currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
 
             currentNode.transform.DOMove(
@@ -126,4 +125,15 @@ public class NodeInfo
     public Node node;
     public Vector2 direction;// 弹出方向偏移距离
 
+}
+
+public class NodeProperty
+{
+    public Rect rect;
+    public string id;
+    public string nodeText;
+    public string parentID;
+    public List<string> childIdList;
+    public GameObject nodePrefab;
+    public Node node;
 }

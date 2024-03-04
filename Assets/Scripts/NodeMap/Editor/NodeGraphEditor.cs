@@ -15,7 +15,7 @@ public class NodeGraphEditor : EditorWindow
     private NodeSO currentNode = null;
 
     private const float nodeWidth = 160f;
-    private const float nodeHeight = 75f;
+    private const float nodeHeight = 100f;
     private const int nodePadding = 25;
     private const int nodeBorder = 12;
 
@@ -81,8 +81,8 @@ public class NodeGraphEditor : EditorWindow
     private void OnGUI() {
         if (currentNodeGraph != null)
         {
-            //DrawBackgroundGrid(gridSmall, 0.2f, Color.gray);
-            //DrawBackgroundGrid(gridLarge, 0.2f, Color.gray);
+            DrawBackgroundGrid(gridSmall, 0.2f, Color.gray);
+            DrawBackgroundGrid(gridLarge, 0.2f, Color.gray);
 
             DrawDraggedLine();
 
@@ -92,6 +92,9 @@ public class NodeGraphEditor : EditorWindow
 
             DrawNodes();
         }
+
+        if(GUI.changed)
+            Repaint();
     }
 
     /// <summary>
@@ -142,6 +145,8 @@ public class NodeGraphEditor : EditorWindow
     /// </summary>
     private void ProcessEvent(Event currentEvent)
     {
+        graphDrag = Vector2.zero;
+
         if (currentNode == null || currentNode.isLeftClickDragging == false)
         {
             currentNode = IsMouseOverNode(currentEvent);
@@ -397,6 +402,10 @@ public class NodeGraphEditor : EditorWindow
     /// <param name="mousePositionObject">节点创建位置</param>
     private void CreatNode(object mousePositionObject)
     {
+        if (currentNodeGraph.nodeList.Count == 0)
+        {
+            CreatNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isEntrence));
+        }
         CreatNodes(mousePositionObject,nodeTypeList.list.Find(x => x.isDefault));
     }
 

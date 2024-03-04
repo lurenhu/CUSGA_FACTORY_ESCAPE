@@ -7,6 +7,7 @@ public class NodeTypeSO : ScriptableObject
 {
     public string nodeTypeName;
 
+    public bool isEntrence;
     public bool isDefault;
     public bool isSynthesizable;
     public bool isLocked;

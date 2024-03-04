@@ -20,5 +20,4 @@ public class GameResources : MonoBehaviour
 
     public NodeTypeListSO nodeTypeList;
 
-    public List<NodeTemplateSO> nodeTemplateList;
 }

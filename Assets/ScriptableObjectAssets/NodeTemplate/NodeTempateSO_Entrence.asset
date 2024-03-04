@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
-  m_Name: NodeTempateSO_Synthesizable
+  m_Name: NodeTempateSO_Entrence
   m_EditorClassIdentifier: 
-  guid: 537a372800ec70e40a8e69b8fdd593f3
-  nodePrefab: {fileID: 1738424006587894497, guid: 90b52b71d3eb0c54e81a6fa19b1ed010, type: 3}
-  previousPrefab: {fileID: 1738424006587894497, guid: 90b52b71d3eb0c54e81a6fa19b1ed010, type: 3}
-  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
+  guid: 53500132be117574ea5defe262c37836
+  nodePrefab: {fileID: 4026254294051308990, guid: 1f8737073d92a6b45a3828929d353183, type: 3}
+  previousPrefab: {fileID: 4026254294051308990, guid: 1f8737073d92a6b45a3828929d353183, type: 3}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
