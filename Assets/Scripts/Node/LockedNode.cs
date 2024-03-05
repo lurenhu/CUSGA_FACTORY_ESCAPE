@@ -7,9 +7,9 @@ public class LockedNode : Node
     [Header("LOCK NODE PROPERTISE")]
     [Tooltip("该节点的所有锁节点")]
     public List<NodeInfo> cipherNodes;
-    public GameObject cipherPrefab;
-    private bool isLocked = true;
-    private bool hasPopUpCipherNode = false;
+    private GameObject cipherPrefab;
+    private bool isLocked = true;// 判断节点是否解锁
+    private bool hasPopUpCipherNode = false;// 判断节点是否弹出密码节点
 
     protected override void Start()
     {
@@ -81,6 +81,7 @@ public class LockedNode : Node
     {
         for (int i = 0; i < cipherNodes.Count; i++)
         {
+            LineCreator.Instance.DeleteLine(cipherNodes[i].node);
             Destroy(cipherNodes[i].node.gameObject);
         }
 

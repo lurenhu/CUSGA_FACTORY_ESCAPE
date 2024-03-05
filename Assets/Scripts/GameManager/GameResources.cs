@@ -21,5 +21,6 @@ public class GameResources : MonoBehaviour
     public NodeTypeListSO nodeTypeList;
 
     public GameObject cipherPrefab;
+    public GameObject linePrefab;
 
 }

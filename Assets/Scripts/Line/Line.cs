@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Line : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private Transform startPoint;
-    [HideInInspector] public Transform endPoint;
+    private Transform endPoint;
     public float ropeWidth = 0.1f;
     public float ropeResolution = 0.5f;
 
@@ -18,25 +16,19 @@ public class Line : MonoBehaviour
     {
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
-
-        startPoint = transform.parent;
     }
 
     private void Update()
     {
-        if (endPoint != null)
-        {
-            if (!lineRenderer.enabled)
-            {
-                lineRenderer.enabled = true;
-            }
-            DrawRope();
-        }
+        DrawRope();
     }
 
+    /// <summary>
+    /// 绘制线条
+    /// </summary>
     private void DrawRope()
     {
-        int numPoints = Mathf.CeilToInt(Vector3.Distance(startPoint.position, endPoint.position) * ropeResolution);
+        int numPoints = Mathf.CeilToInt(Vector2.Distance(startPoint.position, endPoint.position) * ropeResolution);
         lineRenderer.positionCount = numPoints;
 
         for (int i = 0; i < numPoints; i++)
@@ -45,6 +37,15 @@ public class Line : MonoBehaviour
             Vector3 pointPosition = Vector3.Lerp(startPoint.position, endPoint.position, t);
             lineRenderer.SetPosition(i, pointPosition);
         }
+    }
+
+    /// <summary>
+    /// 节点数据初始化
+    /// </summary>
+    public void InitializeLine(Transform startPoint, Transform endPoint)
+    {
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
     }
     
 }

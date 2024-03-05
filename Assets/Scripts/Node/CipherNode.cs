@@ -7,8 +7,8 @@ public class CipherNode : Node
 {
     [Space(10)]
     [Header("CIPHER NODE")]
-    public int index;
-    public int value = 0;
+    public int index;// 索引
+    public int value = 0;// 值
 
     protected override void OnMouseUp()
     {

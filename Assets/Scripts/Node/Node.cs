@@ -11,7 +11,8 @@ public class Node : MonoBehaviour
     
     [Tooltip("弹出动画的持续时间")]
     [SerializeField] protected float tweenDuring = 0.5f;// 弹出持续时间
-    [SerializeField] protected float popUpForce = 3;
+    [Tooltip("弹出动画的弹出距离")]
+    [SerializeField] protected float popUpForce = 3;// 弹出距离
     [HideInInspector] public bool isPopping = false;// 判断是否处于弹出状态
     [HideInInspector] public bool isDragging = false;// 判断是否处于拖拽状态
     [HideInInspector] public bool isSelected = false;// 判断是否处于被选中状体
@@ -91,8 +92,7 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(currentNode.nodeProperty.parentID,out Node parentNode);
-            // currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
+            LineCreator.Instance.CreateLine(currentNode);
 
             currentNode.transform.DOMove(
                 childNode.direction * popUpForce,tweenDuring
@@ -128,6 +128,7 @@ public class NodeInfo
 [Serializable]
 public class NodeProperty
 {
+    [Header("普通节点数据")]
     [HideInInspector] public Rect rect;
     [HideInInspector] public string id;
     public string nodeText;
