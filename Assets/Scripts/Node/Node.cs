@@ -69,15 +69,6 @@ public class Node : MonoBehaviour
         if (isPopping) return;
 
         // 节点交互事件--提示文字，音频
-
-        if (!isSelected)
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(this);
-
-            isSelected = true;
-            return;
-        }
     }
 
     protected virtual void OnMouseDrag() {
@@ -146,6 +137,12 @@ public class NodeProperty
     [HideInInspector] public Node node;
     [HideInInspector] public NodeTypeSO nodeType;
 
+    [Space(10)]
+    [Header("合成节点数据")]
     public string targetNodeID;
+
+    [Space(10)]
+    [Header("锁节点数据")]
     public int cipherNumber;
+    public List<int> cipherValues;
 }

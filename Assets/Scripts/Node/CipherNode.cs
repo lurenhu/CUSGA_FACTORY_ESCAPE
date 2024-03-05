@@ -1,17 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CipherNode : Node
 {
-    public int cipher;
+    [Space(10)]
+    [Header("CIPHER NODE")]
     public int index;
+    public int value = 0;
 
-    protected override void OnMouseUp() {
+    protected override void OnMouseUp()
+    {
         base.OnMouseUp();
-        if (cipher == 9)
-            cipher = 0;
+        if (isSelected)
+        {
+            ProcessCipherClickEvent();
+        }
         else
-            cipher++;
+        {
+            // 删除其他所有节点的选中状态
+            NodeMapBuilder.Instance.ClearAllSelectedNode(this);
+
+            isSelected = true;
+        }
+    }
+
+    private void ProcessCipherClickEvent()
+    {
+        if (value == 9)
+            value = 1;
+        else
+            value++;
+    }
+
+    public void InitializeCipherNode(int index, int value)
+    {
+        this.index = index;
+        this.value = value;
     }
 }

@@ -111,7 +111,9 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             nodeType = currentNode.nodeType,
 
             targetNodeID = currentNode.tragetId,
+
             cipherNumber = currentNode.cipherNumber,
+            cipherValues = currentNode.cipherValues
         };
 
         if (currentNode.parentNodeIdList.Count == 0)

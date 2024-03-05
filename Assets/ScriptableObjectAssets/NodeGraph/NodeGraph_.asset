@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7535472757972048441
+--- !u!114 &-4326189764886879077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,50 +13,20 @@ MonoBehaviour:
   m_Name: Node
   m_EditorClassIdentifier: 
   nodeText: 1
-  id: a050c023-92eb-476e-a149-6abaaea9f280
+  id: 5055a365-a47f-4d20-91ff-59bff377d1e0
   parentNodeIdList: []
   childrenNodeIdList:
-  - 3435765c-4a23-43c1-9884-ae96a9565ea3
-  - aa6c4f56-074c-4c9e-b0f3-a6d8d6ae19a2
+  - 7d964e5f-ba19-44ce-bc0e-b1d636ba5c27
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   tragetId: 
-  cipherNumber: -2147483648
+  cipherNumber: 0
+  cipherValues: 
   rect:
     serializedVersion: 2
-    x: 236
-    y: 187
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-2310376226728726901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: aa6c4f56-074c-4c9e-b0f3-a6d8d6ae19a2
-  parentNodeIdList:
-  - a050c023-92eb-476e-a149-6abaaea9f280
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  tragetId: 3435765c-4a23-43c1-9884-ae96a9565ea3
-  cipherNumber: -2147483648
-  rect:
-    serializedVersion: 2
-    x: 559
-    y: 217
+    x: 206
+    y: 195
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -71,47 +41,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
-  m_Name: NodeGraph_1
+  m_Name: NodeGraph_
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 0}
   nodeList:
-  - {fileID: -7535472757972048441}
-  - {fileID: -2310376226728726901}
-  - {fileID: 6845684791829525174}
-  - {fileID: 7467769594394203039}
+  - {fileID: -4326189764886879077}
+  - {fileID: 9016805256435494644}
+  - {fileID: 2930209113415744617}
+  - {fileID: 8987725867978592032}
+  - {fileID: 3210560142740601042}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
---- !u!114 &6845684791829525174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 3435765c-4a23-43c1-9884-ae96a9565ea3
-  parentNodeIdList:
-  - a050c023-92eb-476e-a149-6abaaea9f280
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  tragetId: 
-  cipherNumber: -2147483648
-  rect:
-    serializedVersion: 2
-    x: 220
-    y: 371
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &7467769594394203039
+--- !u!114 &2930209113415744617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,18 +65,116 @@ MonoBehaviour:
   m_Name: Node
   m_EditorClassIdentifier: 
   nodeText: 
-  id: 04bc3984-9607-43c4-8d4c-bf38773a7958
-  parentNodeIdList: []
+  id: 0d37e4c0-e2ba-4e9e-9073-42e66232aa7c
+  parentNodeIdList:
+  - 7d964e5f-ba19-44ce-bc0e-b1d636ba5c27
+  childrenNodeIdList:
+  - 0441b28e-d5b4-4cdf-89a5-a99be488c72b
+  - db4dee7a-cbdc-47c6-8733-22c8fd4abd58
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 85ceb1ccedfeb724aad7b4128a36075d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  tragetId: 
+  cipherNumber: 2
+  cipherValues: 0100000002000000
+  rect:
+    serializedVersion: 2
+    x: 408
+    y: 354
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &3210560142740601042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 0441b28e-d5b4-4cdf-89a5-a99be488c72b
+  parentNodeIdList:
+  - 0d37e4c0-e2ba-4e9e-9073-42e66232aa7c
   childrenNodeIdList: []
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   tragetId: 
-  cipherNumber: -2147483648
+  cipherNumber: 0
+  cipherValues: 
   rect:
     serializedVersion: 2
-    x: 535
-    y: 458
+    x: 666
+    y: 403
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
+--- !u!114 &8987725867978592032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: db4dee7a-cbdc-47c6-8733-22c8fd4abd58
+  parentNodeIdList:
+  - 0d37e4c0-e2ba-4e9e-9073-42e66232aa7c
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  tragetId: 
+  cipherNumber: 0
+  cipherValues: 
+  rect:
+    serializedVersion: 2
+    x: 409
+    y: 536
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &9016805256435494644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 1
+  id: 7d964e5f-ba19-44ce-bc0e-b1d636ba5c27
+  parentNodeIdList:
+  - 5055a365-a47f-4d20-91ff-59bff377d1e0
+  childrenNodeIdList:
+  - 0d37e4c0-e2ba-4e9e-9073-42e66232aa7c
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  tragetId: 
+  cipherNumber: 0
+  cipherValues: 
+  rect:
+    serializedVersion: 2
+    x: 405
+    y: 153
     width: 160
     height: 100
   isLeftClickDragging: 0

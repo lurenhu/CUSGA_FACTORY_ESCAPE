@@ -5,6 +5,8 @@ using UnityEditor;
 
 public class NodeSO : ScriptableObject
 {
+    [Space(10)]
+    [Header("节点参数")]
     public string nodeText;
     public string id;
     public List<string> parentNodeIdList = new List<string>();
@@ -14,13 +16,18 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeTypeListSO nodeTypeList;
 
     // 合成节点属性参数
+    [Space(10)]
+    [Header("合成节点所需数据")]
     public string tragetId = string.Empty;
 
+    [Space(10)]
+    [Header("锁节点所需数据")]
     //锁节点属性参数
-    public int cipherNumber = int.MinValue;
+    public int cipherNumber = 0;
+    public List<int> cipherValues;
 
     #if UNITY_EDITOR
-    public Rect rect;
+    [HideInInspector] public Rect rect;
     [HideInInspector] public bool isLeftClickDragging = false;
     [HideInInspector] public bool isSelected = false;
 

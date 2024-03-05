@@ -45,9 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  nodeTemplateList:
-  - {fileID: 11400000, guid: 6d89db79aea79b247a5c1a2eaae68880, type: 2}
-  - {fileID: 11400000, guid: 2f568e1d9188a2444a28875e62d467b8, type: 2}
-  - {fileID: 11400000, guid: 81cb1702a8728344aa4a3fcbbc8f5e1d, type: 2}
-  - {fileID: 11400000, guid: 7ba1704fe025c4a45bae5bd612a1745d, type: 2}
-  - {fileID: 11400000, guid: c2358fcf1e6f4ce4b93be82a598e5ad8, type: 2}
+  cipherPrefab: {fileID: 9146564799162629279, guid: b8fa72b639cc8d846b05d889431d5c43, type: 3}

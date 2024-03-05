@@ -7,47 +7,16 @@ public class LockedNode : Node
     [Header("LOCK NODE PROPERTISE")]
     [Tooltip("该节点的所有锁节点")]
     public List<NodeInfo> cipherNodes;
-    [Tooltip("该锁节点的解锁值")]
-    public Dictionary<Node,int> cipherDictionary;
+    public GameObject cipherPrefab;
     private bool isLocked = true;
     private bool hasPopUpCipherNode = false;
 
-    private void Awake()
+    protected override void Start()
     {
+        base.Start();
+
+        cipherPrefab = GameResources.Instance.cipherPrefab;
         LoadCipherNodes();
-
-        LoadCipherDictionary();
-        
-    }
-
-    private void LoadCipherNodes()
-    {
-        foreach (Transform child in transform)
-        {
-            CipherNode cipherNode = child.GetComponent<CipherNode>();
-
-            Vector2 direction = new Vector2(Random.Range(-1,1),Random.Range(-1,1)).normalized;
-
-            NodeInfo nodeInfo = new NodeInfo()
-            {
-                node = cipherNode,
-                direction = direction
-            };
-
-            cipherNodes.Add(nodeInfo);
-        }
-    }
-
-    private void LoadCipherDictionary()
-    {
-        foreach (NodeInfo cipherNode in cipherNodes)
-        {
-            CipherNode node = cipherNode.node as CipherNode;
-
-            int i = 1;
-
-            cipherDictionary.Add(node,i);
-        }
     }
 
     protected override void OnMouseUp() {
@@ -55,71 +24,95 @@ public class LockedNode : Node
         
         if (isSelected)
         {
+            // 第一次点击弹出所有的锁节点
             if (!hasPopUpCipherNode)
             {
                 PopUpChildNode(cipherNodes);
                 hasPopUpCipherNode = true;
+                return;
             }
 
-            if (isLocked && !hasPopUp && DeLocked())
+            // 第二次点击判断是否解锁然后弹出所有子节点
+            if (UnLocked() && isLocked && !hasPopUp)
             {
-                DestroyTheCipherNode();
+                DestroyAllCipherNode();
                 PopUpChildNode(nodeInfos);
                 hasPopUp = true;
-                isLocked = false;
             }
         }
         else
         {
+            // 删除其他所有节点的选中状态
+            NodeMapBuilder.Instance.ClearAllSelectedNode(this);
+
             isSelected = true;
         }
     }
 
-    private void DestroyTheCipherNode()
+    /// <summary>
+    /// 初始化所有锁节点
+    /// </summary>
+    private void LoadCipherNodes()
     {
-        foreach (NodeInfo cipherNode in cipherNodes)
+        for (int i = 0; i < nodeProperty.cipherNumber; i++)
         {
-            Destroy(cipherNode.node.transform.gameObject);
+            GameObject currentCipherNode = Instantiate(cipherPrefab, transform.position, Quaternion.identity,transform);
+
+            CipherNode cipherNode = currentCipherNode.GetComponent<CipherNode>();
+
+            cipherNode.InitializeCipherNode(i,0);
+
+            cipherNode.nodeProperty.parentID = this.id;
+
+            currentCipherNode.SetActive(false);
+
+            Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+
+            NodeInfo tempNodeInfo = new NodeInfo(){node = cipherNode, direction = direction};
+
+            cipherNodes.Add(tempNodeInfo);
         }
     }
 
-    // private void PopUpCipherNodes(List<NodeInfo> cipherNodes)
-    // {
-    //     for (int i = 0; i < cipherNodes.Count; i++)
-    //     {
-    //         Node currentCipherNode = Instantiate(cipherNodes[i].node,transform.position,Quaternion.identity);
-
-    //         CipherNode cipherNode = currentCipherNode.transform.GetComponent<CipherNode>();
-    //         cipherNode.index = i;
-    //         currentCipherNodes.Add(cipherNode);
-
-    //         currentCipherNode.transform.DOMove(
-    //             new Vector3(cipherNodes[i].offset.x,cipherNodes[i].offset.y,0),tweenDuring
-    //             ).SetRelative().OnStart(() => 
-    //             {
-    //                 currentCipherNode.isPoping = true;
-    //             }).OnComplete(() => 
-    //             {
-    //                 currentCipherNode.isPoping = false;
-    //             });
-    //     }
-    // }
-
-    public bool DeLocked()
+    /// <summary>
+    /// 删除所有锁节点
+    /// </summary>
+    private void DestroyAllCipherNode()
     {
-        foreach (NodeInfo cipherNode in cipherNodes)
+        for (int i = 0; i < cipherNodes.Count; i++)
         {
-            CipherNode currentCipherNode = cipherNode.node as CipherNode;
+            Destroy(cipherNodes[i].node.gameObject);
+        }
 
-            cipherDictionary.TryGetValue(currentCipherNode,out int answer);
+        cipherNodes.Clear();
+    }
 
-            if (currentCipherNode.cipher != answer)
+    /// <summary>
+    /// 判断是否当前节点是否解锁
+    /// </summary>
+    private bool UnLocked()
+    {
+        if (cipherNodes.Count == nodeProperty.cipherValues.Count)
+        {
+            for (int i = 0; i < cipherNodes.Count; i++)
             {
-                return false;
+                CipherNode cipherNode = cipherNodes[i].node as CipherNode;
+
+                if (cipherNode.value != nodeProperty.cipherValues[i])
+                {
+                    return false;
+                }
             }
         }
+        else
+        {
+            Debug.Log("锁节点数量与值列表数量不匹配");
+            return false;
+        }
+
         return true;
     }
+
 
 
 

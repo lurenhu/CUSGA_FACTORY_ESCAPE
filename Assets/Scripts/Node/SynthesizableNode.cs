@@ -5,8 +5,26 @@ using DG.Tweening;
 
 public class SynthesizableNode : Node
 {
+    [Space(10)]
+    [Header("SYNTHESIZABLE NODE")]
     public bool hasSynthesized = false;
     public Node currentNode;
+
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (isSelected)
+        {
+           // 节点交互内容
+        }
+        else
+        {
+            // 删除其他所有节点的选中状态
+            NodeMapBuilder.Instance.ClearAllSelectedNode(this);
+
+            isSelected = true;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         Debug.Log("onTrigger");
@@ -16,6 +34,8 @@ public class SynthesizableNode : Node
         if (!currentNode.isDragging && !currentNode.isPopping)
         {
             MergeTwoNode();
+
+            hasSynthesized = true;
         }
     }
 
