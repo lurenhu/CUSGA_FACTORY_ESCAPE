@@ -8,15 +8,9 @@ public class DefaultNode : Node
         
         if (isSelected)
         {
-            Debug.Log(gameObject.name + " has mission");
-            
             if (hasPopUp) return;
             PopUpChildNode(nodeInfos);
             hasPopUp = true;
-        }
-        else
-        {
-            isSelected = true;
         }
     }
 

@@ -12,10 +12,10 @@ public class Node : MonoBehaviour
     [Tooltip("弹出动画的持续时间")]
     [SerializeField] protected float tweenDuring = 0.5f;// 弹出持续时间
     [SerializeField] protected float popUpForce = 3;
-    [HideInInspector] public bool isPoping = false;// 判断是否处于弹出状态
-    [HideInInspector] public bool isDraging = false;// 判断是否处于拖拽状态
-    protected bool isSelected = false;// 判断是否处于被选中状体
-    protected bool hasPopUp = false;// 判断节点是否已经弹出子节点
+    [HideInInspector] public bool isPopping = false;// 判断是否处于弹出状态
+    [HideInInspector] public bool isDragging = false;// 判断是否处于拖拽状态
+    [HideInInspector] public bool isSelected = false;// 判断是否处于被选中状体
+    [HideInInspector] public bool hasPopUp = false;// 判断节点是否已经弹出子节点
 
     [Tooltip("节点ID")]
     public string id;
@@ -64,16 +64,27 @@ public class Node : MonoBehaviour
 
     protected virtual void OnMouseUp()
     {
-        if (isDraging) isDraging = false;
+        if (isDragging) isDragging = false;
 
-        if (isPoping) return;
+        if (isPopping) return;
+
+        // 节点交互事件--提示文字，音频
+
+        if (!isSelected)
+        {
+            // 删除其他所有节点的选中状态
+            NodeMapBuilder.Instance.ClearAllSelectedNode(this);
+
+            isSelected = true;
+            return;
+        }
     }
 
     protected virtual void OnMouseDrag() {
-        if (!isDraging)
-            isDraging = true;
+        if (!isDragging)
+            isDragging = true;
             
-        if (!isPoping)
+        if (!isPopping)
             transform.position = TranslateScreenToWorld(Input.mousePosition);
     }
 
@@ -90,16 +101,16 @@ public class Node : MonoBehaviour
             currentNode.gameObject.SetActive(true);
 
             NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(currentNode.nodeProperty.parentID,out Node parentNode);
-            currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
+            // currentNode.transform.GetComponentInChildren<Line>().endPoint = parentNode.transform;
 
             currentNode.transform.DOMove(
                 childNode.direction * popUpForce,tweenDuring
                 ).SetRelative().OnStart(() => 
                 {
-                    currentNode.isPoping = true;
+                    currentNode.isPopping = true;
                 }).OnComplete(() => 
                 {
-                    currentNode.isPoping = false;
+                    currentNode.isPopping = false;
                 });
         }
     }

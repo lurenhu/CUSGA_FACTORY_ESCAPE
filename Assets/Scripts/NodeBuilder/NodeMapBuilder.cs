@@ -174,4 +174,17 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         return newStringList;
     }
 
+    public void ClearAllSelectedNode(Node node)
+    {
+        foreach (KeyValuePair<string,Node> keyValuePair in nodeHasCreated)
+        {
+            Node currentNode = keyValuePair.Value;
+
+            if (currentNode != node && currentNode.isSelected)
+            {
+                currentNode.isSelected = false;
+            }
+        }
+    }
+
 }

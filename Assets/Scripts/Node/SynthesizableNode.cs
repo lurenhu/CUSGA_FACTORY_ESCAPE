@@ -5,45 +5,18 @@ using DG.Tweening;
 
 public class SynthesizableNode : Node
 {
-    private bool hasSynthesizabled = false;
-    private bool hasInTrigger = false;
-    private Node currentNode;
-    public Node targetNode;
-
-    protected override void OnMouseUp() {
-        base.OnMouseUp();
-
-        if (isSelected)
-        {
-            Debug.Log("Synthesizable Node get mission");
-
-            if (hasPopUp) return;
-
-            if (hasInTrigger)
-            {
-                MergeTwoNode();
-            }
-        }
-        else
-        {
-            isSelected = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (hasSynthesizabled) return;
-        if (hasInTrigger) hasInTrigger = true;
-    }
+    public bool hasSynthesized = false;
+    public Node currentNode;
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (hasSynthesizabled) return;
-
+        Debug.Log("onTrigger");
+        if (hasSynthesized) return;
         currentNode = collision.GetComponent<Node>();
-    }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if (hasSynthesizabled) return;
-        if (hasInTrigger) hasInTrigger = false;
+        if (!currentNode.isDragging && !currentNode.isPopping)
+        {
+            MergeTwoNode();
+        }
     }
 
     /// <summary>
@@ -51,14 +24,13 @@ public class SynthesizableNode : Node
     /// </summary>
     private void MergeTwoNode()
     {
+        NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(nodeProperty.targetNodeID,out Node targetNode);
+
         if (targetNode == currentNode)
         {
             Destroy(targetNode.transform.gameObject);
     
             PopUpChildNode(nodeInfos);
-
-            hasPopUp = true;
-            hasSynthesizabled = true;
         }
     }
 }
