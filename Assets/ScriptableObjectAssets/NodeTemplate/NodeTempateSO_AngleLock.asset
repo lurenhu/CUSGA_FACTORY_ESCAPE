@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
+  m_Name: NodeTempateSO_AngleLock
+  m_EditorClassIdentifier: 
+  guid: 01b8d438c2f07bc4095cbee240666779
+  nodePrefab: {fileID: 7411236875680668810, guid: d994db14e8da01546901c22069489292, type: 3}
+  previousPrefab: {fileID: 7411236875680668810, guid: d994db14e8da01546901c22069489292, type: 3}
+  nodeType: {fileID: 11400000, guid: b94cad5d2aa77ff468bfa4ca0923e0d5, type: 2}

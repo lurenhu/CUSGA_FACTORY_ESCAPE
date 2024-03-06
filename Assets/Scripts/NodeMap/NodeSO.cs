@@ -15,16 +15,21 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
 
-    // 合成节点属性参数
     [Space(10)]
     [Header("合成节点所需数据")]
-    public string tragetId = string.Empty;
+    public string targetId = Setting.stringDefaultValue;
 
     [Space(10)]
     [Header("锁节点所需数据")]
-    //锁节点属性参数
-    public int cipherNumber = 0;
-    public List<int> cipherValues;
+    public int cipherNumber = Setting.intDefaultValue;    public List<int> cipherValues;
+
+    [Space(10)]
+    [Header("图片节点所需数据")]
+    public Sprite image;
+
+    [Space(10)]
+    [Header("角度锁节点数据")]
+    public List<float> angles; 
 
     #if UNITY_EDITOR
     [HideInInspector] public Rect rect;
@@ -130,8 +135,6 @@ public class NodeSO : ScriptableObject
 
         nodeType = nodeTypeList.list[selection];
 
-        ShowDetailData();
-
         if (EditorGUI.EndChangeCheck())
             EditorUtility.SetDirty(this);
 
@@ -153,21 +156,6 @@ public class NodeSO : ScriptableObject
         return nodeArray;
     }
 
-    private void ShowDetailData()
-    {
-        if (nodeType.isEntrence || nodeType.isDefault)
-        {
-            return;
-        }
-        else if (nodeType.isSynthesizable)
-        {
-            tragetId = EditorGUILayout.TextField(tragetId);
-        }
-        else if (nodeType.isLocked)
-        {
-            cipherNumber = EditorGUILayout.IntField(cipherNumber);
-        }
-    }
 #endregion 绘制节点
 
      public void ProcessEvents(Event currentEvent)

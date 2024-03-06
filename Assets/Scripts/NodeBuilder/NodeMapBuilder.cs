@@ -101,20 +101,23 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     private NodeProperty CreatNodeFromNodeTemplate(NodeSO currentNode, NodeTemplateSO nodeTemplate)
     {
-        NodeProperty node = new NodeProperty
-        {
-            nodeText = currentNode.nodeText,
-            id = currentNode.id,
-            rect = currentNode.rect,
-            nodePrefab = nodeTemplate.nodePrefab,
-            childIdList = CopyStringList(currentNode.childrenNodeIdList),
-            nodeType = currentNode.nodeType,
+        NodeProperty node = new NodeProperty();
+        
+        node.nodeText = currentNode.nodeText;
+        node.id = currentNode.id;
+        node.rect = currentNode.rect;
+        node.nodePrefab = nodeTemplate.nodePrefab;
+        node.childIdList = CopyStringList(currentNode.childrenNodeIdList);
+        node.nodeType = currentNode.nodeType;
+            
+        node.targetNodeID = currentNode.targetId;
 
-            targetNodeID = currentNode.tragetId,
+        node.cipherValues = currentNode.cipherValues;
 
-            cipherNumber = currentNode.cipherNumber,
-            cipherValues = currentNode.cipherValues
-        };
+        node.image = currentNode.image;
+
+        node.angles = currentNode.angles;
+        
 
         if (currentNode.parentNodeIdList.Count == 0)
         {

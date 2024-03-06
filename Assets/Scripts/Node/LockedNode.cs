@@ -8,7 +8,6 @@ public class LockedNode : Node
     [Tooltip("该节点的所有锁节点")]
     public List<NodeInfo> cipherNodes;
     private GameObject cipherPrefab;
-    private bool isLocked = true;// 判断节点是否解锁
     private bool hasPopUpCipherNode = false;// 判断节点是否弹出密码节点
 
     protected override void Start()
@@ -33,7 +32,7 @@ public class LockedNode : Node
             }
 
             // 第二次点击判断是否解锁然后弹出所有子节点
-            if (UnLocked() && isLocked && !hasPopUp)
+            if (UnLocked() && !hasPopUp)
             {
                 DestroyAllCipherNode();
                 PopUpChildNode(nodeInfos);
@@ -54,7 +53,7 @@ public class LockedNode : Node
     /// </summary>
     private void LoadCipherNodes()
     {
-        for (int i = 0; i < nodeProperty.cipherNumber; i++)
+        for (int i = 0; i < nodeProperty.cipherValues.Count; i++)
         {
             GameObject currentCipherNode = Instantiate(cipherPrefab, transform.position, Quaternion.identity,transform);
 

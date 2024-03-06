@@ -13,4 +13,6 @@ public class NodeTypeSO : ScriptableObject
     public bool isLocked;
     public bool isCipher;
     public bool isAI;
+    public bool isGraph;
+    public bool isAngleLock;
 }

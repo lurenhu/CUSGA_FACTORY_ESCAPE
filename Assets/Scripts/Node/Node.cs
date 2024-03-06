@@ -15,7 +15,7 @@ public class Node : MonoBehaviour
     [SerializeField] protected float popUpForce = 3;// 弹出距离
     [HideInInspector] public bool isPopping = false;// 判断是否处于弹出状态
     [HideInInspector] public bool isDragging = false;// 判断是否处于拖拽状态
-    [HideInInspector] public bool isSelected = false;// 判断是否处于被选中状体
+    public bool isSelected = false;// 判断是否处于被选中状体
     [HideInInspector] public bool hasPopUp = false;// 判断节点是否已经弹出子节点
 
     [Tooltip("节点ID")]
@@ -144,6 +144,13 @@ public class NodeProperty
 
     [Space(10)]
     [Header("锁节点数据")]
-    public int cipherNumber;
     public List<int> cipherValues;
+
+    [Space(10)]
+    [Header("图片节点数据")]
+    public Sprite image;
+
+    [Space(10)]
+    [Header("角度锁节点数据")]
+    public List<float> angles;  
 }
