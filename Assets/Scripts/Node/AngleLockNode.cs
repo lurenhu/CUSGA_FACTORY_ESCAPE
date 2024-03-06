@@ -81,25 +81,26 @@ public class AngleLockNode : Node
         pointers.Clear();
     }
 
+    /// <summary>
+    /// 判断所有指针是否都在对应位置
+    /// </summary>
     private bool CheckPointerInAngle()
     {
         if (pointers.Count == nodeProperty.angles.Count)
         {
-            for (int i = 0; i < pointers.Count; i++)
+            List<float> temp = new List<float>();
+            foreach (NodeInfo nodeInfo in pointers)
             {
-                float degree = HelperUtility.GetAngleFromVector(pointers[i].node.transform.localPosition);
-                if (degree < nodeProperty.angles[i] + angelRange && degree > nodeProperty.angles[i] - angelRange)
-                    return true;
-                else
-                    return false;
+                float degree = HelperUtility.GetAngleFromVector(nodeInfo.node.transform.localPosition);
+                temp.Add(degree);
             }
+
+            return HelperUtility.CheckFloatList(temp, nodeProperty.angles, angelRange);
         }
         else
         {
             Debug.Log("指针数量与角度列表数量不匹配");
             return false;
         }
-
-        return true;
     }
 }

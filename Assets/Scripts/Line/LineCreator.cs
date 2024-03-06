@@ -9,8 +9,6 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     protected override void Awake()
     {
         base.Awake();
-
-        LinePrefab = GameResources.Instance.linePrefab;
     }
 
     /// <summary>

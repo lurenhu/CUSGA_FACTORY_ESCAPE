@@ -193,6 +193,9 @@ MonoBehaviour:
     node: {fileID: 0}
     nodeType: {fileID: 0}
     targetNodeID: 
-    cipherNumber: 0
+    cipherValues: 
+    image: {fileID: 0}
+    angles: []
   nodeInfos: []
   cipherNodes: []
+  cipherPrefab: {fileID: 9146564799162629279, guid: b8fa72b639cc8d846b05d889431d5c43, type: 3}

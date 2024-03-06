@@ -7,14 +7,13 @@ public class LockedNode : Node
     [Header("LOCK NODE PROPERTISE")]
     [Tooltip("该节点的所有锁节点")]
     public List<NodeInfo> cipherNodes;
-    private GameObject cipherPrefab;
+    public GameObject cipherPrefab;
     private bool hasPopUpCipherNode = false;// 判断节点是否弹出密码节点
 
     protected override void Start()
     {
         base.Start();
 
-        cipherPrefab = GameResources.Instance.cipherPrefab;
         LoadCipherNodes();
     }
 

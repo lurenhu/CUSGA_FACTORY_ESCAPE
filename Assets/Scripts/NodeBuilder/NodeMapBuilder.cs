@@ -109,15 +109,15 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         node.nodePrefab = nodeTemplate.nodePrefab;
         node.childIdList = CopyStringList(currentNode.childrenNodeIdList);
         node.nodeType = currentNode.nodeType;
-            
-        node.targetNodeID = currentNode.targetId;
-
-        node.cipherValues = currentNode.cipherValues;
-
-        node.image = currentNode.image;
-
-        node.angles = currentNode.angles;
         
+        if (node.nodeType.isSynthesizable)
+            node.targetNodeID = currentNode.targetId;
+        if (node.nodeType.isLocked)
+            node.cipherValues = currentNode.cipherValues;
+        if (node.nodeType.isGraph)
+            node.image = currentNode.image;
+        if (node.nodeType.isAngleLock)
+            node.angles = currentNode.angles;
 
         if (currentNode.parentNodeIdList.Count == 0)
         {

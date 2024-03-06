@@ -21,7 +21,7 @@ public class NodeSO : ScriptableObject
 
     [Space(10)]
     [Header("锁节点所需数据")]
-    public int cipherNumber = Setting.intDefaultValue;    public List<int> cipherValues;
+    public List<int> cipherValues;
 
     [Space(10)]
     [Header("图片节点所需数据")]

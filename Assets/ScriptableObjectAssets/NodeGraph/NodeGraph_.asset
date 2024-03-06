@@ -21,14 +21,13 @@ MonoBehaviour:
   nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   targetId: 
-  cipherNumber: 0
   cipherValues: 
   image: {fileID: 0}
   angles: []
   rect:
     serializedVersion: 2
-    x: 206
-    y: 195
+    x: 81
+    y: 34
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -74,17 +73,18 @@ MonoBehaviour:
   - 0441b28e-d5b4-4cdf-89a5-a99be488c72b
   - db4dee7a-cbdc-47c6-8733-22c8fd4abd58
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 9a25bcc0b8cc1ee4998010a5fa3fe349, type: 2}
+  nodeType: {fileID: 11400000, guid: b94cad5d2aa77ff468bfa4ca0923e0d5, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   targetId: 
-  cipherNumber: 0
   cipherValues: 
   image: {fileID: 21300000, guid: e6ec3d3d238d5114e9d36abb143faac6, type: 3}
-  angles: []
+  angles:
+  - 40
+  - 90
   rect:
     serializedVersion: 2
-    x: 421
-    y: 340
+    x: 296
+    y: 178
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -110,14 +110,13 @@ MonoBehaviour:
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   targetId: 
-  cipherNumber: 0
   cipherValues: 
   image: {fileID: 0}
   angles: []
   rect:
     serializedVersion: 2
-    x: 666
-    y: 403
+    x: 541
+    y: 242
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -143,14 +142,13 @@ MonoBehaviour:
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   targetId: 
-  cipherNumber: 0
   cipherValues: 
   image: {fileID: 0}
   angles: []
   rect:
     serializedVersion: 2
-    x: 409
-    y: 536
+    x: 284
+    y: 375
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -177,14 +175,13 @@ MonoBehaviour:
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   targetId: 
-  cipherNumber: 0
   cipherValues: 
   image: {fileID: 0}
   angles: []
   rect:
     serializedVersion: 2
-    x: 405
-    y: 153
+    x: 280
+    y: -8
     width: 160
     height: 100
   isLeftClickDragging: 0
