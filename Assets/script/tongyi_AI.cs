@@ -68,7 +68,7 @@ public class tongyi_AI : MonoBehaviour
         Debug.Log(content);
         chat_input_field.text = "";
         await PostMessage(bot_id,content);
-        //post(bot_id,content);
+        
 
     }
     public async  Task PostMessage(string bot_id,string message)
@@ -93,7 +93,39 @@ public class tongyi_AI : MonoBehaviour
             {{
                 ""name"": ""陶特"",
                 ""role"": ""user"",
-                ""content"": ""{0}""
+                ""content"": ""你正在和用户聊天，用户是你的主人。在接下来的对话中，请遵循以下要求：
+1.请评估用户的话是否对你起到了安慰作用
+2.如果用户的话语安慰了你，请回复焦虑降低的程度，从1~10中回复一个数字，格式为，焦虑值下降x""
+            }},
+            {{
+                ""name"": ""823"",
+                ""role"": ""assistant"",
+                ""content"": ""焦虑值上升5""
+            }},
+            {{
+                ""name"": ""陶特"",
+                ""role"": ""user"",
+                ""content"": ""放心，我会带你出去的""
+            }},
+            {{
+                ""name"": ""823"",
+                ""role"": ""assistant"",
+                ""content"": ""焦虑值下降8""
+            }},
+            {{
+                ""name"": ""陶特"",
+                ""role"": ""user"",
+                ""content"": ""你真是个废物""
+            }},
+            {{
+                ""name"": ""823"",
+                ""role"": ""assistant"",
+                ""content"": ""焦虑值上升6""
+            }},
+            {{
+                ""name"": ""陶特"",
+                ""role"": ""user"",
+                ""content"": ""评估消息焦虑值：{0}""
             }}
         ],
         ""aca"": {{
@@ -147,8 +179,8 @@ public class tongyi_AI : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseContent = request.downloadHandler.text;
-            Debug.Log("成功发送信息！");
-            Debug.Log("响应内容：" + responseContent);
+            //Debug.Log("成功发送信息！");
+            //Debug.Log("响应内容：" + responseContent);
             string[] content_list = responseContent.Split("data:");
             string json = content_list[content_list.Length-1];
 
