@@ -38,10 +38,17 @@ public class HelperUtility
         {
             for (int j = 0; j < B.Count; j++)
             {
-                if (Mathf.Abs(A[i] - B[j]) < eps && !checkMatch.ContainsKey(B[j]))
-                {
-                    checkMatch[B[j]] = A[i];
-                }
+                if (B[j] > -180 + eps && B[j] < 180 - eps)
+                    if (Mathf.Abs(A[i] - B[j]) < eps && !checkMatch.ContainsKey(B[j]))
+                        checkMatch[B[j]] = A[i];
+                else if (B[j] >= 180 - eps)
+                    if ((A[i] > B[j] -eps || A[i] < B[j] + eps - 360) && !checkMatch.ContainsKey(B[j]))
+                        checkMatch[B[j]] = A[i];
+                else if (B[j] <= -180 + eps)
+                    if ((A[i] < B[j] + eps || A[i] > B[j] - eps + 360) && !checkMatch.ContainsKey(B[j]))
+                        checkMatch[B[j]] = A[i];
+
+                
             }
         }
 

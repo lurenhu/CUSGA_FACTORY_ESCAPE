@@ -118,6 +118,8 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             node.image = currentNode.image;
         if (node.nodeType.isAngleLock)
             node.angles = currentNode.angles;
+        if (node.nodeType.isProbe)
+            node.targetIDForDetection = currentNode.targetIDForDetection;
 
         if (currentNode.parentNodeIdList.Count == 0)
         {

@@ -31,6 +31,10 @@ public class NodeSO : ScriptableObject
     [Header("角度锁节点数据")]
     public List<float> angles; 
 
+    [Space(10)]
+    [Header("探测节点数据")]
+    public string targetIDForDetection = Setting.stringDefaultValue;
+
     #if UNITY_EDITOR
     [HideInInspector] public Rect rect;
     [HideInInspector] public bool isLeftClickDragging = false;

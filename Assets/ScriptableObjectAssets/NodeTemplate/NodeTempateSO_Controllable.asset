@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
-  m_Name: NodeTempateSO_Cipher
+  m_Name: NodeTempateSO_Controllable
   m_EditorClassIdentifier: 
-  guid: 864634287c34125408439a8559949256
-  nodePrefab: {fileID: 9146564799162629279, guid: b8fa72b639cc8d846b05d889431d5c43, type: 3}
-  previousPrefab: {fileID: 9146564799162629279, guid: b8fa72b639cc8d846b05d889431d5c43, type: 3}
-  nodeType: {fileID: 11400000, guid: a45a30c2fa44cc04a8b36893cc079f31, type: 2}
+  guid: b264e9dce43cc8045ac3db488bd4f68d
+  nodePrefab: {fileID: 7876192915123727293, guid: 8162beb52b7388342abdf24fedaa1a70, type: 3}
+  previousPrefab: {fileID: 7876192915123727293, guid: 8162beb52b7388342abdf24fedaa1a70, type: 3}
+  nodeType: {fileID: 11400000, guid: 4c9c11e46f9f8314a87510406af731d7, type: 2}

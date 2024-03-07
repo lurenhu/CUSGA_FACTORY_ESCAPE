@@ -27,6 +27,15 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
         nodeLineBinding.Add(node, lineComponent);
     }
 
+    public void CreateLine(Transform startPoint, Transform endPoint)
+    {
+        GameObject line = Instantiate(LinePrefab, transform.position, Quaternion.identity,transform);
+
+        Line lineComponent = line.GetComponent<Line>();
+
+        lineComponent.InitializeLine(startPoint, endPoint);
+    }
+
     /// <summary>
     /// 删除节点
     /// </summary>

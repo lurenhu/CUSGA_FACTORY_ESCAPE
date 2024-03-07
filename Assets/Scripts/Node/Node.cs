@@ -65,19 +65,20 @@ public class Node : MonoBehaviour
 
     protected virtual void OnMouseUp()
     {
-        if (isDragging) isDragging = false;
-
         if (isPopping) return;
+
+        if (isDragging) isDragging = false;
 
         // 节点交互事件--提示文字，音频
     }
 
-    protected virtual void OnMouseDrag() {
-        if (!isDragging)
-            isDragging = true;
+    protected virtual void OnMouseDrag() 
+    {
+        if (isPopping) return;
+
+        if (!isDragging) isDragging = true;
             
-        if (!isPopping)
-            transform.position = TranslateScreenToWorld(Input.mousePosition);
+        transform.position = TranslateScreenToWorld(Input.mousePosition);
     }
 
     /// <summary>
@@ -152,5 +153,9 @@ public class NodeProperty
 
     [Space(10)]
     [Header("角度锁节点数据")]
-    public List<float> angles;  
+    public List<float> angles;
+
+    [Space(10)]
+    [Header("探测节点数据")]  
+    public string targetIDForDetection;
 }

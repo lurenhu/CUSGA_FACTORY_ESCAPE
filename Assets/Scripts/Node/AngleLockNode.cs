@@ -60,6 +60,11 @@ public class AngleLockNode : Node
                 PopUpChildNode(nodeInfos);
                 hasPopUp = true;
             }
+            else
+            {
+                Debug.Log("Not UnLocked");
+                Debug.Log(CheckPointerInAngle());
+            }
         }
         else
         {
@@ -92,6 +97,7 @@ public class AngleLockNode : Node
             foreach (NodeInfo nodeInfo in pointers)
             {
                 float degree = HelperUtility.GetAngleFromVector(nodeInfo.node.transform.localPosition);
+                Debug.Log(degree);
                 temp.Add(degree);
             }
 

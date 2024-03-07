@@ -28,10 +28,10 @@ public class SynthesizableNode : Node
 
     private void OnTriggerStay2D(Collider2D collision) {
         Debug.Log("onTrigger");
-        if (hasSynthesized) return;
+        if (hasSynthesized || isPopping) return;
         currentNode = collision.GetComponent<Node>();
 
-        if (!currentNode.isDragging && !currentNode.isPopping)
+        if (!currentNode.isDragging && !currentNode.isPopping && !isDragging)
         {
             MergeTwoNode();
 
@@ -48,6 +48,8 @@ public class SynthesizableNode : Node
 
         if (targetNode == currentNode)
         {
+            LineCreator.Instance.DeleteLine(currentNode);
+
             Destroy(targetNode.transform.gameObject);
     
             PopUpChildNode(nodeInfos);
