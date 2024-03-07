@@ -160,8 +160,8 @@ public class DialogSystem : MonoBehaviour
 
                 instance.name_text.text = instance.name_list[instance.index];
                 string[] image_pos = instance.image_list[instance.index];
-                Debug.Log($"index:{instance.index}");
-                Debug.Log($"sign:{image_pos[0]}");
+                //Debug.Log($"index:{instance.index}");
+                //Debug.Log($"sign:{image_pos[0]}");
                 //image_update(image_pos);
                 instance.text_display = instance.StartCoroutine(instance.setTextUI(content));
                 instance.text_finished = false;

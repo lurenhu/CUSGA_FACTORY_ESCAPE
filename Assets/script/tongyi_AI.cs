@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -14,6 +15,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class tongyi_AI : MonoBehaviour
 {
@@ -34,6 +36,8 @@ public class tongyi_AI : MonoBehaviour
     /// 
     /// </summary>
 
+    [Header("对接用变量")]
+    public int anxiety_change_value = 0;
 
     private void Awake()   //单例的默认写法
     {
@@ -194,6 +198,48 @@ public class tongyi_AI : MonoBehaviour
             // 提取所需的字符串
             string reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
             Debug.Log(reply_text);
+            string text;
+            reply_text.Replace("了", "");
+            //int anxiety_change_value=0;
+            if (reply_text.Contains("焦虑值")&& reply_text.Contains("降"))
+            {
+                
+                // 定义包含文本的字符串
+                text = "降";
+                // 使用正则表达式提取数字                
+                Match match = Regex.Match(reply_text, @"降(\d+)");
+                if (match.Success)
+                {
+                    string result = match.Groups[1].Value;
+                    anxiety_change_value = 0 - int.Parse(result);
+                }
+                
+            }
+            else if (reply_text.Contains("焦虑值") && reply_text.Contains("升"))
+            {
+
+                // 定义包含文本的字符串
+                text = "升";
+                // 使用正则表达式提取数字                
+                Match match = Regex.Match(reply_text, @"升(\d+)");
+                if (match.Success)
+                {
+                    string result = match.Groups[1].Value;
+                    anxiety_change_value = 0 + int.Parse(result);
+                }
+
+            }
+            else
+            {
+                anxiety_change_value = 0;
+                text = "寄"; 
+            }
+            Debug.Log(text);
+            
+            Debug.Log(anxiety_change_value);
+            
+
+
             DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);
             
         }
