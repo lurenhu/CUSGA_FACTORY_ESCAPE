@@ -11,8 +11,9 @@ public class NodeTypeSO : ScriptableObject
     public bool isDefault;
     public bool isSynthesizable;
     public bool isLocked;
-    public bool isCipher;
     public bool isAI;
     public bool isGraph;
     public bool isAngleLock;
+    public bool isProbe;
+    public bool isControllable;
 }

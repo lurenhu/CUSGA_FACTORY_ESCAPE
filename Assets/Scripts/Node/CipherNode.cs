@@ -29,7 +29,7 @@ public class CipherNode : Node
     private void ProcessCipherClickEvent()
     {
         if (value == 9)
-            value = 1;
+            value = 0;
         else
             value++;
     }
