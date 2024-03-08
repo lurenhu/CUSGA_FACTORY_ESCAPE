@@ -1,17 +1,12 @@
-using Newtonsoft.Json;
+ï»¿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Text;
+
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-//using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -19,27 +14,27 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class tongyi_AI : MonoBehaviour
 {
-    [Header("Ui×é¼ş")]
+    [Header("Uiç»„ä»¶")]
     [SerializeField] public InputField chat_input_field;
     [SerializeField] public Button send_button;
     public GameObject input_field;
-    [Header("AiÉèÖÃ")]
-    [Header("»úÆ÷ÈËID")]
+    [Header("Aiè®¾ç½®")]
+    [Header("æœºå™¨äººID")]
     [SerializeField] public string character_id = "e7cd826cf38f470797c3593ee822341f";
-    [Header("ÓÃ»§cookie")]
+    [Header("ç”¨æˆ·cookie")]
     //public  string CookieValue = "b-user-id=d968b1f3-c59c-5545-1f08-8abe63838109; app-satoken=6a905cdc-ca23-4b98-8ddb-71431b0729fc; Hm_lvt_11ee634290fd232d05132bc7c7c9ad3b=1708756486,1708909854; Hm_lpvt_11ee634290fd232d05132bc7c7c9ad3b=1708911528";
     public string Apikey = "lm-dXxiQGyE363suBUpwRUMMQ==";
     public static tongyi_AI instance;
     DialogSystem DialogSystem = DialogSystem.instance;
     /// <summary>
-    /// »ñÈ¡µÄÎÄ×ÖÔÚcontentÀï
+    /// è·å–çš„æ–‡å­—åœ¨contenté‡Œ
     /// 
     /// </summary>
 
-    [Header("¶Ô½ÓÓÃ±äÁ¿")]
+    [Header("å¯¹æ¥ç”¨å˜é‡")]
     public int anxiety_change_value = 0;
 
-    private void Awake()   //µ¥ÀıµÄÄ¬ÈÏĞ´·¨
+    private void Awake()   //å•ä¾‹çš„é»˜è®¤å†™æ³•
     {
 
         if (instance != null)
@@ -68,7 +63,7 @@ public class tongyi_AI : MonoBehaviour
         
         if (chat_input_field.text.Equals(""))
             return;
-        string content = chat_input_field.text;     //ÔÚÕâÀï»ñÈ¡ÎÄ±¾µÄĞÅÏ¢
+        string content = chat_input_field.text;     //åœ¨è¿™é‡Œè·å–æ–‡æœ¬çš„ä¿¡æ¯
         Debug.Log(content);
         chat_input_field.text = "";
         await PostMessage(bot_id,content);
@@ -84,10 +79,10 @@ public class tongyi_AI : MonoBehaviour
     private IEnumerator SendRequest(string bot_id, string message)
     {
         string Url = "https://nlp.aliyuncs.com/v2/api/chat/send";
-        // ´´½¨Ò»¸öUnityWebRequest¶ÔÏó£¬Ö¸¶¨ÇëÇó·½·¨ÎªPOST
+        // åˆ›å»ºä¸€ä¸ªUnityWebRequestå¯¹è±¡ï¼ŒæŒ‡å®šè¯·æ±‚æ–¹æ³•ä¸ºPOST
         UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");
         
-        // ¹¹½¨ÇëÇóÏûÏ¢
+        // æ„å»ºè¯·æ±‚æ¶ˆæ¯
         
         int seed = 1683806810;
 
@@ -95,41 +90,42 @@ public class tongyi_AI : MonoBehaviour
     ""input"": {{
         ""messages"": [
             {{
-                ""name"": ""ÌÕÌØ"",
+                ""name"": ""é™¶ç‰¹"",
                 ""role"": ""user"",
-                ""content"": ""ÄãÕıÔÚºÍÓÃ»§ÁÄÌì£¬ÓÃ»§ÊÇÄãµÄÖ÷ÈË¡£ÔÚ½ÓÏÂÀ´µÄ¶Ô»°ÖĞ£¬Çë×ñÑ­ÒÔÏÂÒªÇó£º
-1.ÇëÆÀ¹ÀÓÃ»§µÄ»°ÊÇ·ñ¶ÔÄãÆğµ½ÁË°²Î¿×÷ÓÃ
-2.Èç¹ûÓÃ»§µÄ»°Óï°²Î¿ÁËÄã£¬Çë»Ø¸´½¹ÂÇ½µµÍµÄ³Ì¶È£¬´Ó1~10ÖĞ»Ø¸´Ò»¸öÊı×Ö£¬¸ñÊ½Îª£¬½¹ÂÇÖµÏÂ½µx""
+                ""content"": ""ä½ æ­£åœ¨å’Œç”¨æˆ·èŠå¤©ï¼Œç”¨æˆ·æ˜¯ä½ çš„ä¸»äººã€‚åœ¨æ¥ä¸‹æ¥çš„å¯¹è¯ä¸­ï¼Œè¯·éµå¾ªä»¥ä¸‹è¦æ±‚ï¼š
+1.è¯·è¯„ä¼°ç”¨æˆ·çš„è¯æ˜¯å¦å¯¹ä½ èµ·åˆ°äº†å®‰æ…°ä½œç”¨
+2.å¦‚æœç”¨æˆ·çš„è¯è¯­å®‰æ…°äº†ä½ ï¼Œè¯·å›å¤ç„¦è™‘é™ä½çš„ç¨‹åº¦ï¼Œä»1~10ä¸­å›å¤ä¸€ä¸ªæ•°å­—ï¼Œæ ¼å¼ä¸ºï¼Œç„¦è™‘å€¼ä¸‹é™x
+3.è¯·ä¸“æ³¨äºåˆ¤æ–­å¹¶å›å¤ç„¦è™‘å€¼ï¼Œä¸ç”¨ç”Ÿæˆå¤šä½™çš„å†…å®¹""
             }},
             {{
                 ""name"": ""823"",
                 ""role"": ""assistant"",
-                ""content"": ""½¹ÂÇÖµÉÏÉı5""
+                ""content"": ""ç„¦è™‘å€¼ä¸Šå‡5""
             }},
             {{
-                ""name"": ""ÌÕÌØ"",
+                ""name"": ""é™¶ç‰¹"",
                 ""role"": ""user"",
-                ""content"": ""·ÅĞÄ£¬ÎÒ»á´øÄã³öÈ¥µÄ""
+                ""content"": ""è¯„ä¼°æ¶ˆæ¯ç„¦è™‘å€¼ï¼šæ”¾å¿ƒï¼Œæˆ‘ä¼šå¸¦ä½ å‡ºå»çš„""
             }},
             {{
                 ""name"": ""823"",
                 ""role"": ""assistant"",
-                ""content"": ""½¹ÂÇÖµÏÂ½µ8""
+                ""content"": ""ç„¦è™‘å€¼ä¸‹é™8""
             }},
             {{
-                ""name"": ""ÌÕÌØ"",
+                ""name"": ""é™¶ç‰¹"",
                 ""role"": ""user"",
-                ""content"": ""ÄãÕæÊÇ¸ö·ÏÎï""
+                ""content"": ""è¯„ä¼°æ¶ˆæ¯ç„¦è™‘å€¼ï¼šä½ çœŸæ˜¯ä¸ªåºŸç‰©""
             }},
             {{
                 ""name"": ""823"",
                 ""role"": ""assistant"",
-                ""content"": ""½¹ÂÇÖµÉÏÉı6""
+                ""content"": ""ç„¦è™‘å€¼ä¸Šå‡6""
             }},
             {{
-                ""name"": ""ÌÕÌØ"",
+                ""name"": ""é™¶ç‰¹"",
                 ""role"": ""user"",
-                ""content"": ""ÆÀ¹ÀÏûÏ¢½¹ÂÇÖµ£º{0}""
+                ""content"": ""è¯„ä¼°æ¶ˆæ¯ç„¦è™‘å€¼ï¼š{0}""
             }}
         ],
         ""aca"": {{
@@ -139,11 +135,11 @@ public class tongyi_AI : MonoBehaviour
             }},
             ""userProfile"": {{
                 ""userId"": ""123456789"",
-                ""userName"": ""ÔÆÕËºÅÃû³Æ"",
+                ""userName"": ""äº‘è´¦å·åç§°"",
                 ""basicInfo"": """"
             }},
             ""scenario"": {{
-                ""description"": ""ÎÒÊÇÌÕÌØ£¬ÊÇÄãµÄÖ÷ÈË""
+                ""description"": ""æˆ‘æ˜¯é™¶ç‰¹ï¼Œæ˜¯ä½ çš„ä¸»äºº""
             }},
             ""context"": {{
                 ""useChatHistory"": false,
@@ -159,15 +155,15 @@ public class tongyi_AI : MonoBehaviour
 }}", message, bot_id, seed);
 
 
-        // ½«ÇëÇóÄÚÈİĞòÁĞ»¯ÎªJSON×Ö·û´®
+        // å°†è¯·æ±‚å†…å®¹åºåˆ—åŒ–ä¸ºJSONå­—ç¬¦ä¸²
         //string json = JsonConvert.SerializeObject(requestBody);
 
-        // ½«JSON×Ö·û´®×÷ÎªÇëÇóÌåÄÚÈİ
+        // å°†JSONå­—ç¬¦ä¸²ä½œä¸ºè¯·æ±‚ä½“å†…å®¹
         //byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
 
-        // ÉèÖÃÇëÇóÍ·
+        // è®¾ç½®è¯·æ±‚å¤´
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Authorization", $"Bearer {Apikey}");
         //request.SetRequestHeader("Expect", "");
@@ -176,38 +172,38 @@ public class tongyi_AI : MonoBehaviour
         request.SetRequestHeader("X-AcA-SSE", "enable");
         request.SetRequestHeader("x-fag-servicename", "aca-chat-send-sse");
         request.SetRequestHeader("x-fag-appcode", "aca");
-        // ·¢ËÍÇëÇó²¢µÈ´ı·µ»Ø
+        // å‘é€è¯·æ±‚å¹¶ç­‰å¾…è¿”å›
         yield return request.SendWebRequest();
 
-        // ´¦Àí·µ»Ø½á¹û
+        // å¤„ç†è¿”å›ç»“æœ
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseContent = request.downloadHandler.text;
-            //Debug.Log("³É¹¦·¢ËÍĞÅÏ¢£¡");
-            //Debug.Log("ÏìÓ¦ÄÚÈİ£º" + responseContent);
+            //Debug.Log("æˆåŠŸå‘é€ä¿¡æ¯ï¼");
+            //Debug.Log("å“åº”å†…å®¹ï¼š" + responseContent);
             string[] content_list = responseContent.Split("data:");
             string json = content_list[content_list.Length-1];
 
                       
-            //ÕûÀí³Éjson¸ñÊ½
+            //æ•´ç†æˆjsonæ ¼å¼
             //ChatCompletion chatCompletion = JsonConvert.DeserializeObject<ChatCompletion>(responseContent);
 
-            // ½âÎö JSON
+            // è§£æ JSON
             var jsonObject = JObject.Parse(json);
 
-            // ÌáÈ¡ËùĞèµÄ×Ö·û´®
+            // æå–æ‰€éœ€çš„å­—ç¬¦ä¸²
             string reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
             Debug.Log(reply_text);
             string text;
-            reply_text.Replace("ÁË", "");
+            reply_text.Replace("äº†", "");
             //int anxiety_change_value=0;
-            if (reply_text.Contains("½¹ÂÇÖµ")&& reply_text.Contains("½µ"))
+            if (reply_text.Contains("ç„¦è™‘å€¼")&& reply_text.Contains("é™"))
             {
                 
-                // ¶¨Òå°üº¬ÎÄ±¾µÄ×Ö·û´®
-                text = "½µ";
-                // Ê¹ÓÃÕıÔò±í´ïÊ½ÌáÈ¡Êı×Ö                
-                Match match = Regex.Match(reply_text, @"½µ(\d+)");
+                // å®šä¹‰åŒ…å«æ–‡æœ¬çš„å­—ç¬¦ä¸²
+                text = "é™";
+                // ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æå–æ•°å­—                
+                Match match = Regex.Match(reply_text, @"é™(\d+)");
                 if (match.Success)
                 {
                     string result = match.Groups[1].Value;
@@ -215,13 +211,13 @@ public class tongyi_AI : MonoBehaviour
                 }
                 
             }
-            else if (reply_text.Contains("½¹ÂÇÖµ") && reply_text.Contains("Éı"))
+            else if (reply_text.Contains("ç„¦è™‘å€¼") && reply_text.Contains("å‡"))
             {
 
-                // ¶¨Òå°üº¬ÎÄ±¾µÄ×Ö·û´®
-                text = "Éı";
-                // Ê¹ÓÃÕıÔò±í´ïÊ½ÌáÈ¡Êı×Ö                
-                Match match = Regex.Match(reply_text, @"Éı(\d+)");
+                // å®šä¹‰åŒ…å«æ–‡æœ¬çš„å­—ç¬¦ä¸²
+                text = "å‡";
+                // ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æå–æ•°å­—                
+                Match match = Regex.Match(reply_text, @"å‡(\d+)");
                 if (match.Success)
                 {
                     string result = match.Groups[1].Value;
@@ -232,12 +228,12 @@ public class tongyi_AI : MonoBehaviour
             else
             {
                 anxiety_change_value = 0;
-                text = "¼Ä"; 
+                text = "å¯„"; 
             }
             Debug.Log(text);
             
             Debug.Log(anxiety_change_value);
-            
+            StaticEventHandler.CallCommit(anxiety_change_value);
 
 
             DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);
@@ -245,7 +241,7 @@ public class tongyi_AI : MonoBehaviour
         }
         else
         {
-            Debug.Log("ÇëÇóÊ§°Ü£¬×´Ì¬Âë£º" + request.responseCode);
+            Debug.Log("è¯·æ±‚å¤±è´¥ï¼ŒçŠ¶æ€ç ï¼š" + request.responseCode);
         }
     }
 }
