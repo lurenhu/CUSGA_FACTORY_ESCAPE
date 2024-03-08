@@ -193,5 +193,10 @@ MonoBehaviour:
     node: {fileID: 0}
     nodeType: {fileID: 0}
     targetNodeID: 
-    cipherNumber: 0
+    cipherValues: 
+    image: {fileID: 0}
+    angles: []
+    targetIDForDetection: 
   nodeInfos: []
+  anxietyValue: 100
+  submissionTimes: 2
