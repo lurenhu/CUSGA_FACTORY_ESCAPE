@@ -8,6 +8,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     public Transform graphTransform;
 
+    
     private void Start() {
         NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
     }

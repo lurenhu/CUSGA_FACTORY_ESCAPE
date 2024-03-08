@@ -27,8 +27,41 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 558
-    y: 550
+    x: 425
+    y: 773
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-7850021832748260815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 3
+  id: 62f43f07-51a6-4e2f-9099-433f35c47549
+  parentNodeIdList:
+  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  targetId: 
+  cipherValues: 
+  image: {fileID: 0}
+  angles: []
+  targetIDForDetection: 
+  rect:
+    serializedVersion: 2
+    x: 483
+    y: -5
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -60,8 +93,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 932
-    y: 173
+    x: 799
+    y: 396
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -93,8 +126,41 @@ MonoBehaviour:
   targetIDForDetection: 86a0d5e2-d26b-4440-94b3-aa148e5e84a0
   rect:
     serializedVersion: 2
-    x: 114
-    y: 402
+    x: -19
+    y: 625
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-4744097284114390932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 2
+  id: eca86c6f-3576-4e92-bc5e-ee80a44fad2c
+  parentNodeIdList:
+  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  targetId: 
+  cipherValues: 
+  image: {fileID: 0}
+  angles: []
+  targetIDForDetection: 
+  rect:
+    serializedVersion: 2
+    x: 259
+    y: -12
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -123,6 +189,7 @@ MonoBehaviour:
   - 6a816126-1965-4fbc-9095-d029bfcf4c29
   - aa9432d3-6957-4556-88d5-ca0590bfce9e
   - 86a0d5e2-d26b-4440-94b3-aa148e5e84a0
+  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
@@ -133,8 +200,41 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 472
-    y: 284
+    x: 339
+    y: 507
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-3742314880683307176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 1
+  id: 872614c2-c5f7-4751-a50c-58412b290806
+  parentNodeIdList:
+  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  targetId: 
+  cipherValues: 
+  image: {fileID: 0}
+  angles: []
+  targetIDForDetection: 
+  rect:
+    serializedVersion: 2
+    x: 43
+    y: 58
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -166,8 +266,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 118
-    y: 226
+    x: -15
+    y: 449
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -199,8 +299,44 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 739
-    y: 441
+    x: 606
+    y: 664
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-2865820354869516138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  nodeText: 2
+  id: c6552aab-ecee-4d30-ad92-d7cc989edb6d
+  parentNodeIdList:
+  - 5055a365-a47f-4d20-91ff-59bff377d1e0
+  childrenNodeIdList:
+  - 872614c2-c5f7-4751-a50c-58412b290806
+  - eca86c6f-3576-4e92-bc5e-ee80a44fad2c
+  - 62f43f07-51a6-4e2f-9099-433f35c47549
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  targetId: 
+  cipherValues: 
+  image: {fileID: 0}
+  angles: []
+  targetIDForDetection: 
+  rect:
+    serializedVersion: 2
+    x: 296
+    y: 217
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -232,8 +368,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 766
-    y: -21
+    x: 633
+    y: 202
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -264,6 +400,10 @@ MonoBehaviour:
   - {fileID: -5521543715941156080}
   - {fileID: -3687372769557112294}
   - {fileID: 1368800719758617921}
+  - {fileID: -2865820354869516138}
+  - {fileID: -3742314880683307176}
+  - {fileID: -4744097284114390932}
+  - {fileID: -7850021832748260815}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
 --- !u!114 &1368800719758617921
@@ -293,8 +433,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 275
-    y: 98
+    x: 142
+    y: 321
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -329,8 +469,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 339
-    y: 558
+    x: 206
+    y: 781
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -363,8 +503,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 589
-    y: 82
+    x: 456
+    y: 305
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -396,8 +536,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 336
-    y: 719
+    x: 203
+    y: 942
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -430,8 +570,8 @@ MonoBehaviour:
   targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 753
-    y: 274
+    x: 620
+    y: 497
     width: 160
     height: 100
   isLeftClickDragging: 0

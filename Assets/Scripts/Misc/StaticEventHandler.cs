@@ -15,6 +15,12 @@ public static class StaticEventHandler
     {
         OnSecondClickNode?.Invoke(new SecondClickNodeArgs() {node = node});
     }
+
+    public static event Action<CommitArgs> OnCommit;
+    public static void CallCommit(int anxiety_change_value)
+    {
+        OnCommit?.Invoke(new CommitArgs() {anxiety_change_value = anxiety_change_value});
+    }
 }
 
 public class FirstClickNodeArgs : EventArgs
@@ -25,4 +31,9 @@ public class FirstClickNodeArgs : EventArgs
 public class SecondClickNodeArgs : EventArgs
 {
     public Node node;
+}
+
+public class CommitArgs : EventArgs
+{
+    public int anxiety_change_value;
 }

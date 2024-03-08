@@ -107,6 +107,26 @@ public class Node : MonoBehaviour
         }
     }
 
+    public void PopUpChildNode(NodeInfo node)
+    {
+        Node currentNode = node.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
+
+        currentNode.transform.position = transform.position;
+        currentNode.gameObject.SetActive(true);
+
+        LineCreator.Instance.CreateLine(currentNode);
+
+        currentNode.transform.DOMove(
+            node.direction * popUpForce,tweenDuring
+            ).SetRelative().OnStart(() => 
+            {
+                currentNode.isPopping = true;
+            }).OnComplete(() => 
+            {
+                currentNode.isPopping = false;
+            });
+    }
+
     /// <summary>
     /// 将屏幕坐标转化为世界坐标
     /// </summary>
