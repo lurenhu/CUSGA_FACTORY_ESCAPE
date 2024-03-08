@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AILockedNode : Node
@@ -9,6 +10,7 @@ public class AILockedNode : Node
     [Header("AI LOCK NODE")]
     public int anxietyValue = 100;// 焦虑值
     public int submissionTimes = 10;// 剩余提交次数
+    private bool hasResult = false;// 是否已经获取结果
 
     private void OnEnable() {
         StaticEventHandler.OnCommit += StaticEventHandler_OnCommit;
@@ -22,6 +24,11 @@ public class AILockedNode : Node
     {
         anxietyValue += args.anxiety_change_value;
         submissionTimes--;
+
+        CheckAnxietyValue();
+
+        if (submissionTimes == 0)
+            tongyi_AI.instance.input_field.SetActive(false);
     }
 
     protected override void OnMouseUp() {
@@ -31,12 +38,12 @@ public class AILockedNode : Node
         {
             // 节点交互内容
 
+            if (hasResult) return;
+
             if (!tongyi_AI.instance.input_field.activeSelf)
             {
                 tongyi_AI.instance.input_field.SetActive(true);
             }
-
-            CheckAnxietyValue();
         }
         else
         {
@@ -67,5 +74,7 @@ public class AILockedNode : Node
         {
             PopUpChildNode(nodeInfos[2]);
         }
+
+        hasResult = true;
     }
 }
