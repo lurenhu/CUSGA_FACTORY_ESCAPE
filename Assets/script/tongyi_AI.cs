@@ -230,7 +230,7 @@ public class tongyi_AI : MonoBehaviour
                 anxiety_change_value = 0;
                 text = "寄"; 
             }
-            Debug.Log(text);
+            //Debug.Log(text);
             
             Debug.Log(anxiety_change_value);
             StaticEventHandler.CallCommit(anxiety_change_value);
