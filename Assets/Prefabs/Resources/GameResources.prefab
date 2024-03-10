@@ -45,5 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  cipherPrefab: {fileID: 9146564799162629279, guid: b8fa72b639cc8d846b05d889431d5c43, type: 3}
-  linePrefab: {fileID: 2756221765394508955, guid: 423df97afbc78164980fe251f600497f, type: 3}
+  nodeTextPrefab: {fileID: 1895656827570272711, guid: 44d35d7710c9c1a4aabca92b6c639879, type: 3}

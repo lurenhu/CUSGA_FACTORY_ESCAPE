@@ -47,8 +47,6 @@ public class HelperUtility
                 else if (B[j] <= -180 + eps)
                     if ((A[i] < B[j] + eps || A[i] > B[j] - eps + 360) && !checkMatch.ContainsKey(B[j]))
                         checkMatch[B[j]] = A[i];
-
-                
             }
         }
 
@@ -57,4 +55,22 @@ public class HelperUtility
         else
             return false;
     } 
+
+    /// <summary>
+    /// 将屏幕坐标转化为世界坐标
+    /// </summary>
+    public static Vector3 TranslateScreenToWorld(Vector3 Position)
+    {
+        Vector3 cameraTranslatePos = Camera.main.ScreenToWorldPoint(Position);
+        return new Vector3 (cameraTranslatePos.x,cameraTranslatePos.y,0);
+    }
+
+    /// <summary>
+    /// 将世界坐标转化为屏幕坐标
+    /// </summary>
+    public static Vector3 TranslateWorldToScreen(Vector3 Position)
+    {
+        Vector3 cameraTranslatePos = Camera.main.WorldToScreenPoint(Position);
+        return new Vector3 (cameraTranslatePos.x,cameraTranslatePos.y,0);
+    }
 }

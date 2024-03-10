@@ -35,19 +35,22 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             NodeProperty currentNode = keyValue.Value;
 
             GameObject nodeGameObject = Instantiate(currentNode.nodePrefab,transform.position,Quaternion.identity,transform);
+            GameObject nodeTextObject = Instantiate(GameResources.Instance.nodeTextPrefab,GameManager.Instance.Canvas);
 
             if (!currentNode.nodeType.isEntrence)
             {
                 nodeGameObject.SetActive(false);
             }
 
-            Node nodeCompounent = nodeGameObject.GetComponent<Node>();
+            Node nodeComponent = nodeGameObject.GetComponent<Node>();
+            NodeText nodeTextComponent = nodeTextObject.GetComponent<NodeText>();
 
-            nodeCompounent.InitializeNode(currentNode);
+            nodeComponent.InitializeNode(currentNode);
+            nodeTextComponent.InitNode(nodeComponent);
 
-            currentNode.node = nodeCompounent;
+            currentNode.node = nodeComponent;
 
-            nodeHasCreated.Add(nodeCompounent.id,nodeCompounent);
+            nodeHasCreated.Add(nodeComponent.id,nodeComponent);
         }
     }
 
@@ -111,7 +114,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         node.nodeType = currentNode.nodeType;
         
         if (node.nodeType.isSynthesizable)
-            node.targetNodeID = currentNode.targetId;
+            node.targetNodeID = currentNode.targetIdForMerge;
         if (node.nodeType.isLocked)
             node.cipherValues = currentNode.cipherValues;
         if (node.nodeType.isGraph)

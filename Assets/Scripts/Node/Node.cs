@@ -8,11 +8,6 @@ public class Node : MonoBehaviour
 {
     [Space(10)]
     [Header("NODE CLASS PROPERTISE")]
-    
-    [Tooltip("弹出动画的持续时间")]
-    [SerializeField] protected float tweenDuring = 0.5f;// 弹出持续时间
-    [Tooltip("弹出动画的弹出距离")]
-    [SerializeField] protected float popUpForce = 3;// 弹出距离
     [HideInInspector] public bool isPopping = false;// 判断是否处于弹出状态
     [HideInInspector] public bool isDragging = false;// 判断是否处于拖拽状态
     public bool isSelected = false;// 判断是否处于被选中状体
@@ -78,7 +73,7 @@ public class Node : MonoBehaviour
 
         if (!isDragging) isDragging = true;
             
-        transform.position = TranslateScreenToWorld(Input.mousePosition);
+        transform.position = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
     }
 
     /// <summary>
@@ -93,10 +88,12 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
+            currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
+
             LineCreator.Instance.CreateLine(currentNode);
 
             currentNode.transform.DOMove(
-                childNode.direction * popUpForce,tweenDuring
+                childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
                 ).SetRelative().OnStart(() => 
                 {
                     currentNode.isPopping = true;
@@ -113,11 +110,13 @@ public class Node : MonoBehaviour
 
         currentNode.transform.position = transform.position;
         currentNode.gameObject.SetActive(true);
+        
+         currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
         LineCreator.Instance.CreateLine(currentNode);
 
         currentNode.transform.DOMove(
-            node.direction * popUpForce,tweenDuring
+            node.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
             ).SetRelative().OnStart(() => 
             {
                 currentNode.isPopping = true;
@@ -127,14 +126,7 @@ public class Node : MonoBehaviour
             });
     }
 
-    /// <summary>
-    /// 将屏幕坐标转化为世界坐标
-    /// </summary>
-    public static Vector3 TranslateScreenToWorld(Vector3 Position)
-    {
-        Vector3 cameraTranslatePos = Camera.main.ScreenToWorldPoint(Position);
-        return new Vector3 (cameraTranslatePos.x,cameraTranslatePos.y,0);
-    }
+    
 
 }
 
@@ -155,6 +147,7 @@ public class NodeProperty
     public string nodeText;
     public string parentID;
     public List<string> childIdList;
+    public NodeText nodeTextInstance;
     [HideInInspector] public GameObject nodePrefab;
     [HideInInspector] public Node node;
     [HideInInspector] public NodeTypeSO nodeType;

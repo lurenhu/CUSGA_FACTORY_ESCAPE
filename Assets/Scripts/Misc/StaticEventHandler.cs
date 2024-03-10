@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.UIElements;
 
 public static class StaticEventHandler
 {
@@ -21,6 +22,12 @@ public static class StaticEventHandler
     {
         OnCommit?.Invoke(new CommitArgs() {anxiety_change_value = anxiety_change_value});
     }
+
+    public static event Action<PopUpNodeArgs> OnPopUpNode;
+    public static void CallPopUpNode(Node node)
+    {
+        OnPopUpNode?.Invoke(new PopUpNodeArgs() {node = node});
+    }
 }
 
 public class FirstClickNodeArgs : EventArgs
@@ -36,4 +43,9 @@ public class SecondClickNodeArgs : EventArgs
 public class CommitArgs : EventArgs
 {
     public int anxiety_change_value;
+}
+
+public class PopUpNodeArgs : EventArgs
+{
+    public Node node;
 }
