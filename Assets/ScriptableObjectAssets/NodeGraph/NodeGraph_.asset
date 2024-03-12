@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8170920098786556609
+--- !u!114 &-7302733590914737164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,130 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
+  m_Script: {fileID: 11500000, guid: 591974a0d1abf934494563b815930f1d, type: 3}
+  m_Name: ProbeNode
   m_EditorClassIdentifier: 
-  nodeText: 2
-  id: ef3b28f3-d4be-4fc0-ae03-7e3d08968d72
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 9a25bcc0b8cc1ee4998010a5fa3fe349, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 21300000, guid: 9d45ff9a9d1621e4db197b8e5f7b46ba, type: 3}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 484
-    y: 883
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-7850021832748260815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 3
-  id: 62f43f07-51a6-4e2f-9099-433f35c47549
-  parentNodeIdList:
-  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 542
-    y: 105
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-5692779733603204950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 3
-  id: bb6e2bcf-3302-4e55-912e-8ca5d1a21ab8
-  parentNodeIdList:
-  - 154e5177-4d66-4855-b36b-738bf511dbc2
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 858
-    y: 506
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-5521543715941156080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 6a816126-1965-4fbc-9095-d029bfcf4c29
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
+  nodeText: 
+  id: d6f6d353-5001-4067-9fdf-b757ef1a3560
+  parentNodeIdList: []
   childrenNodeIdList: []
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 98a6c542d00586d42996401f5721da9c, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 86a0d5e2-d26b-4440-94b3-aa148e5e84a0
   rect:
     serializedVersion: 2
-    x: 40
-    y: 735
+    x: 561
+    y: 72
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &-4744097284114390932
+  targetIDForDetection: 
+--- !u!114 &-7029935617180822814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,235 +37,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: 2
-  id: eca86c6f-3576-4e92-bc5e-ee80a44fad2c
+  nodeText: 
+  id: 31326d3e-3660-4896-9922-e3ee83ec5d7a
   parentNodeIdList:
-  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
+  - 201bca8c-f42f-4c2e-a107-2c7ab1ea0c7b
   childrenNodeIdList: []
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 318
-    y: 98
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-4326189764886879077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 1
-  id: 5055a365-a47f-4d20-91ff-59bff377d1e0
-  parentNodeIdList: []
-  childrenNodeIdList:
-  - 154e5177-4d66-4855-b36b-738bf511dbc2
-  - 3eef803f-f9d5-4bc6-ae1c-0d2775fc7643
-  - 70d1ada3-e299-43a9-9ada-44fa79d64655
-  - ef3b28f3-d4be-4fc0-ae03-7e3d08968d72
-  - 55170ece-9ce6-438d-98fb-88937616e81f
-  - 6a816126-1965-4fbc-9095-d029bfcf4c29
-  - aa9432d3-6957-4556-88d5-ca0590bfce9e
-  - 86a0d5e2-d26b-4440-94b3-aa148e5e84a0
-  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 398
-    y: 617
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-3742314880683307176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 1
-  id: 872614c2-c5f7-4751-a50c-58412b290806
-  parentNodeIdList:
-  - c6552aab-ecee-4d30-ad92-d7cc989edb6d
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 102
-    y: 168
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 1
---- !u!114 &-3687372769557112294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: aa9432d3-6957-4556-88d5-ca0590bfce9e
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 4c9c11e46f9f8314a87510406af731d7, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 44
-    y: 559
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-3360010642673092728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 70d1ada3-e299-43a9-9ada-44fa79d64655
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 665
-    y: 774
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-2865820354869516138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: c6552aab-ecee-4d30-ad92-d7cc989edb6d
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList:
-  - 872614c2-c5f7-4751-a50c-58412b290806
-  - eca86c6f-3576-4e92-bc5e-ee80a44fad2c
-  - 62f43f07-51a6-4e2f-9099-433f35c47549
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 355
-    y: 327
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-2414505279903758922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 3
-  id: b302f694-87f5-4c0f-b5c0-2e20be8a2e97
-  parentNodeIdList:
-  - 3eef803f-f9d5-4bc6-ae1c-0d2775fc7643
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 692
-    y: 312
+    x: 184
+    y: 371
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -388,25 +70,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 0}
   nodeList:
-  - {fileID: -4326189764886879077}
-  - {fileID: 8206123326261532931}
-  - {fileID: 6413566033270498878}
-  - {fileID: -3360010642673092728}
-  - {fileID: -2414505279903758922}
-  - {fileID: -5692779733603204950}
-  - {fileID: -8170920098786556609}
-  - {fileID: 3980843648826661183}
-  - {fileID: 8128545438508900274}
-  - {fileID: -5521543715941156080}
-  - {fileID: -3687372769557112294}
-  - {fileID: 1368800719758617921}
-  - {fileID: -2865820354869516138}
-  - {fileID: -3742314880683307176}
-  - {fileID: -4744097284114390932}
-  - {fileID: -7850021832748260815}
+  - {fileID: 4959334769886060610}
+  - {fileID: -7029935617180822814}
+  - {fileID: 6871542959294617694}
+  - {fileID: -7302733590914737164}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
---- !u!114 &1368800719758617921
+--- !u!114 &4959334769886060610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,164 +85,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 86a0d5e2-d26b-4440-94b3-aa148e5e84a0
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
+  nodeText: 
+  id: 201bca8c-f42f-4c2e-a107-2c7ab1ea0c7b
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 31326d3e-3660-4896-9922-e3ee83ec5d7a
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 204
+    y: 199
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &6871542959294617694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73cc561058ac334db4cd066a5a6018a, type: 3}
+  m_Name: LockedNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 76827fc8-892e-43a5-9d72-5397ee0c89ed
+  parentNodeIdList: []
   childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 201
-    y: 431
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &3980843648826661183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 55170ece-9ce6-438d-98fb-88937616e81f
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList:
-  - cdde621d-a45e-4226-836b-d2045e6f13c6
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: b94cad5d2aa77ff468bfa4ca0923e0d5, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 
-  image: {fileID: 0}
-  angles:
-  - 90
-  - -90
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 265
-    y: 891
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &6413566033270498878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 3eef803f-f9d5-4bc6-ae1c-0d2775fc7643
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList:
-  - b302f694-87f5-4c0f-b5c0-2e20be8a2e97
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 85ceb1ccedfeb724aad7b4128a36075d, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
-  cipherValues: 0000000001000000
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
   rect:
     serializedVersion: 2
-    x: 515
-    y: 415
+    x: 602
+    y: 220
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &8128545438508900274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 3
-  id: cdde621d-a45e-4226-836b-d2045e6f13c6
-  parentNodeIdList:
-  - 55170ece-9ce6-438d-98fb-88937616e81f
-  childrenNodeIdList: []
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 
   cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 262
-    y: 1052
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &8206123326261532931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f787db6c83f25154f827749b5618a981, type: 3}
-  m_Name: Node
-  m_EditorClassIdentifier: 
-  nodeText: 2
-  id: 154e5177-4d66-4855-b36b-738bf511dbc2
-  parentNodeIdList:
-  - 5055a365-a47f-4d20-91ff-59bff377d1e0
-  childrenNodeIdList:
-  - bb6e2bcf-3302-4e55-912e-8ca5d1a21ab8
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  targetId: 70d1ada3-e299-43a9-9ada-44fa79d64655
-  cipherValues: 
-  image: {fileID: 0}
-  angles: []
-  targetIDForDetection: 
-  rect:
-    serializedVersion: 2
-    x: 679
-    y: 607
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0

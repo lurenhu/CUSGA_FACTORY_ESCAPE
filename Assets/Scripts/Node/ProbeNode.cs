@@ -41,6 +41,7 @@ public class ProbeNode : Node
             else if (distance < interactiveDistance)
             {
                 StopBlink();
+                
             }
         }
     }

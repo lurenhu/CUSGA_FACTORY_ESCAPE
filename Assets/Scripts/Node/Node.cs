@@ -88,7 +88,7 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-            currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
+            //currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
             LineCreator.Instance.CreateLine(currentNode);
 
@@ -111,7 +111,7 @@ public class Node : MonoBehaviour
         currentNode.transform.position = transform.position;
         currentNode.gameObject.SetActive(true);
         
-         currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
+        // currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
         LineCreator.Instance.CreateLine(currentNode);
 

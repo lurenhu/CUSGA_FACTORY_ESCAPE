@@ -15,51 +15,12 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
 
-    [Space(10)]
-    [Header("请在与当前节点相关类型的填写处填写相关数据")]
-
-    [Space(10)]
-    [Header("合成节点所需数据")]
-    [Tooltip("合成目标的节点ID")]
-    public string targetIdForMerge = Setting.stringDefaultValue;
-
-    [Space(10)]
-    [Header("锁节点所需数据")]
-    [Tooltip("解开密码锁的密码值列表")]
-    public List<int> cipherValues;
-
-    [Space(10)]
-    [Header("图片节点所需数据")]
-    [Tooltip("需要展示的图片")]
-    public Sprite image;
-
-    [Space(10)]
-    [Header("角度锁节点数据")]
-    [Tooltip("解开角度锁的角度列表")]
-    public List<float> angles; 
-
-    [Space(10)]
-    [Header("探测节点数据")]
-    [Tooltip("探测目标的节点ID")]
-    public string targetIDForDetection = Setting.stringDefaultValue;
-
     #if UNITY_EDITOR
     [HideInInspector] public Rect rect;
     [HideInInspector] public bool isLeftClickDragging = false;
     [HideInInspector] public bool isSelected = false;
 
 #region 数据初始化
-    public void Initialise(Rect rect, NodeGraphSO nodeGraph, NodeTypeSO NodeType)
-    {
-        this.rect = rect;
-        this.id = Guid.NewGuid().ToString();
-        this.name = "Node";
-        this.nodeGraph = nodeGraph;
-        this.nodeType = NodeType;
-
-        nodeTypeList = GameResources.Instance.nodeTypeList;
-    }
-
     /// <summary>
     /// 将子节点的ID添加至子节点列表中
     /// </summary>
@@ -140,12 +101,9 @@ public class NodeSO : ScriptableObject
 
         EditorGUI.BeginChangeCheck();
 
-        int selected = nodeTypeList.list.FindIndex(x => x == nodeType);
-
-        int selection = EditorGUILayout.Popup("",selected,GetNodeTypesDisplay());
+        EditorGUILayout.LabelField(nodeType.nodeTypeName);
+        
         this.nodeText = EditorGUILayout.TextField(nodeText);
-
-        nodeType = nodeTypeList.list[selection];
 
         if (EditorGUI.EndChangeCheck())
             EditorUtility.SetDirty(this);

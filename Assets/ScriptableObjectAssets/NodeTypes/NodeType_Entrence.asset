@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c355532a97e9854ab943a06d8a45c8a, type: 3}
   m_Name: NodeType_Entrence
   m_EditorClassIdentifier: 
-  nodeTypeName: Entrence
-  isEntrence: 1
+  nodeTypeName: Entrance
+  isEntrance: 1
   isDefault: 0
-  isSynthesizable: 0
+  isSynthetic: 0
   isLocked: 0
-  isCipher: 0
   isAI: 0
+  isGraph: 0
+  isAngleLock: 0
+  isProbe: 0
+  isControllable: 0

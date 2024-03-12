@@ -2,6 +2,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEditor.Callbacks;
 using System.Collections.Generic;
+using Codice.CM.WorkspaceServer.DataStore;
+using System;
 
 public class NodeGraphEditor : EditorWindow
 {
@@ -293,7 +295,19 @@ public class NodeGraphEditor : EditorWindow
     {
         GenericMenu menu = new GenericMenu();
 
-        menu.AddItem(new GUIContent("Creat Node"),false,CreatNode,mousePosition);
+        menu.AddItem(new GUIContent("创建普通节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isDefault)));
+
+        menu.AddSeparator("");
+
+        menu.AddItem(new GUIContent("创建密码锁节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isLocked)));
+        menu.AddItem(new GUIContent("创建AI锁节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAI)));
+        menu.AddItem(new GUIContent("创建角度锁节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAngleLock)));
+
+        menu.AddSeparator("");
+        menu.AddItem(new GUIContent("创建图节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isGraph)));
+        menu.AddItem(new GUIContent("创建探测节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isProbe)));
+        menu.AddItem(new GUIContent("创建合成节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isSynthetic)));
+        menu.AddItem(new GUIContent("创建可控制节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isControllable)));
 
         menu.AddSeparator("");
 
@@ -400,13 +414,15 @@ public class NodeGraphEditor : EditorWindow
     /// 创建节点
     /// </summary>
     /// <param name="mousePositionObject">节点创建位置</param>
-    private void CreatNode(object mousePositionObject)
+    private void CreateNode(object mousePositionObject,NodeTypeSO nodeType)
     {
         if (currentNodeGraph.nodeList.Count == 0)
         {
-            CreatNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isEntrence));
+            Debug.Log(nodeType.nodeTypeName);
+            CreateNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isEntrance));
         }
-        CreatNodes(mousePositionObject,nodeTypeList.list.Find(x => x.isDefault));
+
+        CreateNodes(mousePositionObject,nodeType);
     }
 
     /// <summary>
@@ -414,21 +430,78 @@ public class NodeGraphEditor : EditorWindow
     /// </summary>
     /// <param name="mousePositionObject">节点创建位置</param>
     /// <param name="nodeType">节点类型</param>
-    private void CreatNodes(object mousePositionObject, NodeTypeSO nodeType)
+    private void CreateNodes(object mousePositionObject, NodeTypeSO nodeType)
     {
         Vector2 mousePosition = (Vector2)mousePositionObject;
 
-        NodeSO node = ScriptableObject.CreateInstance<NodeSO>();
-
-        currentNodeGraph.nodeList.Add(node);
-
-        node.Initialise(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
-
-        AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        GetNodeTypeSO(nodeType, mousePosition);
 
         AssetDatabase.SaveAssets();
 
         currentNodeGraph.OnValidate();
+    }
+
+    /// <summary>
+    /// 根据所创建的节点类型创建对应的节点序列对象
+    /// </summary>
+    private void GetNodeTypeSO(NodeTypeSO nodeType, Vector2 mousePosition)
+    {
+        if (nodeType.isDefault)
+        {
+            DefaultNodeSO node = ScriptableObject.CreateInstance<DefaultNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isLocked)
+        {
+            LockedNodeSO node = ScriptableObject.CreateInstance<LockedNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isAI)
+        {
+            AILockedNodeSO node = ScriptableObject.CreateInstance<AILockedNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isAngleLock)
+        {
+            AngleLockNodeSO node = ScriptableObject.CreateInstance<AngleLockNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isGraph)
+        {
+            GraphNodeSO node = ScriptableObject.CreateInstance<GraphNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isSynthetic)
+        {
+            SynthesizableNodeSO node = ScriptableObject.CreateInstance<SynthesizableNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isProbe)
+        {
+            ProbeNodeSO node = ScriptableObject.CreateInstance<ProbeNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isControllable)
+        {
+            ControllableNodeSO node = ScriptableObject.CreateInstance<ControllableNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
     }
 
     /// <summary>
