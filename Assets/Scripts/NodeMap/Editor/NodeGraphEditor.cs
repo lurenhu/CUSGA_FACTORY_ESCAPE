@@ -446,7 +446,7 @@ public class NodeGraphEditor : EditorWindow
     /// </summary>
     private void GetNodeTypeSO(NodeTypeSO nodeType, Vector2 mousePosition)
     {
-        if (nodeType.isDefault)
+        if (nodeType.isDefault || nodeType.isEntrance)
         {
             DefaultNodeSO node = ScriptableObject.CreateInstance<DefaultNodeSO>();
             currentNodeGraph.nodeList.Add(node);

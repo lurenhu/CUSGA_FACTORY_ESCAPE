@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
   m_Name: NodeTempateSO_Controllable
   m_EditorClassIdentifier: 
-  guid: b264e9dce43cc8045ac3db488bd4f68d
-  nodePrefab: {fileID: 7876192915123727293, guid: 8162beb52b7388342abdf24fedaa1a70, type: 3}
-  previousPrefab: {fileID: 7876192915123727293, guid: 8162beb52b7388342abdf24fedaa1a70, type: 3}
+  guid: 012cf4e2bdbfb944bb47f41cb7440eb9
+  nodePrefab: {fileID: 5394198193138102165, guid: 40f9dab9a4924ca4a8ef4372c426e34c, type: 3}
+  previousPrefab: {fileID: 5394198193138102165, guid: 40f9dab9a4924ca4a8ef4372c426e34c, type: 3}
   nodeType: {fileID: 11400000, guid: 4c9c11e46f9f8314a87510406af731d7, type: 2}

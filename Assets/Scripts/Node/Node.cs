@@ -2,32 +2,42 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
 using System;
-using UnityEditor.EditorTools;
 
+[DisallowMultipleComponent]
 public class Node : MonoBehaviour
 {
-    [Space(10)]
-    [Header("NODE CLASS PROPERTISE")]
     [HideInInspector] public bool isPopping = false;// 判断是否处于弹出状态
     [HideInInspector] public bool isDragging = false;// 判断是否处于拖拽状态
-    public bool isSelected = false;// 判断是否处于被选中状体
+    [HideInInspector] public bool isSelected = false;// 判断是否处于被选中状体
     [HideInInspector] public bool hasPopUp = false;// 判断节点是否已经弹出子节点
 
-    [Tooltip("节点ID")]
+    [Header("观测参数")]
     public string id;
-    [Tooltip("节点所有属性")]
-    public NodeProperty nodeProperty;
-    [Tooltip("生成节点及节点生成方向")]
+    public string nodeText;
+    public string parentID;
+    public List<string> childIdList;
     public List<NodeInfo> nodeInfos;
+    [HideInInspector] public Rect rect;
+    [HideInInspector] public GameObject nodePrefab;
+    [HideInInspector] public Node node;
+    [HideInInspector] public NodeTypeSO nodeType;
 
     /// <summary>
     /// 初始化节点数据
     /// </summary>
     /// <param name="nodeInGraph"></param>
-    public void InitializeNode(NodeProperty nodeInGraph)
+    public void InitializeNode(NodeSO nodeSO)
     {
-        this.id = nodeInGraph.id;
-        this.nodeProperty = nodeInGraph;
+        id = nodeSO.id;
+        nodeText = nodeSO.nodeText;
+        childIdList = nodeSO.childrenNodeIdList;
+        rect = nodeSO.rect;
+        nodeType = nodeSO.nodeType;
+
+        if (nodeSO.parentNodeIdList.Count == 0)
+            parentID = Setting.stringDefaultValue;
+        else
+            parentID = nodeSO.parentNodeIdList[0];
     }
 
     protected virtual void Start()
@@ -37,16 +47,16 @@ public class Node : MonoBehaviour
     
     private void LoadNodeInfo()
     {
-        if (nodeProperty.childIdList == null)
+        if (childIdList == null)
         {
             return;
         }
 
-        foreach (string childNodeID in nodeProperty.childIdList)
+        foreach (string childNodeID in childIdList)
         {
             NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
 
-            Vector2 direction = (childNode.nodeProperty.rect.center - nodeProperty.rect.center).normalized;
+            Vector2 direction = (rect.center - childNode.rect.center).normalized;
 
             NodeInfo newNodeInfo = new NodeInfo()
             {
@@ -58,21 +68,12 @@ public class Node : MonoBehaviour
         }
     }
 
-    protected virtual void OnMouseUp()
-    {
-        if (isPopping) return;
-
-        if (isDragging) isDragging = false;
-
-        // 节点交互事件--提示文字，音频
-    }
-
     protected virtual void OnMouseDrag() 
     {
         if (isPopping) return;
 
         if (!isDragging) isDragging = true;
-            
+        
         transform.position = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
     }
 
@@ -90,7 +91,7 @@ public class Node : MonoBehaviour
 
             //currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
-            LineCreator.Instance.CreateLine(currentNode);
+            // LineCreator.Instance.CreateLine(currentNode);
 
             currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
@@ -113,7 +114,7 @@ public class Node : MonoBehaviour
         
         // currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
-        LineCreator.Instance.CreateLine(currentNode);
+        // LineCreator.Instance.CreateLine(currentNode);
 
         currentNode.transform.DOMove(
             node.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
@@ -135,22 +136,20 @@ public class NodeInfo
 {
     public Node node;
     public Vector2 direction;// 弹出方向偏移距离
-
 }
 
 [Serializable]
 public class NodeProperty
 {
-    [Header("普通节点数据")]
-    [HideInInspector] public Rect rect;
-    [HideInInspector] public string id;
+    public string id;
     public string nodeText;
     public string parentID;
     public List<string> childIdList;
-    public NodeText nodeTextInstance;
+    [HideInInspector] public Rect rect;
     [HideInInspector] public GameObject nodePrefab;
     [HideInInspector] public Node node;
     [HideInInspector] public NodeTypeSO nodeType;
+
 
     [Space(10)]
     [Header("合成节点数据")]

@@ -713,7 +713,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeGraphSOs:
-  - {fileID: 11400000, guid: e9ef8af9f90f0c743bc968cba2899488, type: 2}
+  - {fileID: 11400000, guid: e717c198236776b49829487593620881, type: 2}
   Canvas: {fileID: 0}
   graphTransform: {fileID: 1628694029}
 --- !u!4 &1052891442
@@ -775,7 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2ed06c9a0e2364aa7d20aafb1ced1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinePrefab: {fileID: 2756221765394508955, guid: 423df97afbc78164980fe251f600497f, type: 3}
 --- !u!1 &1179595821
 GameObject:
   m_ObjectHideFlags: 0

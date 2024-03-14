@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: NodeType_Synthesizable
   m_EditorClassIdentifier: 
   nodeTypeName: Synthesizable
+  isEntrance: 0
   isDefault: 0
-  isSynthesizable: 1
+  isSynthetic: 1
   isLocked: 0
-  isCipher: 0
   isAI: 0
+  isGraph: 0
+  isAngleLock: 0
+  isProbe: 0
+  isControllable: 0
