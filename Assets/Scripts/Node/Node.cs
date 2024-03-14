@@ -91,7 +91,7 @@ public class Node : MonoBehaviour
 
             //currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
-            // LineCreator.Instance.CreateLine(currentNode);
+            LineCreator.Instance.CreateLine(currentNode);
 
             currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
@@ -114,7 +114,7 @@ public class Node : MonoBehaviour
         
         // currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
-        // LineCreator.Instance.CreateLine(currentNode);
+        LineCreator.Instance.CreateLine(currentNode);
 
         currentNode.transform.DOMove(
             node.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring

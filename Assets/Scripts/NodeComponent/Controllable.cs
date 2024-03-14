@@ -15,6 +15,7 @@ public class Controllable : MonoBehaviour
     private Rigidbody2D BeControlledRb;
     private Node myNode;
     private SpringJoint2D springJoint;
+    private GameObject line;
 
     private void Start() {
         InitializeReference();
@@ -23,6 +24,8 @@ public class Controllable : MonoBehaviour
     private void InitializeReference()
     {
         GameObject hammer = Instantiate(hammerPrefab, transform.position, Quaternion.identity, NodeMapBuilder.Instance.transform);
+
+        line = LineCreator.Instance.CreateLine(transform, hammer.transform);
 
         BeControlledRb = hammer.GetComponent<Rigidbody2D>();
         myNode = transform.GetComponentInParent<Node>();
