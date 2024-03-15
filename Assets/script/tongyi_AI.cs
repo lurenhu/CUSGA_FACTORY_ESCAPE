@@ -230,13 +230,17 @@ public class tongyi_AI : MonoBehaviour
                 anxiety_change_value = 0;
                 text = "寄"; 
             }
-            //Debug.Log(text);
-            
+            //Debug.Log(anxiety_change_value);
+            System.Random random = new System.Random();
+            int multiplier = 10;  // 扩大的倍数
+            double randomMultiplier = random.NextDouble() * 0.2 + 0.9;  // 生成随机浮动倍数（范围为0.9到1.1之间）
+
+            double fianal_value = anxiety_change_value * multiplier * randomMultiplier;
+            anxiety_change_value=(int)fianal_value;
             Debug.Log(anxiety_change_value);
             StaticEventHandler.CallCommit(anxiety_change_value);
 
-
-            DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);
+            DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
             
         }
         else
