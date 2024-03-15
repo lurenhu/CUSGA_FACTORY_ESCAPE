@@ -1,15 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
-
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+
 using static System.Net.Mime.MediaTypeNames;
 
 public class tongyi_AI : MonoBehaviour
@@ -19,24 +16,18 @@ public class tongyi_AI : MonoBehaviour
     [SerializeField] public Button send_button;
     public GameObject input_field;
     [Header("Ai设置")]
-    [Header("机器人ID")]
-    [SerializeField] public string character_id = "e7cd826cf38f470797c3593ee822341f";
-    [Header("用户cookie")]
-    //public  string CookieValue = "b-user-id=d968b1f3-c59c-5545-1f08-8abe63838109; app-satoken=6a905cdc-ca23-4b98-8ddb-71431b0729fc; Hm_lvt_11ee634290fd232d05132bc7c7c9ad3b=1708756486,1708909854; Hm_lpvt_11ee634290fd232d05132bc7c7c9ad3b=1708911528";
+        
+    [Header("用户cookie")]    
     public string Apikey = "lm-dXxiQGyE363suBUpwRUMMQ==";
-    public static tongyi_AI instance;
-    DialogSystem DialogSystem = DialogSystem.instance;
-    /// <summary>
-    /// 获取的文字在content里
-    /// 
-    /// </summary>
-
+    [Header("机器人id的管理")]
+    public robotCollection[] robots;    
     [Header("对接用变量")]
     public int anxiety_change_value = 0;
 
+    public static tongyi_AI instance;
+
     private void Awake()   //单例的默认写法
     {
-
         if (instance != null)
         {
             Destroy(this);
@@ -46,47 +37,48 @@ public class tongyi_AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //给button绑方法,确定机器人id
         setChatUIActive(true);
-        send_button.onClick.AddListener(delegate {sendMessage(character_id);});
-        
+        string name = "焦虑评估器";
+        robotCollection bot = Array.Find(robots, x => x.name == name);
+        if (bot == null)
+        {
+            Debug.Log("Not found");
+        }
+        else
+        {
+            
+            send_button.onClick.AddListener(delegate { sendMessage(bot); });
+        }                           
     }
 
     public void setChatUIActive(bool activeSelf)
     {   
-        
         input_field.SetActive(activeSelf);
     }
 
-    public async void  sendMessage(string bot_id)
-    {
-        
+    //获取内容兼发送
+    public async void  sendMessage(robotCollection bot)
+    {        
         if (chat_input_field.text.Equals(""))
             return;
         string content = chat_input_field.text;     //在这里获取文本的信息
         Debug.Log(content);
-        chat_input_field.text = "";
-        await PostMessage(bot_id,content);
-        
+        chat_input_field.text = "";        
+        await PostMessage(bot,content);      
 
     }
-    public async  Task PostMessage(string bot_id,string message)
+    //根据bot_name选择发送的requestBody
+    public async  Task PostMessage(robotCollection bot, string message)
     {
         Debug.Log("post");
-        StartCoroutine(SendRequest(bot_id,message));
-    }
-
-    private IEnumerator SendRequest(string bot_id, string message)
-    {
-        string Url = "https://nlp.aliyuncs.com/v2/api/chat/send";
-        // 创建一个UnityWebRequest对象，指定请求方法为POST
-        UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");
-        
+        string bot_name = bot.name;
+        string bot_id = bot.botid;
         // 构建请求消息
-        
-        int seed = 1683806810;
-
-        var requestBody = string.Format(@"{{
+        if (bot_name == "焦虑评估器")
+        {
+            int seed = 1683806810;
+            var requestBody = string.Format(@"{{
     ""input"": {{
         ""messages"": [
             {{
@@ -153,8 +145,19 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
+            StartCoroutine(SendRequest(requestBody));
+        }
+        else
+        {
+            Debug.Log($"bot_name:{bot_name}");
+        }
+    }
 
-
+    private IEnumerator SendRequest(string requestBody)
+    {
+        string Url = "https://nlp.aliyuncs.com/v2/api/chat/send";
+        // 创建一个UnityWebRequest对象，指定请求方法为POST
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");        
         // 将请求内容序列化为JSON字符串
         //string json = JsonConvert.SerializeObject(requestBody);
 
@@ -165,8 +168,7 @@ public class tongyi_AI : MonoBehaviour
 
         // 设置请求头
         request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Authorization", $"Bearer {Apikey}");
-        //request.SetRequestHeader("Expect", "");
+        request.SetRequestHeader("Authorization", $"Bearer {Apikey}");        
         request.SetRequestHeader("Accept", "text/event-stream;charset=UTF-8");
         request.SetRequestHeader("X-AcA-DataInspection", "enable");
         request.SetRequestHeader("X-AcA-SSE", "enable");
@@ -182,9 +184,7 @@ public class tongyi_AI : MonoBehaviour
             //Debug.Log("成功发送信息！");
             //Debug.Log("响应内容：" + responseContent);
             string[] content_list = responseContent.Split("data:");
-            string json = content_list[content_list.Length-1];
-
-                      
+            string json = content_list[content_list.Length-1];                      
             //整理成json格式
             //ChatCompletion chatCompletion = JsonConvert.DeserializeObject<ChatCompletion>(responseContent);
 
