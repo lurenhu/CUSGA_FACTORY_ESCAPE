@@ -8,7 +8,6 @@ public class BeClocked : MonoBehaviour
 
     public void InitializeBeClocked(Node timingNode)
     {
-        Debug.Log(1);
         this.timingNode = timingNode;
     }
 

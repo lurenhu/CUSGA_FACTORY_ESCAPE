@@ -33,7 +33,7 @@ public class SyntheticPicture : MonoBehaviour
 
         if (targetNode != null)
         {
-            if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging) return;
+            if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging || myNode.isDragging) return;
 
             if (collision.transform.GetComponent<Node>() == targetNode)
             {

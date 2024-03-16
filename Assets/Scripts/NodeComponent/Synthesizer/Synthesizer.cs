@@ -27,7 +27,7 @@ public class Synthesizer : MonoBehaviour
 
         if (targetNode != null)
         {
-            if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging) return;
+            if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging || myNode.isDragging) return;
 
             if (collision.transform.GetComponent<Node>() == targetNode)
             {
@@ -37,6 +37,25 @@ public class Synthesizer : MonoBehaviour
             }
         }
     }
+
+    private void OnMouseUp()
+    {
+        if (myNode.isPopping) return;
+        if (myNode.isDragging) myNode.isDragging = false;
+
+        if (myNode.isSelected)
+        {
+            // 节点交互内容
+        }
+        else
+        {
+            // 删除其他所有节点的选中状态
+            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+
+            myNode.isSelected = true;
+        }
+    }
+
 
     private void MergeTowNode()
     {

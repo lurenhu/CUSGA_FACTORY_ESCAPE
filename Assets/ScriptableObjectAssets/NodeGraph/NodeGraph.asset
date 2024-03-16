@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5582586766586813411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749c1b731ef51df428ae1af9aa3adb60, type: 3}
+  m_Name: QuickClick
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 1a7023a3-a732-4da8-8484-ab15de46f121
+  parentNodeIdList:
+  - 9659a26d-be6d-4057-a23a-0e6cbd41fe23
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 743
+    y: 145
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  ClickNumber: 10
+--- !u!114 &-4862410811164337816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 9c686d82-d0b8-4641-a27e-44c277950e9d
+  parentNodeIdList:
+  - ab14c207-133b-4edd-8fd8-2422e1fde278
+  childrenNodeIdList: []
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1337
+    y: 35
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
 --- !u!114 &-4518560241369936247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,12 +80,12 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 981
-    y: 717
+    y: 718
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: e6ec3d3d238d5114e9d36abb143faac6, type: 3}
 --- !u!114 &-4128675717348711350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,7 +109,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 554
-    y: 665
+    y: 666
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -81,11 +138,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 277
-    y: 248
+    y: 249
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0
   targetIdForStop: 4827e626-6054-4125-b943-ff29bd8774a1
   duration: 120
 --- !u!114 &-2701930034187282004
@@ -111,11 +168,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 256
-    y: 402
+    y: 403
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +200,9 @@ MonoBehaviour:
   - {fileID: 8664397470179283082}
   - {fileID: -2701930034187282004}
   - {fileID: -3512034001810253483}
+  - {fileID: -5582586766586813411}
+  - {fileID: 3414857723931030032}
+  - {fileID: -4862410811164337816}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
 --- !u!114 &151299770859242540
@@ -168,12 +228,12 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 630
-    y: 254
+    y: 255
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  cipherValues: 
+  cipherValues: 0000000000000000
 --- !u!114 &3257097806064287882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,11 +258,41 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 496
-    y: 447
+    y: 448
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
+--- !u!114 &3414857723931030032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbfe81157265d9419360da86d272101, type: 3}
+  m_Name: QTE
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: ab14c207-133b-4edd-8fd8-2422e1fde278
+  parentNodeIdList:
+  - 9659a26d-be6d-4057-a23a-0e6cbd41fe23
+  childrenNodeIdList:
+  - 9c686d82-d0b8-4641-a27e-44c277950e9d
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: f32e4007c658e8242a47d89adbba82e0, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1143
+    y: 116
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  direction: 0
 --- !u!114 &3509141743742763093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,13 +318,15 @@ MonoBehaviour:
   - e1eb9ecf-9810-4b5d-9fd4-1d2dc3d26a64
   - 35de3278-e2bb-411a-927f-00a97ea8a879
   - 188475d2-8b1c-4f6d-ac5c-a1ff55f9509f
+  - 1a7023a3-a732-4da8-8484-ab15de46f121
+  - ab14c207-133b-4edd-8fd8-2422e1fde278
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
     x: 808
-    y: 476
+    y: 477
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -262,12 +354,14 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1137
-    y: 636
+    y: 637
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  angles: []
+  angles:
+  - 0
+  - 0
 --- !u!114 &7361881588120613636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,12 +385,12 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1132
-    y: 455
+    y: 456
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 9d45ff9a9d1621e4db197b8e5f7b46ba, type: 3}
   targetIdForMerge: 4827e626-6054-4125-b943-ff29bd8774a1
 --- !u!114 &7448970159492922785
 MonoBehaviour:
@@ -321,7 +415,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1111
-    y: 298
+    y: 299
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -349,7 +443,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 766
-    y: 736
+    y: 737
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -377,7 +471,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1422
-    y: 412
+    y: 413
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -405,7 +499,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 891
-    y: 252
+    y: 253
     width: 160
     height: 100
   isLeftClickDragging: 0

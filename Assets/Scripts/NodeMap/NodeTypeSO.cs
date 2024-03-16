@@ -18,4 +18,6 @@ public class NodeTypeSO : ScriptableObject
     public bool isControllable;
     public bool isSyntheticPicture;
     public bool isTiming;
+    public bool isQuickClick;
+    public bool isQTE;
 }
