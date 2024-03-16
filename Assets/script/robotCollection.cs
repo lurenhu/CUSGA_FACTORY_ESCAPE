@@ -5,6 +5,11 @@ using UnityEngine;
 public class robotCollection
 {
     public string name;
-    public string botid;
+    public string botid; 
+    public robotCollection(string name, string botid)
+    {
+        this.name = name;
+        this.botid = botid;
+    }
 
 }
