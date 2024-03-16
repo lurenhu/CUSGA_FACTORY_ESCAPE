@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-
+using static sendBot;
 using static System.Net.Mime.MediaTypeNames;
-
+[System.Serializable]
 public class tongyi_AI : MonoBehaviour
 {
     [Header("Ui组件")]
@@ -16,13 +16,15 @@ public class tongyi_AI : MonoBehaviour
     [SerializeField] public Button send_button;
     public GameObject input_field;
     [Header("Ai设置")]
-        
+    public string name = "对话角色1";
     [Header("用户cookie")]    
     public string Apikey = "lm-dXxiQGyE363suBUpwRUMMQ==";
-    [Header("机器人id的管理")]
+    [Header("机器人id列表")]
     public robotCollection[] robots;    
     [Header("对接用变量")]
     public int anxiety_change_value = 0;
+    public string reply_text;
+    public bool reply_is_finished=false;
 
     public static tongyi_AI instance;
 
@@ -33,21 +35,25 @@ public class tongyi_AI : MonoBehaviour
             Destroy(this);
         }
         instance = this;
+        robots=new robotCollection[]
+            { 
+              new robotCollection("焦虑评估器","e7cd826cf38f470797c3593ee822341f"),
+              new robotCollection("对话角色1","89f40467361e43ecb565ab323063bea4")               
+            };
     }
     // Start is called before the first frame update
     void Start()
     {
         //给button绑方法,确定机器人id
         setChatUIActive(true);
-        string name = "焦虑评估器";
+        
         robotCollection bot = Array.Find(robots, x => x.name == name);
         if (bot == null)
         {
             Debug.Log("Not found");
         }
         else
-        {
-            
+        {            
             send_button.onClick.AddListener(delegate { sendMessage(bot); });
         }                           
     }
@@ -63,7 +69,7 @@ public class tongyi_AI : MonoBehaviour
         if (chat_input_field.text.Equals(""))
             return;
         string content = chat_input_field.text;     //在这里获取文本的信息
-        Debug.Log(content);
+        //Debug.Log(content);
         chat_input_field.text = "";        
         await PostMessage(bot,content);      
 
@@ -74,46 +80,14 @@ public class tongyi_AI : MonoBehaviour
         Debug.Log("post");
         string bot_name = bot.name;
         string bot_id = bot.botid;
+        float delay = 0.1f;
         // 构建请求消息
         if (bot_name == "焦虑评估器")
         {
             int seed = 1683806810;
             var requestBody = string.Format(@"{{
     ""input"": {{
-        ""messages"": [
-            {{
-                ""name"": ""陶特"",
-                ""role"": ""user"",
-                ""content"": ""你正在和用户聊天，用户是你的主人。在接下来的对话中，请遵循以下要求：
-1.请评估用户的话是否对你起到了安慰作用
-2.如果用户的话语安慰了你，请回复焦虑降低的程度，从1~10中回复一个数字，格式为，焦虑值下降x
-3.请专注于判断并回复焦虑值，不用生成多余的内容""
-            }},
-            {{
-                ""name"": ""823"",
-                ""role"": ""assistant"",
-                ""content"": ""焦虑值上升5""
-            }},
-            {{
-                ""name"": ""陶特"",
-                ""role"": ""user"",
-                ""content"": ""评估消息焦虑值：放心，我会带你出去的""
-            }},
-            {{
-                ""name"": ""823"",
-                ""role"": ""assistant"",
-                ""content"": ""焦虑值下降8""
-            }},
-            {{
-                ""name"": ""陶特"",
-                ""role"": ""user"",
-                ""content"": ""评估消息焦虑值：你真是个废物""
-            }},
-            {{
-                ""name"": ""823"",
-                ""role"": ""assistant"",
-                ""content"": ""焦虑值上升6""
-            }},
+        ""messages"": [            
             {{
                 ""name"": ""陶特"",
                 ""role"": ""user"",
@@ -145,15 +119,70 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
+            StartCoroutine(SendRequest(requestBody));            
+            while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
+            check_anxiety_change();            
+            reply_is_finished = false;
+
+        }
+        else if (bot_name == "对话角色1")
+        {
+            int seed = 1683806810;
+            var requestBody = string.Format(@"{{
+    ""input"": {{
+        ""messages"": [            
+            {{
+                ""name"": ""陶特"",
+                ""role"": ""user"",
+                ""content"": ""{0}""
+            }}
+        ],
+        ""aca"": {{
+            ""botProfile"": {{
+                ""characterId"": ""{1}"",
+                ""version"": 1
+            }},
+            ""userProfile"": {{
+                ""userId"": ""123456789"",
+                ""userName"": ""云账号名称"",
+                ""basicInfo"": """"
+            }},
+            ""scenario"": {{
+                ""description"": ""我是陶特，是你的朋友""
+            }},
+            ""context"": {{
+                ""useChatHistory"": false,
+                ""isRegenerate"": true,
+                ""queryId"": ""fd26039ac11f4ca0960a66d7c0520091""
+            }}
+        }}
+    }},
+    ""parameters"": {{
+        ""seed"": {2},
+        ""incrementalOutput"": false
+    }}
+}}", message, bot_id, seed);
             StartCoroutine(SendRequest(requestBody));
+
+            //将获取的信息发去评估焦虑
+            while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
+            string name = "焦虑评估器";
+            robotCollection bot1 = Array.Find(robots, x => x.name == name);
+            reply_is_finished = false;
+            await PostMessage(bot1, reply_text);
+            
+            
+
         }
         else
         {
             Debug.Log($"bot_name:{bot_name}");
+            
         }
+        
     }
 
-    private IEnumerator SendRequest(string requestBody)
+    private IEnumerator  SendRequest(string requestBody)
     {
         string Url = "https://nlp.aliyuncs.com/v2/api/chat/send";
         // 创建一个UnityWebRequest对象，指定请求方法为POST
@@ -181,8 +210,7 @@ public class tongyi_AI : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseContent = request.downloadHandler.text;
-            //Debug.Log("成功发送信息！");
-            //Debug.Log("响应内容：" + responseContent);
+            
             string[] content_list = responseContent.Split("data:");
             string json = content_list[content_list.Length-1];                      
             //整理成json格式
@@ -192,60 +220,46 @@ public class tongyi_AI : MonoBehaviour
             var jsonObject = JObject.Parse(json);
 
             // 提取所需的字符串
-            string reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
-            Debug.Log(reply_text);
-            string text;
-            reply_text.Replace("了", "");
-            //int anxiety_change_value=0;
-            if (reply_text.Contains("焦虑值")&& reply_text.Contains("降"))
-            {
-                
-                // 定义包含文本的字符串
-                text = "降";
-                // 使用正则表达式提取数字                
-                Match match = Regex.Match(reply_text, @"降(\d+)");
-                if (match.Success)
-                {
-                    string result = match.Groups[1].Value;
-                    anxiety_change_value = 0 - int.Parse(result);
-                }
-                
-            }
-            else if (reply_text.Contains("焦虑值") && reply_text.Contains("升"))
-            {
-
-                // 定义包含文本的字符串
-                text = "升";
-                // 使用正则表达式提取数字                
-                Match match = Regex.Match(reply_text, @"升(\d+)");
-                if (match.Success)
-                {
-                    string result = match.Groups[1].Value;
-                    anxiety_change_value = 0 + int.Parse(result);
-                }
-
-            }
-            else
-            {
-                anxiety_change_value = 0;
-                text = "寄"; 
-            }
-            //Debug.Log(anxiety_change_value);
-            System.Random random = new System.Random();
-            int multiplier = 10;  // 扩大的倍数
-            double randomMultiplier = random.NextDouble() * 0.2 + 0.9;  // 生成随机浮动倍数（范围为0.9到1.1之间）
-
-            double fianal_value = anxiety_change_value * multiplier * randomMultiplier;
-            anxiety_change_value=(int)fianal_value;
-            Debug.Log(anxiety_change_value);
-            StaticEventHandler.CallCommit(anxiety_change_value);
-
+            reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
+            Debug.Log(reply_text);  
+            reply_is_finished = true;
             DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
-            
+           
         }
         else
         {
             Debug.Log("请求失败，状态码：" + request.responseCode);
         }
+    }
+    private async void check_anxiety_change()
+    {
+        Debug.Log("check_anxiety_change");
+        
+        string text;
+        reply_text.Replace("了", "");
+        //int anxiety_change_value=0;
+        if (reply_text.Contains("焦虑值"))
+        {            
+            // 使用正则表达式提取数字                
+            Match match = Regex.Match(reply_text, @"为(\d+)");
+            if (match.Success)
+            {
+                string result = match.Groups[1].Value;
+                anxiety_change_value = 0 - int.Parse(result);
+            }
+        }        
+        else
+        {
+            anxiety_change_value = 0;            
+        }
+        Debug.Log(anxiety_change_value);
+        System.Random random = new System.Random();
+        int multiplier = 10;  // 扩大的倍数
+        double randomMultiplier = random.NextDouble() * 0.2 + 0.9;  // 生成随机浮动倍数（范围为0.9到1.1之间）
+
+        double fianal_value = anxiety_change_value * multiplier * randomMultiplier;
+        anxiety_change_value = (int)fianal_value;
+        Debug.Log($"anxiety_change_value:{anxiety_change_value}");
+        StaticEventHandler.CallCommit(anxiety_change_value);
     }
 }

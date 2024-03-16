@@ -139,7 +139,7 @@ public class DialogSystem : MonoBehaviour
         instance.text_list.Clear();
         instance.name_list.Clear();
         instance.image_list.Clear();
-        Debug.Log("closeUi");
+        //Debug.Log("closeUi");
         instance.talk_ui.SetActive(false);
     }
     static public bool updateText()   //更新输出文字

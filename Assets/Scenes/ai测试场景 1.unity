@@ -643,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540603903847987980, guid: 1ad6a224445e7ed4f97cafafdef6ce8d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 64.70435
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3540603903847987980, guid: 1ad6a224445e7ed4f97cafafdef6ce8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -726,14 +726,15 @@ MonoBehaviour:
   chat_input_field: {fileID: 869987142}
   send_button: {fileID: 869987141}
   input_field: {fileID: 869987140}
+  name: "\u5BF9\u8BDD\u89D2\u82721"
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
   robots:
   - name: "\u7126\u8651\u8BC4\u4F30\u5668"
     botid: e7cd826cf38f470797c3593ee822341f
   - name: "\u5BF9\u8BDD\u89D2\u82721"
     botid: 89f40467361e43ecb565ab323063bea4
-  character_id1: 
-  character_id2: e7cd826cf38f470797c3593ee822341f
+  - name: 
+    botid: 
   anxiety_change_value: 0
 --- !u!4 &1182518506
 Transform:
@@ -1012,8 +1013,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 44, y: -189}
-  m_SizeDelta: {x: 4445.5, y: 218.96}
+  m_AnchoredPosition: {x: 44, y: -150.37}
+  m_SizeDelta: {x: 4445.5, y: 711.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3952574965763013681
 GameObject:
@@ -1055,7 +1056,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1163,7 +1164,7 @@ GameObject:
   - component: {fileID: 6733522371736873351}
   - component: {fileID: 3979399020068851877}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: "\u5BF9\u8BDD\u5185\u5BB9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
