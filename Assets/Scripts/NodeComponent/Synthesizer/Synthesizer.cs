@@ -27,7 +27,7 @@ public class Synthesizer : MonoBehaviour
 
         if (targetNode != null)
         {
-            if (hasSynthesized || targetNode.isPopping || myNode.isPopping) return;
+            if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging) return;
 
             if (collision.transform.GetComponent<Node>() == targetNode)
             {
@@ -41,6 +41,7 @@ public class Synthesizer : MonoBehaviour
     private void MergeTowNode()
     {
         targetNode.gameObject.SetActive(false);
+        LineCreator.Instance.DeleteLine(targetNode);
 
         myNode.PopUpChildNode(myNode.nodeInfos);
     }

@@ -30,7 +30,7 @@ public class Node : MonoBehaviour
     {
         id = nodeSO.id;
         nodeText = nodeSO.nodeText;
-        childIdList = nodeSO.childrenNodeIdList;
+        childIdList = CopyStringList(nodeSO.childrenNodeIdList);
         rect = nodeSO.rect;
         nodeType = nodeSO.nodeType;
 
@@ -45,29 +45,6 @@ public class Node : MonoBehaviour
         LoadNodeInfo();
     }
     
-    private void LoadNodeInfo()
-    {
-        if (childIdList == null)
-        {
-            return;
-        }
-
-        foreach (string childNodeID in childIdList)
-        {
-            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
-
-            Vector2 direction = (rect.center - childNode.rect.center).normalized;
-
-            NodeInfo newNodeInfo = new NodeInfo()
-            {
-                node = childNode,
-                direction = direction
-            };
-
-            nodeInfos.Add(newNodeInfo);
-        }
-    }
-
     protected virtual void OnMouseDrag() 
     {
         if (isPopping) return;
@@ -89,7 +66,6 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-            //currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
             LineCreator.Instance.CreateLine(currentNode);
 
@@ -127,7 +103,46 @@ public class Node : MonoBehaviour
             });
     }
 
-    
+    /// <summary>
+    /// 导入需要弹出的子节点集
+    /// </summary>
+    private void LoadNodeInfo()
+    {
+        if (childIdList == null)
+        {
+            return;
+        }
+
+        foreach (string childNodeID in childIdList)
+        {
+            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
+
+            Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (childNode.rect.center - rect.center).y).normalized;
+
+            NodeInfo newNodeInfo = new NodeInfo()
+            {
+                node = childNode,
+                direction = direction
+            };
+
+            nodeInfos.Add(newNodeInfo);
+        }
+    }
+
+    /// <summary>
+    /// 复制字符串列表
+    /// </summary>
+                
+    private List<string> CopyStringList(List<string> oldStringList)
+    {
+        List<string> newStringList = new List<string>();
+
+        foreach (string stringValue in oldStringList)
+        {
+            newStringList.Add(stringValue);
+        }
+        return newStringList;
+    }
 
 }
 
@@ -138,36 +153,36 @@ public class NodeInfo
     public Vector2 direction;// 弹出方向偏移距离
 }
 
-[Serializable]
-public class NodeProperty
-{
-    public string id;
-    public string nodeText;
-    public string parentID;
-    public List<string> childIdList;
-    [HideInInspector] public Rect rect;
-    [HideInInspector] public GameObject nodePrefab;
-    [HideInInspector] public Node node;
-    [HideInInspector] public NodeTypeSO nodeType;
+// [Serializable]
+// public class NodeProperty
+// {
+//     public string id;
+//     public string nodeText;
+//     public string parentID;
+//     public List<string> childIdList;
+//     [HideInInspector] public Rect rect;
+//     [HideInInspector] public GameObject nodePrefab;
+//     [HideInInspector] public Node node;
+//     [HideInInspector] public NodeTypeSO nodeType;
 
 
-    [Space(10)]
-    [Header("合成节点数据")]
-    public string targetNodeID;
+//     [Space(10)]
+//     [Header("合成节点数据")]
+//     public string targetNodeID;
 
-    [Space(10)]
-    [Header("锁节点数据")]
-    public List<int> cipherValues;
+//     [Space(10)]
+//     [Header("锁节点数据")]
+//     public List<int> cipherValues;
 
-    [Space(10)]
-    [Header("图片节点数据")]
-    public Sprite image;
+//     [Space(10)]
+//     [Header("图片节点数据")]
+//     public Sprite image;
 
-    [Space(10)]
-    [Header("角度锁节点数据")]
-    public List<float> angles;
+//     [Space(10)]
+//     [Header("角度锁节点数据")]
+//     public List<float> angles;
 
-    [Space(10)]
-    [Header("探测节点数据")]  
-    public string targetIDForDetection;
-}
+//     [Space(10)]
+//     [Header("探测节点数据")]  
+//     public string targetIDForDetection;
+// }

@@ -15,18 +15,18 @@ using UnityEngine.UI;
 
 public class ai : MonoBehaviour
 {
-    [Header("Ui×é¼þ")]
+    [Header("Uiï¿½ï¿½ï¿½")]
     [SerializeField] public InputField chat_input_field;
     [SerializeField] public Button send_button;
     public GameObject input_field;
-    [Header("AiÉèÖÃ")]
-    [Header("»úÆ÷ÈËID")]
+    [Header("Aiï¿½ï¿½ï¿½ï¿½")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID")]
     [SerializeField] public long bot_id;
-    [Header("ÓÃ»§cookie")]
+    [Header("ï¿½Ã»ï¿½cookie")]
     //public  string CookieValue = "b-user-id=d968b1f3-c59c-5545-1f08-8abe63838109; app-satoken=6a905cdc-ca23-4b98-8ddb-71431b0729fc; Hm_lvt_11ee634290fd232d05132bc7c7c9ad3b=1708756486,1708909854; Hm_lpvt_11ee634290fd232d05132bc7c7c9ad3b=1708911528";
     public string Apikey = "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";
     /// <summary>
-    /// »ñÈ¡µÄÎÄ×ÖÔÚcontentÀï
+    /// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½contentï¿½ï¿½
     /// 
     /// </summary>
 
@@ -57,7 +57,7 @@ public class ai : MonoBehaviour
         
         if (chat_input_field.text.Equals(""))
             return;
-        string content = chat_input_field.text;     //ÔÚÕâÀï»ñÈ¡ÎÄ±¾µÄÐÅÏ¢
+        string content = chat_input_field.text;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
         Debug.Log(content);
         chat_input_field.text = "";
         await PostMessage(content);
@@ -73,13 +73,13 @@ public class ai : MonoBehaviour
     private IEnumerator SendRequest(string message)
     {
         string Url = "https://api.openai.com/v1/chat/completions";
-        // ´´½¨Ò»¸öUnityWebRequest¶ÔÏó£¬Ö¸¶¨ÇëÇó·½·¨ÎªPOST
+        // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½UnityWebRequestï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ó·½·ï¿½ÎªPOST
         UnityWebRequest request = UnityWebRequest.PostWwwForm(Url, "");
 
-        // ¹¹½¨ÇëÇóÏûÏ¢
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
         var requestBody = new
         {
-            messages = new[]//chatgptµÄmessagesÅäÖÃ
+            messages = new[]//chatgptï¿½ï¿½messagesï¿½ï¿½ï¿½ï¿½
             {
                 new { role = "system", content = "You are a helpful assistant." },
                 new { role = "user", content = message }
@@ -88,32 +88,32 @@ public class ai : MonoBehaviour
             model = "gpt-3.5-turbo"
         };
 
-        // ½«ÇëÇóÄÚÈÝÐòÁÐ»¯ÎªJSON×Ö·û´®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ÎªJSONï¿½Ö·ï¿½ï¿½ï¿½
         string json = JsonConvert.SerializeObject(requestBody);
 
-        // ½«JSON×Ö·û´®×÷ÎªÇëÇóÌåÄÚÈÝ
+        // ï¿½ï¿½JSONï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
 
-        // ÉèÖÃÇëÇóÍ·
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Authorization", $"Bearer {Apikey}");
 
-        // ·¢ËÍÇëÇó²¢µÈ´ý·µ»Ø
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó²¢µÈ´ï¿½ï¿½ï¿½ï¿½ï¿½
         yield return request.SendWebRequest();
 
-        // ´¦Àí·µ»Ø½á¹û
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseContent = request.downloadHandler.text;
-            Debug.Log("³É¹¦·¢ËÍÐÅÏ¢£¡");
-            Debug.Log("ÏìÓ¦ÄÚÈÝ£º" + responseContent);
+            Debug.Log("ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½");
+            Debug.Log("ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ý£ï¿½" + responseContent);
 
             //string jsonString = "{ \"id\": \"chatcmpl-8yMXg6UFUecHISzgTaCijmCmCPnFV\", \"object\": \"chat.completion\", \"created\": 1709397024, \"model\": \"gpt-3.5-turbo-0125\", \"choices\": [ { \"index\": 0, \"message\": { \"role\": \"assistant\", \"content\": \"How can I assist you today?\" }, \"logprobs\": null, \"finish_reason\": \"stop\" } ], \"usage\": { \"prompt_tokens\": 18, \"completion_tokens\": 7, \"total_tokens\": 25 }, \"system_fingerprint\": \"fp_2b778c6b35\" }";
 
             ChatCompletion chatCompletion = JsonConvert.DeserializeObject<ChatCompletion>(responseContent);
 
-            // ÌáÈ¡ÄÚÈÝ×Ö¶Î
+            // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
             string content = chatCompletion.choices[0].message.content;
 
 
@@ -121,14 +121,14 @@ public class ai : MonoBehaviour
         }
         else
         {
-            Debug.Log("ÇëÇóÊ§°Ü£¬×´Ì¬Âë£º" + request.responseCode);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½×´Ì¬ï¿½ë£º" + request.responseCode);
         }
     }
 
     public class ChatCompletion
     {
         public string id { get; set; }
-        public string objectType { get; set; } // ½« "object" ¸ÄÎªÆäËû±êÊ¶·û£¬Èç "objectType"
+        public string objectType { get; set; } // ï¿½ï¿½ "object" ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "objectType"
         public long created { get; set; }
         public string model { get; set; }
         public Choice[] choices { get; set; }

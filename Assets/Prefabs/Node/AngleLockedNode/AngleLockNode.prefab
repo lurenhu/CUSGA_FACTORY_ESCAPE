@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -738469723
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.30570465, g: 0.8207547, b: 0.19744569, a: 1}
   m_FlipX: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   nodeText: 
   parentID: 
   childIdList: []
+  nodeInfos: []
   rect:
     serializedVersion: 2
     x: 0
@@ -189,7 +190,6 @@ MonoBehaviour:
   nodePrefab: {fileID: 0}
   node: {fileID: 0}
   nodeType: {fileID: 0}
-  nodeInfos: []
 --- !u!114 &5784721650558823759
 MonoBehaviour:
   m_ObjectHideFlags: 0

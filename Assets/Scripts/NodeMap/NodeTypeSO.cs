@@ -16,4 +16,6 @@ public class NodeTypeSO : ScriptableObject
     public bool isAngleLock;
     public bool isProbe;
     public bool isControllable;
+    public bool isSyntheticPicture;
+    public bool isTiming;
 }

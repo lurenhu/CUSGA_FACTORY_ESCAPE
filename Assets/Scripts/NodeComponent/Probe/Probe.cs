@@ -15,7 +15,7 @@ public class Probe : MonoBehaviour
 
     public Transform target; // 目标位置
     public float detectionDistance = 10f; // 检测距离
-    public float interactiveDistance = 5f; // 交互距离
+    public float interactiveDistance = 3f; // 交互距离
 
     private bool isBlinking = false;
 
@@ -36,7 +36,7 @@ public class Probe : MonoBehaviour
     
     void Update()
     {
-        if (NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(targetNodeID, out Node targetNode) && target == null)
+        if (NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(targetNodeID, out Node targetNode) && target == null && !myNode.isPopping)
         {
             target = targetNode.transform;
         }
@@ -52,7 +52,7 @@ public class Probe : MonoBehaviour
             else if (distance < interactiveDistance)
             {
                 StopBlink();
-                
+                target.gameObject.SetActive(true);
             }
         }
     }

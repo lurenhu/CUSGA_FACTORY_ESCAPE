@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -738469723
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7314051, g: 0.30286577, b: 0.7735849, a: 1}
   m_FlipX: 0
@@ -171,30 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweenDuring: 0.5
-  popUpForce: 3
   isPopping: 0
   isDragging: 0
   isSelected: 0
   hasPopUp: 0
   id: 
-  nodeProperty:
-    rect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    id: 
-    nodeText: 
-    parentID: 
-    childIdList: []
-    nodePrefab: {fileID: 0}
-    node: {fileID: 0}
-    nodeType: {fileID: 0}
-    targetNodeID: 
-    cipherNumber: 0
-    cipherValues: 
-    image: {fileID: 0}
-    angles: []
+  nodeText: 
+  parentID: 
+  childIdList: []
   nodeInfos: []
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  nodePrefab: {fileID: 0}
+  node: {fileID: 0}
+  nodeType: {fileID: 0}

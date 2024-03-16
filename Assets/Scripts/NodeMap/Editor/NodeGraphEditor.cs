@@ -304,10 +304,13 @@ public class NodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("创建角度锁节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAngleLock)));
 
         menu.AddSeparator("");
+
         menu.AddItem(new GUIContent("创建图节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isGraph)));
         menu.AddItem(new GUIContent("创建探测节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isProbe)));
         menu.AddItem(new GUIContent("创建合成节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isSynthetic)));
         menu.AddItem(new GUIContent("创建可控制节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isControllable)));
+        menu.AddItem(new GUIContent("创建合成图片节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isSyntheticPicture)));
+        menu.AddItem(new GUIContent("创建计时节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isTiming)));
 
         menu.AddSeparator("");
 
@@ -498,6 +501,20 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isControllable)
         {
             ControllableNodeSO node = ScriptableObject.CreateInstance<ControllableNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isSyntheticPicture)
+        {
+            SyntheticPictureNodeSO node = ScriptableObject.CreateInstance<SyntheticPictureNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isTiming)
+        {
+            TimingNodeSO node = ScriptableObject.CreateInstance<TimingNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

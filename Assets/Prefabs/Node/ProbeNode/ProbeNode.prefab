@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8737875063235250374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39612284, y: -3.1553915, z: -0.014639346}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -738469723
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.9140164, b: 0.4198113, a: 1}
   m_FlipX: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   nodeText: 
   parentID: 
   childIdList: []
+  nodeInfos: []
   rect:
     serializedVersion: 2
     x: 0
@@ -189,7 +190,6 @@ MonoBehaviour:
   nodePrefab: {fileID: 0}
   node: {fileID: 0}
   nodeType: {fileID: 0}
-  nodeInfos: []
 --- !u!114 &6008236954756370191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2655deab991f4eaa07054ea6d6757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blinkSpeed: 0.5
+  targetColor: {r: 0, g: 1, b: 0, a: 1}
+  target: {fileID: 0}
+  detectionDistance: 10
+  interactiveDistance: 3

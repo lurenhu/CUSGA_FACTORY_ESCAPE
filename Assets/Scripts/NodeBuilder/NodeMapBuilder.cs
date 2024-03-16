@@ -34,7 +34,10 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         {
             NodeData currentNode = nodeProperties.Dequeue();
 
-            GameObject nodeGameObject = Instantiate(currentNode.nodePrefab,transform.position,Quaternion.identity,transform);
+            Vector2 offset = HelperUtility.TranslateScreenToWorld(currentNode.nodeSO.rect.center);
+            Vector2 spawnPosition = new Vector2(offset.x, -offset.y);
+
+            GameObject nodeGameObject = Instantiate(currentNode.nodePrefab,spawnPosition,Quaternion.identity,transform);
 
             if (!currentNode.nodeSO.nodeType.isEntrance)
             {
@@ -79,7 +82,8 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         }
         else if (currentNode.nodeType.isControllable)
         { 
-
+            Controllable controllable = nodeGameObject.GetComponent<Controllable>();
+            controllable.InitializeControllable(currentNode);
         }
         else if (currentNode.nodeType.isProbe)
         {
@@ -90,6 +94,16 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         {
             Synthesizer synthesizer = nodeGameObject.GetComponent<Synthesizer>();
             synthesizer.InitializeSynthesizer(currentNode);
+        }
+        else if (currentNode.nodeType.isSyntheticPicture)
+        {
+            SyntheticPicture syntheticPicture = nodeGameObject.GetComponent<SyntheticPicture>();
+            syntheticPicture.InitializeSyntheticPicture(currentNode);
+        }
+        else if (currentNode.nodeType.isTiming)
+        {
+            Timing timing = nodeGameObject.GetComponent<Timing>();
+            timing.InitializeTiming(currentNode);
         }
     }
 
@@ -121,19 +135,6 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     private void ProcessNodeInTempNodeQueue(NodeGraphSO nodeGraph, Queue<NodeSO> tempNodeQueue)
     {
-        // 加入独立的节点
-        foreach (NodeSO nodeSO in nodeGraph.nodeList)
-        {
-            if (nodeSO.parentNodeIdList.Count == 0 && !nodeSO.nodeType.isEntrance)
-            {
-                NodeTemplateSO nodeTemplate = GetNodeTemplate(nodeSO.nodeType);
-
-                NodeData nodeData = CreateNodeFromNodeTemplate(nodeSO,nodeTemplate);
-
-                nodeProperties.Enqueue(nodeData);
-            }
-        }
-
         // 加入整个节点树中的节点
         while (tempNodeQueue.Count > 0)
         {
@@ -149,6 +150,19 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             NodeData nodeData = CreateNodeFromNodeTemplate(currentNode,nodeTemplate);
 
             nodeProperties.Enqueue(nodeData);
+        }
+
+        // 加入独立的节点
+        foreach (NodeSO nodeSO in nodeGraph.nodeList)
+        {
+            if (nodeSO.parentNodeIdList.Count == 0 && !nodeSO.nodeType.isEntrance)
+            {
+                NodeTemplateSO nodeTemplate = GetNodeTemplate(nodeSO.nodeType);
+
+                NodeData nodeData = CreateNodeFromNodeTemplate(nodeSO,nodeTemplate);
+
+                nodeProperties.Enqueue(nodeData);
+            }
         }
     }
 
@@ -182,16 +196,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         return null;
     }
 
-    private List<string> CopyStringList(List<string> oldStringList)
-    {
-        List<string> newStringList = new List<string>();
-
-        foreach (string stringValue in oldStringList)
-        {
-            newStringList.Add(stringValue);
-        }
-        return newStringList;
-    }
+    
 
     public void ClearAllSelectedNode(Node node)
     {

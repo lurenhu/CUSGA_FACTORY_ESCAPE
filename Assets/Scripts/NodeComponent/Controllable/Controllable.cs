@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +17,29 @@ public class Controllable : MonoBehaviour
     private Node myNode;
     private SpringJoint2D springJoint;
     private GameObject line;
+    private string targetNodeID;
+    private float speedToPop;
+    private bool hasSetSpeed = false;
 
     private void Start() {
         InitializeReference();
     }
 
+    /// <summary>
+    /// 传递编辑器参数至可控制节点
+    /// </summary>
+    public void InitializeControllable(NodeSO node)
+    {
+        ControllableNodeSO controllableNode = (ControllableNodeSO)node;
+
+        targetNodeID = controllableNode.collidedNodeId;
+        speedToPop = controllableNode.speedToPop;
+
+    }
+
+    /// <summary>
+    /// 初始化可控制节点相关参数
+    /// </summary>
     private void InitializeReference()
     {
         GameObject hammer = Instantiate(hammerPrefab, transform.position, Quaternion.identity, NodeMapBuilder.Instance.transform);
@@ -42,7 +61,12 @@ public class Controllable : MonoBehaviour
     {
         // 限制速度
         LimitVelocity();
+
+        // 给目标节点添加速度检测
+        if (!hasSetSpeed)
+            AddSpeedDetectorToTargetNode();
     }
+
 
     private void OnMouseUp() 
     {
@@ -69,6 +93,25 @@ public class Controllable : MonoBehaviour
         if (velocity.magnitude > maxSpeed)
         {
             BeControlledRb.velocity = velocity.normalized * maxSpeed;
+        }
+    }
+
+    
+    private void AddSpeedDetectorToTargetNode()
+    {
+        NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(targetNodeID,out Node targetNode);
+        if (targetNode != null)
+        {
+            targetNode.transform.GetComponent<BoxCollider2D>().isTrigger = false;
+
+            SpeedDetector speedDetector = targetNode.gameObject.AddComponent<SpeedDetector>();
+            speedDetector.SetSpeedToPop(speedToPop);
+
+            hasSetSpeed = true;
+        }
+        else
+        {
+            Debug.LogError("目标节点不存在");
         }
     }
 }
