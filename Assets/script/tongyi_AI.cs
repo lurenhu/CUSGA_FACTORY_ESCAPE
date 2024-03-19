@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using static sendBot;
 using static System.Net.Mime.MediaTypeNames;
 [System.Serializable]
 public class tongyi_AI : MonoBehaviour
@@ -68,8 +67,8 @@ public class tongyi_AI : MonoBehaviour
     {        
         if (chat_input_field.text.Equals(""))
             return;
-        string content = chat_input_field.text;     //在这里获取文本的信息
-        //Debug.Log(content);
+        string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        
+        getText.WriteText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
         await PostMessage(bot,content);      
 
@@ -105,7 +104,7 @@ public class tongyi_AI : MonoBehaviour
                 ""basicInfo"": """"
             }},
             ""scenario"": {{
-                ""description"": ""我是陶特，是你的主人""
+                ""description"": ""我是你的主人""
             }},
             ""context"": {{
                 ""useChatHistory"": false,
@@ -163,14 +162,13 @@ public class tongyi_AI : MonoBehaviour
     }}
 }}", message, bot_id, seed);
             StartCoroutine(SendRequest(requestBody));
-
+            
             //将获取的信息发去评估焦虑
             while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
             string name = "焦虑评估器";
             robotCollection bot1 = Array.Find(robots, x => x.name == name);
             reply_is_finished = false;
-            await PostMessage(bot1, reply_text);
-            
+            await PostMessage(bot1, reply_text);       
             
 
         }
@@ -245,7 +243,7 @@ public class tongyi_AI : MonoBehaviour
             if (match.Success)
             {
                 string result = match.Groups[1].Value;
-                anxiety_change_value = 0 - int.Parse(result);
+                anxiety_change_value =int.Parse(result);
             }
         }        
         else
