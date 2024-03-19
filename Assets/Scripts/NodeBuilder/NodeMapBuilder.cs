@@ -56,6 +56,9 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         }
     }
 
+    /// <summary>
+    /// 实例化线条对象
+    /// </summary>
     public void CreateLines(Node node)
     {
         if (node.parentID != Setting.stringDefaultValue)
