@@ -1,18 +1,27 @@
 using System;
 using UnityEngine;
 
-public class SynthesizableNodeSO : NodeSO
+[Serializable]
+public enum Direction
+{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+public class QTENodeSO : NodeSO
 {
     [Space(10)]
-    [Header("合成节点所需数据")]
-    [Tooltip("合成目标的节点ID")]
-    public string targetIdForMerge = Setting.stringDefaultValue;
+    [Header("QTE节点所需数据")]
+    [Tooltip("方向")]
+    public Direction direction;
     
     #if UNITY_EDITOR
 
     public void Initialize(Rect rect, NodeGraphSO nodeGraph, NodeTypeSO NodeType)
     {
-        this.name = "Synthesizable";
+        this.name = "QTE";
         this.rect = rect;
         this.id = Guid.NewGuid().ToString();
         this.nodeGraph = nodeGraph;

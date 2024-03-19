@@ -91,6 +91,7 @@ public class CipherLocked : MonoBehaviour
         foreach (NodeInfo nodeInfo in cipherNodes)
         {
             nodeInfo.node.gameObject.SetActive(false);
+            LineCreator.Instance.DeleteLine(nodeInfo.node);
         }
 
         cipherNodes.Clear();

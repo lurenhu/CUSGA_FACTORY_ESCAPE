@@ -94,6 +94,7 @@ public class AngleLocked : MonoBehaviour
         foreach (NodeInfo nodeInfo in pointers)
         {
             nodeInfo.node.gameObject.SetActive(false);
+            LineCreator.Instance.DeleteLine(nodeInfo.node);
         }
 
         pointers.Clear();

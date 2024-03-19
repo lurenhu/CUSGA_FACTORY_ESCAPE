@@ -105,6 +105,16 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             Timing timing = nodeGameObject.GetComponent<Timing>();
             timing.InitializeTiming(currentNode);
         }
+        else if (currentNode.nodeType.isQuickClick)
+        {
+            QuickClick quickClick = nodeGameObject.GetComponent<QuickClick>();
+            quickClick.InitializeQuickClick(currentNode);
+        }
+        else if (currentNode.nodeType.isQTE)
+        {
+            QTE qTE = nodeGameObject.GetComponent<QTE>();
+            qTE.InitializeQTE(currentNode);
+        }
     }
 
     /// <summary>

@@ -1075,8 +1075,8 @@ MonoBehaviour:
   chat_input_field: {fileID: 1516459330}
   send_button: {fileID: 1516459329}
   input_field: {fileID: 1516459331}
-  character_id: e7cd826cf38f470797c3593ee822341f
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
+  robots: []
   anxiety_change_value: 0
 --- !u!4 &1328269125
 Transform:
@@ -1339,6 +1339,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c8c8378e3a6c954dac7a1311a548512, type: 2}
   - {fileID: 11400000, guid: 0b9a2c41f9023af49820726ef56df714, type: 2}
   - {fileID: 11400000, guid: d967f2430eb14654195f6623ff5f785c, type: 2}
+  - {fileID: 11400000, guid: 634dd899ce11eb944be0c72224bb566a, type: 2}
+  - {fileID: 11400000, guid: 334fbc862d371d6429eef66800b5a839, type: 2}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

@@ -10,10 +10,6 @@ public class Cipher : MonoBehaviour
     public int index;// 索引
     public int value = 0;// 值
 
-    private void Start() {
-        myNode = GetComponent<Node>();
-    }
-
     private void OnMouseUp() {
         if (myNode.isPopping) return;
         if (myNode.isDragging) myNode.isDragging = false;
@@ -33,5 +29,6 @@ public class Cipher : MonoBehaviour
     {
         this.index = index;
         this.value = value;
+        myNode = transform.GetComponent<Node>();
     }
 }
