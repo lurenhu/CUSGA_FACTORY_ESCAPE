@@ -39,18 +39,32 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
 
             GameObject nodeGameObject = Instantiate(currentNode.nodePrefab,spawnPosition,Quaternion.identity,transform);
 
+            Node nodeComponent = nodeGameObject.GetComponent<Node>();
+
+            nodeComponent.InitializeNode(currentNode.nodeSO);
+
+            MatchCorrespondingNodeType(currentNode.nodeSO, nodeGameObject);
+
+            CreateLines(nodeComponent);
+
             if (!currentNode.nodeSO.nodeType.isEntrance)
             {
                 nodeGameObject.SetActive(false);
             }
 
-            Node nodeComponent = nodeGameObject.GetComponent<Node>();
-            
-            nodeComponent.InitializeNode(currentNode.nodeSO);
-
-            MatchCorrespondingNodeType(currentNode.nodeSO, nodeGameObject);
-
             nodeHasCreated.Add(nodeComponent.id,nodeComponent);
+        }
+    }
+
+    public void CreateLines(Node node)
+    {
+        if (node.parentID != Setting.stringDefaultValue)
+        {
+            LineCreator.Instance.CreateLine(node);
+        }
+        else 
+        {
+            Debug.Log(node.name + " Not Parent");
         }
     }
 
@@ -167,12 +181,35 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         {
             if (nodeSO.parentNodeIdList.Count == 0 && !nodeSO.nodeType.isEntrance)
             {
-                NodeTemplateSO nodeTemplate = GetNodeTemplate(nodeSO.nodeType);
+                if (nodeSO.childrenNodeIdList.Count > 0)
+                {
+                    tempNodeQueue.Enqueue(nodeSO);
+                }
+                else
+                {
+                    NodeTemplateSO nodeTemplate = GetNodeTemplate(nodeSO.nodeType);
 
-                NodeData nodeData = CreateNodeFromNodeTemplate(nodeSO,nodeTemplate);
+                    NodeData nodeData = CreateNodeFromNodeTemplate(nodeSO,nodeTemplate);
 
-                nodeProperties.Enqueue(nodeData);
+                    nodeProperties.Enqueue(nodeData);
+                }
             }
+        }
+
+        while (tempNodeQueue.Count > 0)
+        {
+            NodeSO currentNode = tempNodeQueue.Dequeue();
+
+            foreach (NodeSO childNode in nodeGraph.GetChildNodes(currentNode))
+            {
+                tempNodeQueue.Enqueue(childNode);
+            }
+
+            NodeTemplateSO nodeTemplate = GetNodeTemplate(currentNode.nodeType);
+
+            NodeData nodeData = CreateNodeFromNodeTemplate(currentNode,nodeTemplate);
+
+            nodeProperties.Enqueue(nodeData);
         }
     }
 

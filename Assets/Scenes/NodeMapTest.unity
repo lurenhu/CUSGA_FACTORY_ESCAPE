@@ -1075,9 +1075,12 @@ MonoBehaviour:
   chat_input_field: {fileID: 1516459330}
   send_button: {fileID: 1516459329}
   input_field: {fileID: 1516459331}
+  name: "\u5BF9\u8BDD\u89D2\u82721"
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
   robots: []
   anxiety_change_value: 0
+  reply_text: 
+  reply_is_finished: 0
 --- !u!4 &1328269125
 Transform:
   m_ObjectHideFlags: 0

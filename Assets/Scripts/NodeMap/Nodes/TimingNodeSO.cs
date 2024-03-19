@@ -5,7 +5,8 @@ public class TimingNodeSO : NodeSO
 {
     [Space(10)]
     [Header("计时器节点所需数据")]
-    public string targetIdForStop;
+    public string startNodeId;
+    public string stopNodeId;
     public float duration;
 
     #if UNITY_EDITOR
