@@ -19,6 +19,8 @@ public class SpeedDetector : MonoBehaviour
     {
         float speed = collision.relativeVelocity.magnitude;        
 
+        Debug.Log(speed);
+        
         if (speed > speedToPop && !myNode.hasPopUp)
         {
             myNode.PopUpChildNode(myNode.nodeInfos);
