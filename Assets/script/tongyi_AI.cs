@@ -118,7 +118,7 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
-            StartCoroutine(SendRequest(requestBody));            
+            StartCoroutine(SendRequest(requestBody,bot));            
             while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
             check_anxiety_change();            
             reply_is_finished = false;
@@ -161,7 +161,7 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
-            StartCoroutine(SendRequest(requestBody));
+            StartCoroutine(SendRequest(requestBody,bot));
             
             //将获取的信息发去评估焦虑
             while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
@@ -180,7 +180,7 @@ public class tongyi_AI : MonoBehaviour
         
     }
 
-    private IEnumerator  SendRequest(string requestBody)
+    private IEnumerator  SendRequest(string requestBody, robotCollection bot)
     {
         string Url = "https://nlp.aliyuncs.com/v2/api/chat/send";
         // 创建一个UnityWebRequest对象，指定请求方法为POST
@@ -219,9 +219,13 @@ public class tongyi_AI : MonoBehaviour
 
             // 提取所需的字符串
             reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
-            Debug.Log(reply_text);  
+            Debug.Log(reply_text);
             reply_is_finished = true;
-            DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+            if (bot.name== "对话角色1")
+            {   
+                getText.WriteText(new string[] { "823", "assistant", reply_text});
+                DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+            }
            
         }
         else
