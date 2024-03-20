@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Cipher : MonoBehaviour
@@ -23,6 +24,8 @@ public class Cipher : MonoBehaviour
             value = 0;
         else
             value++;
+
+        transform.Find("Value").GetComponent<TMP_Text>().text = value.ToString();
     }
 
     public void InitializeCipherNode(int index, int value)
@@ -30,5 +33,8 @@ public class Cipher : MonoBehaviour
         this.index = index;
         this.value = value;
         myNode = transform.GetComponent<Node>();
+
+        transform.Find("Value").GetComponent<TMP_Text>().text = value.ToString();
+        transform.Find("Index").GetComponentInChildren<TMP_Text>().text = index.ToString();
     }
 }

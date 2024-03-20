@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 [DisallowMultipleComponent]
 public class Node : MonoBehaviour
@@ -13,7 +14,6 @@ public class Node : MonoBehaviour
 
     [Header("观测参数")]
     public string id;
-    public string nodeText;
     public string parentID;
     public List<string> childIdList;
     public List<NodeInfo> nodeInfos;
@@ -29,7 +29,6 @@ public class Node : MonoBehaviour
     public void InitializeNode(NodeSO nodeSO)
     {
         id = nodeSO.id;
-        nodeText = nodeSO.nodeText;
         childIdList = CopyStringList(nodeSO.childrenNodeIdList);
         rect = nodeSO.rect;
         nodeType = nodeSO.nodeType;
@@ -38,6 +37,12 @@ public class Node : MonoBehaviour
             parentID = Setting.stringDefaultValue;
         else
             parentID = nodeSO.parentNodeIdList[0];
+
+        TMP_Text tMP_Text = transform.GetComponentInChildren<TMP_Text>();
+        if (tMP_Text != null)
+        {
+            tMP_Text.text = nodeSO.nodeText;
+        }
     }
 
     protected virtual void Start()

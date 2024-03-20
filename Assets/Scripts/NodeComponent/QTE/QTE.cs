@@ -8,12 +8,9 @@ public class QTE : MonoBehaviour
 {
     [Header("观测数据")]
     public Node myNode;
-
-    [Space(5)]
-    [Header("可调整数据")]
-    public Vector2 dragStartPosition;
+    private Vector2 dragStartPosition;
     public Vector2 dragDirection;
-    private float dragDistanceThreshold;
+    public float dragDistanceThreshold;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();

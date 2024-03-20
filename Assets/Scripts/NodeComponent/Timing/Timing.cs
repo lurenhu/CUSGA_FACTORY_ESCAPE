@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class Timing : MonoBehaviour
 {
@@ -61,7 +63,7 @@ public class Timing : MonoBehaviour
 
             // 将分钟和秒数格式化成00:00的形式
             string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-            myNode.nodeText += " " + timerString;
+            transform.GetComponentInChildren<TMP_Text>().text = timerString;
 
             Debug.Log("剩余时间：" + timerString);
         }

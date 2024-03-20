@@ -42,6 +42,8 @@ public class CipherLocked : MonoBehaviour
 
             cipher.myNode.parentID = myNode.id;
 
+            LineCreator.Instance.CreateLine(cipher.myNode);
+
             currentCipherNode.SetActive(false);
 
             Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;

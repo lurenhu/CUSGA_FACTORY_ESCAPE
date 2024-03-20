@@ -46,6 +46,8 @@ public class AngleLocked : MonoBehaviour
 
             node.parentID = myNode.id;
 
+            LineCreator.Instance.CreateLine(node);
+
             Vector2 direction = new Vector2(Random.Range(-1,1), Random.Range(-1,1)).normalized;
 
             NodeInfo pointer = new NodeInfo(){node = node, direction = direction};
