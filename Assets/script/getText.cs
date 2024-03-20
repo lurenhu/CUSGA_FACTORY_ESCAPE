@@ -17,17 +17,6 @@ public class getText : MonoBehaviour
         }
         instance = this;
     }
-    void Start()
-    {
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     static public void WriteText(string[] write_content)
     {
         // 检查文件夹是否存在，不存在则创建
@@ -48,7 +37,7 @@ public class getText : MonoBehaviour
         }
 
         // 打开文件并写入内容
-        using (StreamWriter writer = new StreamWriter(filePath))
+        using (StreamWriter writer = new StreamWriter(filePath,true))
         {
             foreach (string content in write_content) 
             { 
@@ -67,24 +56,19 @@ public class getText : MonoBehaviour
         instance.role_list.Clear();
         instance.content_list.Clear();
         var rows = textFile.text.Split('\n');
+        
         foreach (var row in rows)
-        {
+        {   
+            if (string.IsNullOrEmpty(row))
+            { continue; }
             string text = row.ToString();
-            string[] row_list = text.Split(',');
-            string sign = row_list[0];
-            if (sign == "立绘标志")
-            {
-                continue;
-            }
-
-            string position = row_list[4];
-            string name = row_list[2];
-            string content = row_list[3];
+            string[] row_list = text.Split(',');          
+            string name = row_list[0];
+            string role = row_list[1];
+            string content = row_list[2];
             instance.name_list.Add(name);
             instance.role_list.Add(content);
             instance.content_list.Add(content);
-            
-            //Debug.Log($"image_list:{sign + position}");
         }
         
     }
