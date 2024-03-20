@@ -7,11 +7,12 @@ using UnityEngine;
 public class Controllable : MonoBehaviour
 {
     [Header("可调整参数")]
-    public float maxSpeed = 5f; // 最高速度限制
+    public float maxSpeed = 15f; // 最高速度限制
     public float distance = 2f; // 设置初始长度
     public float frequency = 5f; // 设置弹簧频率
     public float dampingRatio = 0.5f; // 设置阻尼比
     public GameObject hammerPrefab;
+    public float Friction = 0.5f;
 
     private Rigidbody2D BeControlledRb;
     private Node myNode;
@@ -93,6 +94,11 @@ public class Controllable : MonoBehaviour
         if (velocity.magnitude > maxSpeed)
         {
             BeControlledRb.velocity = velocity.normalized * maxSpeed;
+        }
+
+        if (velocity.magnitude > 0)
+        {
+            BeControlledRb.velocity -= velocity.normalized * Time.deltaTime * Friction;
         }
     }
 

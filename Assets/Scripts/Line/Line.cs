@@ -28,7 +28,7 @@ public class Line : MonoBehaviour
     /// </summary>
     private void DrawRope()
     {
-        int numPoints = Mathf.CeilToInt(Vector2.Distance(startPoint.position, endPoint.position) * ropeResolution);
+        int numPoints = 2;// Mathf.CeilToInt(Vector2.Distance(startPoint.position, endPoint.position) * ropeResolution);
         lineRenderer.positionCount = numPoints;
 
         for (int i = 0; i < numPoints; i++)

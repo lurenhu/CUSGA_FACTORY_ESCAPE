@@ -2,26 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.UIElements;
 
 public class QTE : MonoBehaviour
 {
     [Header("观测数据")]
-    public Direction direction;
-    private Direction currentDirection;
-    private Node myNode;
-    private Rigidbody2D rb;
+    public Node myNode;
+
+    [Space(5)]
+    [Header("可调整数据")]
+    public Vector2 dragStartPosition;
+    public Vector2 dragDirection;
+    private float dragDistanceThreshold;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();
-
-        rb = transform.GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// 传递QTE数据
+    /// </summary>
     public void InitializeQTE(NodeSO nodeSO)
     {
         QTENodeSO qTENodeSO = (QTENodeSO)nodeSO;
 
-        direction = qTENodeSO.direction;
+        dragDistanceThreshold = qTENodeSO.dragDistance;
+        
+        switch (qTENodeSO.direction)
+        {
+            case Direction.Up:
+                dragDirection = Vector2.up;
+                break;
+            case Direction.Down:
+                dragDirection = Vector2.down;
+                break;
+            case Direction.Left:
+                dragDirection = Vector2.left;
+                break;
+            case Direction.Right:
+                dragDirection = Vector2.right;
+                break;
+        }
     }
 
     private void OnMouseUp()
@@ -43,47 +64,26 @@ public class QTE : MonoBehaviour
     }
 
     private void Update() {
-        if (myNode.isDragging || myNode.isPopping) return;
-
-        CheckCurrentDirection();
-    }
-
-    private void CheckCurrentDirection() 
-    {
-        Vector2 moveDirection = rb.velocity.normalized;
-        Debug.Log("moveDirection: " + moveDirection);
-
-        while (moveDirection != Vector2.zero)
+        // 鼠标左键按下开始拖动
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.y))
-            {
-                if (moveDirection.x > 0)
-                {
-                    currentDirection = Direction.Right;
-                }
-                else if (moveDirection.x < 0)
-                {
-                    currentDirection = Direction.Left;
-                }
-            }
-            else if (Mathf.Abs(moveDirection.x) < Mathf.Abs(moveDirection.y))
-            {
-                if (moveDirection.y > 0)
-                {
-                    currentDirection = Direction.Up;
-                }
-                else if (moveDirection.y < 0)
-                {
-                    currentDirection = Direction.Down;
-                }
-            }
+            Debug.Log("Mouse down");
+            dragStartPosition = Input.mousePosition;
         }
 
-        if (currentDirection == direction && myNode.hasPopUp)
+        // 鼠标左键持续按下时进行拖动判断
+        if (myNode.isDragging && Input.GetMouseButton(0) && !myNode.hasPopUp)
         {
-            myNode.PopUpChildNode(myNode.nodeInfos);
+            Debug.Log("Mouse dragging");
+            Vector2 dragCurrentPosition = Input.mousePosition;
+            float dragDistance = Vector2.Dot(dragCurrentPosition - dragStartPosition, dragDirection);
 
-            myNode.hasPopUp = true;
+            // 如果拖动距离超过阈值，则触发回调函数
+            if (dragDistance >= dragDistanceThreshold)
+            {
+                myNode.PopUpChildNode(myNode.nodeInfos);
+                myNode.hasPopUp = true;
+            }
         }
     }
 

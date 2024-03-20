@@ -1,50 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Timing : MonoBehaviour
 {
     [Header("观测参数")]
-    public Node targetNode;
-    private Node myNode;
-    private float duration;
-    private string targetId;
+    public Node startNode;
+    public Node stopNode;
+    public Node myNode;
+    private float duration = 1;
     private Coroutine timerCoroutine;
 
-    private void Start() {
+    private void Awake() {
+        myNode = transform.GetComponent<Node>();
+    }
+
+    private void OnEnable() {
         timerCoroutine = StartCoroutine(StartTimer());
     }
 
-    private void Update() 
-    {
-        if (targetNode != null && !targetNode.gameObject.activeSelf)
-        {
-            StopTimer();
-        }
-
-        if (targetNode != null && targetNode.gameObject.activeSelf)
-        {
-            gameObject.SetActive(true);
-            StartTimer();
-        }
+    private void OnDisable() {
+        StopTimer();
     }
 
+    /// <summary>
+    /// 传递计时器节点数据
+    /// </summary>
     public void InitializeTiming(NodeSO nodeSO)
     {
-        myNode = transform.GetComponent<Node>();
-
         TimingNodeSO timingNodeSO = (TimingNodeSO)nodeSO;
 
         duration = timingNodeSO.duration;
-        targetId = timingNodeSO.targetIdForStop;
+        startNode = NodeMapBuilder.Instance.nodeHasCreated[timingNodeSO.startNodeId];
+        stopNode = NodeMapBuilder.Instance.nodeHasCreated[timingNodeSO.stopNodeId];
 
-        targetNode = NodeMapBuilder.Instance.nodeHasCreated[targetId];
-
-        BeClocked beClocked = targetNode.gameObject.AddComponent<BeClocked>();
-        beClocked.InitializeBeClocked(myNode);
+        BeClocked beClocked = startNode.gameObject.AddComponent<BeClocked>();
+        beClocked.InitializeBeClocked(this.myNode);
+        
+        StopClocked stopClocked = stopNode.gameObject.AddComponent<StopClocked>();
+        stopClocked.InitializeStopClocked(this.myNode);
     }
 
-
+    /// <summary>
+    /// 开始计时
+    /// </summary>
     private IEnumerator StartTimer()
     {
         float currentTime = duration; // 初始化当前时间为倒计时时间
@@ -68,8 +68,12 @@ public class Timing : MonoBehaviour
 
         Debug.Log("时间到！");
         // 在此处执行计时结束后的操作
+        TimeOut();
     }
 
+    /// <summary>
+    /// 停止计时
+    /// </summary>
     private void StopTimer()
     {
         if (timerCoroutine != null)
@@ -77,6 +81,43 @@ public class Timing : MonoBehaviour
             StopCoroutine(timerCoroutine);
             gameObject.SetActive(false);
         }
+    }
+
+
+    /// <summary>
+    /// 执行时间到事件
+    /// </summary>
+    private void TimeOut()
+    {
+
+        Queue<Node> tempNodeQueue = new Queue<Node>();
+
+        NodeMapBuilder.Instance.nodeHasCreated[startNode.parentID].hasPopUp = false;
+        
+        tempNodeQueue.Enqueue(startNode);
+
+        while (tempNodeQueue.Count > 0)
+        {
+            Node currentNode = tempNodeQueue.Dequeue();
+
+            currentNode.hasPopUp = false;
+            currentNode.gameObject.SetActive(false);
+            LineCreator.Instance.DeleteLine(currentNode);
+
+            foreach (string childNodeId in currentNode.childIdList)
+            {
+                Node childNode = NodeMapBuilder.Instance.nodeHasCreated[childNodeId];
+
+                if (childNode == stopNode)
+                {
+                    break;
+                }
+
+                tempNodeQueue.Enqueue(childNode);
+            }
+        }
+
+        gameObject.SetActive(false);
     }
 
 

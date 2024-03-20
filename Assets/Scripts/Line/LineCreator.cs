@@ -18,6 +18,8 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     {
         GameObject line = Instantiate(LinePrefab, transform.position, Quaternion.identity,transform);
 
+        line.SetActive(false);
+
         Line lineComponent = line.GetComponent<Line>();
 
         Node parentNode = NodeMapBuilder.Instance.nodeHasCreated[node.parentID];
@@ -38,6 +40,16 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
         return line;
     }
 
+    public void ShowLine(Node node)
+    {
+        Line line = nodeLineBinding.TryGetValue(node, out Line lineComponent) ? lineComponent : null;
+
+        if (line != null)
+        {
+            line.gameObject.SetActive(true);
+        }
+    }
+
     /// <summary>
     /// 删除节点
     /// </summary>
@@ -47,7 +59,7 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
 
         if (line != null)
         {
-            Destroy(line.gameObject);
+            line.gameObject.SetActive(false);
         }
     }
 

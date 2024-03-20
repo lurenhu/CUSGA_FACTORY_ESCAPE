@@ -66,8 +66,7 @@ public class Node : MonoBehaviour
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
 
-
-            LineCreator.Instance.CreateLine(currentNode);
+            LineCreator.Instance.ShowLine(currentNode);
 
             currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
@@ -87,10 +86,8 @@ public class Node : MonoBehaviour
 
         currentNode.transform.position = transform.position;
         currentNode.gameObject.SetActive(true);
-        
-        // currentNode.nodeProperty.nodeTextInstance.gameObject.SetActive(true);
 
-        LineCreator.Instance.CreateLine(currentNode);
+        LineCreator.Instance.ShowLine(currentNode);
 
         currentNode.transform.DOMove(
             node.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
@@ -117,7 +114,7 @@ public class Node : MonoBehaviour
         {
             NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
 
-            Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (childNode.rect.center - rect.center).y).normalized;
+            Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (rect.center - childNode.rect.center).y).normalized;
 
             NodeInfo newNodeInfo = new NodeInfo()
             {

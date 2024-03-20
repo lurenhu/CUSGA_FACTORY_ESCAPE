@@ -16,6 +16,7 @@ public class QTENodeSO : NodeSO
     [Header("QTE节点所需数据")]
     [Tooltip("方向")]
     public Direction direction;
+    public float dragDistance;
     
     #if UNITY_EDITOR
 

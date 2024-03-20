@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Graph : MonoBehaviour
 {
+    [Header("观测数据")]
     public Sprite image;
     private Node myNode;
 

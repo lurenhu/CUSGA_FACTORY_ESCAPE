@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class Probe : MonoBehaviour
 {
+    [Header("观测参数")]
     private string targetNodeID;
-    private Node myNode;
+    public Node myNode;
 
+    [Space(5)]
+    [Header("可调整数据")]
     private SpriteRenderer indicatorLight;
     public float blinkSpeed = 0.5f; // 闪烁速度
     public Color targetColor = Color.green; // 目标颜色
