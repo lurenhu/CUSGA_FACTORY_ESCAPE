@@ -154,37 +154,3 @@ public class NodeInfo
     public Node node;
     public Vector2 direction;// 弹出方向偏移距离
 }
-
-// [Serializable]
-// public class NodeProperty
-// {
-//     public string id;
-//     public string nodeText;
-//     public string parentID;
-//     public List<string> childIdList;
-//     [HideInInspector] public Rect rect;
-//     [HideInInspector] public GameObject nodePrefab;
-//     [HideInInspector] public Node node;
-//     [HideInInspector] public NodeTypeSO nodeType;
-
-
-//     [Space(10)]
-//     [Header("合成节点数据")]
-//     public string targetNodeID;
-
-//     [Space(10)]
-//     [Header("锁节点数据")]
-//     public List<int> cipherValues;
-
-//     [Space(10)]
-//     [Header("图片节点数据")]
-//     public Sprite image;
-
-//     [Space(10)]
-//     [Header("角度锁节点数据")]
-//     public List<float> angles;
-
-//     [Space(10)]
-//     [Header("探测节点数据")]  
-//     public string targetIDForDetection;
-// }

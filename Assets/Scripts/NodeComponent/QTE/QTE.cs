@@ -9,8 +9,8 @@ public class QTE : MonoBehaviour
     [Header("观测数据")]
     public Node myNode;
     private Vector2 dragStartPosition;
-    public Vector2 dragDirection;
     public float dragDistanceThreshold;
+    private Direction direction;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();
@@ -24,22 +24,8 @@ public class QTE : MonoBehaviour
         QTENodeSO qTENodeSO = (QTENodeSO)nodeSO;
 
         dragDistanceThreshold = qTENodeSO.dragDistance;
-        
-        switch (qTENodeSO.direction)
-        {
-            case Direction.Up:
-                dragDirection = Vector2.up;
-                break;
-            case Direction.Down:
-                dragDirection = Vector2.down;
-                break;
-            case Direction.Left:
-                dragDirection = Vector2.left;
-                break;
-            case Direction.Right:
-                dragDirection = Vector2.right;
-                break;
-        }
+
+        direction = qTENodeSO.direction;
     }
 
     private void OnMouseUp()
@@ -71,17 +57,58 @@ public class QTE : MonoBehaviour
         // 鼠标左键持续按下时进行拖动判断
         if (myNode.isDragging && Input.GetMouseButton(0) && !myNode.hasPopUp)
         {
-            Debug.Log("Mouse dragging");
             Vector2 dragCurrentPosition = Input.mousePosition;
-            float dragDistance = Vector2.Dot(dragCurrentPosition - dragStartPosition, dragDirection);
 
-            // 如果拖动距离超过阈值，则触发回调函数
-            if (dragDistance >= dragDistanceThreshold)
+            Vector2 dragDistance = dragCurrentPosition - dragStartPosition;
+
+            Direction currentDirection = CheckDirection(dragDistance);
+
+            //如果拖动距离超过阈值，则触发回调函数
+            if (dragDistance.magnitude >= dragDistanceThreshold)
             {
-                myNode.PopUpChildNode(myNode.nodeInfos);
-                myNode.hasPopUp = true;
+                if (currentDirection == direction)
+                {
+                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    myNode.hasPopUp = true;
+                }
+                else
+                {
+                    StaticEventHandler.CallStopTiming(myNode);
+                } 
             }
         }
+    }
+
+    /// <summary>
+    /// 检查当前拖动距离下的拖动方向
+    /// </summary>
+    private Direction CheckDirection(Vector2 dragDistance)
+    {
+        Direction currentDirection;
+
+        if (Mathf.Abs(dragDistance.x) > Mathf.Abs(dragDistance.y))
+        {
+            if (dragDistance.x > 0)
+            {
+                currentDirection = Direction.Right;
+            }
+            else 
+            {
+                currentDirection = Direction.Left;
+            }
+        }
+        else
+        {
+            if (dragDistance.y > 0)
+            {
+                currentDirection = Direction.Up;
+            }
+            else
+            {
+                currentDirection = Direction.Down;
+            }
+        }
+        return currentDirection;
     }
 
 }

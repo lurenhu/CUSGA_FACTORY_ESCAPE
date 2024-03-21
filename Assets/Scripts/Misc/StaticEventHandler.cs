@@ -28,6 +28,12 @@ public static class StaticEventHandler
     {
         OnPopUpNode?.Invoke(new PopUpNodeArgs() {node = node});
     }
+
+    public static event Action<StopTimingArgs> OnStopTiming;
+    public static void CallStopTiming(Node node)
+    {
+        OnStopTiming?.Invoke(new StopTimingArgs() {node = node});
+    }
 }
 
 public class FirstClickNodeArgs : EventArgs
@@ -46,6 +52,11 @@ public class CommitArgs : EventArgs
 }
 
 public class PopUpNodeArgs : EventArgs
+{
+    public Node node;
+}
+
+public class StopTimingArgs : EventArgs
 {
     public Node node;
 }

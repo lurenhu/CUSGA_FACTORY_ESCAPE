@@ -46,7 +46,7 @@ public class CipherLocked : MonoBehaviour
 
             currentCipherNode.SetActive(false);
 
-            Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            Vector2 direction = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)).normalized;
 
             NodeInfo tempNodeInfo = new NodeInfo(){node = cipher.myNode, direction = direction};
 

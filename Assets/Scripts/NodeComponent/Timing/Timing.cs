@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -20,10 +21,22 @@ public class Timing : MonoBehaviour
 
     private void OnEnable() {
         timerCoroutine = StartCoroutine(StartTimer());
+
+        StaticEventHandler.OnStopTiming += StaticEventHandler_OnStopTiming;
     }
 
     private void OnDisable() {
         StopTimer();
+
+        StaticEventHandler.OnStopTiming -= StaticEventHandler_OnStopTiming;
+    }
+
+    private void StaticEventHandler_OnStopTiming(StopTimingArgs args)
+    {
+        if(gameObject.activeSelf)
+        {
+            TimeOut();
+        }
     }
 
     /// <summary>
