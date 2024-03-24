@@ -26,7 +26,7 @@ public class tongyi_AI : MonoBehaviour
     public int anxiety_change_value = 0;
     public string reply_text;
     public bool reply_is_finished=false;
-
+    public AudioClip test_SFX;
     public static tongyi_AI instance;
 
     private void Awake()   //单例的默认写法
@@ -66,8 +66,9 @@ public class tongyi_AI : MonoBehaviour
 
     //获取内容兼发送
     public async void  sendMessage(robotCollection bot)
-    {        
+    {
         if (chat_input_field.text.Equals(""))
+            soundManager.playSFX(test_SFX);
             return;
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        
         getText.WriteText(new string[] { "陶特", "user", content });
