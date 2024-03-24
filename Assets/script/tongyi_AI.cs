@@ -16,6 +16,8 @@ public class tongyi_AI : MonoBehaviour
     public GameObject input_field;
     [Header("Ai设置")]
     public string name = "对话角色1";
+    public TextAsset chatHistory;
+    public bool use_history;
     [Header("用户cookie")]    
     public string Apikey = "lm-dXxiQGyE363suBUpwRUMMQ==";
     [Header("机器人id列表")]
@@ -125,9 +127,53 @@ public class tongyi_AI : MonoBehaviour
 
         }
         else if (bot_name == "对话角色1")
-        {
+        {   
             int seed = 1683806810;
-            var requestBody = string.Format(@"{{
+            //用对话历史
+            if(use_history)
+            {
+                string chat_history =getText.loadText(chatHistory);
+                Debug.Log($"chat_history:{chat_history}");
+                var requestBody = string.Format(@"{{
+    ""input"": {{
+        ""messages"": [   {0}            
+            {{
+                ""name"": ""陶特"",
+                ""role"": ""user"",
+                ""content"": ""{1}""
+            }}
+        ],
+        ""aca"": {{
+            ""botProfile"": {{
+                ""characterId"": ""{2}"",
+                ""version"": 1
+            }},
+            ""userProfile"": {{
+                ""userId"": ""123456789"",
+                ""userName"": ""云账号名称"",
+                ""basicInfo"": """"
+            }},
+            ""scenario"": {{
+                ""description"": ""我是陶特，是你的朋友""
+            }},
+            ""context"": {{
+                ""useChatHistory"": false,
+                ""isRegenerate"": true,
+                ""queryId"": ""fd26039ac11f4ca0960a66d7c0520091""
+            }}
+        }}
+    }},
+    ""parameters"": {{
+        ""seed"": {3},
+        ""incrementalOutput"": false
+    }}
+}}", chat_history,message, bot_id, seed);
+                Debug.Log($"requestbody:{requestBody}");
+                StartCoroutine(SendRequest(requestBody,bot));
+            }
+            else
+            {
+                var requestBody = string.Format(@"{{
     ""input"": {{
         ""messages"": [            
             {{
@@ -161,7 +207,8 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
-            StartCoroutine(SendRequest(requestBody,bot));
+                StartCoroutine(SendRequest(requestBody,bot));
+            }
             
             //将获取的信息发去评估焦虑
             while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }

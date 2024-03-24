@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: textLabel
       value: 
       objectReference: {fileID: 3979399020068851877}
+    - target: {fileID: 3204766640537358780, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
+      propertyPath: textSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5975145500978859815, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -678,14 +682,14 @@ MonoBehaviour:
   send_button: {fileID: 869987141}
   input_field: {fileID: 869987140}
   name: "\u5BF9\u8BDD\u89D2\u82721"
+  chatHistory: {fileID: 4900000, guid: 474ce4610ad967d4598338052b3cefcc, type: 3}
+  use_history: 1
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
   robots:
   - name: "\u7126\u8651\u8BC4\u4F30\u5668"
     botid: e7cd826cf38f470797c3593ee822341f
   - name: "\u5BF9\u8BDD\u89D2\u82721"
     botid: 89f40467361e43ecb565ab323063bea4
-  - name: 
-    botid: 
   anxiety_change_value: 0
   reply_text: 
   reply_is_finished: 0

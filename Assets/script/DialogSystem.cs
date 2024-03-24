@@ -20,7 +20,8 @@ public class DialogSystem : MonoBehaviour
     public TextAsset textFile;  //对话文件
     public int index = 0;
     public int max_index = 0;
-    public float textSpeed = 0.1f;
+    [Header("文字显示速度，值越小显示越快")]
+    public float textSpeed = 0.05f;
 
     //[Header("图片资源")]
     //public GameObject heroine;
@@ -62,7 +63,6 @@ public class DialogSystem : MonoBehaviour
 
         instance.talk_ui.SetActive(false);
         //instance.max_index = GetText(textFile) - 1;
-
     }
 
     void Update()
@@ -150,8 +150,8 @@ public class DialogSystem : MonoBehaviour
             if (instance.text_finished)
             {
                 instance.index++;
-                Debug.Log($"instance.index:{instance.index}");
-                Debug.Log($"instance.max_index:{instance.max_index}");
+                //Debug.Log($"instance.index:{instance.index}");
+                //Debug.Log($"instance.max_index:{instance.max_index}");
                 string content = instance.text_list[instance.index];
                 if (content == "跳转")
                 {
