@@ -18,11 +18,23 @@ public class Default : MonoBehaviour
         if (myNode.isSelected)
         {
             // 节点交互内容
+            // 对话
+            if (myNode.dialogTexts.Count > myNode.dialogTextsIndex)
+            {
+                DialogManager.Instance.LoadDialogData(myNode.dialogTexts[myNode.dialogTextsIndex]);
+                myNode.dialogTextsIndex++;
+                return;
+            }
+
+            // 弹出子节点
             if (!myNode.hasPopUp)
             {
                 myNode.PopUpChildNode(myNode.nodeInfos);
                 myNode.hasPopUp = true;
+                return;
             }
+
+            
         }
         else
         {

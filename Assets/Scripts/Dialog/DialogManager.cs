@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class DialogManager : SingletonMonobehaviour<DialogManager>
 {
+    [Header("对话UI界面")]
+    [Tooltip("对话界面")]
     public Transform DialogPanel;
+    [Tooltip("对话角色1(包含角色名称文本,角色头像)")]
     public Transform speaker_1_Transform;
+    [Tooltip("对话角色2(包含角色名称文本,角色头像")]
     public Transform speaker_2_Transform;
+    [Tooltip("对话文本")]
     public Text dialogText;
-    public TextAsset textAsset1;
 
-    public List<string> speakers = new  List<string>();
-    public List<string> dialogs = new List<string>();
-
-    public int index = 0;
+    private List<string> speakers = new  List<string>();
+    private List<string> dialogs = new List<string>();
+    private int index = 0;
 
     /// <summary>
     /// 导入对话数据并初始化
@@ -31,8 +34,13 @@ public class DialogManager : SingletonMonobehaviour<DialogManager>
         }
 
         InitializeDialogData();
+
+        ShowDialogPanel();
     }
 
+    /// <summary>
+    /// 初始化对话数据
+    /// </summary>
     private void InitializeDialogData()
     {
         // 角色名称初始化
@@ -52,10 +60,12 @@ public class DialogManager : SingletonMonobehaviour<DialogManager>
             if (speaker_1_Transform.GetComponentInChildren<TMP_Text>().text == character.name)
             {
                 speaker_1_Transform.GetComponentInChildren<Image>().sprite = character.sprite;
+                speaker_1_Transform.GetComponentInChildren<Image>().SetNativeSize();
             }
             else if (speaker_2_Transform.GetComponentInChildren<TMP_Text>().text == character.name)
             {
                 speaker_2_Transform.GetComponentInChildren<Image>().sprite = character.sprite;
+                speaker_2_Transform.GetComponentInChildren<Image>().SetNativeSize();
             }
             else
             {
@@ -68,7 +78,10 @@ public class DialogManager : SingletonMonobehaviour<DialogManager>
     }
 
     private void Update() {
-        DisplayNextText();
+        if (DialogPanel.gameObject.activeSelf)
+        {
+            DisplayNextText();
+        }
     }
 
     /// <summary>
@@ -76,6 +89,8 @@ public class DialogManager : SingletonMonobehaviour<DialogManager>
     /// </summary>
     private void DisplayNextText()
     {
+        if (dialogs.Count == 0) return;
+
         dialogText.text = dialogs[index];
 
         if (Input.GetMouseButtonDown(0) && index < dialogs.Count - 1)
@@ -92,7 +107,7 @@ public class DialogManager : SingletonMonobehaviour<DialogManager>
     /// <summary>
     /// 展现对话框
     /// </summary>
-    public void ShowDialogPanel()
+    private void ShowDialogPanel()
     {
         DialogPanel.gameObject.SetActive(true);
     }

@@ -997,7 +997,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 74fa320e125421a47a3327f104fa52aa, type: 2}
+  - {fileID: 11400000, guid: f76a0620d4bd0a641a131f0b79d92a1f, type: 2}
   Canvas: {fileID: 0}
   graphTransform: {fileID: 1628694029}
 --- !u!4 &1052891442
@@ -1833,7 +1833,6 @@ MonoBehaviour:
   speaker_1_Transform: {fileID: 2114267765}
   speaker_2_Transform: {fileID: 1638667060}
   dialogText: {fileID: 1206032889}
-  textAsset1: {fileID: 4900000, guid: bf406c58ea63bc944a53d00afbd17ae1, type: 3}
   speakers: []
   dialogs: []
   index: 0

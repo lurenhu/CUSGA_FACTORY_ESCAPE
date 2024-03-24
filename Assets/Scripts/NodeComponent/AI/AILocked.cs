@@ -33,6 +33,8 @@ public class AILocked : MonoBehaviour
             // 节点交互内容
             if(!hasResult)
                 tongyi_AI.instance.input_field.SetActive(true);
+            
+                
         }
         else
         {
