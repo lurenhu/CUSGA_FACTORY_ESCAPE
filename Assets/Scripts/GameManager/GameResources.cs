@@ -20,5 +20,12 @@ public class GameResources : MonoBehaviour
 
     public NodeTypeListSO nodeTypeList;
 
-    public GameObject nodeTextPrefab;
+    public List<Character> characters = new List<Character>();
+}
+
+[System.Serializable]
+public class Character
+{
+    public string name;
+    public Sprite sprite;
 }

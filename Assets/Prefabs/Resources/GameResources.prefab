@@ -45,4 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  nodeTextPrefab: {fileID: 1895656827570272711, guid: 44d35d7710c9c1a4aabca92b6c639879, type: 3}
+  characters:
+  - name: Alice
+    sprite: {fileID: 21300000, guid: 5fc7a8dc5fccf9e45a5acb571e0bf0a7, type: 3}
+  - name: Bob
+    sprite: {fileID: 21300000, guid: ddc3b22ca4b0d1c4682da624295072ba, type: 3}
