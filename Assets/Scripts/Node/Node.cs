@@ -62,6 +62,10 @@ public class Node : MonoBehaviour
 
         if (!isDragging) isDragging = true;
         
+        if (nodeType.isQTE)
+        {
+            return;
+        }
         transform.position = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
     }
 
