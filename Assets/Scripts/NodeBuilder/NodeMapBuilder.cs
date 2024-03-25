@@ -72,15 +72,18 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     }
 
     /// <summary>
-    /// 匹配对应节点类型的组件
+    /// 匹配对应节点类型的组件并进行对应的初始化
     /// </summary>
     private void MatchCorrespondingNodeType(NodeSO currentNode, GameObject nodeGameObject)
     {
-        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance || currentNode.nodeType.isExit)
+        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance || currentNode.nodeType.isExit)// 不需要进行初始化的节点类型
         {
+            return;
         }
         else if (currentNode.nodeType.isAI)
         {
+            AILocked aiLocked = nodeGameObject.GetComponent<AILocked>();
+            aiLocked.InitializeAILocked(currentNode);
         }
         else if (currentNode.nodeType.isLocked)
         {
