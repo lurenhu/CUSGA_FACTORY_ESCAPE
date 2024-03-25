@@ -76,7 +76,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     private void MatchCorrespondingNodeType(NodeSO currentNode, GameObject nodeGameObject)
     {
-        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance)
+        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance || currentNode.nodeType.isExit)
         {
         }
         else if (currentNode.nodeType.isAI)

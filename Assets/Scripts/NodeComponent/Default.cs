@@ -34,7 +34,8 @@ public class Default : MonoBehaviour
                 return;
             }
 
-            
+            // 播放音频
+            soundManager.playSFX(myNode.audios[0]);            
         }
         else
         {
