@@ -41,10 +41,14 @@ public class DialogSystem : MonoBehaviour
     List<string> name_list = new List<string>();
     List<string> text_list = new List<string>();
     List<string[]> image_list = new List<string[]>();
+
     static public DialogSystem instance;
     bool text_finished = true;
     Coroutine text_display;
     bool is_blitting_text = true;
+    [Header("用于计时器")]
+    private float locktime=0f;
+    private bool isTimerRunning = false;
     private void Awake()   //单例的默认写法
     {
         if (instance != null)
@@ -58,23 +62,52 @@ public class DialogSystem : MonoBehaviour
         talk_ui.SetActive(false);
         //max_index = GetText(textFile)-1;
     }
-    static public void awake_talk_ui(TextAsset textFile)
-    {
-
-        instance.talk_ui.SetActive(false);
-        //instance.max_index = GetText(textFile) - 1;
-    }
+    
 
     void Update()
     {
+        if (isTimerRunning)
+        {
+            countDown();
+        }
         if (is_blitting_text)
         {
             //Debug.Log("blit_text");
             is_blitting_text = blit_text();
         }
     }
-    static public bool blit_text()
+    
+    private void countDown()
     {
+        // 更新计时器时间
+        instance.locktime -= Time.deltaTime;
+
+        // 检查计时器是否达到持续时间
+        if (instance.locktime < 0f)
+        {
+            // 计时器达到持续时间，执行相应操作
+            //instance.talk_ui.SetActive(false);
+            instance.isTimerRunning = false;
+            updateText();
+        }
+        
+    }
+
+
+    static public void lockUI_and_setText(float locktime,string text) 
+    {
+        // 计时器完成后的操作
+        Debug.Log("计时器开始");
+        instance.isTimerRunning = true;
+        instance.locktime = locktime;
+        instance.talk_ui.SetActive(true);
+        instance.name = "823";
+        instance.textLabel.text= text;
+    }
+
+
+    static public bool blit_text()
+    {   
 
         if (!instance.talk_ui.activeSelf)
         {

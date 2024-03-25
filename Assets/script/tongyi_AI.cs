@@ -26,7 +26,7 @@ public class tongyi_AI : MonoBehaviour
     public int anxiety_change_value = 0;
     public string reply_text;
     public bool reply_is_finished=false;
-
+    public AudioClip test_SFX;
     public static tongyi_AI instance;
 
     private void Awake()   //单例的默认写法
@@ -66,9 +66,12 @@ public class tongyi_AI : MonoBehaviour
 
     //获取内容兼发送
     public async void  sendMessage(robotCollection bot)
-    {        
+    {
         if (chat_input_field.text.Equals(""))
+        { 
+            soundManager.playSFX(test_SFX);
             return;
+        }
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        
         getText.WriteText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
@@ -81,7 +84,7 @@ public class tongyi_AI : MonoBehaviour
         Debug.Log("post");
         string bot_name = bot.name;
         string bot_id = bot.botid;
-        float delay = 0.1f;
+        float delay = 0.05f;
         // 构建请求消息
         if (bot_name == "焦虑评估器")
         {
@@ -120,7 +123,9 @@ public class tongyi_AI : MonoBehaviour
         ""incrementalOutput"": false
     }}
 }}", message, bot_id, seed);
-            StartCoroutine(SendRequest(requestBody,bot));            
+            StartCoroutine(SendRequest(requestBody,bot));
+            //等到reply_is_finished为true
+            
             while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
             check_anxiety_change();            
             reply_is_finished = false;
@@ -211,7 +216,11 @@ public class tongyi_AI : MonoBehaviour
             }
             
             //将获取的信息发去评估焦虑
-            while (!reply_is_finished) { await Task.Delay(TimeSpan.FromSeconds(delay)); }
+            while (!reply_is_finished)
+            {
+                DialogSystem.lockUI_and_setText(2*delay,"正在思考中");
+                await Task.Delay(TimeSpan.FromSeconds(delay)); 
+            }
             string name = "焦虑评估器";
             robotCollection bot1 = Array.Find(robots, x => x.name == name);
             reply_is_finished = false;
