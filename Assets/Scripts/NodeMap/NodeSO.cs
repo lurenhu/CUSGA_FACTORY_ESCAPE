@@ -11,6 +11,8 @@ public class NodeSO : ScriptableObject
     public string id;
     public List<string> parentNodeIdList = new List<string>();
     public List<string> childrenNodeIdList = new List<string>();
+    public List<TextAsset> dialogTextList = new List<TextAsset>();
+    public List<AudioClip> audioList = new List<AudioClip>(); 
     [HideInInspector] public NodeGraphSO nodeGraph;
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;

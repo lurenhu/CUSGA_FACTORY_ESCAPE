@@ -423,8 +423,8 @@ public class NodeGraphEditor : EditorWindow
     {
         if (currentNodeGraph.nodeList.Count == 0)
         {
-            Debug.Log(nodeType.nodeTypeName);
             CreateNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isEntrance));
+            CreateNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isExit));
         }
 
         CreateNodes(mousePositionObject,nodeType);
@@ -451,7 +451,7 @@ public class NodeGraphEditor : EditorWindow
     /// </summary>
     private void GetNodeTypeSO(NodeTypeSO nodeType, Vector2 mousePosition)
     {
-        if (nodeType.isDefault || nodeType.isEntrance)
+        if (nodeType.isDefault || nodeType.isEntrance || nodeType.isExit)
         {
             DefaultNodeSO node = ScriptableObject.CreateInstance<DefaultNodeSO>();
             currentNodeGraph.nodeList.Add(node);
@@ -535,6 +535,7 @@ public class NodeGraphEditor : EditorWindow
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
         }
+        
     }
 
     /// <summary>

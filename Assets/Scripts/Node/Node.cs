@@ -17,6 +17,9 @@ public class Node : MonoBehaviour
     public string parentID;
     public List<string> childIdList;
     public List<NodeInfo> nodeInfos;
+    public List<TextAsset> dialogTexts;
+    public List<AudioClip> audios;
+    [HideInInspector] public int dialogTextsIndex = 0;
     [HideInInspector] public Rect rect;
     [HideInInspector] public GameObject nodePrefab;
     [HideInInspector] public Node node;
@@ -43,6 +46,9 @@ public class Node : MonoBehaviour
         {
             tMP_Text.text = nodeSO.nodeText;
         }
+
+        dialogTexts = nodeSO.dialogTextList;
+        audios = nodeSO.audioList;
     }
 
     protected virtual void Start()
@@ -56,6 +62,10 @@ public class Node : MonoBehaviour
 
         if (!isDragging) isDragging = true;
         
+        if (nodeType.isQTE)
+        {
+            return;
+        }
         transform.position = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
     }
 

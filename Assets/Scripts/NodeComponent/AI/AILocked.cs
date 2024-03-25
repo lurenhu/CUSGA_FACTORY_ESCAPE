@@ -5,8 +5,8 @@ using UnityEngine;
 public class AILocked : MonoBehaviour
 {
     [Header("可调整参数")]
-    public int anxietyValue = 100;// 焦虑值
-    public int submissionTimes = 10;// 剩余提交次数
+    public int anxietyValue;// 焦虑值
+    public int submissionTimes;// 剩余提交次数
     private bool hasResult = false;// 是否已经获取结果
 
     private Node myNode;
@@ -23,6 +23,14 @@ public class AILocked : MonoBehaviour
         myNode = transform.GetComponent<Node>();
     }
 
+    public void InitializeAILocked(NodeSO nodeSO)
+    {
+        AILockedNodeSO aiLockedNodeSO = (AILockedNodeSO)nodeSO;
+
+        anxietyValue = aiLockedNodeSO.anxietyValue;
+        submissionTimes = aiLockedNodeSO.submissionTimes;
+    }
+
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
@@ -33,6 +41,8 @@ public class AILocked : MonoBehaviour
             // 节点交互内容
             if(!hasResult)
                 tongyi_AI.instance.input_field.SetActive(true);
+            
+                
         }
         else
         {
