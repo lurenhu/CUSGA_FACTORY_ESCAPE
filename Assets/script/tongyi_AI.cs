@@ -73,7 +73,7 @@ public class tongyi_AI : MonoBehaviour
             return;
         }
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        
-        getText.WriteText(new string[] { "陶特", "user", content });
+        writeAndLoadHistory.writeText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
         await PostMessage(bot,content);      
 
@@ -137,7 +137,7 @@ public class tongyi_AI : MonoBehaviour
             //用对话历史
             if(use_history)
             {
-                string chat_history =getText.loadText(chatHistory);
+                string chat_history =writeAndLoadHistory.loadText(chatHistory);
                 Debug.Log($"chat_history:{chat_history}");
                 var requestBody = string.Format(@"{{
     ""input"": {{
@@ -224,8 +224,7 @@ public class tongyi_AI : MonoBehaviour
             string name = "焦虑评估器";
             robotCollection bot1 = Array.Find(robots, x => x.name == name);
             reply_is_finished = false;
-            await PostMessage(bot1, reply_text);       
-            
+            await PostMessage(bot1, reply_text);                
 
         }
         else
@@ -279,7 +278,7 @@ public class tongyi_AI : MonoBehaviour
             reply_is_finished = true;
             if (bot.name== "对话角色1")
             {   
-                getText.WriteText(new string[] { "823", "assistant", reply_text});
+                writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text});
                 DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
             }
            
@@ -310,7 +309,9 @@ public class tongyi_AI : MonoBehaviour
         {
             anxiety_change_value = 0;            
         }
-        Debug.Log(anxiety_change_value);
+        //Debug.Log(anxiety_change_value);
+
+        //为焦虑值添加随机浮动倍数
         System.Random random = new System.Random();
         int multiplier = 10;  // 扩大的倍数
         double randomMultiplier = random.NextDouble() * 0.2 + 0.9;  // 生成随机浮动倍数（范围为0.9到1.1之间）

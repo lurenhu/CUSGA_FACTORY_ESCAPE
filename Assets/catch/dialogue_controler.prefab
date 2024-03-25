@@ -51,13 +51,7 @@ MonoBehaviour:
   talk_ui: {fileID: 0}
   textLabel: {fileID: 0}
   name_text: {fileID: 0}
-  textFile: {fileID: 4900000, guid: de0b6f1507ae54542b6526643aa40067, type: 3}
-  index: 0
-  max_index: 0
-  textSpeed: 0.1
-  heroine: {fileID: 0}
-  female_2: {fileID: 0}
   mouse: {fileID: 0}
+  textFile: {fileID: 4900000, guid: bf406c58ea63bc944a53d00afbd17ae1, type: 3}
+  textSpeed: 0.05
   move_time: 0.5
-  sceneNum: 2
-  role_choose_ui: {fileID: 0}

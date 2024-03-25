@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,61 +10,62 @@ using UnityEngine.UIElements;
 
 public class DialogSystem : MonoBehaviour
 {
-    [Header("UI×é¼ş")]
+    [Header("UIç»„ä»¶")]
     public GameObject talk_ui;
     public Text textLabel;
     public Text name_text;
     public GameObject mouse;
-
-    [Header("¶Ô»°²ÎÊı")]
-    public TextAsset textFile;  //¶Ô»°ÎÄ¼ş
-    public int index = 0;
-    public int max_index = 0;
-    [Header("ÎÄ×ÖÏÔÊ¾ËÙ¶È£¬ÖµÔ½Ğ¡ÏÔÊ¾Ô½¿ì")]
+    [Header("å¯¹è¯å‚æ•°")]
+    public TextAsset textFile;  //å¯¹è¯æ–‡ä»¶    
+    [Header("æ–‡å­—æ˜¾ç¤ºé€Ÿåº¦ï¼Œå€¼è¶Šå°æ˜¾ç¤ºè¶Šå¿«")]
     public float textSpeed = 0.05f;
-
-    //[Header("Í¼Æ¬×ÊÔ´")]
-    //public GameObject heroine;
-    //public GameObject female_2;
-    //
-    //Dictionary<string,GameObject> GameObject_dic = new Dictionary<string, GameObject>();
-
-    [Header("Á¢»æÒÆ¶¯²ÎÊı")]
+    [Header("ç«‹ç»˜ç§»åŠ¨å‚æ•°")]
+    public float move_time = 0.5f;
     private float left = -4300;
     private float right = 500;
-    private float middle = -1500;
-    public float move_time = 0.5f;
+    private float middle = -1500;    
 
-    [Header("ÒÆ¶¯µ½ÄÄ¸ö³¡¾°")]
-    public int sceneNum;
-
+    [Tooltip("å¯¹è¯å‚æ•°")]
     List<string> name_list = new List<string>();
     List<string> text_list = new List<string>();
     List<string[]> image_list = new List<string[]>();
-
-    static public DialogSystem instance;
-    bool text_finished = true;
-    Coroutine text_display;
-    bool is_blitting_text = true;
-    [Header("ÓÃÓÚ¼ÆÊ±Æ÷")]
-    private float locktime=0f;
+    [Header("è®¡æ—¶å™¨å‚æ•°")]
+    private float locktime = 0f;
     private bool isTimerRunning = false;
-    private void Awake()   //µ¥ÀıµÄÄ¬ÈÏĞ´·¨
+    [Header("å…¶ä»–å˜é‡")]
+    static public DialogSystem instance;
+    public bool text_finished = true;
+    private Coroutine text_display;
+    private bool is_blitting_text = true;
+    private int index = 0;
+    private int max_index = 0;
+
+    /*
+     * is_blitting_textç”¨äºå¼€å§‹æ£€æµ‹ç‚¹å‡»ä¸æ¸²æŸ“æ–‡å­—ï¼Œ
+     * text_finishedç”¨äºæ£€æµ‹æ–‡å­—æ˜¯å¦æ¸²æŸ“å®Œæˆ
+     */
+
+
+    private void Awake()   //å•ä¾‹çš„é»˜è®¤å†™æ³•
     {
         if (instance != null)
         {
             Destroy(this);
         }
         instance = this;
+        DontDestroyOnLoad(this);
     }
     void Start()
     {
         talk_ui.SetActive(false);
-        //max_index = GetText(textFile)-1;
+        if (textFile!=null)
+        { 
+            GetText(textFile);
+        }
+        
     }
-    
 
-    void Update()
+    private void Update()
     {
         if (isTimerRunning)
         {
@@ -72,66 +73,51 @@ public class DialogSystem : MonoBehaviour
         }
         if (is_blitting_text)
         {
-            //Debug.Log("blit_text");
+            //è®¾ç½®å¯ç‚¹å‡»å›¾æ ‡
+            instance.mouse.SetActive(instance.text_finished);
             is_blitting_text = blit_text();
         }
-    }
-    
-    private void countDown()
-    {
-        // ¸üĞÂ¼ÆÊ±Æ÷Ê±¼ä
-        instance.locktime -= Time.deltaTime;
-
-        // ¼ì²é¼ÆÊ±Æ÷ÊÇ·ñ´ïµ½³ÖĞøÊ±¼ä
-        if (instance.locktime < 0f)
+        else 
         {
-            // ¼ÆÊ±Æ÷´ïµ½³ÖĞøÊ±¼ä£¬Ö´ĞĞÏàÓ¦²Ù×÷
-            //instance.talk_ui.SetActive(false);
-            instance.isTimerRunning = false;
-            updateText();
+            instance.mouse.SetActive(false);
         }
         
+    }    
+    private void countDown()
+    {
+        // æ›´æ–°è®¡æ—¶å™¨æ—¶é—´
+        instance.locktime -= Time.deltaTime;
+
+        // æ£€æŸ¥è®¡æ—¶å™¨æ˜¯å¦è¾¾åˆ°æŒç»­æ—¶é—´
+        if (instance.locktime < 0f)
+        {
+            // è®¡æ—¶å™¨è¾¾åˆ°æŒç»­æ—¶é—´ï¼Œæ‰§è¡Œç›¸åº”æ“ä½œ
+            //instance.talk_ui.SetActive(false);
+            instance.isTimerRunning = false;
+            //instance.text_finished = true;
+            updateText();
+            instance.is_blitting_text = true;
+            
+        }        
     }
-
-
+    //å¼€å§‹è®¡æ—¶å¹¶åŠ lock
     static public void lockUI_and_setText(float locktime,string text) 
     {
-        // ¼ÆÊ±Æ÷Íê³ÉºóµÄ²Ù×÷
-        Debug.Log("¼ÆÊ±Æ÷¿ªÊ¼");
+        // è®¡æ—¶å™¨å®Œæˆåçš„æ“ä½œ
+        //Debug.Log("è®¡æ—¶å™¨å¼€å§‹");
         instance.isTimerRunning = true;
         instance.locktime = locktime;
         instance.talk_ui.SetActive(true);
+        instance.is_blitting_text = false;
         instance.name = "823";
         instance.textLabel.text= text;
-    }
-
-
-    static public bool blit_text()
-    {   
-
-        if (!instance.talk_ui.activeSelf)
-        {
-            //ÉèÖÃÁ¢»æ³õÊ¼Î»ÖÃ
-            //string[] image_pos = instance.image_list[0];
-
-            instance.talk_ui.SetActive(true);
-            //Debug.Log(instance.talk_ui.activeSelf);
-            //image_update(image_pos);
-
-            return updateText();
-        }
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))//Êó±êµã»÷»òF¼ü
-        {
-            return updateText();
-        }
-        return true;      //²»°´°´¼ü±£³Ötalk×´Ì¬
-    }
+    }    
     //static public void image_update(string[] image_pos)
     //{
     //    string sign = image_pos[0];
     //    char pos = image_pos[1][0];
     //    Debug.Log(sign);
-    //    if (sign == "È¡Ïû") 
+    //    if (sign == "å–æ¶ˆ") 
     //    {
     //        return;
     //    }
@@ -161,90 +147,113 @@ public class DialogSystem : MonoBehaviour
     //    if (rectTransform.localPosition.x != x_coordinate)
     //        rectTransform.DOLocalMoveX(x_coordinate,instance.move_time);
     //    //tran.DOLocalMoveX(x_coordinate, instance.move_time);
-
     //}
     static public void closeUi()
-    {
-        //foreach (GameObject value in instance.GameObject_dic.Values)
-        //{
-        //    value.SetActive(false);
-        //}
+    {        
         instance.text_list.Clear();
         instance.name_list.Clear();
         instance.image_list.Clear();
         //Debug.Log("closeUi");
         instance.talk_ui.SetActive(false);
     }
-    static public bool updateText()   //¸üĞÂÊä³öÎÄ×Ö
+    //æ£€æµ‹ç‚¹å‡»ä»¥åŠæ–‡æœ¬æ˜¯å¦æ’­æ”¾å®Œæ¯•,ä½¿ç”¨å‰è®°å¾—å¼€is_bliting_text
+    static public bool blit_text()
     {
-        
-        if (instance.index < instance.max_index)   //ÎÄ×ÖÄÚÈİÃ»ÓĞ²¥Íê
+        if (instance.index <= instance.max_index)   //æ–‡å­—å†…å®¹æ²¡æœ‰æ’­å®Œ
         {
-            if (instance.text_finished)
+            if (!instance.talk_ui.activeSelf)
             {
-                instance.index++;
-                //Debug.Log($"instance.index:{instance.index}");
-                //Debug.Log($"instance.max_index:{instance.max_index}");
-                string content = instance.text_list[instance.index];
-                if (content == "Ìø×ª")
-                {
-                    closeUi();
-                }
+                //è®¾ç½®ç«‹ç»˜åˆå§‹ä½ç½®
+                //string[] image_pos = instance.image_list[0];
 
-                instance.name_text.text = instance.name_list[instance.index];
-                string[] image_pos = instance.image_list[instance.index];
-                //Debug.Log($"index:{instance.index}");
-                //Debug.Log($"sign:{image_pos[0]}");
+                instance.talk_ui.SetActive(true);
                 //image_update(image_pos);
-                instance.text_display = instance.StartCoroutine(instance.setTextUI(content));
-                instance.text_finished = false;
-                instance.mouse.SetActive(false);
+
+                //è‡ªåŠ¨æ‹‰å–ç¬¬ä¸€è¡Œ
+                updateText();
             }
-            else //ÎÄ±¾Ã»½áÊøµÄÊ±ºòÔÙ°´R
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))//é¼ æ ‡ç‚¹å‡»æˆ–Fé”®
             {
-                instance.name_text.text = instance.name_list[instance.index];
-                instance.StopCoroutine(instance.text_display);
-                string content = instance.text_list[instance.index];
-                instance.textLabel.text = content;
-                instance.text_finished = true;
-                instance.mouse.SetActive(true);
+                //æ£€æµ‹æ–‡å­—éœ€è¦æ¸²æŸ“
+                updateText();
             }
-            return true;
+            return true;      //ä¸æŒ‰æŒ‰é”®ä¿æŒtalkçŠ¶æ€
         }
         else
-        {
+        {   //æ–‡å­—æ¸²æŸ“å®Œæˆ
             closeUi();
             return false;
         }
+        
     }
-    //»ñÈ¡¹Ì¶¨ÎÄ±¾µÄÎÄ×Ö
-    static public int GetText(TextAsset textFile)
+    //æŒ‰ç…§indexæ’æ–‡å­—
+    static public void updateText()   
     {
-        instance.text_list.Clear();
+        if (instance.text_finished)
+        {
+
+            string content = instance.text_list[instance.index];
+
+            instance.name_text.text = instance.name_list[instance.index];
+            //string[] image_pos = instance.image_list[instance.index];                
+            //image_update(image_pos);
+
+            //å°†æ–‡æœ¬æ¸²æŸ“è®¾ç½®ä¸ºå”¯ä¸€æºç¨‹
+            instance.text_display = instance.StartCoroutine(instance.setTextUI(content));
+            instance.text_finished = false;
+        }
+        else //æ–‡æœ¬æ²¡ç»“æŸçš„æ—¶å€™å†æŒ‰Rï¼Œåœæ­¢æºç¨‹å¹¶ç›´æ¥è¾“å‡ºæ–‡å­—
+        {
+            instance.name_text.text = instance.name_list[instance.index];
+            instance.StopCoroutine(instance.text_display);
+            string content = instance.text_list[instance.index];
+            instance.textLabel.text = content;
+            instance.text_finished = true;
+            instance.index++;
+
+        }
+        
+        
+    }
+    //é€å­—æ¸²æŸ“æ–‡å­—
+    public IEnumerator setTextUI(string content)
+    {
+        textLabel.text = string.Empty;
+        for (int i = 0; i < content.Length; i++)
+        {
+            textLabel.text += content[i];
+            yield return new WaitForSeconds(textSpeed);
+        }
+        text_finished = true;
+        instance.index++;
+        //mouse.SetActive(true);
+    }
+    //è·å–å›ºå®šæ–‡æœ¬çš„æ–‡å­—
+    static public void GetText(TextAsset textFile)
+    {
         instance.name_list.Clear();
+        instance.text_list.Clear();
         instance.image_list.Clear();
         var rows = textFile.text.Split('\n');
         foreach (var row in rows)
         {
             string text = row.ToString();
-            string[] row_list = text.Split(',');
-            string sign = row_list[0];
-            if (sign == "Á¢»æ±êÖ¾")
-            {
-                continue;
-            }
-
-            string position = row_list[4];
-            string name = row_list[2];
-            string content = row_list[3];
+            string[] row_list = text.Split(':');
+            string name = row_list[0];
+            string content = row_list[1];                   
             instance.name_list.Add(name);
             instance.text_list.Add(content);
-            instance.image_list.Add(new string[2] { sign, position });
-            //Debug.Log($"image_list:{sign + position}");
+                     
         }
-        Debug.Log($"image_list:{instance.image_list[4][0]}");
-        return instance.text_list.Count;
+        set_index();
     }
+    static void set_index()
+    {
+        instance.index = 0;
+        instance.max_index = instance.text_list.Count - 1;
+        
+    }
+    //ä»aiå¤„è·å–æ–‡æœ¬
     static public void get_text_in_other_ways(string name, string text, string[] image_display)
     {
         instance.text_list.Clear();
@@ -257,22 +266,8 @@ public class DialogSystem : MonoBehaviour
         set_index();
         instance.is_blitting_text = true;
     }
-    //Öğ×ÖäÖÈ¾ÎÄ×Ö
-    public IEnumerator setTextUI(string content)
-    {
-        textLabel.text = string.Empty;
+    
+    
+    
 
-        for (int i = 0; i < content.Length; i++)
-        {
-            textLabel.text += content[i];
-            yield return new WaitForSeconds(textSpeed);
-        }
-        text_finished = true;
-        mouse.SetActive(true);
-    }
-    static void set_index()
-    {
-        instance.index = -1;
-        instance.max_index = instance.text_list.Count-1;
-    }
 }

@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
-public class getText : MonoBehaviour
+public class writeAndLoadHistory : MonoBehaviour
 {
-    public static getText instance;
+    public static writeAndLoadHistory instance;
     List<string> name_list = new List<string>();
     List<string> role_list = new List<string>();
     List<string> content_list = new List<string>();
@@ -18,27 +18,27 @@ public class getText : MonoBehaviour
         }
         instance = this;
     }
-    //±¾ÖÊÊÇ¸öadd
-    static public void WriteText(string[] write_content)
+    //æœ¬è´¨æ˜¯ä¸ªadd
+    static public void writeText(string[] write_content)
     {
-        // ¼ì²éÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ£¬²»´æÔÚÔò´´½¨
+        // æ£€æŸ¥æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»º
         string folderPath = Application.dataPath + "/chatHistory";
         string filePath = folderPath + "/chatHistory.txt";
 
-        // ¼ì²éÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ£¬²»´æÔÚÔò´´½¨
+        // æ£€æŸ¥æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»º
         if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
 
-        // ¼ì²éÎÄ¼şÊÇ·ñ´æÔÚ
+        // æ£€æŸ¥æ–‡ä»¶æ˜¯å¦å­˜åœ¨
         if (!File.Exists(filePath))
         {
-            // ´´½¨ÎÄ¼ş
+            // åˆ›å»ºæ–‡ä»¶
             File.Create(filePath).Close();
         }
 
-        // ´ò¿ªÎÄ¼ş²¢Ğ´ÈëÄÚÈİ
+        // æ‰“å¼€æ–‡ä»¶å¹¶å†™å…¥å†…å®¹
         using (StreamWriter writer = new StreamWriter(filePath,true))
         {
             foreach (string content in write_content) 

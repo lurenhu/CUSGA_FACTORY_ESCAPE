@@ -1,14 +1,12 @@
-using System;
+锘縰sing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class soundManager : MonoBehaviour
 {
-    public static soundManager Instance;
-    private AudioSource audioManager;
-    private AudioClip jumpSound;
-    [Header("文件管理与播放器")]
+    public static soundManager Instance;    
+    [Header("鏂囦欢绠＄悊涓庢挱鏀惧櫒")]
     public Sound[] musicSound, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
@@ -23,7 +21,7 @@ public class soundManager : MonoBehaviour
     }
     private void Start()
     {
-        playMusic("testMusic");
+        //playMusic("testMusic");
     }
     
     public void playMusic(string name)
