@@ -21,8 +21,8 @@ public class Default : MonoBehaviour
             // 对话
             if (myNode.dialogTexts.Count > myNode.dialogTextsIndex)
             {
-                DialogManager.Instance.LoadDialogData(myNode.dialogTexts[myNode.dialogTextsIndex]);
-                myNode.dialogTextsIndex++;
+                DialogSystem.GetText(myNode.dialogTexts[myNode.dialogTextsIndex++]);
+
                 return;
             }
 
