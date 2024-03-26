@@ -36,7 +36,7 @@ public class DialogSystem : MonoBehaviour
     static public DialogSystem instance;
     public bool text_finished = true;
     private Coroutine text_display;
-    private bool is_blitting_text = true;
+    private bool is_blitting_text = false;
     private int index = 0;
     private int max_index = 0;
 
@@ -251,6 +251,7 @@ public class DialogSystem : MonoBehaviour
     {
         instance.index = 0;
         instance.max_index = instance.text_list.Count - 1;
+        instance.is_blitting_text = true;
         
     }
     //从ai处获取文本
@@ -264,7 +265,7 @@ public class DialogSystem : MonoBehaviour
         instance.image_list.Add(image_display);
         //Debug.Log("get_text_in_other_ways");
         set_index();
-        instance.is_blitting_text = true;
+        
     }
     
     
