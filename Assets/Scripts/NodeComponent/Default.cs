@@ -22,7 +22,6 @@ public class Default : MonoBehaviour
             if (myNode.dialogTexts.Count > myNode.dialogTextsIndex)
             {
                 DialogSystem.GetText(myNode.dialogTexts[myNode.dialogTextsIndex++]);
-
                 return;
             }
 
