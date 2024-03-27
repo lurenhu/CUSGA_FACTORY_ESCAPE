@@ -25,27 +25,33 @@ public class QuickClick : MonoBehaviour
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
-        if (myNode.isDragging) myNode.isDragging = false;
 
-        if (myNode.isSelected)
+        if (!myNode.isDragging)
         {
-            if (ClickNumber > 0)
-                ClickNumber--;
-
-            // 节点交互内容
-            if (!myNode.hasPopUp && ClickNumber == 0)
+            if (myNode.isSelected)
             {
-                myNode.PopUpChildNode(myNode.nodeInfos);
-                myNode.hasPopUp = true;
+                if (ClickNumber > 0)
+                    ClickNumber--;
+    
+                // 节点交互内容
+                if (!myNode.hasPopUp && ClickNumber == 0)
+                {
+                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    myNode.hasPopUp = true;
+                }
+    
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
             }
         }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
+        
+        if (myNode.isDragging) myNode.isDragging = false;
     }
 
 }

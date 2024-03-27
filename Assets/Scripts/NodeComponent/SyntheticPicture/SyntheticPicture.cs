@@ -47,20 +47,26 @@ public class SyntheticPicture : MonoBehaviour
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
+
+        if (!myNode.isDragging)
+        {
+            if (myNode.isSelected)
+            {
+                // 节点交互内容
+                PopUpGraph();
+    
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
+        }
+        
         if (myNode.isDragging) myNode.isDragging = false;
-
-        if (myNode.isSelected)
-        {
-            // 节点交互内容
-            PopUpGraph();
-        }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
     }
 
     /// <summary>

@@ -313,6 +313,7 @@ public class NodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("创建计时节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isTiming)));
         menu.AddItem(new GUIContent("创建快速点击节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isQuickClick)));
         menu.AddItem(new GUIContent("创建QTE节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isQTE)));
+        menu.AddItem(new GUIContent("创建对话节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isDialog)));
 
         menu.AddSeparator("");
 
@@ -531,6 +532,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isQTE)
         {
             QTENodeSO node = ScriptableObject.CreateInstance<QTENodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isDialog)
+        {
+            DialogNodeSO node = ScriptableObject.CreateInstance<DialogNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

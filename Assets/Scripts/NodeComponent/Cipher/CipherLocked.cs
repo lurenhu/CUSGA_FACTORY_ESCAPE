@@ -57,32 +57,39 @@ public class CipherLocked : MonoBehaviour
     private void OnMouseUp() 
     {
         if (myNode.isPopping) return;
+        
+        if (!myNode.isDragging)
+        {
+            if (myNode.isSelected)
+            {
+                // 第一次点击弹出所有的锁节点
+                if (!hasPopUpCipherNode)
+                {
+                    myNode.PopUpChildNode(cipherNodes);
+                    hasPopUpCipherNode = true;
+                    return;
+                }
+    
+                // 第二次点击判断是否解锁然后弹出所有子节点
+                if (UnLocked() && !myNode.hasPopUp)
+                {
+                    DestroyAllCipherNode();
+                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    myNode.hasPopUp = true;
+                }
+    
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
+        }
+        
         if (myNode.isDragging) myNode.isDragging = true;        
-        if (myNode.isSelected)
-        {
-            // 第一次点击弹出所有的锁节点
-            if (!hasPopUpCipherNode)
-            {
-                myNode.PopUpChildNode(cipherNodes);
-                hasPopUpCipherNode = true;
-                return;
-            }
-
-            // 第二次点击判断是否解锁然后弹出所有子节点
-            if (UnLocked() && !myNode.hasPopUp)
-            {
-                DestroyAllCipherNode();
-                myNode.PopUpChildNode(myNode.nodeInfos);
-                myNode.hasPopUp = true;
-            }
-        }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
     }
 
     /// <summary>

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c355532a97e9854ab943a06d8a45c8a, type: 3}
+  m_Name: NodeType_Dialog
+  m_EditorClassIdentifier: 
+  nodeTypeName: Dialog
+  isEntrance: 0
+  isDefault: 0
+  isSynthetic: 0
+  isLocked: 0
+  isAI: 0
+  isGraph: 0
+  isAngleLock: 0
+  isProbe: 0
+  isControllable: 0
+  isSyntheticPicture: 0
+  isTiming: 0
+  isQuickClick: 0
+  isQTE: 0
+  isDialog: 1
+  isExit: 0

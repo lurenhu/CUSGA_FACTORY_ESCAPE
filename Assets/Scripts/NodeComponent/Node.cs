@@ -17,13 +17,16 @@ public class Node : MonoBehaviour
     public string parentID;
     public List<string> childIdList;
     public List<NodeInfo> nodeInfos;
-    public List<TextAsset> dialogTexts;
+    // public List<TextAsset> dialogTexts;
     public List<AudioClip> audios;
-    [HideInInspector] public int dialogTextsIndex = 0;
+    // [HideInInspector] public int dialogTextsIndex = 0;
     [HideInInspector] public Rect rect;
     [HideInInspector] public GameObject nodePrefab;
     [HideInInspector] public Node node;
     [HideInInspector] public NodeTypeSO nodeType;
+    
+    private SpriteRenderer spriteRenderer;
+    private Vector2 lastMouseWorldPosition;
 
     /// <summary>
     /// 初始化节点数据
@@ -41,13 +44,14 @@ public class Node : MonoBehaviour
         else
             parentID = nodeSO.parentNodeIdList[0];
 
+        spriteRenderer = transform.GetComponent<SpriteRenderer>();
         TMP_Text tMP_Text = transform.GetComponentInChildren<TMP_Text>();
         if (tMP_Text != null)
         {
             tMP_Text.text = nodeSO.nodeText;
         }
 
-        dialogTexts = nodeSO.dialogTextList;
+        // dialogTexts = nodeSO.dialogTextList;
         audios = nodeSO.audioList;
     }
 
@@ -56,17 +60,21 @@ public class Node : MonoBehaviour
         LoadNodeInfo();
     }
     
+    private void OnMouseDown() {
+        lastMouseWorldPosition = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
+    }
+
     protected virtual void OnMouseDrag() 
     {
-        if (isPopping) return;
-
-        if (!isDragging) isDragging = true;
+        if (isPopping || nodeType.isQTE) return;
         
-        if (nodeType.isQTE)
-        {
-            return;
-        }
-        transform.position = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
+        // 获取鼠标位移并将对象进行跟随鼠标进行位移
+        Vector2 currentMouseWorldPosition = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
+        Vector2 mouseDelta = currentMouseWorldPosition - lastMouseWorldPosition;
+        transform.position += (Vector3)mouseDelta;
+        lastMouseWorldPosition = currentMouseWorldPosition;
+
+        if (!isDragging && mouseDelta != Vector2.zero) isDragging = true;
     }
 
     /// <summary>
@@ -118,7 +126,7 @@ public class Node : MonoBehaviour
     /// <summary>
     /// 导入需要弹出的子节点集
     /// </summary>
-    private void LoadNodeInfo()
+    public void LoadNodeInfo()
     {
         if (childIdList == null)
         {
@@ -138,6 +146,28 @@ public class Node : MonoBehaviour
             };
 
             nodeInfos.Add(newNodeInfo);
+        }
+    }
+
+    /// <summary>
+    /// 获取被选中动画
+    /// </summary>
+    public void GetSelectedAnimate()
+    {
+        if (spriteRenderer.material.color != Color.red)
+        {
+            spriteRenderer.material.DOColor(Color.red,1f);
+        }
+    }
+
+    /// <summary>
+    /// 获取不被选中动画
+    /// </summary>
+    public void GetUnSelectedAnimate()
+    {
+        if (spriteRenderer.material.color != Color.white)
+        {
+            spriteRenderer.material.DOColor(Color.white,1f);
         }
     }
 

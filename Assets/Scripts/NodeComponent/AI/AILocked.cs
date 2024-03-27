@@ -34,23 +34,27 @@ public class AILocked : MonoBehaviour
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
-        if (myNode.isDragging) myNode.isDragging = false;
 
-        if (myNode.isSelected)
+        if (!myNode.isDragging)
         {
-            // 节点交互内容
-            if(!hasResult)
-                tongyi_AI.instance.input_field.SetActive(true);
-            
+            if (myNode.isSelected)
+            {
+                // 节点交互内容
+                if(!hasResult)
+                    tongyi_AI.instance.input_field.SetActive(true);
                 
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
         }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
+        
+        if (myNode.isDragging) myNode.isDragging = false;
     }
 
     private void StaticEventHandler_OnCommit(CommitArgs args)

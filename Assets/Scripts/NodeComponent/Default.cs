@@ -13,35 +13,33 @@ public class Default : MonoBehaviour
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
+
+        if (!myNode.isDragging)
+        {
+            if (myNode.isSelected)
+            {
+                // 节点交互内容
+    
+                // 弹出子节点
+                if (!myNode.hasPopUp)
+                {
+                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    myNode.hasPopUp = true;
+                    return;
+                }
+                
+                // 播放音频
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
+        }
+        
         if (myNode.isDragging) myNode.isDragging = false;
-
-        if (myNode.isSelected)
-        {
-            // 节点交互内容
-            // 对话
-            if (myNode.dialogTexts.Count > myNode.dialogTextsIndex)
-            {
-                DialogSystem.GetText(myNode.dialogTexts[myNode.dialogTextsIndex++]);
-                return;
-            }
-
-            // 弹出子节点
-            if (!myNode.hasPopUp)
-            {
-                myNode.PopUpChildNode(myNode.nodeInfos);
-                myNode.hasPopUp = true;
-                return;
-            }
-
-            // 播放音频
-            soundManager.playSFX(myNode.audios[0]);            
-        }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
     }
 }

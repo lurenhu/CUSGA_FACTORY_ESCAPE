@@ -135,6 +135,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             QTE qTE = nodeGameObject.GetComponent<QTE>();
             qTE.InitializeQTE(currentNode);
         }
+        else if (currentNode.nodeType.isDialog)
+        {
+            Dialog dialog = nodeGameObject.GetComponent<Dialog>();
+            dialog.InitializeDialog(currentNode);
+        }
     }
 
     /// <summary>
@@ -260,6 +265,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             if (currentNode != node && currentNode.isSelected)
             {
                 currentNode.isSelected = false;
+                currentNode.GetUnSelectedAnimate();
             }
         }
     }

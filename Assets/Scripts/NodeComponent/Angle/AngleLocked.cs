@@ -59,36 +59,42 @@ public class AngleLocked : MonoBehaviour
     private void OnMouseUp()
     {
         if (myNode.isPopping) return;
-        if (myNode.isDragging) myNode.isDragging = false;
 
-        if (myNode.isSelected)
+        if (!myNode.isDragging)
         {
-            if (!hasPopUpPointers)
+            if (myNode.isSelected)
             {
-                myNode.PopUpChildNode(pointers);
-                hasPopUpPointers = true;
-                return;
-            }
-
-            // 节点交互内容
-            if (CheckPointerInAngle() && !myNode.hasPopUp)
-            {
-                ClearAllPointers();
-                myNode.PopUpChildNode(myNode.nodeInfos);
-                myNode.hasPopUp = true;
+                if (!hasPopUpPointers)
+                {
+                    myNode.PopUpChildNode(pointers);
+                    hasPopUpPointers = true;
+                    return;
+                }
+    
+                // 节点交互内容
+                if (CheckPointerInAngle() && !myNode.hasPopUp)
+                {
+                    ClearAllPointers();
+                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    myNode.hasPopUp = true;
+                }
+                else
+                {
+                    Debug.Log("Not UnLocked");
+                }
+    
             }
             else
             {
-                Debug.Log("Not UnLocked");
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
             }
         }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
+        
+        if (myNode.isDragging) myNode.isDragging = false;
     }
 
     private void ClearAllPointers()

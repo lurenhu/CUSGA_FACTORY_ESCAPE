@@ -72,19 +72,23 @@ public class Controllable : MonoBehaviour
     private void OnMouseUp() 
     {
         if (myNode.isPopping) return;
-        if (myNode.isDragging) myNode.isDragging = true;        
         
-        if (myNode.isSelected)
+        if (!myNode.isDragging)
         {
-            
+            if (myNode.isSelected)
+            {
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
         }
-        else
-        {
-            // 删除其他所有节点的选中状态
-            NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
-
-            myNode.isSelected = true;
-        }
+        
+        if (myNode.isDragging) myNode.isDragging = false;        
     }  
 
     // 限制速度
