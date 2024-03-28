@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Node
   - Line
-  - 
+  - BackGround
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 2733542235
     locked: 0
   - name: Line
     uniqueID: 4291846537

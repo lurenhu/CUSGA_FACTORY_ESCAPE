@@ -26,6 +26,7 @@ public class Node : MonoBehaviour
     [HideInInspector] public NodeTypeSO nodeType;
     
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D col2D;
     private Vector2 lastMouseWorldPosition;
 
     /// <summary>
@@ -58,8 +59,46 @@ public class Node : MonoBehaviour
     protected virtual void Start()
     {
         LoadNodeInfo();
+
+        MatchCollider2D();
     }
-    
+
+    /// <summary>
+    /// 导入需要弹出的子节点集
+    /// </summary>
+    public void LoadNodeInfo()
+    {
+        if (childIdList == null)
+        {
+            return;
+        }
+
+        foreach (string childNodeID in childIdList)
+        {
+            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
+
+            Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (rect.center - childNode.rect.center).y).normalized;
+
+            NodeInfo newNodeInfo = new NodeInfo()
+            {
+                node = childNode,
+                direction = direction
+            };
+
+            nodeInfos.Add(newNodeInfo);
+        }
+    }
+
+    /// <summary>
+    /// 将碰撞器的碰撞盒匹配图片
+    /// </summary>
+    private void MatchCollider2D()
+    {
+        col2D = transform.GetComponent<BoxCollider2D>();
+        if (col2D != null)
+            col2D.size = spriteRenderer.sprite.bounds.size;
+    }
+
     private void OnMouseDown() {
         lastMouseWorldPosition = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
     }
@@ -123,31 +162,7 @@ public class Node : MonoBehaviour
             });
     }
 
-    /// <summary>
-    /// 导入需要弹出的子节点集
-    /// </summary>
-    public void LoadNodeInfo()
-    {
-        if (childIdList == null)
-        {
-            return;
-        }
-
-        foreach (string childNodeID in childIdList)
-        {
-            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
-
-            Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (rect.center - childNode.rect.center).y).normalized;
-
-            NodeInfo newNodeInfo = new NodeInfo()
-            {
-                node = childNode,
-                direction = direction
-            };
-
-            nodeInfos.Add(newNodeInfo);
-        }
-    }
+    
 
     /// <summary>
     /// 获取被选中动画
