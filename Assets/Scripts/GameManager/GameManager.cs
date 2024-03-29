@@ -20,6 +20,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public Transform Canvas;
     public Transform graphTransform;
 
+    public bool haveNodeDrag;
+
     override protected void Awake() {
         base.Awake();
         

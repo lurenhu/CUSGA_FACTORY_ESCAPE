@@ -40,6 +40,10 @@ public class Default : MonoBehaviour
             }
         }
         
-        if (myNode.isDragging) myNode.isDragging = false;
+        if (myNode.isDragging)
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        } 
     }
 }

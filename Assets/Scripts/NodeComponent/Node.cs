@@ -110,10 +110,14 @@ public class Node : MonoBehaviour
         // 获取鼠标位移并将对象进行跟随鼠标进行位移
         Vector2 currentMouseWorldPosition = HelperUtility.TranslateScreenToWorld(Input.mousePosition);
         Vector2 mouseDelta = currentMouseWorldPosition - lastMouseWorldPosition;
-        transform.position += (Vector3)mouseDelta;
+        transform.Translate(mouseDelta);
         lastMouseWorldPosition = currentMouseWorldPosition;
 
-        if (!isDragging && mouseDelta != Vector2.zero) isDragging = true;
+        if (!isDragging && mouseDelta != Vector2.zero) 
+        {
+            GameManager.Instance.haveNodeDrag = true;
+            isDragging = true;
+        }
     }
 
     /// <summary>
