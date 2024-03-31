@@ -29,6 +29,11 @@ public class Default : MonoBehaviour
                 }
                 
                 // 播放音频
+                Debug.Log("播放音频");
+                if (myNode.audios.Count != 0)
+                {
+                    soundManager.playSFX(myNode.audios[0]);
+                }
             }
             else
             {

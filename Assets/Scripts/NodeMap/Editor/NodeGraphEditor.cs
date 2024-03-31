@@ -2,8 +2,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEditor.Callbacks;
 using System.Collections.Generic;
-using Codice.CM.WorkspaceServer.DataStore;
-using System;
 
 public class NodeGraphEditor : EditorWindow
 {
