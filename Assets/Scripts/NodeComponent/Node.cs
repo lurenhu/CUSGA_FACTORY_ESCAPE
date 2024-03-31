@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System;
 using TMPro;
+using UnityEditor.EditorTools;
 
 [DisallowMultipleComponent]
 public class Node : MonoBehaviour
@@ -17,9 +18,8 @@ public class Node : MonoBehaviour
     public string parentID;
     public List<string> childIdList;
     public List<NodeInfo> nodeInfos;
-    // public List<TextAsset> dialogTexts;
     public List<AudioClip> audios;
-    // [HideInInspector] public int dialogTextsIndex = 0;
+    public string nodeTextForShow;
     [HideInInspector] public Rect rect;
     [HideInInspector] public GameObject nodePrefab;
     [HideInInspector] public Node node;
@@ -52,8 +52,8 @@ public class Node : MonoBehaviour
             tMP_Text.text = nodeSO.nodeText;
         }
 
-        // dialogTexts = nodeSO.dialogTextList;
         audios = nodeSO.audioList;
+        nodeTextForShow = nodeSO.nodeTextForShow;
     }
 
     protected virtual void Start()

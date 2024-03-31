@@ -38,6 +38,8 @@ public class Default : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+
+            StartCoroutine(GameManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
         }
         
         if (myNode.isDragging)

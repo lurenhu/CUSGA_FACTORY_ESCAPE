@@ -8,11 +8,12 @@ public class NodeSO : ScriptableObject
     [Space(10)]
     [Header("节点参数")]
     public string nodeText;
-    public string id;
-    public List<string> parentNodeIdList = new List<string>();
-    public List<string> childrenNodeIdList = new List<string>();
+    [HideInInspector] public string id;
+    [HideInInspector] public List<string> parentNodeIdList = new List<string>();
+    [HideInInspector] public List<string> childrenNodeIdList = new List<string>();
     // public List<TextAsset> dialogTextList = new List<TextAsset>();
-    public List<AudioClip> audioList = new List<AudioClip>(); 
+    public List<AudioClip> audioList = new List<AudioClip>();
+    public string nodeTextForShow = Setting.stringDefaultValue;
     [HideInInspector] public NodeGraphSO nodeGraph;
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;

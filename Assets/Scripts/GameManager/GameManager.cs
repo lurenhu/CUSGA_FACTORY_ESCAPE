@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : SingletonMonobehaviour<GameManager>
 {
@@ -14,18 +16,20 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     [Space(10)]
     [Header("节点图参数")]
-    [Tooltip("节点图列表")]
+    [Tooltip("所需生成节点图列表")]
     public List<NodeGraphSO> nodeGraphSOs;
 
-    public Transform Canvas;
+    [Space(10)]
+    [Header("所需UI对象")]
+    [Tooltip("图节点展示图的UI对象")]
     public Transform graphTransform;
+    [Tooltip("将节点文本显示的UI对象")]
+    public Transform nodeTextForShow;
 
     public bool haveNodeDrag;
 
     override protected void Awake() {
         base.Awake();
-        
-        Canvas = GameObject.FindWithTag("Canvas").transform;    
     }
     
     private void Start() {
@@ -35,5 +39,19 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public void CloseGraph()
     {
         graphTransform.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// 显示节点文本内容
+    /// </summary>
+    public IEnumerator DisplayNodeTextForShow(string nodeTextForShow)
+    {
+        this.nodeTextForShow.gameObject.SetActive(true);
+
+        this.nodeTextForShow.GetComponent<TMP_Text>().text = nodeTextForShow;
+
+        yield return new WaitForSeconds(2f);
+
+        this.nodeTextForShow.gameObject.SetActive(false);
     }
 }

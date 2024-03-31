@@ -18,6 +18,7 @@ MonoBehaviour:
   childrenNodeIdList:
   - c5f3140c-235b-4c4f-b00e-2c03541191c0
   audioList: []
+  nodeTextForShow: "\u663E\u793A\u6587\u672C2"
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
@@ -67,6 +68,7 @@ MonoBehaviour:
   childrenNodeIdList:
   - 46cba235-88b3-427f-8897-4e231cf1d698
   audioList: []
+  nodeTextForShow: "\u663E\u793A\u6587\u672C3"
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 9f14a741bea149048b740135ae4ad77b, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
@@ -99,6 +101,7 @@ MonoBehaviour:
   - c5f3140c-235b-4c4f-b00e-2c03541191c0
   childrenNodeIdList: []
   audioList: []
+  nodeTextForShow: "\u663E\u793A\u6587\u672C1"
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
