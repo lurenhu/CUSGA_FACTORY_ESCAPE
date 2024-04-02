@@ -140,6 +140,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             Dialog dialog = nodeGameObject.GetComponent<Dialog>();
             dialog.InitializeDialog(currentNode);
         }
+        else if (currentNode.nodeType.isText)
+        {
+            TextShow textShow = nodeGameObject.GetComponent<TextShow>();
+            textShow.InitializeTextNode(currentNode);
+        }
     }
 
     /// <summary>

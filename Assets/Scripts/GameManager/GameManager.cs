@@ -22,11 +22,15 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("所需UI对象")]
     [Tooltip("图节点展示图的UI对象")]
-    public Transform graphTransform;
+    public Transform GraphNodeUI;
     [Tooltip("将节点文本显示的UI对象")]
     public Transform nodeTextForShow;
+    [Tooltip("滑动文本框内的文本")]
+    public Transform scrollViewContent;
+    [Tooltip("节点文本显示UI对象")]
+    public Transform TextNodeUI;
 
-    public bool haveNodeDrag;
+    [HideInInspector] public bool haveNodeDrag;
 
     override protected void Awake() {
         base.Awake();
@@ -38,7 +42,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     public void CloseGraph()
     {
-        graphTransform.gameObject.SetActive(false);
+        GraphNodeUI.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -53,5 +57,20 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return new WaitForSeconds(2f);
 
         this.nodeTextForShow.gameObject.SetActive(false);
+    }
+
+    public void CloseTextNodeUI()
+    {
+        TextNodeUI.gameObject.SetActive(false);
+    } 
+
+    /// <summary>
+    /// 展示文本节点UI
+    /// </summary>
+    public void DisplayTextNodeContent(string text) 
+    {
+        scrollViewContent.GetComponent<TMP_Text>().text = text;
+
+        TextNodeUI.gameObject.SetActive(true);
     }
 }

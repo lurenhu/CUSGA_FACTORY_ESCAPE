@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9061473766575099134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
+  m_EditorClassIdentifier: 
+  nodeText: 2
+  id: 76445fa9-feb5-41a8-9f7c-04b2385dcf02
+  parentNodeIdList:
+  - e5a6df11-7172-4740-ba3c-b479c7d70dc7
+  childrenNodeIdList:
+  - 50cf2f5a-088a-44d1-aa3e-16a9d290c053
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 413
+    y: 338
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  text: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5"
+--- !u!114 &-8669683705547856399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 3
+  id: 50cf2f5a-088a-44d1-aa3e-16a9d290c053
+  parentNodeIdList:
+  - 76445fa9-feb5-41a8-9f7c-04b2385dcf02
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 598
+    y: 539
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-2525246252513426208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 1
+  id: e5a6df11-7172-4740-ba3c-b479c7d70dc7
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 76445fa9-feb5-41a8-9f7c-04b2385dcf02
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 200
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
+  m_Name: NodeGraph_Text
+  m_EditorClassIdentifier: 
+  nodeTypeList: {fileID: 0}
+  nodeList:
+  - {fileID: -2525246252513426208}
+  - {fileID: -8669683705547856399}
+  - {fileID: -9061473766575099134}
+  nodeToDrawLineFrom: {fileID: 0}
+  linePosition: {x: 0, y: 0}

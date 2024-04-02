@@ -312,6 +312,7 @@ public class NodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("创建快速点击节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isQuickClick)));
         menu.AddItem(new GUIContent("创建QTE节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isQTE)));
         menu.AddItem(new GUIContent("创建对话节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isDialog)));
+        menu.AddItem(new GUIContent("创建文本节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isText)));
 
         menu.AddSeparator("");
 
@@ -423,7 +424,7 @@ public class NodeGraphEditor : EditorWindow
         if (currentNodeGraph.nodeList.Count == 0)
         {
             CreateNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isEntrance));
-            CreateNodes(new Vector2(200,200),nodeTypeList.list.Find(x => x.isExit));
+            CreateNodes(new Vector2(400,400),nodeTypeList.list.Find(x => x.isExit));
         }
 
         CreateNodes(mousePositionObject,nodeType);
@@ -537,6 +538,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isDialog)
         {
             DialogNodeSO node = ScriptableObject.CreateInstance<DialogNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isText)
+        {
+            TextNodeSO node = ScriptableObject.CreateInstance<TextNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

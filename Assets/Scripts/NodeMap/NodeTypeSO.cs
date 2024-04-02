@@ -21,5 +21,6 @@ public class NodeTypeSO : ScriptableObject
     public bool isQuickClick;
     public bool isQTE;
     public bool isDialog;
+    public bool isText;
     public bool isExit;
 }
