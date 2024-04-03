@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
+  m_Name: NodeTempateSO_Chasing
+  m_EditorClassIdentifier: 
+  guid: 253f5a6594e24644d94fe2f1a5103ae2
+  nodePrefab: {fileID: 4026254294051308990, guid: 7718c0cf1b86f6d419fe3acd94d66b20, type: 3}
+  previousPrefab: {fileID: 4026254294051308990, guid: 7718c0cf1b86f6d419fe3acd94d66b20, type: 3}
+  nodeType: {fileID: 11400000, guid: 1d184f75302fa8243af385031d43306d, type: 2}

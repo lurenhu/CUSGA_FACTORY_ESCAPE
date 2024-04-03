@@ -69,7 +69,7 @@ public class tongyi_AI : MonoBehaviour
     {
         if (chat_input_field.text.Equals(""))
         { 
-            soundManager.playSFX(test_SFX);
+            soundManager.Instance.PlaySFX(test_SFX);
             return;
         }
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        

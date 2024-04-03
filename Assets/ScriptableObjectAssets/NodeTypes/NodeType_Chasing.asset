@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c355532a97e9854ab943a06d8a45c8a, type: 3}
-  m_Name: NodeType_AI
+  m_Name: NodeType_Chasing
   m_EditorClassIdentifier: 
-  nodeTypeName: AI
+  nodeTypeName: Chasing
   isEntrance: 0
   isDefault: 0
   isSynthetic: 0
   isLocked: 0
-  isAI: 1
+  isAI: 0
   isGraph: 0
   isAngleLock: 0
   isProbe: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
   isQTE: 0
   isDialog: 0
   isText: 0
+  isChasing: 1
   isExit: 0

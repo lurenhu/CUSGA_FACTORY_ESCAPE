@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 292482524}
   - component: {fileID: 292482523}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 520462944}
   - component: {fileID: 520462943}
   m_Layer: 0
-  m_Name: VidioPlayer
+  m_Name: VideoPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 8190e6868d592c944a86c845d7aef26e, type: 2}
+  - {fileID: 11400000, guid: 1b39ca649cfd7b6408e1f410da3b8e62, type: 2}
   GraphNodeUI: {fileID: 962800976}
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}
@@ -1239,8 +1239,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1068859739}
+  - component: {fileID: 1068859740}
   m_Layer: 0
-  m_Name: VidioManager
+  m_Name: VideoManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,6 +1264,20 @@ Transform:
   - {fileID: 489673682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068859740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068859738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087ea38cfe0f37c4fa1410c9a391dd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 520462943}
+  videoClips: []
 --- !u!1 &1101488710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,7 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2223,6 +2238,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0179b5f1c5768b4885b0a360186e65e, type: 2}
   - {fileID: 11400000, guid: 72d4f579b3225894ea78c6a409413891, type: 2}
   - {fileID: 11400000, guid: 9ae6cedef76c57044ba7338b5e9b8bb3, type: 2}
+  - {fileID: 11400000, guid: 461ee7a7f8577dd40b6aeab051d1603e, type: 2}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

@@ -28,12 +28,7 @@ public class Default : MonoBehaviour
                     return;
                 }
                 
-                // 播放音频
-                Debug.Log("播放音频");
-                if (myNode.audios.Count != 0)
-                {
-                    soundManager.playSFX(myNode.audios[0]);
-                }
+                
             }
             else
             {
@@ -44,6 +39,11 @@ public class Default : MonoBehaviour
                 myNode.isSelected = true;
             }
 
+            // 播放音频
+            if (myNode.audios.Count != 0)
+            {
+                soundManager.Instance.PlayMusic(myNode.audios[0]);
+            }
             StartCoroutine(GameManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
         }
         

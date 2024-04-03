@@ -313,6 +313,7 @@ public class NodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("创建QTE节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isQTE)));
         menu.AddItem(new GUIContent("创建对话节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isDialog)));
         menu.AddItem(new GUIContent("创建文本节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isText)));
+        menu.AddItem(new GUIContent("创建追逐节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isChasing)));
 
         menu.AddSeparator("");
 
@@ -545,6 +546,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isText)
         {
             TextNodeSO node = ScriptableObject.CreateInstance<TextNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isChasing)
+        {
+            ChasingNodeSO node = ScriptableObject.CreateInstance<ChasingNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

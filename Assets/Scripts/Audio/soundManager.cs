@@ -3,28 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class soundManager : MonoBehaviour
+public class soundManager : SingletonMonobehaviour<soundManager>
 {
-    public static soundManager Instance;    
     [Header("文件管理与播放器")]
     public Sound[] musicSound, sfxSounds;
     public AudioSource musicSource, sfxSource;
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(this);
-        }
-        Instance = this;
-        DontDestroyOnLoad(this);
-    }
-    private void Start()
-    {
-        //playMusic("testMusic");
-    }
     
-    public void playMusic(string name)
+    public void PlayMusic(string name)
     {
         Debug.Log("play");
         Sound s = Array.Find(musicSound, x => x.name == name);
@@ -38,7 +23,7 @@ public class soundManager : MonoBehaviour
             musicSource.Play();
         }
     }
-    public void playSFX(string name)
+    public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
         if (s == null)
@@ -50,17 +35,17 @@ public class soundManager : MonoBehaviour
             sfxSource.PlayOneShot(s.clip);
         }
     }
-    static public void playSFX(AudioClip SE)
+    public void PlaySFX(AudioClip SE)
     {
-        Instance.sfxSource.PlayOneShot(SE);
+        sfxSource.PlayOneShot(SE);
     }
-    static public void playMusic(AudioClip music)
+    public void PlayMusic(AudioClip music)
     {
-        Instance.musicSource.clip = music;
-        Instance.musicSource.Play();
+        musicSource.clip = music;
+        musicSource.Play();
     }
-    static public void stopMusic()
+    public void StopMusic()
     {
-        Instance.musicSource.Stop();
+        musicSource.Stop();
     }
 }

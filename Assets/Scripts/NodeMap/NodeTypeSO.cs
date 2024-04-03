@@ -22,5 +22,6 @@ public class NodeTypeSO : ScriptableObject
     public bool isQTE;
     public bool isDialog;
     public bool isText;
+    public bool isChasing;
     public bool isExit;
 }
