@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     Vector2 lastMousePos;
-    public GameObject BG;
+    //public GameObject BG;
     
     private void Update()
     {
@@ -35,6 +35,6 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        BG.transform.position = new Vector3(transform.position.x,transform.position.y,0);
+        //BG.transform.position = new Vector3(transform.position.x,transform.position.y,0);
     }
 }

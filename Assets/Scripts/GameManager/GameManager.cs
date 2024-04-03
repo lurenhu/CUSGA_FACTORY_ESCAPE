@@ -30,7 +30,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Tooltip("节点文本显示UI对象")]
     public Transform TextNodeUI;
 
-    [HideInInspector] public bool haveNodeDrag;
+    [HideInInspector] public bool UIShow = false;
+    [HideInInspector] public bool haveNodeDrag = false;
 
     override protected void Awake() {
         base.Awake();
