@@ -46,8 +46,16 @@ public class Character
     public Sprite sprite;
 }
 
+[System.Serializable]
 public class Video
 {
     public string name;
     public VideoClip videoClip;
+}
+
+[System.Serializable]
+public class GraphicsAndText
+{
+    public Sprite graphic;
+    public TextAsset text;
 }

@@ -221,7 +221,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
         else //文本没结束的时候再按R，停止携程并直接输出文字
         {
-
             name_text.text = name_list[index];
             StopCoroutine(text_display);
             string content = text_list[index];
