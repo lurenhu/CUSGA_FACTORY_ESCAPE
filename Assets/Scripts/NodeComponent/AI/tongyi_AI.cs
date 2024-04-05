@@ -46,7 +46,7 @@ public class tongyi_AI : MonoBehaviour
     void Start()
     {
         //给button绑方法,确定机器人id
-        setChatUIActive(false);
+        //setChatUIActive(false);
         
         robotCollection bot = Array.Find(robots, x => x.name == name);
         if (bot == null)
