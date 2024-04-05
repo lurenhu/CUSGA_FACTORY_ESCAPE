@@ -1208,7 +1208,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 8190e6868d592c944a86c845d7aef26e, type: 2}
+  - {fileID: 11400000, guid: 74fa320e125421a47a3327f104fa52aa, type: 2}
   GraphNodeUI: {fileID: 962800976}
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}

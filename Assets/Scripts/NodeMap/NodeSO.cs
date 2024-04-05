@@ -8,7 +8,7 @@ public class NodeSO : ScriptableObject
     [Space(10)]
     [Header("节点参数")]
     public string nodeText;
-    [HideInInspector] public string id;
+    public string id;
     [HideInInspector] public List<string> parentNodeIdList = new List<string>();
     [HideInInspector] public List<string> childrenNodeIdList = new List<string>();
     // public List<TextAsset> dialogTextList = new List<TextAsset>();
