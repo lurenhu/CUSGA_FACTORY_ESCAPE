@@ -1208,7 +1208,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 1b39ca649cfd7b6408e1f410da3b8e62, type: 2}
+  - {fileID: 11400000, guid: 8190e6868d592c944a86c845d7aef26e, type: 2}
   GraphNodeUI: {fileID: 962800976}
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 520462943}
-  videoClips: []
+  canvas: {fileID: 0}
 --- !u!1 &1101488710
 GameObject:
   m_ObjectHideFlags: 0

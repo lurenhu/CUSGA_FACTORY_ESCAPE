@@ -7,13 +7,18 @@ public class Dialog : MonoBehaviour
 {
     [Space(5)]
     [Header("观测数据")]
-    private Node myNode;
+    [Tooltip("文本文件")]
     public List<TextAsset> textAssets;
+    [Tooltip("是否再对话结束后替换子节点")]
     public bool stopAfterDialog;
+    private Node myNode;
+    private Node parentNode;
     private int dialogIndex = 0;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();
+
+        parentNode = NodeMapBuilder.Instance.nodeHasCreated[myNode.parentID];
     }
 
     /// <summary>
@@ -90,9 +95,6 @@ public class Dialog : MonoBehaviour
                 LineCreator.Instance.DeleteLine(myNode);
                 myNode.gameObject.SetActive(false);
 
-                // 清除当前节点父节点的子节点集
-                Node parentNode = NodeMapBuilder.Instance.nodeHasCreated[myNode.parentID];
-
                 // 将当前节点的所有子节点的父节点设置为当前节点的父节点
                 foreach (string childNodeId in myNode.childIdList)
                 {
@@ -102,7 +104,6 @@ public class Dialog : MonoBehaviour
                     childeNode.parentID = parentNode.id;
                     LineCreator.Instance.CreateLine(childeNode);
                 }
-
                 parentNode.PopUpChildNode(myNode.nodeInfos);
             }
         }
