@@ -34,9 +34,9 @@ public class DialogSystem : MonoBehaviour
     private bool isTimerRunning = false;
     [Header("其他变量")]
     static public DialogSystem instance;
-    public bool text_finished = true;
     private Coroutine text_display;
-    private bool is_blitting_text = false;
+    public bool is_blitting_text = false;
+    public bool text_finished = true;
     private int index = 0;
     private int max_index = 0;
 
@@ -95,8 +95,8 @@ public class DialogSystem : MonoBehaviour
             //instance.talk_ui.SetActive(false);
             instance.isTimerRunning = false;
             //instance.text_finished = true;
-            updateText();
             instance.is_blitting_text = true;
+            updateText();
             
         }        
     }
@@ -180,11 +180,17 @@ public class DialogSystem : MonoBehaviour
             return true;      //不按按键保持talk状态
         }
         else
-        {   //文字渲染完成
-            closeUi();
-            return false;
+        {
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))//鼠标点击或F键
+            {
+                //文字渲染完成
+                closeUi();
+                return false;
+            }
+            
         }
-        
+        return true;
+
     }
     //按照index排文字
     static public void updateText()   
@@ -204,6 +210,7 @@ public class DialogSystem : MonoBehaviour
         }
         else //文本没结束的时候再按R，停止携程并直接输出文字
         {
+
             instance.name_text.text = instance.name_list[instance.index];
             instance.StopCoroutine(instance.text_display);
             string content = instance.text_list[instance.index];
