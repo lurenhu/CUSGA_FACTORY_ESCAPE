@@ -6,14 +6,14 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEngine.UIElements;
 
-public class DialogSystem : MonoBehaviour
+public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 {
     [Header("UI组件")]
     public GameObject talk_ui;
     public Text textLabel;
     public Text name_text;
+    public Image image;
     public GameObject mouse;
     [Header("对话参数")]
     public TextAsset textFile;  //对话文件    
@@ -26,6 +26,7 @@ public class DialogSystem : MonoBehaviour
     private float middle = -1500;    
 
     [Tooltip("对话参数")]
+    List<string> imageList = new List<string>();
     List<string> name_list = new List<string>();
     List<string> text_list = new List<string>();
     List<string[]> image_list = new List<string[]>();
@@ -33,7 +34,6 @@ public class DialogSystem : MonoBehaviour
     private float locktime = 0f;
     private bool isTimerRunning = false;
     [Header("其他变量")]
-    static public DialogSystem instance;
     private Coroutine text_display;
     public bool is_blitting_text = false;
     public bool text_finished = true;
@@ -46,15 +46,6 @@ public class DialogSystem : MonoBehaviour
      */
 
 
-    private void Awake()   //单例的默认写法
-    {
-        if (instance != null)
-        {
-            Destroy(this);
-        }
-        instance = this;
-        DontDestroyOnLoad(this);
-    }
     void Start()
     {
         talk_ui.SetActive(false);
@@ -62,56 +53,66 @@ public class DialogSystem : MonoBehaviour
         { 
             GetText(textFile);
         }
-        
     }
 
     private void Update()
     {
+        // AI思考
         if (isTimerRunning)
         {
             countDown();
         }
+
+        // 对话文本展示
         if (is_blitting_text)
         {
             //设置可点击图标
-            instance.mouse.SetActive(instance.text_finished);
+            mouse.SetActive(text_finished);
             is_blitting_text = blit_text();
         }
         else 
         {
-            instance.mouse.SetActive(false);
+            mouse.SetActive(false);
         }
         
-    }    
+    }   
+
+    /// <summary>
+    /// AI思考时间
+    /// </summary>
     private void countDown()
     {
         // 更新计时器时间
-        instance.locktime -= Time.deltaTime;
+        locktime -= Time.deltaTime;
 
         // 检查计时器是否达到持续时间
-        if (instance.locktime < 0f)
+        if (locktime < 0f)
         {
             // 计时器达到持续时间，执行相应操作
-            //instance.talk_ui.SetActive(false);
-            instance.isTimerRunning = false;
-            //instance.text_finished = true;
-            instance.is_blitting_text = true;
+            //talk_ui.SetActive(false);
+            isTimerRunning = false;
+            //text_finished = true;
+            is_blitting_text = true;
             updateText();
             
         }        
     }
-    //开始计时并加lock
-    static public void lockUI_and_setText(float locktime,string text) 
+
+    /// <summary>
+    /// 开始计时并加lock
+    /// </summary>
+    public void lockUI_and_setText(float locktime,string text) 
     {
         // 计时器完成后的操作
         //Debug.Log("计时器开始");
-        instance.isTimerRunning = true;
-        instance.locktime = locktime;
-        instance.talk_ui.SetActive(true);
-        instance.is_blitting_text = false;
-        instance.name = "823";
-        instance.textLabel.text= text;
+        isTimerRunning = true;
+        this.locktime = locktime;
+        talk_ui.SetActive(true);
+        is_blitting_text = false;
+        name = "823";
+        textLabel.text= text;
     }    
+
     //static public void image_update(string[] image_pos)
     //{
     //    string sign = image_pos[0];
@@ -121,21 +122,21 @@ public class DialogSystem : MonoBehaviour
     //    {
     //        return;
     //    }
-    //    GameObject ga = instance.GameObject_dic[sign];
+    //    GameObject ga = GameObject_dic[sign];
     //    RectTransform rectTransform = ga.GetComponent<RectTransform>();
-    //    float x_coordinate=instance.middle;
+    //    float x_coordinate=middle;
 
     //    if (pos == 'm')
     //    {
-    //        x_coordinate = instance.middle;
+    //        x_coordinate = middle;
     //    }
     //    else if (pos == 'l')
     //    {
-    //        x_coordinate = instance.left;
+    //        x_coordinate = left;
     //    }
     //    else 
     //    {
-    //        x_coordinate = instance.right;
+    //        x_coordinate = right;
     //    }
     //    Debug.Log(x_coordinate);
     //    if (!ga.activeSelf)
@@ -145,28 +146,35 @@ public class DialogSystem : MonoBehaviour
 
     //    }
     //    if (rectTransform.localPosition.x != x_coordinate)
-    //        rectTransform.DOLocalMoveX(x_coordinate,instance.move_time);
-    //    //tran.DOLocalMoveX(x_coordinate, instance.move_time);
+    //        rectTransform.DOLocalMoveX(x_coordinate,move_time);
+    //    //tran.DOLocalMoveX(x_coordinate, move_time);
     //}
-    static public void closeUi()
+    
+    /// <summary>
+    /// 关闭对话框并清理数据列表
+    /// </summary>
+    public void closeUi()
     {        
-        instance.text_list.Clear();
-        instance.name_list.Clear();
-        instance.image_list.Clear();
-        //Debug.Log("closeUi");
-        instance.talk_ui.SetActive(false);
+        text_list.Clear();
+        name_list.Clear();
+        image_list.Clear();
+        imageList.Clear();
+        talk_ui.SetActive(false);
     }
-    //检测点击以及文本是否播放完毕,使用前记得开is_bliting_text
-    static public bool blit_text()
+
+    /// <summary>
+    /// 检测点击以及文本是否播放完毕,使用前记得开is_bliting_text
+    /// </summary>
+    public bool blit_text()
     {
-        if (instance.index <= instance.max_index)   //文字内容没有播完
+        if (index <= max_index)   //文字内容没有播完
         {
-            if (!instance.talk_ui.activeSelf)
+            if (!talk_ui.activeSelf)
             {
                 //设置立绘初始位置
-                //string[] image_pos = instance.image_list[0];
+                //string[] image_pos = image_list[0];
 
-                instance.talk_ui.SetActive(true);
+                talk_ui.SetActive(true);
                 //image_update(image_pos);
 
                 //自动拉取第一行
@@ -192,37 +200,40 @@ public class DialogSystem : MonoBehaviour
         return true;
 
     }
-    //按照index排文字
-    static public void updateText()   
+ 
+    /// <summary>
+    /// 更新对话框内文本
+    /// </summary>
+    public void updateText()   
     {
-        if (instance.text_finished)
+        if (text_finished)
         {
-
-            string content = instance.text_list[instance.index];
-
-            instance.name_text.text = instance.name_list[instance.index];
-            //string[] image_pos = instance.image_list[instance.index];                
+            image.sprite = GameResources.Instance.characters.Find(x => x.name == name_list[index] && x.differ == imageList[index]).sprite;
+            image.SetNativeSize();
+            name_text.text = name_list[index];
+            //string[] image_pos = image_list[index];                
             //image_update(image_pos);
 
             //将文本渲染设置为唯一携程
-            instance.text_display = instance.StartCoroutine(instance.setTextUI(content));
-            instance.text_finished = false;
+            string content = text_list[index];
+            text_display = StartCoroutine(setTextUI(content));
+            text_finished = false;
         }
         else //文本没结束的时候再按R，停止携程并直接输出文字
         {
 
-            instance.name_text.text = instance.name_list[instance.index];
-            instance.StopCoroutine(instance.text_display);
-            string content = instance.text_list[instance.index];
-            instance.textLabel.text = content;
-            instance.text_finished = true;
-            instance.index++;
-
+            name_text.text = name_list[index];
+            StopCoroutine(text_display);
+            string content = text_list[index];
+            textLabel.text = content;
+            text_finished = true;
+            index++;
         }
-        
-        
     }
-    //逐字渲染文字
+
+    /// <summary>
+    /// 逐字渲染文字
+    /// </summary>
     public IEnumerator setTextUI(string content)
     {
         textLabel.text = string.Empty;
@@ -232,44 +243,47 @@ public class DialogSystem : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
         text_finished = true;
-        instance.index++;
+        index++;
         //mouse.SetActive(true);
     }
-    //获取固定文本的文字
-    static public void GetText(TextAsset textFile)
+
+    /// <summary>
+    /// 获取固定文本的文字
+    /// </summary>
+    public void GetText(TextAsset textFile)
     {
-        instance.name_list.Clear();
-        instance.text_list.Clear();
-        instance.image_list.Clear();
+        name_list.Clear();
+        text_list.Clear();
+        image_list.Clear();
         var rows = textFile.text.Split('\n');
         foreach (var row in rows)
         {
             string text = row.ToString();
             string[] row_list = text.Split(':');
-            string name = row_list[0];
-            string content = row_list[1];                   
-            instance.name_list.Add(name);
-            instance.text_list.Add(content);
-                     
+            string name = row_list[1];
+            string content = row_list[2];                   
+            name_list.Add(name);
+            text_list.Add(content);
+            imageList.Add(row_list[0]);
         }
         set_index();
     }
-    static void set_index()
+    void set_index()
     {
-        instance.index = 0;
-        instance.max_index = instance.text_list.Count - 1;
-        instance.is_blitting_text = true;
+        index = 0;
+        max_index = text_list.Count - 1;
+        is_blitting_text = true;
         
     }
     //从ai处获取文本
-    static public void get_text_in_other_ways(string name, string text, string[] image_display)
+    public void get_text_in_other_ways(string name, string text, string[] image_display)
     {
-        instance.text_list.Clear();
-        instance.name_list.Clear();
-        instance.image_list.Clear();
-        instance.name_list.Add(name);
-        instance.text_list.Add(text);
-        instance.image_list.Add(image_display);
+        text_list.Clear();
+        name_list.Clear();
+        image_list.Clear();
+        name_list.Add(name);
+        text_list.Add(text);
+        image_list.Add(image_display);
         //Debug.Log("get_text_in_other_ways");
         set_index();
         

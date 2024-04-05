@@ -70,12 +70,12 @@ public class Dialog : MonoBehaviour
     {
         if (dialogIndex < textAssets.Count)
         {
-            DialogSystem.GetText(textAssets[dialogIndex]);
+            DialogSystem.Instance.GetText(textAssets[dialogIndex]);
             dialogIndex++;
         }
         else if (dialogIndex == textAssets.Count)
         {
-            DialogSystem.GetText(textAssets[dialogIndex - 1]);
+            DialogSystem.Instance.GetText(textAssets[dialogIndex - 1]);
         }
     }
 
@@ -86,7 +86,7 @@ public class Dialog : MonoBehaviour
     {
         if (dialogIndex < textAssets.Count)
         {
-            DialogSystem.GetText(textAssets[dialogIndex]);
+            DialogSystem.Instance.GetText(textAssets[dialogIndex]);
             dialogIndex++;
 
             if (dialogIndex == textAssets.Count)

@@ -218,7 +218,7 @@ public class tongyi_AI : MonoBehaviour
             //将获取的信息发去评估焦虑
             while (!reply_is_finished)
             {
-                DialogSystem.lockUI_and_setText(2*delay,"正在思考中");
+                DialogSystem.Instance.lockUI_and_setText(2*delay,"正在思考中");
                 await Task.Delay(TimeSpan.FromSeconds(delay)); 
             }
             string name = "焦虑评估器";
@@ -279,7 +279,7 @@ public class tongyi_AI : MonoBehaviour
             if (bot.name== "对话角色1")
             {   
                 writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text});
-                DialogSystem.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+                DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
             }
            
         }

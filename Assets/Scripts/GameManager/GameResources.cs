@@ -42,6 +42,7 @@ public class GameResources : MonoBehaviour
 public class Character
 {
     public string name;
+    public string differ;
     public Sprite sprite;
 }
 
