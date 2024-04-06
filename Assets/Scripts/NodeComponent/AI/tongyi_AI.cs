@@ -38,7 +38,7 @@ public class tongyi_AI : MonoBehaviour
         instance = this;
         robots=new robotCollection[]
             { 
-              new robotCollection("焦虑评估器","e7cd826cf38f470797c3593ee822341f"),
+              new robotCollection("焦虑评估器","1816f35255d946519e4494862bf6cb4a"),
               new robotCollection("对话角色1","89f40467361e43ecb565ab323063bea4")               
             };
     }
@@ -286,6 +286,24 @@ public class tongyi_AI : MonoBehaviour
         else
         {
             Debug.Log("请求失败，状态码：" + request.responseCode);
+            if (request.responseCode == 400)
+            { 
+                Debug.Log("被屏蔽力");
+                
+                if (bot.name == "对话角色1")
+                {
+                    reply_text = "...陶特，这不是我们应该讨论的话题，我们来谈些别的吧";
+                    Debug.Log(reply_text);
+                    reply_is_finished = true;
+                    writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text });
+                    DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+                    anxiety_change_value = 0;
+                    Debug.Log($"anxiety_change_value:{anxiety_change_value}");
+                    StaticEventHandler.CallCommit(anxiety_change_value);
+                }
+                
+            }
+
         }
     }
     private async void check_anxiety_change()
@@ -312,12 +330,32 @@ public class tongyi_AI : MonoBehaviour
         //Debug.Log(anxiety_change_value);
 
         //为焦虑值添加随机浮动倍数
+        /*
         System.Random random = new System.Random();
         int multiplier = 10;  // 扩大的倍数
         double randomMultiplier = random.NextDouble() * 0.2 + 0.9;  // 生成随机浮动倍数（范围为0.9到1.1之间）
 
         double fianal_value = anxiety_change_value * multiplier * randomMultiplier;
-        anxiety_change_value = (int)fianal_value;
+        anxiety_change_value = (int)fianal_value;*/
+        switch (anxiety_change_value)
+        {
+            case 0:
+                anxiety_change_value = 0;
+                break;
+            case 1:
+                anxiety_change_value = -15;
+                break;
+            case 2:
+                anxiety_change_value = -5;
+                break;
+            case 3:
+                anxiety_change_value = 0;
+                break;
+        }
+        if (anxiety_change_value >= 0)
+        {
+            anxiety_change_value =0;
+        }
         Debug.Log($"anxiety_change_value:{anxiety_change_value}");
         StaticEventHandler.CallCommit(anxiety_change_value);
     }
