@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: textLabel
       value: 
       objectReference: {fileID: 3979399020068851877}
+    - target: {fileID: 3204766640537358780, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
+      propertyPath: character_1
+      value: 
+      objectReference: {fileID: 1203501860}
+    - target: {fileID: 3204766640537358780, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
+      propertyPath: character_2
+      value: 
+      objectReference: {fileID: 172132795}
     - target: {fileID: 5975145500978859815, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
