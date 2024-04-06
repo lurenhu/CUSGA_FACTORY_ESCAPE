@@ -46,11 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   characters:
-  - name: Alice
-    differ: normal
+  - name: Alice_normal
     sprite: {fileID: 21300000, guid: 5fc7a8dc5fccf9e45a5acb571e0bf0a7, type: 3}
-  - name: Bob
-    differ: normal
+  - name: Bob_normal
     sprite: {fileID: 21300000, guid: ddc3b22ca4b0d1c4682da624295072ba, type: 3}
   musics: []
   SFXs: []
+  videos: []
