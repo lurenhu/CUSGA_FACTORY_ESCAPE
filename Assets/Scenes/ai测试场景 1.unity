@@ -687,7 +687,7 @@ MonoBehaviour:
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
   robots:
   - name: "\u7126\u8651\u8BC4\u4F30\u5668"
-    botid: e7cd826cf38f470797c3593ee822341f
+    botid: 1816f35255d946519e4494862bf6cb4a
   - name: "\u5BF9\u8BDD\u89D2\u82721"
     botid: 89f40467361e43ecb565ab323063bea4
   anxiety_change_value: 0
