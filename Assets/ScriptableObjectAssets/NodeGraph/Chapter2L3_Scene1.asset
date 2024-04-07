@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8119700524760067058
+--- !u!114 &-7391595330623655485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,289 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
-  m_Name: TextNode
+  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
+  m_Name: Synthesizable
   m_EditorClassIdentifier: 
-  nodeText: "\u7535\u5B50\u4E66"
-  id: 536a74a4-e9aa-4e6a-ac1e-795f8f868caa
+  nodeText: "2\u53F7\u673A"
+  id: b7538e7b-f0a7-4a5e-9af2-05f5ff4f886b
   parentNodeIdList:
-  - 139be197-24d9-49bc-90c5-3224bb546da6
-  childrenNodeIdList: []
+  - eb5bc8a5-7cb7-4801-8b34-60239a42adb3
+  childrenNodeIdList:
+  - 9c35e1e2-c65d-4398-8207-74a9832a73e1
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: -39
-    y: 726
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  text: 
---- !u!114 &-7287173585570881585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3a48b7cf61a1b44a8dfbc148308a59, type: 3}
-  m_Name: AngleLockNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u65F6\u949F\u6837\u5F0F\u7684\u88C5\u7F6E"
-  id: f756c455-835c-46e5-a5af-624d67c8747f
-  parentNodeIdList:
-  - d4bdb62a-b30b-49c7-9bff-0ced2cbcd172
-  childrenNodeIdList:
-  - 9fbe8f8d-a453-4acb-b0b4-b0f2a2d812d9
-  audioList: []
-  nodeTextForShow: "\u6709\u4E24\u6839\u76F4\u6761\u53EF\u4EE5\u65CB\u8F6C"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: b94cad5d2aa77ff468bfa4ca0923e0d5, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 611
-    y: 737
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  angles: []
---- !u!114 &-7284472798110714753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
-  m_Name: Synthesizable
-  m_EditorClassIdentifier: 
-  nodeText: "\u9501\u4E0A\u7684\u62BD\u5C49"
-  id: 139be197-24d9-49bc-90c5-3224bb546da6
-  parentNodeIdList:
-  - 16f3ba85-6db8-4892-861c-421b8b241ab4
-  childrenNodeIdList:
-  - 536a74a4-e9aa-4e6a-ac1e-795f8f868caa
-  audioList: []
-  nodeTextForShow: "\u4F20\u7EDF\u7684\u9501\u5B54\uFF0C\u770B\u8D77\u6765\u9700\u8981\u4E00\u628A\u5C0F\u94A5\u5319\u624D\u80FD\u6253\u5F00"
-  nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 175
-    y: 715
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  targetIdForMerge: 9fbe8f8d-a453-4acb-b0b4-b0f2a2d812d9
---- !u!114 &-4128559790950318822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u80F6\u5E26"
-  id: cb2fc4b3-1911-4f7b-973a-216287b9b041
-  parentNodeIdList:
-  - d4bdb62a-b30b-49c7-9bff-0ced2cbcd172
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u80FD\u591F\u7C98\u7262\u67D0\u4E9B\u4E1C\u897F"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 610
-    y: 855
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-3493708542215321501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
-  m_Name: Synthesizable
-  m_EditorClassIdentifier: 
-  nodeText: "\u4E2A\u4EBA\u7EC8\u7AEF"
-  id: c08522de-feb7-48bf-b0d1-20854a70d4b4
-  parentNodeIdList:
-  - 16f3ba85-6db8-4892-861c-421b8b241ab4
-  childrenNodeIdList:
-  - 61cf5e8e-0b81-4c67-b84d-fe12f9c681c8
-  audioList: []
-  nodeTextForShow: "\u4E3B\u7BA1\u7684\u4E2A\u4EBA\u7EC8\u7AEF\uFF0C\u4F46\u8FDB\u5165\u9700\u8981\u5BC6\u7801"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 165
-    y: 588
+    x: 740
+    y: 26
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
   targetIdForMerge: 
---- !u!114 &-2701804951068627705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u574F\u65F6\u949F"
-  id: 3be91131-2ec6-44f6-99d4-a2e41273af3d
-  parentNodeIdList:
-  - 667a4124-32cf-4766-96ed-b038674ed1aa
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u635F\u574F\u7684\u65F6\u949F\uFF0C\u65F6\u95F4\u5B9A\u683C\u57283:40"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 1232
-    y: 566
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-2038202240884132376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u5927\u578B\u9F20\u6807\u57AB"
-  id: bea36429-ed99-4acd-b794-2482e9edab8b
-  parentNodeIdList:
-  - 16f3ba85-6db8-4892-861c-421b8b241ab4
-  childrenNodeIdList:
-  - 4e604b09-b26d-489b-99ab-60e578b965e5
-  audioList: []
-  nodeTextForShow: "\u5176\u4E0A\u6CA1\u6709\u952E\u76D8\u548C\u9F20\u6807\u8FD9\u79CD\u4E0A\u4E2A\u65F6\u4EE3\u7684\u5DE5\u5177\uFF0C\u50CF\u662F\u6545\u610F\u5728\u906E\u63A9\u4EC0\u4E48"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 167
-    y: 449
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &-1500476593146721351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
-  m_Name: Synthesizable
-  m_EditorClassIdentifier: 
-  nodeText: "\u635F\u574F\u7684\u7D2B\u5916\u7EBF\u624B\u7535"
-  id: 49615a54-85b1-44df-9a18-a9744c380309
-  parentNodeIdList:
-  - d9c18186-3c6f-4023-837a-d6de7ff93d68
-  childrenNodeIdList:
-  - fe946811-2324-400d-a1ee-2dcc53718bbe
-  audioList: []
-  nodeTextForShow: "\u91CC\u9762\u867D\u7136\u6709\u4E2A\u7535\u6C60\uFF0C\u4F46\u624B\u7535\u635F\u574F\u6BD4\u8F83\u4E25\u91CD\uFF0C\u9700\u8981\u6709\u4E9B\u7C98\u5408\u5242\u6765\u4FEE\u590D"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 741
-    y: 156
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  targetIdForMerge: cb2fc4b3-1911-4f7b-973a-216287b9b041
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
-  m_Name: Chapter1_Scene3
-  m_EditorClassIdentifier: 
-  nodeTypeList: {fileID: 0}
-  nodeList:
-  - {fileID: 3509141743742763093}
-  - {fileID: 2238361827587169954}
-  - {fileID: 6027700571085749993}
-  - {fileID: 6251903691530169332}
-  - {fileID: -2038202240884132376}
-  - {fileID: -3493708542215321501}
-  - {fileID: -7284472798110714753}
-  - {fileID: 4684934022285869478}
-  - {fileID: -1500476593146721351}
-  - {fileID: 768419432937595726}
-  - {fileID: 3320193812675423684}
-  - {fileID: 8644383968082964113}
-  - {fileID: 3513482614370425708}
-  - {fileID: 7736276008343936920}
-  - {fileID: 2490058627293949812}
-  - {fileID: -8119700524760067058}
-  - {fileID: 8293105524322354531}
-  - {fileID: 2006112786976479668}
-  - {fileID: 8900127096849219710}
-  - {fileID: 7165531932465576327}
-  - {fileID: -4128559790950318822}
-  - {fileID: -7287173585570881585}
-  - {fileID: 4197279062759458074}
-  - {fileID: -2701804951068627705}
-  - {fileID: 4557573356386609720}
-  nodeToDrawLineFrom: {fileID: 0}
-  linePosition: {x: 0, y: 0}
---- !u!114 &768419432937595726
+--- !u!114 &-6206362960007194789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
   m_Name: DialogNode
   m_EditorClassIdentifier: 
-  nodeText: "\u65E7\u624B\u673A"
-  id: 4f93eebe-451e-4365-8357-5608820fab82
-  parentNodeIdList:
-  - d4bdb62a-b30b-49c7-9bff-0ced2cbcd172
+  nodeText: "\u4FE1\u53F7\u63A2\u6D4B"
+  id: 23d6d783-3bb0-4390-a225-b2868ecf766c
+  parentNodeIdList: []
   childrenNodeIdList:
-  - d7de6182-a4c5-42cf-926a-0c6fedc1b637
+  - b692f3eb-99d8-460a-b23c-008ee4e9d4bc
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
@@ -316,15 +56,15 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 414
-    y: 857
+    x: 724
+    y: 447
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
   textAssets: []
   stopAfterDialog: 0
---- !u!114 &2006112786976479668
+--- !u!114 &-5631072483462470269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,30 +73,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cd0e186a24b66409f15f00652b2099, type: 3}
-  m_Name: AILockedNode
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
   m_EditorClassIdentifier: 
-  nodeText: "\u7EC8\u7AEF\u63A5\u53E3"
-  id: 04cf2900-ac4b-4a13-b631-86fd10e2487a
+  nodeText: "\u5F55\u97F3\u7B14"
+  id: 2b10e444-e5e0-4f5a-82e0-fae8d3e541bf
   parentNodeIdList:
-  - 61cf5e8e-0b81-4c67-b84d-fe12f9c681c8
+  - c850bcd7-f93b-49ea-b638-1743c38d227b
   childrenNodeIdList: []
   audioList: []
-  nodeTextForShow: "\u548C\u773C\u955C\u7684\u7269\u7406\u63A5\u5165\u6570\u636E\u7EBF\u4E00\u6837\uFF0C\u662F\u901A\u7528\u7684\u63A5\u53E3\uFF0C\u53EF\u4EE5\u8BA9823\u63A5\u5165\u7EC8\u7AEF"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -232
-    y: 593
+    x: 426
+    y: -97
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  anxietyValue: 0
-  submissionTimes: 0
---- !u!114 &2238361827587169954
+  text: 
+--- !u!114 &-4071796856943011189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,25 +107,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u6C99\u53D1\u65C1\u7684\u67DC\u5B50"
-  id: d9c18186-3c6f-4023-837a-d6de7ff93d68
-  parentNodeIdList: []
-  childrenNodeIdList:
-  - 49615a54-85b1-44df-9a18-a9744c380309
+  nodeText: "2\u53F7\u82AF\u7247"
+  id: 9c2bb254-8b32-4e12-803d-1a64b852a715
+  parentNodeIdList:
+  - 80dd2926-4a46-41c1-993a-eb0724a5f65f
+  childrenNodeIdList: []
   audioList: []
-  nodeTextForShow: "\u5E26\u7740\u4E00\u4E2A\u62BD\u5C49"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 740
-    y: 264
+    x: 1157
+    y: 726
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &2490058627293949812
+--- !u!114 &-2488994116259206301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,29 +134,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0db513cf21e1144b223a554457fbdc, type: 3}
-  m_Name: GraphNode
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u4E09\u4F4D\u9752\u5E74\u4EBA\u7684\u5408\u7167"
-  id: c4a7d8c5-b458-4363-b8cf-6f127a2f2ca7
+  nodeText: "4\u53F7\u82AF\u7247"
+  id: 1fef49e3-cb18-4e88-b5a7-37430e2e67a4
   parentNodeIdList:
-  - a825eba9-6b48-4676-b418-74aa328d817b
+  - 80dd2926-4a46-41c1-993a-eb0724a5f65f
   childrenNodeIdList: []
   audioList: []
-  nodeTextForShow: "\u5F88\u590D\u53E4\u7684\u5408\u5F71\u76F8\u7247\uFF0C\u770B\u8D77\u6765\u662F\u51E0\u5341\u5E74\u524D\u6D41\u884C\u7684\u201C\u62CD\u7ACB\u5F97\u201D\u76F8\u673A"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 9a25bcc0b8cc1ee4998010a5fa3fe349, type: 2}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 755
-    y: 1186
+    x: 1004
+    y: 952
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  image: {fileID: 0}
---- !u!114 &3320193812675423684
+--- !u!114 &-2448586126840479612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,31 +164,351 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73cc561058ac334db4cd066a5a6018a, type: 3}
-  m_Name: LockedNode
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u65E7\u624B\u673A"
-  id: d7de6182-a4c5-42cf-926a-0c6fedc1b637
+  nodeText: "5\u53F7\u82AF\u7247"
+  id: d4c0352b-021a-4287-a746-d134f3447295
   parentNodeIdList:
-  - 4f93eebe-451e-4365-8357-5608820fab82
-  childrenNodeIdList:
-  - a825eba9-6b48-4676-b418-74aa328d817b
-  - 8d9f6310-7cab-48f1-8835-7c7eb27f7c1f
-  - 0d746459-2888-4d5c-a9e2-10a2d04add2d
+  - 80dd2926-4a46-41c1-993a-eb0724a5f65f
+  childrenNodeIdList: []
   audioList: []
-  nodeTextForShow: "\u4E00\u53F0\u65E9\u5DF2\u505C\u4EA7\u7684\u6298\u53E0\u5168\u9762\u5C4F\u624B\u673A\uFF0C\u7535\u91CF\u6240\u5269\u65E0\u51E0\uFF0C\u4F46\u4ECD\u7136\u80FD\u591F\u8FD0\u884C\uFF0C\u9700\u8981\u5BC6\u7801\u6765\u89E3\u9501"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 85ceb1ccedfeb724aad7b4128a36075d, type: 2}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 413
-    y: 974
+    x: 861
+    y: 1069
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  cipherValues: 
+--- !u!114 &-1426967505411092911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
+  m_Name: Synthesizable
+  m_EditorClassIdentifier: 
+  nodeText: "1\u53F7\u673A"
+  id: c850bcd7-f93b-49ea-b638-1743c38d227b
+  parentNodeIdList:
+  - eb5bc8a5-7cb7-4801-8b34-60239a42adb3
+  childrenNodeIdList:
+  - 2b10e444-e5e0-4f5a-82e0-fae8d3e541bf
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 483
+    y: 66
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  targetIdForMerge: 
+--- !u!114 &-1180040679940301505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749c1b731ef51df428ae1af9aa3adb60, type: 3}
+  m_Name: QuickClick
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 016d2600-3d16-47a7-997c-26044f18d43b
+  parentNodeIdList:
+  - 57ce37f7-b6ea-4c64-883a-07c28746538b
+  childrenNodeIdList:
+  - 80b7786d-3993-44f7-97d6-b0edfcf4b9cc
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 583
+    y: 959
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  ClickNumber: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
+  m_Name: Chapter2L3_Scene1
+  m_EditorClassIdentifier: 
+  graphName: 
+  nodeTypeList: {fileID: 0}
+  nodeList:
+  - {fileID: 3509141743742763093}
+  - {fileID: 6280584766842502806}
+  - {fileID: 5789671074421345361}
+  - {fileID: -6206362960007194789}
+  - {fileID: 3294105779781124955}
+  - {fileID: 6175622461287984553}
+  - {fileID: 8639891858665479558}
+  - {fileID: -1180040679940301505}
+  - {fileID: 8320975750756580958}
+  - {fileID: 4372845252764621123}
+  - {fileID: 2513213613642956859}
+  - {fileID: 6712270865786945451}
+  - {fileID: 3550451524711687977}
+  - {fileID: 1749979509230729398}
+  - {fileID: -4071796856943011189}
+  - {fileID: 162767337822956150}
+  - {fileID: -2488994116259206301}
+  - {fileID: -2448586126840479612}
+  - {fileID: 3433860936944707266}
+  - {fileID: -7391595330623655485}
+  - {fileID: -1426967505411092911}
+  - {fileID: 3301277574333614077}
+  - {fileID: 115975633624525609}
+  - {fileID: 6746767386310833825}
+  - {fileID: -5631072483462470269}
+  nodeToDrawLineFrom: {fileID: 0}
+  linePosition: {x: 0, y: 0}
+--- !u!114 &115975633624525609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u5B9E\u4F53\u7535\u5B50\u94A5\u5319"
+  id: 84328871-b695-44dd-9d72-b31a36207284
+  parentNodeIdList:
+  - a36321af-3cfd-4ffd-b35e-ed98dcdc0a42
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1106
+    y: 13
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &162767337822956150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "3\u53F7\u82AF\u7247"
+  id: 66198f48-1d6f-470b-8f65-154013c72d88
+  parentNodeIdList:
+  - 80dd2926-4a46-41c1-993a-eb0724a5f65f
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1108
+    y: 846
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &1749979509230729398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "1\u53F7\u82AF\u7247"
+  id: a28db0ab-b27a-4a25-8146-9217161c88a0
+  parentNodeIdList:
+  - 80dd2926-4a46-41c1-993a-eb0724a5f65f
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1204
+    y: 605
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &2513213613642956859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
+  m_Name: Synthesizable
+  m_EditorClassIdentifier: 
+  nodeText: "\u50A8\u7269\u67DC"
+  id: 718694c9-19c5-435b-901e-a727670932ef
+  parentNodeIdList:
+  - 8c241cc5-5070-4b39-8aec-4fead0063755
+  childrenNodeIdList:
+  - 84df0470-4255-4e01-8533-bc34eede4b82
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 50
+    y: 543
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  targetIdForMerge: 
+--- !u!114 &3294105779781124955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591974a0d1abf934494563b815930f1d, type: 3}
+  m_Name: ProbeNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u4FE1\u53F7\u63A2\u6D4B"
+  id: b692f3eb-99d8-460a-b23c-008ee4e9d4bc
+  parentNodeIdList:
+  - 23d6d783-3bb0-4390-a225-b2868ecf766c
+  childrenNodeIdList:
+  - 4897a147-2fe7-40f1-b85e-f60178a31027
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 98a6c542d00586d42996401f5721da9c, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 895
+    y: 551
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  targetIDForDetection: 
+--- !u!114 &3301277574333614077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
+  m_Name: Synthesizable
+  m_EditorClassIdentifier: 
+  nodeText: "3\u53F7\u673A"
+  id: a36321af-3cfd-4ffd-b35e-ed98dcdc0a42
+  parentNodeIdList:
+  - eb5bc8a5-7cb7-4801-8b34-60239a42adb3
+  childrenNodeIdList:
+  - 84328871-b695-44dd-9d72-b31a36207284
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 946
+    y: 143
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  targetIdForMerge: 
+--- !u!114 &3433860936944707266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u6A21\u5757\u5316\u6D41\u6C34\u7EBF"
+  id: eb5bc8a5-7cb7-4801-8b34-60239a42adb3
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - b7538e7b-f0a7-4a5e-9af2-05f5ff4f886b
+  - c850bcd7-f93b-49ea-b638-1743c38d227b
+  - a36321af-3cfd-4ffd-b35e-ed98dcdc0a42
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 591
+    y: 300
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
 --- !u!114 &3509141743742763093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u5C0F\u578B\u8F66\u95F4"
+  nodeText: "\u7B2C\u4E8C\u8F66\u95F4"
   id: 9659a26d-be6d-4057-a23a-0e6cbd41fe23
   parentNodeIdList: []
   childrenNodeIdList: []
@@ -474,44 +532,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 742
-    y: 455
+    x: 512
+    y: 488
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &3513482614370425708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
-  m_Name: TextNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u804A\u5929\u8BB0\u5F55"
-  id: 8d9f6310-7cab-48f1-8835-7c7eb27f7c1f
-  parentNodeIdList:
-  - d7de6182-a4c5-42cf-926a-0c6fedc1b637
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u770B\u8D77\u6765\u50CF\u662F\u5F88\u65E9\u4E4B\u524D\u7684\u804A\u5929\u8BB0\u5F55\uFF0C\u4E24\u540D\u521B\u59CB\u4EBA\u4E4B\u95F4\u7684\u4E89\u6267"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 408
-    y: 1084
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  text: 
---- !u!114 &4197279062759458074
+--- !u!114 &3550451524711687977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,152 +550,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u5C0F\u94A5\u5319 "
-  id: 9fbe8f8d-a453-4acb-b0b4-b0f2a2d812d9
-  parentNodeIdList:
-  - f756c455-835c-46e5-a5af-624d67c8747f
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u4F20\u7EDF\u7684\u94A5\u5319"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 792
-    y: 738
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &4557573356386609720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u7D2B\u5916\u7EBF\u624B\u7535 "
-  id: fe946811-2324-400d-a1ee-2dcc53718bbe
-  parentNodeIdList:
-  - 49615a54-85b1-44df-9a18-a9744c380309
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u901A\u8FC7\u80F6\u5E26\u7C98\u7262\u4E86\u635F\u574F\u7684\u90E8\u5206\uFF0C\u73B0\u5728\u53EF\u4EE5\u6B63\u5E38\u4F7F\u7528"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 739
-    y: 39
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &4684934022285869478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u62BD\u5C49"
-  id: d4bdb62a-b30b-49c7-9bff-0ced2cbcd172
-  parentNodeIdList:
-  - 16f3ba85-6db8-4892-861c-421b8b241ab4
-  childrenNodeIdList:
-  - 4f93eebe-451e-4365-8357-5608820fab82
-  - cb2fc4b3-1911-4f7b-973a-216287b9b041
-  - f756c455-835c-46e5-a5af-624d67c8747f
-  audioList: []
-  nodeTextForShow: "\u8F7B\u8F7B\u4E00\u62C9\u5C31\u53EF\u4EE5\u62C9\u5F00"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 408
-    y: 739
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &6027700571085749993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u4E3B\u7BA1\u5DE5\u4F4D"
-  id: 16f3ba85-6db8-4892-861c-421b8b241ab4
+  nodeText: "\u82AF\u7247\u76D2"
+  id: 80dd2926-4a46-41c1-993a-eb0724a5f65f
   parentNodeIdList: []
   childrenNodeIdList:
-  - bea36429-ed99-4acd-b794-2482e9edab8b
-  - c08522de-feb7-48bf-b0d1-20854a70d4b4
-  - 139be197-24d9-49bc-90c5-3224bb546da6
-  - d4bdb62a-b30b-49c7-9bff-0ced2cbcd172
+  - a28db0ab-b27a-4a25-8146-9217161c88a0
+  - 9c2bb254-8b32-4e12-803d-1a64b852a715
+  - 66198f48-1d6f-470b-8f65-154013c72d88
+  - 1fef49e3-cb18-4e88-b5a7-37430e2e67a4
+  - d4c0352b-021a-4287-a746-d134f3447295
   audioList: []
-  nodeTextForShow: "\u6807\u51C6\u7684\u529E\u516C\u684C\uFF0C\u4E00\u5757\u724C\u5B50\u4E0A\u5199\u7740\u201C\u5411\u8FDC\u679D\u201D"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 409
-    y: 508
+    x: 731
+    y: 705
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &6251903691530169332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 749c1b731ef51df428ae1af9aa3adb60, type: 3}
-  m_Name: QuickClick
-  m_EditorClassIdentifier: 
-  nodeText: "\u8336\u51E0"
-  id: 667a4124-32cf-4766-96ed-b038674ed1aa
-  parentNodeIdList: []
-  childrenNodeIdList:
-  - 3be91131-2ec6-44f6-99d4-a2e41273af3d
-  audioList: []
-  nodeTextForShow: "\u7EA2\u6728\u8336\u51E0\uFF0C\u73B0\u5728\u5F88\u5C11\u4EBA\u4F7F\u7528\u7684\u6837\u5F0F"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 1016
-    y: 565
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  ClickNumber: 0
---- !u!114 &7165531932465576327
+--- !u!114 &4372845252764621123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -680,25 +584,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u7EC8\u7AEF\u5BC6\u7801"
-  id: 01c3f219-a546-4da3-ba8f-98721bad6407
-  parentNodeIdList:
-  - 4e604b09-b26d-489b-99ab-60e578b965e5
-  childrenNodeIdList: []
+  nodeText: "\u5C0F\u5DE5\u4F5C\u53F0"
+  id: 8c241cc5-5070-4b39-8aec-4fead0063755
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 718694c9-19c5-435b-901e-a727670932ef
   audioList: []
-  nodeTextForShow: "\u901A\u8FC7\u7D2B\u5916\u7EBF\u624B\u7535\uFF0C\u53EF\u4EE5\u770B\u5230\u51E0\u4E2A\u6570\u5B57\uFF1A74832"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -244
-    y: 447
+    x: 281
+    y: 539
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &7736276008343936920
+--- !u!114 &5789671074421345361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -710,12 +614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
   m_Name: DialogNode
   m_EditorClassIdentifier: 
-  nodeText: "\u4E09\u4F4D\u9752\u5E74\u4EBA\u7684\u5408\u7167"
-  id: a825eba9-6b48-4676-b418-74aa328d817b
-  parentNodeIdList:
-  - d7de6182-a4c5-42cf-926a-0c6fedc1b637
+  nodeText: "\u88AB\u8986\u76D6\u7684\u53BB\u8DEF"
+  id: 312c380d-b3a6-414a-853c-582dcf9fbd42
+  parentNodeIdList: []
   childrenNodeIdList:
-  - c4a7d8c5-b458-4363-b8cf-6f127a2f2ca7
+  - 6d6c4746-8a52-41ae-894d-aa0e4e87963a
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
@@ -723,78 +626,15 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 595
-    y: 1076
+    x: 337
+    y: 376
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
   textAssets: []
   stopAfterDialog: 0
---- !u!114 &8293105524322354531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
-  m_Name: DialogNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u7EC8\u7AEF\u63A5\u53E3"
-  id: 61cf5e8e-0b81-4c67-b84d-fe12f9c681c8
-  parentNodeIdList:
-  - c08522de-feb7-48bf-b0d1-20854a70d4b4
-  childrenNodeIdList:
-  - 04cf2900-ac4b-4a13-b631-86fd10e2487a
-  audioList: []
-  nodeTextForShow: 
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 9f14a741bea149048b740135ae4ad77b, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: -21
-    y: 593
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
-  textAssets: []
-  stopAfterDialog: 0
---- !u!114 &8644383968082964113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u5907\u5FD8\u5F55"
-  id: 0d746459-2888-4d5c-a9e2-10a2d04add2d
-  parentNodeIdList:
-  - d7de6182-a4c5-42cf-926a-0c6fedc1b637
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: "\u4E00\u5219\u5907\u5FD8\u5F55\uFF1A\u90FD\u5E02\u4F20\u8BF43\u2014\u2014\u5FEB\u901F\u62CD\u6253\u8336\u51E0\uFF0C\u5C31\u4F1A\u6389\u51FA\u60F3\u8981\u7684\u4E1C\u897F"
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 220
-    y: 1068
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 0
---- !u!114 &8900127096849219710
+--- !u!114 &6175622461287984553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -806,23 +646,177 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32674e6f02219b14caf6906e047b0519, type: 3}
   m_Name: Synthesizable
   m_EditorClassIdentifier: 
-  nodeText: "\u5947\u602A\u75D5\u8FF9\u7684\u684C\u9762"
-  id: 4e604b09-b26d-489b-99ab-60e578b965e5
+  nodeText: "\u63A7\u5236\u7EC8\u7AEF"
+  id: 4897a147-2fe7-40f1-b85e-f60178a31027
   parentNodeIdList:
-  - bea36429-ed99-4acd-b794-2482e9edab8b
+  - b692f3eb-99d8-460a-b23c-008ee4e9d4bc
   childrenNodeIdList:
-  - 01c3f219-a546-4da3-ba8f-98721bad6407
+  - 57ce37f7-b6ea-4c64-883a-07c28746538b
   audioList: []
-  nodeTextForShow: "\u9690\u9690\u7EA6\u7EA6\u80FD\u770B\u51FA\u5F02\u5E38\u7684\u75D5\u8FF9\uFF0C\u4F46\u4E0D\u77E5\u9053\u662F\u4EC0\u4E48"
+  nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: d0b76d0d8694d444a86dff9e559696dd, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -27
-    y: 449
+    x: 238
+    y: 751
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  targetIdForMerge: fe946811-2324-400d-a1ee-2dcc53718bbe
+  targetIdForMerge: 
+--- !u!114 &6280584766842502806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u88AB\u8986\u76D6\u7684\u53BB\u8DEF"
+  id: 6d6c4746-8a52-41ae-894d-aa0e4e87963a
+  parentNodeIdList:
+  - 312c380d-b3a6-414a-853c-582dcf9fbd42
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 169
+    y: 256
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &6712270865786945451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u624B\u5957"
+  id: 84df0470-4255-4e01-8533-bc34eede4b82
+  parentNodeIdList:
+  - 718694c9-19c5-435b-901e-a727670932ef
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: -209
+    y: 542
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &6746767386310833825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u7535\u5B50\u4E66"
+  id: 9c35e1e2-c65d-4398-8207-74a9832a73e1
+  parentNodeIdList:
+  - b7538e7b-f0a7-4a5e-9af2-05f5ff4f886b
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 894
+    y: -162
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  text: 
+--- !u!114 &8320975750756580958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749c1b731ef51df428ae1af9aa3adb60, type: 3}
+  m_Name: QuickClick
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 80b7786d-3993-44f7-97d6-b0edfcf4b9cc
+  parentNodeIdList:
+  - 016d2600-3d16-47a7-997c-26044f18d43b
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 241
+    y: 1003
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  ClickNumber: 0
+--- !u!114 &8639891858665479558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749c1b731ef51df428ae1af9aa3adb60, type: 3}
+  m_Name: QuickClick
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 57ce37f7-b6ea-4c64-883a-07c28746538b
+  parentNodeIdList:
+  - 4897a147-2fe7-40f1-b85e-f60178a31027
+  childrenNodeIdList:
+  - 016d2600-3d16-47a7-997c-26044f18d43b
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 441
+    y: 839
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  ClickNumber: 0

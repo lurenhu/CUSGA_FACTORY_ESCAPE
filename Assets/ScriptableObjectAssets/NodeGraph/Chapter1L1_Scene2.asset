@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
-  m_Name: Chapter1_Scene2
+  m_Name: Chapter1L1_Scene2
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 0}
   nodeList:
