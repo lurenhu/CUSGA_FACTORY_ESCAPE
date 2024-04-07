@@ -47,10 +47,10 @@ public class Graph : MonoBehaviour
 
     private void PopUpGraph()
     {
-        Image image = GameManager.Instance.GraphNodeUI.Find("Image").GetComponent<Image>();
+        Image image = UIManager.Instance.GraphNodeUI.Find("Image").GetComponent<Image>();
 
         image.sprite = this.image;
 
-        GameManager.Instance.GraphNodeUI.gameObject.SetActive(true);
+        UIManager.Instance.GraphNodeUI.gameObject.SetActive(true);
     }
 }

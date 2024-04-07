@@ -27,7 +27,7 @@ public class TextShow : MonoBehaviour
             if (myNode.isSelected)
             {
                 // 节点交互内容
-                GameManager.Instance.DisplayTextNodeContent(text);
+                UIManager.Instance.DisplayTextNodeContent(text);
             }
             else
             {
@@ -38,7 +38,7 @@ public class TextShow : MonoBehaviour
                 myNode.isSelected = true;
             }
 
-            StartCoroutine(GameManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
+            StartCoroutine(UIManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
         }
         
         if (myNode.isDragging)

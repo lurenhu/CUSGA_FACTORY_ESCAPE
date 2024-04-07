@@ -17,7 +17,8 @@ public class Controllable : MonoBehaviour
     private Rigidbody2D BeControlledRb;
     private Node myNode;
     private SpringJoint2D springJoint;
-    private GameObject line;
+    [HideInInspector] public GameObject line;
+    [HideInInspector] public GameObject hammer;
     private string targetNodeID;
     private float speedToPop;
     private bool hasSetSpeed = false;
@@ -43,7 +44,7 @@ public class Controllable : MonoBehaviour
     /// </summary>
     private void InitializeReference()
     {
-        GameObject hammer = Instantiate(hammerPrefab, transform.position, Quaternion.identity, NodeMapBuilder.Instance.transform);
+        hammer = Instantiate(hammerPrefab, transform.position, Quaternion.identity, NodeMapBuilder.Instance.transform);
 
         line = LineCreator.Instance.CreateLine(transform, hammer.transform);
 

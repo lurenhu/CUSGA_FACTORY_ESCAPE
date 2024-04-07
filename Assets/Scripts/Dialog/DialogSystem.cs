@@ -51,6 +51,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     void Start()
     {
+        talk_ui.SetActive(false);
         if (textFile!=null)
         { 
             GetText(textFile);
@@ -100,20 +101,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }        
     }
 
-    /// <summary>
-    /// 开始计时并加lock
-    /// </summary>
-    public void lockUI_and_setText(float locktime,string text) 
-    {
-        // 计时器完成后的操作
-        //Debug.Log("计时器开始");
-        isTimerRunning = true;
-        is_blitting_text = false;
-        talk_ui.SetActive(true);
-        this.locktime = locktime;
-        this.name_text.text = "823";
-        textLabel.text= text;
-    }    
+    
 
     //static public void image_update(string[] image_pos)
     //{
@@ -354,6 +342,20 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         InitializeReference();
     }
     
+    /// <summary>
+    /// 开始计时并加lock
+    /// </summary>
+    public void lockUI_and_setText(float locktime,string text) 
+    {
+        // 计时器完成后的操作
+        //Debug.Log("计时器开始");
+        isTimerRunning = true;
+        is_blitting_text = false;
+        talk_ui.SetActive(true);
+        this.locktime = locktime;
+        this.name_text.text = "823";
+        textLabel.text= text;
+    }    
     
     
 
