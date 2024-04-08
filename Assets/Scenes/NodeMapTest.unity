@@ -1307,7 +1307,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: 8f2c1a1ad9cf33b48b0e59cc29e0da89, type: 2}
+  - {fileID: 11400000, guid: 74fa320e125421a47a3327f104fa52aa, type: 2}
   haveNodeDrag: 0
 --- !u!4 &1052891442
 Transform:
@@ -1374,9 +1374,6 @@ MonoBehaviour:
   cutSceneUIPanel: {fileID: 1634577547}
   graphic: {fileID: 377096012}
   tmpText: {fileID: 1789335688}
-  graphicsAndText:
-    graphic: {fileID: 21300000, guid: 5fc7a8dc5fccf9e45a5acb571e0bf0a7, type: 3}
-    text: {fileID: 4900000, guid: bf406c58ea63bc944a53d00afbd17ae1, type: 3}
 --- !u!1 &1101488710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,7 +2047,7 @@ MonoBehaviour:
   m_text: "\u8FD9\u91CC\u663E\u793A\u6D4B\u8BD5\u6587\u672C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
-  m_sharedMaterial: {fileID: 2502419516342703243, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2113,7 +2110,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1488312985
@@ -2458,7 +2455,7 @@ MonoBehaviour:
   m_text: "\u5B58\u653E\u56FE\u6587\u8FC7\u573A\u6587\u672C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
-  m_sharedMaterial: {fileID: 2502419516342703243, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2521,7 +2518,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1789335689
@@ -2725,6 +2722,14 @@ PrefabInstance:
     - target: {fileID: 2781960425831103730, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+    - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4795402874782266257, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_Name
