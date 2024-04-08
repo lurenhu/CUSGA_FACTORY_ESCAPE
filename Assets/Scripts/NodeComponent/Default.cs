@@ -44,7 +44,7 @@ public class Default : MonoBehaviour
             {
                 soundManager.Instance.PlayMusic(myNode.audios[0]);
             }
-            StartCoroutine(GameManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
+            StartCoroutine(UIManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
         }
         
         if (myNode.isDragging)

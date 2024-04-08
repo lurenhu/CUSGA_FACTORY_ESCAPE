@@ -31,7 +31,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  text: "\u8FD9\u662F\u4E00\u4E2A\u6D4B\u8BD5"
+  text: {fileID: 0}
 --- !u!114 &-8669683705547856399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: NodeGraph_Text
   m_EditorClassIdentifier: 
+  graphName: 
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: -2525246252513426208}

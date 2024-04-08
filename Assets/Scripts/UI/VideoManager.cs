@@ -66,6 +66,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         }
 
         graphic.sprite = graphicsAndText.graphic;
+        graphic.SetNativeSize();
         tmpText.text = textForShow.Dequeue();
 
         cutSceneUIPanel.gameObject.SetActive(true);

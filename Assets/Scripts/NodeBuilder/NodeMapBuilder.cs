@@ -16,13 +16,37 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         nodeTypeList = GameResources.Instance.nodeTypeList;
     }
 
-    public bool GenerateNodeMap(NodeGraphSO nodeGraph)
+    /// <summary>
+    /// 生成节点图
+    /// </summary>
+    public void GenerateNodeMap(NodeGraphSO nodeGraph)
     {
         AttemptToBuildNodes(nodeGraph);
         
         InstantiateNodes();
 
-        return true;
+        LocateCameraAtEntranceNode();
+    }
+
+    /// <summary>
+    /// 将相机对准入口节点
+    /// </summary>
+    private void LocateCameraAtEntranceNode()
+    {
+        foreach (KeyValuePair<string,Node> keyValuePair in nodeHasCreated)
+        {
+            Node currentNode = keyValuePair.Value;
+            
+            if (currentNode.nodeType.isEntrance)
+            {
+                Camera.main.transform.position = currentNode.transform.position + new Vector3(0, 0, -10);
+                return;
+            }
+            else
+            {
+                Debug.Log("No Entrance to Locate");
+            }
+        }
     }
 
     /// <summary>
@@ -259,8 +283,9 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         return null;
     }
 
-    
-
+    /// <summary>
+    /// 清除所有选中的节点
+    /// </summary>
     public void ClearAllSelectedNode(Node node)
     {
         foreach (KeyValuePair<string,Node> keyValuePair in nodeHasCreated)
@@ -280,8 +305,37 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     public Node GetNode(string nodeID)
     {
-        nodeHasCreated.TryGetValue(nodeID,out Node node);
-        return node;
+        if (nodeHasCreated.TryGetValue(nodeID,out Node node))
+        {
+            return node;
+        }
+        else
+        {
+            Debug.Log("No this node in nodeMap");
+            return null;  
+        }
+    }
+
+    /// <summary>
+    /// 删除当前节点图中的所有节点以及对应绑定的线条
+    /// </summary>
+    public void DeleteNode()
+    {
+        foreach (KeyValuePair<Node,Line> keyValuePair in LineCreator.Instance.nodeLineBinding) 
+        {
+            Node currentNode = keyValuePair.Key;
+            Line currentLine = keyValuePair.Value;
+
+            if (currentNode.nodeType.isControllable)
+            {
+                Controllable controllable = currentNode.GetComponent<Controllable>();
+                Destroy(controllable.line);
+                Destroy(controllable.hammer);
+            }
+
+            Destroy(currentNode.gameObject);
+            Destroy(currentLine.gameObject);
+        }
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "NodeGraph_",menuName = "ScriptableObjects/NodeGraph")]
 public class NodeGraphSO : ScriptableObject
 {
+    public string graphName;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
     [HideInInspector] public List<NodeSO> nodeList = new List<NodeSO>();
     [HideInInspector] public Dictionary<string,NodeSO> nodeDictionary = new Dictionary<string, NodeSO>();

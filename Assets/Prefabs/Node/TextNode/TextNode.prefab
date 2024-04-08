@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3918795289676101485, guid: 9d766e093c3b9334eaac07c6ef6abeaa, type: 2}
+  - {fileID: -7203140946049001437, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6D4B\u8BD5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9d766e093c3b9334eaac07c6ef6abeaa, type: 2}
-  m_sharedMaterial: {fileID: 3918795289676101485, guid: 9d766e093c3b9334eaac07c6ef6abeaa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  m_sharedMaterial: {fileID: -7203140946049001437, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
   m_fontSizeMax: 3
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -375,4 +375,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264bc223c33277a43a20f0b68fd94383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: {fileID: 0}
