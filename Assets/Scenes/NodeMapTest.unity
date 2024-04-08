@@ -1836,7 +1836,7 @@ MonoBehaviour:
   send_button: {fileID: 1516459329}
   input_field: {fileID: 1516459331}
   name: "\u5BF9\u8BDD\u89D2\u82721"
-  chatHistory: {fileID: 0}
+  chatHistory: {fileID: 4900000, guid: 474ce4610ad967d4598338052b3cefcc, type: 3}
   use_history: 0
   Apikey: lm-dXxiQGyE363suBUpwRUMMQ==
   robots: []
@@ -2726,7 +2726,7 @@ PrefabInstance:
     - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+      objectReference: {fileID: 11400000, guid: 9d766e093c3b9334eaac07c6ef6abeaa, type: 2}
     - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1

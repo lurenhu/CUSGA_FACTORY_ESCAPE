@@ -126,7 +126,7 @@ MonoBehaviour:
   isSelected: 0
   textAssets:
   - {fileID: 4900000, guid: ee0ea52e67f1c8c42bc02c4adf48658f, type: 3}
-  stopAfterDialog: 0
+  stopAfterDialog: 1
 --- !u!114 &-6124864483942429390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   isSelected: 0
   textAssets:
   - {fileID: 4900000, guid: 03324564785883648ae303d28f9be281, type: 3}
-  stopAfterDialog: 0
+  stopAfterDialog: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   isSelected: 0
   textAssets:
   - {fileID: 4900000, guid: 2412d9e346c521d4098c32618c90bfd9, type: 3}
-  stopAfterDialog: 0
+  stopAfterDialog: 1
 --- !u!114 &7620825995057156042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,4 +642,4 @@ MonoBehaviour:
   isSelected: 0
   textAssets:
   - {fileID: 4900000, guid: 8a3069c1dafcab5499bc0d7501168508, type: 3}
-  stopAfterDialog: 0
+  stopAfterDialog: 1

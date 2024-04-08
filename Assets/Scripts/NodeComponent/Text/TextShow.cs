@@ -41,8 +41,7 @@ public class TextShow : MonoBehaviour
             }
 
         }
-        
-        if (myNode.isDragging)
+        else
         {
             myNode.isDragging = false;
             GameManager.Instance.haveNodeDrag = false;

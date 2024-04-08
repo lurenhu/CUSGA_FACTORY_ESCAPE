@@ -59,8 +59,11 @@ public class Synthesizer : MonoBehaviour
 
             UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
-        
-        if (myNode.isDragging) myNode.isDragging = false;
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        } 
     }
 
 

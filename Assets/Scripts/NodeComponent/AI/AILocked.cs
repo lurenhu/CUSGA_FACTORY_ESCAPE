@@ -53,8 +53,12 @@ public class AILocked : MonoBehaviour
                 myNode.isSelected = true;
             }
         }
-        
-        if (myNode.isDragging) myNode.isDragging = false;
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        }        
+
     }
 
     private void StaticEventHandler_OnCommit(CommitArgs args)

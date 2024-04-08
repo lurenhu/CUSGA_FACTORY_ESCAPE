@@ -46,8 +46,7 @@ public class Default : MonoBehaviour
             }
             UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
-        
-        if (myNode.isDragging)
+        else
         {
             myNode.isDragging = false;
             GameManager.Instance.haveNodeDrag = false;

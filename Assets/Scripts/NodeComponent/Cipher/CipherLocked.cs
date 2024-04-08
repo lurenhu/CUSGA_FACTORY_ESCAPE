@@ -90,8 +90,11 @@ public class CipherLocked : MonoBehaviour
 
             UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
-        
-        if (myNode.isDragging) myNode.isDragging = true;        
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        }        
     }
 
     /// <summary>

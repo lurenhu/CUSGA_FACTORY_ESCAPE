@@ -88,8 +88,11 @@ public class Controllable : MonoBehaviour
                 myNode.isSelected = true;
             }
         }
-        
-        if (myNode.isDragging) myNode.isDragging = false;        
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        }       
     }  
 
     // 限制速度
