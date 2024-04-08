@@ -4,7 +4,7 @@ public class TextShow : MonoBehaviour
 {
 
     [Header("观测数据")]    
-    public string text;
+    public TextAsset text;
     private Node myNode;
 
     private void Start() {

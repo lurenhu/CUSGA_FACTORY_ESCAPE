@@ -46,10 +46,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   characters:
-  - name: Alice_normal
-    sprite: {fileID: 21300000, guid: 5fc7a8dc5fccf9e45a5acb571e0bf0a7, type: 3}
-  - name: Bob_normal
-    sprite: {fileID: 21300000, guid: ddc3b22ca4b0d1c4682da624295072ba, type: 3}
+  - name: A
+    sprite: {fileID: 21300000, guid: 464bd28572725214abe8bbc18b60d4b5, type: 3}
+  - name: AT1
+    sprite: {fileID: 21300000, guid: 863bd2b0ebe438242b2ecb4c89f7b2d7, type: 3}
+  - name: AT2
+    sprite: {fileID: 21300000, guid: f18cb65a6550129448bc7fe7f2dfc847, type: 3}
+  - name: N
+    sprite: {fileID: 21300000, guid: 2f635b52e505c7a49b0d67d3a43500c9, type: 3}
+  - name: NE
+    sprite: {fileID: 21300000, guid: 48880494fa2fadf4693563191bececde, type: 3}
+  - name: NT1
+    sprite: {fileID: 21300000, guid: 01252c2c96c58934f9a0eeda00ff6268, type: 3}
+  - name: NT2
+    sprite: {fileID: 21300000, guid: 96dd1aafe2706364984126b8fee12cba, type: 3}
+  - name: SH
+    sprite: {fileID: 21300000, guid: 252e2ae5471bb594682fba51097e9ab3, type: 3}
+  - name: SM
+    sprite: {fileID: 21300000, guid: 263fb74f12c1cfc46860c2969ab03321, type: 3}
+  - name: 8N
+    sprite: {fileID: 21300000, guid: a4d27949b04bc7244bdcb3e1b5ab9b31, type: 3}
+  - name: 8NT1
+    sprite: {fileID: 21300000, guid: 8d1fc03fa5883eb4e983c3596e3d7ff3, type: 3}
+  - name: 8NT2
+    sprite: {fileID: 21300000, guid: 414ef803fd5020140ba1eea245a4f91d, type: 3}
+  - name: 8S
+    sprite: {fileID: 21300000, guid: 861e138ada6d3dd48be3620edf9c162e, type: 3}
+  - name: 8ST1
+    sprite: {fileID: 21300000, guid: 8b55920f149600a45a54525fc8da6cc7, type: 3}
+  - name: 8ST2
+    sprite: {fileID: 21300000, guid: b4706ea9fafd51841963d0280e8c403e, type: 3}
+  - name: 8SH
+    sprite: {fileID: 21300000, guid: dec00dc131d3749498925024ba3c18cd, type: 3}
+  - name: 8SHT1
+    sprite: {fileID: 21300000, guid: b0e964a6c589e5843b4a71c8a5cd348f, type: 3}
+  - name: 8SHT2
+    sprite: {fileID: 21300000, guid: c14bf0768d003e04d835cef9047a423d, type: 3}
+  - name: 8AN
+    sprite: {fileID: 21300000, guid: 7e641594f10482b4f83a34f687450b75, type: 3}
+  - name: 8DE
+    sprite: {fileID: 21300000, guid: 3a962d8daafdf90418b3dc57753421a4, type: 3}
   musics: []
   SFXs: []
   videos: []

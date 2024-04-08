@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: Chapter1L1_Scene2
   m_EditorClassIdentifier: 
+  graphName: 
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: 3509141743742763093}
@@ -179,7 +180,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  text: 
+  text: {fileID: 0}
 --- !u!114 &3509141743742763093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,12 +204,12 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 505
+    x: 504
     y: 323
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
 --- !u!114 &4501637170158789082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,9 +47,9 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     /// <summary>
     /// 展示文本节点UI
     /// </summary>
-    public void DisplayTextNodeContent(string text) 
+    public void DisplayTextNodeContent(TextAsset text) 
     {
-        scrollViewContent.GetComponent<TMP_Text>().text = text;
+        scrollViewContent.GetComponent<TMP_Text>().text = text.text;
 
         TextNodeUI.gameObject.SetActive(true);
     }
