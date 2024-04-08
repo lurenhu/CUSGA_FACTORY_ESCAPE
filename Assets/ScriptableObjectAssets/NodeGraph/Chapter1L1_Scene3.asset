@@ -24,13 +24,18 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: -39
     y: 726
+=======
+    x: -316
+    y: 758
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  text: 
+  text: {fileID: 0}
 --- !u!114 &-7287173585570881585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,8 +61,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 611
     y: 737
+=======
+    x: 334
+    y: 769
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -88,8 +98,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 175
     y: 715
+=======
+    x: -102
+    y: 747
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -119,8 +134,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 610
     y: 855
+=======
+    x: 333
+    y: 887
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -150,8 +170,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 165
     y: 588
+=======
+    x: -112
+    y: 620
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -181,8 +206,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 1232
     y: 566
+=======
+    x: 955
+    y: 598
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -212,8 +242,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 167
     y: 449
+=======
+    x: -110
+    y: 481
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -243,8 +278,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 741
     y: 156
+=======
+    x: 464
+    y: 188
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -262,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: Chapter1L1_Scene3
   m_EditorClassIdentifier: 
+  graphName: 
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: 3509141743742763093}
@@ -316,8 +357,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 414
     y: 857
+=======
+    x: 137
+    y: 889
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -348,8 +394,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: -232
     y: 593
+=======
+    x: -509
+    y: 625
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -380,8 +431,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 740
     y: 264
+=======
+    x: 463
+    y: 296
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -410,8 +466,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 755
     y: 1186
+=======
+    x: 478
+    y: 1218
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -444,8 +505,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 413
     y: 974
+=======
+    x: 136
+    y: 1006
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -474,12 +540,17 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 742
     y: 455
+=======
+    x: 465
+    y: 487
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
 --- !u!114 &3513482614370425708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,13 +575,18 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 408
     y: 1084
+=======
+    x: 131
+    y: 1116
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  text: 
+  text: {fileID: 0}
 --- !u!114 &4197279062759458074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,8 +611,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 792
     y: 738
+=======
+    x: 515
+    y: 770
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -565,8 +646,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 739
     y: 39
+=======
+    x: 462
+    y: 71
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -598,8 +684,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 408
     y: 739
+=======
+    x: 131
+    y: 771
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -631,8 +722,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 409
     y: 508
+=======
+    x: 132
+    y: 540
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -661,8 +757,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 1016
     y: 565
+=======
+    x: 739
+    y: 597
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -692,8 +793,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: -244
     y: 447
+=======
+    x: -521
+    y: 479
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -723,8 +829,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 595
     y: 1076
+=======
+    x: 318
+    y: 1108
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -756,8 +867,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: -21
     y: 593
+=======
+    x: -298
+    y: 625
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -788,8 +904,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: 220
     y: 1068
+=======
+    x: -57
+    y: 1100
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -819,8 +940,13 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
+<<<<<<< HEAD:Assets/ScriptableObjectAssets/NodeGraph/Chapter1L1_Scene3.asset
     x: -27
     y: 449
+=======
+    x: -304
+    y: 481
+>>>>>>> f1d274b0caed9307459c1abc146168ef544892eb:Assets/ScriptableObjectAssets/NodeGraph/Chapter2_Scene2.asset
     width: 160
     height: 100
   isLeftClickDragging: 0
