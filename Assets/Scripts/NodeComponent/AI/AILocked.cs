@@ -62,10 +62,11 @@ public class AILocked : MonoBehaviour
         anxietyValue += args.anxiety_change_value;
         submissionTimes--;
 
-        CheckAnxietyValue();
-
         if (submissionTimes == 0)
+        {
+            CheckAnxietyValue();
             tongyi_AI.instance.input_field.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -73,9 +74,6 @@ public class AILocked : MonoBehaviour
     /// </summary>
     private void CheckAnxietyValue()
     {
-        if (submissionTimes != 0)
-            return;
-        
         if (anxietyValue >= 80 && anxietyValue < 100)
         {
             myNode.PopUpChildNode(myNode.nodeInfos[0]);

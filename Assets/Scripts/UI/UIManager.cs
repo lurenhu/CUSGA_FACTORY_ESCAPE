@@ -18,6 +18,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     [Tooltip("节点文本显示UI对象")]
     public Transform TextNodeUI;
 
+    private Coroutine displayNodeTextForShowRoutine;
+
     [HideInInspector] public bool UIShow = false;
 
     public void CloseGraph()
@@ -26,9 +28,22 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     }
 
     /// <summary>
+    /// 启动展示文本协程
+    /// </summary>
+    public void StartDisplayNodeTextForShowRoutine(string nodeTextForShow)
+    {
+        if (displayNodeTextForShowRoutine != null)
+        {
+            StopCoroutine(displayNodeTextForShowRoutine);
+        }
+
+        displayNodeTextForShowRoutine = StartCoroutine(DisplayNodeTextForShow(nodeTextForShow));
+    }
+
+    /// <summary>
     /// 显示节点文本内容
     /// </summary>
-    public IEnumerator DisplayNodeTextForShow(string nodeTextForShow)
+    private IEnumerator DisplayNodeTextForShow(string nodeTextForShow)
     {
         this.nodeTextForShow.gameObject.SetActive(true);
 

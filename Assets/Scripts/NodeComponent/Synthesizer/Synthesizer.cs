@@ -56,6 +56,8 @@ public class Synthesizer : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+
+            UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
         
         if (myNode.isDragging) myNode.isDragging = false;

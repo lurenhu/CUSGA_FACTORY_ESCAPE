@@ -47,7 +47,7 @@ public class Graph : MonoBehaviour
 
     private void PopUpGraph()
     {
-        Image image = UIManager.Instance.GraphNodeUI.Find("Image").GetComponent<Image>();
+        Image image = UIManager.Instance.GraphNodeUI.Find("Close/Graph").GetComponent<Image>();
 
         image.sprite = this.image;
 

@@ -36,9 +36,10 @@ public class TextShow : MonoBehaviour
                 myNode.GetSelectedAnimate();
     
                 myNode.isSelected = true;
+                
+                UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
             }
 
-            StartCoroutine(UIManager.Instance.DisplayNodeTextForShow(myNode.nodeTextForShow));
         }
         
         if (myNode.isDragging)

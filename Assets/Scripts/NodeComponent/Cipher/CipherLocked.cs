@@ -87,6 +87,8 @@ public class CipherLocked : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+
+            UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
         
         if (myNode.isDragging) myNode.isDragging = true;        

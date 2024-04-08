@@ -78,7 +78,8 @@ public class Probe : MonoBehaviour
     
                 myNode.isSelected = true;
             }
-    
+
+            UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
         }
         if (myNode.isDragging) myNode.isDragging = false;
     }

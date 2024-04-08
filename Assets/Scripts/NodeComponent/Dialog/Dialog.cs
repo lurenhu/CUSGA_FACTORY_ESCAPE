@@ -47,6 +47,11 @@ public class Dialog : MonoBehaviour
                 else
                 {
                     KeepDialog();
+                    if (!myNode.hasPopUp)
+                    {
+                        myNode.PopUpChildNode(myNode.nodeInfos);
+                        myNode.hasPopUp = true;
+                    }
                 }
     
             }
