@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: NodeGraph_Dialog
   m_EditorClassIdentifier: 
+  graphName: 
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: -4381454058876680806}
@@ -81,7 +82,7 @@ MonoBehaviour:
   isLeftClickDragging: 0
   isSelected: 0
   textAssets:
-  - {fileID: 4900000, guid: bf406c58ea63bc944a53d00afbd17ae1, type: 3}
+  - {fileID: 4900000, guid: 932e7095bb1c8174b819db6a1095ce94, type: 3}
   stopAfterDialog: 1
 --- !u!114 &5356956704093662495
 MonoBehaviour:

@@ -35,6 +35,6 @@ public class Cipher : MonoBehaviour
         myNode = transform.GetComponent<Node>();
 
         transform.Find("Value").GetComponent<TMP_Text>().text = value.ToString();
-        transform.Find("Index").GetComponentInChildren<TMP_Text>().text = index.ToString();
+        transform.Find("Index").GetComponentInChildren<TMP_Text>().text = (index + 1).ToString();
     }
 }

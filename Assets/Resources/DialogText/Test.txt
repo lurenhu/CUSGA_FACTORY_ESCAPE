@@ -1,3 +1,0 @@
-Alice_normal:Bob_normal:Alice:你好，这是一段测试对话。 :1
-Alice_normal:Bob_normal:Bob:你好， Bob。这是一段测试对话。:2 
-Alice_normal:Bob_normal:Alice:你好， ChatGPT。这是一段测试对话。:1

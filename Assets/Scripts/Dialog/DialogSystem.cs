@@ -307,8 +307,10 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         var rows = textFile.text.Split('\n');
         foreach (var row in rows)
         {
+            Debug.Log(row);
             string text = row.ToString();
             string[] row_list = text.Split(':');
+            Debug.Log(row_list[0]);
             character_1List.Add(row_list[0]);
             character_2List.Add(row_list[1]);
             name_list.Add(row_list[2]);
