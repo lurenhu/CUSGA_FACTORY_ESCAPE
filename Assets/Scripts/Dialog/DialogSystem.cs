@@ -237,7 +237,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (character_1List.Count > 0)
         {
             character_1.sprite = GameResources.Instance.characters.Find(x => x.name == character_1List[index]).sprite;
-            character_1.SetNativeSize();
+            // character_1.SetNativeSize();
         }
         else
         {
@@ -248,7 +248,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (character_2List.Count > 0)
         {
             character_2.sprite = GameResources.Instance.characters.Find(x => x.name == character_2List[index]).sprite;
-            character_2.SetNativeSize();
+            // character_2.SetNativeSize();
         }
         else
         {
