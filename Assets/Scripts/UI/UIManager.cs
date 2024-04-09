@@ -27,6 +27,16 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         GraphNodeUI.gameObject.SetActive(false);
     }
 
+    public void DisplayNodeText(string nodeTextForShow)
+    {
+        if (!this.nodeTextForShow.gameObject.activeSelf)
+        {
+            this.nodeTextForShow.gameObject.SetActive(true);
+        }
+
+        this.nodeTextForShow.GetComponent<TMP_Text>().text = nodeTextForShow;
+    }
+
     /// <summary>
     /// 启动展示文本协程
     /// </summary>

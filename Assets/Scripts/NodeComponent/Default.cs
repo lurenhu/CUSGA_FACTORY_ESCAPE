@@ -44,7 +44,8 @@ public class Default : MonoBehaviour
             {
                 soundManager.Instance.PlayMusic(myNode.audios[0]);
             }
-            UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+            // UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else
         {

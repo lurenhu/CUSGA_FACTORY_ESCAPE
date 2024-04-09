@@ -92,8 +92,9 @@ public class AngleLocked : MonoBehaviour
     
                 myNode.isSelected = true;
             }
-
-            UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+            
+            //UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else
         {

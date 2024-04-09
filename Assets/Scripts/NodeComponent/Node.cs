@@ -21,8 +21,6 @@ public class Node : MonoBehaviour
     public List<AudioClip> audios;
     public string nodeTextForShow;
     [HideInInspector] public Rect rect;
-    [HideInInspector] public GameObject nodePrefab;
-    [HideInInspector] public Node node;
     [HideInInspector] public NodeTypeSO nodeType;
     
     private SpriteRenderer spriteRenderer;
@@ -45,7 +43,6 @@ public class Node : MonoBehaviour
         else
             parentID = nodeSO.parentNodeIdList[0];
 
-        spriteRenderer = transform.GetComponent<SpriteRenderer>();
         TMP_Text tMP_Text = transform.GetComponentInChildren<TMP_Text>();
         if (tMP_Text != null)
         {
@@ -94,7 +91,14 @@ public class Node : MonoBehaviour
     /// </summary>
     private void MatchCollider2D()
     {
+        if (nodeType == null)
+        {
+            nodeType = GameResources.Instance.nodeTypeList.list.Find(x => x.isDefault);
+        }
+
+        spriteRenderer = transform.GetComponent<SpriteRenderer>();
         col2D = transform.GetComponent<BoxCollider2D>();
+
         if (col2D != null)
             col2D.size = spriteRenderer.sprite.bounds.size;
     }

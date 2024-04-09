@@ -37,7 +37,8 @@ public class TextShow : MonoBehaviour
     
                 myNode.isSelected = true;
                 
-                UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+                // UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+                UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
             }
 
         }
