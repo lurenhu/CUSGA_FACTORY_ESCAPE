@@ -17,4 +17,10 @@ public sealed class SaveProfile<T> where T : SaveProfileData
     }
 }
 
-public abstract class SaveProfileData {}
+public abstract record SaveProfileData {}
+
+public record NodeState : SaveProfileData
+{
+     public Node node;
+     public bool isActive;
+}
