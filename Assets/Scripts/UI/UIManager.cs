@@ -20,11 +20,12 @@ public class UIManager : SingletonMonobehaviour<UIManager>
 
     private Coroutine displayNodeTextForShowRoutine;
 
-    [HideInInspector] public bool UIShow = false;
+    public bool UIShow = false;
 
     public void CloseGraph()
     {
         GraphNodeUI.gameObject.SetActive(false);
+        UIShow = false;
     }
 
     public void DisplayNodeText(string nodeTextForShow)
@@ -67,6 +68,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public void CloseTextNodeUI()
     {
         TextNodeUI.gameObject.SetActive(false);
+        UIShow = false;
     } 
 
     /// <summary>
@@ -77,5 +79,6 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         scrollViewContent.GetComponent<TMP_Text>().text = text.text;
 
         TextNodeUI.gameObject.SetActive(true);
+        UIShow = true;
     }
 }

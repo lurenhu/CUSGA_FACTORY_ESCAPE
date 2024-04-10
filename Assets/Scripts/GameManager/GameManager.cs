@@ -29,7 +29,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void Start() {
         NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
 
-        Debug.Log(Application.dataPath);
+        Debug.Log(Application.persistentDataPath);
     }
 
     

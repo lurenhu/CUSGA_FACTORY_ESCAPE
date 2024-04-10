@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     
     private void Update()
     {
+        if (GameManager.Instance.haveNodeDrag || UIManager.Instance.UIShow) return;
+            
         // 获取鼠标位置
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -15,7 +17,7 @@ public class CameraController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         // 如果射线与游戏对象碰撞，执行相应的操作
-        if (hit.collider == null && !GameManager.Instance.haveNodeDrag)
+        if (hit.collider == null)
         {
             // 当用户按下鼠标左键时
             if (Input.GetMouseButtonDown(0))

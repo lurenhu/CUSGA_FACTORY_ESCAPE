@@ -56,7 +56,7 @@ public class CipherLocked : MonoBehaviour
 
     private void OnMouseUp() 
     {
-        if (myNode.isPopping) return;
+        if (myNode.isPopping || UIManager.Instance.UIShow) return;
         
         if (!myNode.isDragging)
         {

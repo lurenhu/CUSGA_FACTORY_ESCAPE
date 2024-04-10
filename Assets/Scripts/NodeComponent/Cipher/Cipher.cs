@@ -12,7 +12,7 @@ public class Cipher : MonoBehaviour
     public int value = 0;// 值
 
     private void OnMouseUp() {
-        if (myNode.isPopping) return;
+        if (myNode.isPopping || UIManager.Instance.UIShow) return;
         if (!myNode.isDragging)
         {
             if (myNode.isSelected)

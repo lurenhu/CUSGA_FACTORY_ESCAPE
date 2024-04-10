@@ -76,6 +76,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         else 
         {
             mouse.SetActive(false);
+            
         }
         
     }   
@@ -101,45 +102,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }        
     }
 
-    
-
-    //static public void image_update(string[] image_pos)
-    //{
-    //    string sign = image_pos[0];
-    //    char pos = image_pos[1][0];
-    //    Debug.Log(sign);
-    //    if (sign == "取消") 
-    //    {
-    //        return;
-    //    }
-    //    GameObject ga = GameObject_dic[sign];
-    //    RectTransform rectTransform = ga.GetComponent<RectTransform>();
-    //    float x_coordinate=middle;
-
-    //    if (pos == 'm')
-    //    {
-    //        x_coordinate = middle;
-    //    }
-    //    else if (pos == 'l')
-    //    {
-    //        x_coordinate = left;
-    //    }
-    //    else 
-    //    {
-    //        x_coordinate = right;
-    //    }
-    //    Debug.Log(x_coordinate);
-    //    if (!ga.activeSelf)
-    //    {
-    //        ga.SetActive(true);
-    //        rectTransform.localPosition = new Vector3(x_coordinate, rectTransform.localPosition.y, rectTransform.localPosition.z);
-
-    //    }
-    //    if (rectTransform.localPosition.x != x_coordinate)
-    //        rectTransform.DOLocalMoveX(x_coordinate,move_time);
-    //    //tran.DOLocalMoveX(x_coordinate, move_time);
-    //}
-    
     /// <summary>
     /// 清理数据列表
     /// </summary>
@@ -166,6 +128,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
                 //string[] image_pos = image_list[0];
 
                 talk_ui.SetActive(true);
+                UIManager.Instance.UIShow = true;
                 //image_update(image_pos);
 
                 //自动拉取第一行
@@ -185,6 +148,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
                 //文字渲染完成
                 ClearReference();
                 talk_ui.SetActive(false);
+                UIManager.Instance.UIShow = false;
                 return false;
             }
             
@@ -354,6 +318,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         isTimerRunning = true;
         is_blitting_text = false;
         talk_ui.SetActive(true);
+        UIManager.Instance.UIShow = true;
         this.locktime = locktime;
         this.name_text.text = "823";
         textLabel.text= text;
