@@ -1307,7 +1307,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 2
   nodeGraphSOs:
-  - {fileID: 11400000, guid: f76a0620d4bd0a641a131f0b79d92a1f, type: 2}
+  - {fileID: 11400000, guid: 1a69038ac3af2b84fa61dd9b3e98cec9, type: 2}
   haveNodeDrag: 0
 --- !u!4 &1052891442
 Transform:
