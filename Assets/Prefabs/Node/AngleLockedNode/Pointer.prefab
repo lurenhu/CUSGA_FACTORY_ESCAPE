@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2086327524981283062}
   - component: {fileID: 8452965180907397395}
   - component: {fileID: 7389719997446118816}
+  - component: {fileID: 1027940317427719486}
   m_Layer: 6
   m_Name: Pointer
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -738469723
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f92b11afbbf35e5498cb6a046d785384, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -179,12 +180,24 @@ MonoBehaviour:
   parentID: 
   childIdList: []
   nodeInfos: []
+  audios: []
+  nodeTextForShow: 
   rect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  nodePrefab: {fileID: 0}
-  node: {fileID: 0}
   nodeType: {fileID: 0}
+--- !u!114 &1027940317427719486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337153538114554917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e49fa8d54565a4696c76d91844fa65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

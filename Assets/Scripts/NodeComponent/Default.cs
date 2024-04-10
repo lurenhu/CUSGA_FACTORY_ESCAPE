@@ -21,7 +21,7 @@ public class Default : MonoBehaviour
                 // 节点交互内容
     
                 // 弹出子节点
-                if (!myNode.hasPopUp)
+                if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
                     myNode.PopUpChildNode(myNode.nodeInfos);
                     myNode.hasPopUp = true;

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-    public Transform startPoint;
-    public Transform endPoint;
+    [HideInInspector] public Transform startPoint;
+    [HideInInspector] public Transform endPoint;
     public float ropeWidth = 0.1f;
     public float ropeResolution = 0.5f;
 

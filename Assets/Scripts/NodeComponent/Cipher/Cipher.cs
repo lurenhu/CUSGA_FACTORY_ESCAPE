@@ -13,9 +13,34 @@ public class Cipher : MonoBehaviour
 
     private void OnMouseUp() {
         if (myNode.isPopping) return;
-        if (myNode.isDragging) myNode.isDragging = false;
+        if (!myNode.isDragging)
+        {
+            if (myNode.isSelected)
+            {
+                ProcessCipherClickEvent();
+            }
+            else
+            {
+                // 删除其他所有节点的选中状态
+                NodeMapBuilder.Instance.ClearAllSelectedNode(myNode);
+                myNode.GetSelectedAnimate();
+    
+                myNode.isSelected = true;
+            }
 
-        ProcessCipherClickEvent();
+            // 播放音频
+            if (myNode.audios.Count != 0)
+            {
+                soundManager.Instance.PlayMusic(myNode.audios[0]);
+            }
+            // UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
+        }
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        }
     }
 
     private void ProcessCipherClickEvent()

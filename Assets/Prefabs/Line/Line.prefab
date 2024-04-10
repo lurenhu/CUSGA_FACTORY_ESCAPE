@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 0}
   endPoint: {fileID: 0}
-  ropeWidth: 0.1
+  ropeWidth: 0.01
   ropeResolution: 0.5
 --- !u!120 &9203501203572520280
 LineRenderer:
@@ -89,7 +89,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -3120759
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -102,7 +102,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.06707382
+        value: 0.018993378
         inSlope: 0
         outSlope: 0
         tangentMode: 0

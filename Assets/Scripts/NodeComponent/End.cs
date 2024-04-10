@@ -31,7 +31,10 @@ public class End : MonoBehaviour
                 myNode.isSelected = true;
             }
         }
-        
-        if (myNode.isDragging) myNode.isDragging = false;
+        else
+        {
+            myNode.isDragging = false;
+            GameManager.Instance.haveNodeDrag = false;
+        } 
     }
 }
