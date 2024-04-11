@@ -27,6 +27,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
+        if (nodeGraphSOs.Count == 0) return;
         NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
 
         Debug.Log(Application.persistentDataPath);

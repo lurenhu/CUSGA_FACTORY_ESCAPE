@@ -66,7 +66,6 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
         if (line != null)
         {
             line.gameObject.SetActive(false);
-            nodeLineBinding.Remove(node);
         }
     }
 

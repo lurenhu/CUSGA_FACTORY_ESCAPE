@@ -26,7 +26,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 819
-    y: 471
+    y: 544
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1096
-    y: 584
+    y: 657
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 504
-    y: 429
+    y: 502
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: NodeGraph_Chasing
   m_EditorClassIdentifier: 
+  graphName: 
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: -3885018313442401422}
