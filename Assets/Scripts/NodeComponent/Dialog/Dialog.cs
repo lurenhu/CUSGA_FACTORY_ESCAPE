@@ -108,6 +108,7 @@ public class Dialog : MonoBehaviour
                 {
                     Node childeNode = NodeMapBuilder.Instance.nodeHasCreated[childNodeId];
                     LineCreator.Instance.DeleteLine(childeNode);
+                    LineCreator.Instance.nodeLineBinding.Remove(childeNode);
 
                     childeNode.parentID = parentNode.id;
                     LineCreator.Instance.CreateLine(childeNode);

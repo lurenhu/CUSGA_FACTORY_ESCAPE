@@ -30,6 +30,8 @@ public class StartSceneNode : MonoBehaviour
                     return;
                 }
 
+                Destroy(GameManager.Instance.gameObject);
+                Destroy(UIManager.Instance.gameObject);
                 SceneManager.LoadScene(1);
                 
             }
