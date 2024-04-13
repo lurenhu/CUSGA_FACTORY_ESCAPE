@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
 {
     public Dictionary<string,Node> nodeHasCreated = new Dictionary<string, Node>();
-    private Queue<NodeData> nodeProperties = new Queue<NodeData>();
     public List<NodeTemplateSO> nodeTemplateList;
+    private Queue<NodeData> nodeProperties = new Queue<NodeData>();
     private NodeTypeListSO nodeTypeList;
+    private List<string> nodeSaveIDList = new List<string>();
 
     protected override void Awake()
     {
@@ -21,11 +23,32 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     public void GenerateNodeMap(NodeGraphSO nodeGraph)
     {
+        InitEnv(nodeGraph);
+
         AttemptToBuildNodes(nodeGraph);
         
         InstantiateNodes();
 
         LocateCameraAtEntranceNode();
+    }
+
+    /// <summary>
+    /// 规定节点图生成前的环境
+    /// </summary>
+    private void InitEnv(NodeGraphSO nodeGraph)
+    {
+        nodeHasCreated.Clear();
+        nodeProperties.Clear();
+
+        if (nodeGraph.backGround != null)
+        {
+            UIManager.Instance.BackGround.GetComponent<Image>().sprite = nodeGraph.backGround;
+        }
+
+        if (nodeGraph.startDialog != null)
+        {
+            DialogSystem.Instance.GetText(nodeGraph.startDialog);
+        }
     }
 
     /// <summary>
@@ -311,7 +334,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         }
         else
         {
-            Debug.Log("No this node in nodeMap");
+            Debug.Log($"No this node {nodeID} in nodeMap");
             return null;  
         }
     }
@@ -319,7 +342,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// <summary>
     /// 删除当前节点图中的所有节点以及对应绑定的线条
     /// </summary>
-    public void DeleteNode()
+    public void DeleteNodeMap()
     {
         foreach (KeyValuePair<Node,Line> keyValuePair in LineCreator.Instance.nodeLineBinding) 
         {
@@ -335,6 +358,56 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
 
             Destroy(currentNode.gameObject);
             Destroy(currentLine.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 保存整个节点图，包含所有节点的节点状态
+    /// </summary>
+    public void SaveNodeMap()
+    {
+        nodeSaveIDList.Clear();
+        foreach (KeyValuePair<string,Node> keyValuePair in nodeHasCreated)
+        {
+            Node currentNode = keyValuePair.Value;
+            string nodeID = keyValuePair.Key;
+
+            NodeState nodeState = new NodeState{
+                nodeType = currentNode.nodeType,
+                localPosition = currentNode.transform.position,
+                childNodeID = currentNode.childIdList,
+                parentNodeID = currentNode.parentID,
+                hasPopUp = currentNode.hasPopUp,
+                isActive = currentNode.gameObject.activeSelf
+            };
+            SaveProfile<NodeState> saveProfile = new SaveProfile<NodeState>(nodeID,nodeState);
+            SaveManager.Save(saveProfile);
+
+            nodeSaveIDList.Add(nodeID);
+        }
+    }
+
+    /// <summary>
+    /// 加载整个节点图，包含所有节点的节点状态
+    /// </summary>
+    public void LoadNodeMap()
+    {
+        foreach (string nodeIDHasSave in nodeSaveIDList)
+        {
+            NodeState nodeState = SaveManager.Load<NodeState>(nodeIDHasSave).saveData;
+
+            nodeHasCreated[nodeIDHasSave].transform.position = nodeState.localPosition;
+            nodeHasCreated[nodeIDHasSave].childIdList = nodeState.childNodeID;
+            nodeHasCreated[nodeIDHasSave].parentID = nodeState.parentNodeID;
+            nodeHasCreated[nodeIDHasSave].hasPopUp = nodeState.hasPopUp;
+            if (nodeState.hasPopUp)
+            {
+                foreach (string childNodeID in nodeState.childNodeID)
+                {
+                    LineCreator.Instance.ShowLine(GetNode(childNodeID));
+                }
+            }
+            nodeHasCreated[nodeIDHasSave].gameObject.SetActive(nodeState.isActive);
         }
     }
 

@@ -4,6 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum GameState
+{
+    Start,
+    Playing,
+    Pause,
+    End
+}
+
 public class GameManager : SingletonMonobehaviour<GameManager>
 {
 
@@ -17,7 +25,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("节点图参数")]
     [Tooltip("所需生成节点图列表")]
-    public List<NodeGraphSO> nodeGraphSOs;
+    public List<NodeLevelSO> nodeLevelSOs;
 
     
     [HideInInspector] public bool haveNodeDrag = false;
@@ -27,11 +35,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-        if (nodeGraphSOs.Count == 0) return;
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
-
-        Debug.Log(Application.persistentDataPath);
     }
 
-    
 }

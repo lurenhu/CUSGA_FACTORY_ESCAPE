@@ -17,6 +17,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform scrollViewContent;
     [Tooltip("节点文本显示UI对象")]
     public Transform TextNodeUI;
+    [Tooltip("背景UI对象")]
+    public Transform BackGround;
 
     private Coroutine displayNodeTextForShowRoutine;
 

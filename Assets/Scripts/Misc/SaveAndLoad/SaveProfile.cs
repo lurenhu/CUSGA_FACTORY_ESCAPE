@@ -8,7 +8,7 @@ public sealed class SaveProfile<T> where T : SaveProfileData
     public string profileName;
     public T saveData;
 
-    private SaveProfile() { }
+    public SaveProfile() { }
 
     public SaveProfile(string name, T saveData)
     {
@@ -21,6 +21,10 @@ public abstract record SaveProfileData {}
 
 public record NodeState : SaveProfileData
 {
-     public Node node;
-     public bool isActive;
+    public NodeTypeSO nodeType;
+    public Vector2 localPosition;
+    public List<string> childNodeID;
+    public string parentNodeID;
+    public bool hasPopUp;
+    public bool isActive;
 }

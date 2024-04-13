@@ -695,6 +695,7 @@ MonoBehaviour:
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}
   TextNodeUI: {fileID: 38135551}
+  BackGround: {fileID: 1270675460}
   UIShow: 0
 --- !u!4 &457837503
 Transform:
@@ -1308,6 +1309,7 @@ MonoBehaviour:
   popUpForce: 2
   nodeGraphSOs:
   - {fileID: 11400000, guid: 7a58ab5044a09404a86db6821d72cc25, type: 2}
+  nodeLevelSOs: []
   haveNodeDrag: 0
 --- !u!4 &1052891442
 Transform:

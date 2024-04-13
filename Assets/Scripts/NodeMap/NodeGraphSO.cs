@@ -5,7 +5,12 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "NodeGraph_",menuName = "ScriptableObjects/NodeGraph")]
 public class NodeGraphSO : ScriptableObject
 {
+    [Tooltip("节点图的名称")]
     public string graphName;
+    [Tooltip("进入该节点图的对话文本")]
+    public TextAsset startDialog;
+    [Tooltip("背景图片")]
+    public Sprite backGround;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
     [HideInInspector] public List<NodeSO> nodeList = new List<NodeSO>();
     [HideInInspector] public Dictionary<string,NodeSO> nodeDictionary = new Dictionary<string, NodeSO>();

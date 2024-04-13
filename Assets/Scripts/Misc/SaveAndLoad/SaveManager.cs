@@ -41,8 +41,8 @@ public static class SaveManager
     /// <param name="save">保存的数据</param>
     public static void Save<T>(SaveProfile<T> save) where T : SaveProfileData
     {
-        if (!File.Exists($"{saveFolder}/{save.profileName}"))
-            throw new Exception($"Save Profile {save.profileName} does not exist");
+        if (File.Exists($"{saveFolder}/{save.profileName}"))
+            throw new Exception($"Save Profile {save.profileName} already exists!");
 
         var jsonString = JsonConvert.SerializeObject(save,Formatting.Indented,
             new JsonSerializerSettings{ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
