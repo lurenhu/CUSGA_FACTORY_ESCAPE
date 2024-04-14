@@ -24,12 +24,12 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -23
-    y: 93
+    x: 355
+    y: 178
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
 --- !u!114 &-3115738828458320758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 144
-    y: 400
+    x: 522
+    y: 484
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -86,8 +86,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -26
-    y: 265
+    x: 352
+    y: 349
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Name: NodeGraph_Dialog
   m_EditorClassIdentifier: 
   graphName: 
-  startDialog: {fileID: 0}
   backGround: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:
@@ -141,8 +140,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 358
-    y: 285
+    x: 736
+    y: 369
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -170,8 +169,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 388
-    y: 85
+    x: 766
+    y: 169
     width: 160
     height: 100
   isLeftClickDragging: 0

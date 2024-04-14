@@ -39,11 +39,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-        //InitializeNodeList();
+        InitializeNodeList();
 
-        //NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
 
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
+        // NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[0]);
     }   
 
     private void Update() {
@@ -52,6 +52,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private void InitializeNodeList()
     {
+        if (nodeLevelSOs.Count == 0) return;
+
         nodeIdsInGraph.Clear();
 
         foreach (NodeGraphSO nodeGraph in nodeLevelSOs[nodeLevelIndex].levelGraphs)
