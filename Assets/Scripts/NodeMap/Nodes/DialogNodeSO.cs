@@ -10,6 +10,8 @@ public class DialogNodeSO : NodeSO
     public List<TextAsset> textAssets = new List<TextAsset>();
     [Tooltip("是否在对话结束后替换其子节点")]
     public bool stopAfterDialog = false;
+    public string DisplayNodeID;
+    public string DisappearNodeID;
 
     #if UNITY_EDITOR
 

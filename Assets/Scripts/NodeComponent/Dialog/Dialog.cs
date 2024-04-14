@@ -16,9 +16,7 @@ public class Dialog : MonoBehaviour
     private int dialogIndex = 0;
 
     private void Start() {
-        myNode = transform.GetComponent<Node>();
-
-        parentNode = NodeMapBuilder.Instance.nodeHasCreated[myNode.parentID];
+        parentNode = NodeMapBuilder.Instance.GetNode(myNode.parentID);
     }
 
     /// <summary>
@@ -26,10 +24,20 @@ public class Dialog : MonoBehaviour
     /// </summary>
     public void InitializeDialog(NodeSO nodeSO)
     {
+        myNode = transform.GetComponent<Node>();
+
         DialogNodeSO dialogNodeSO = (DialogNodeSO)nodeSO;
 
         textAssets = dialogNodeSO.textAssets;
         stopAfterDialog = dialogNodeSO.stopAfterDialog;
+
+        if (NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID) != null && NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisappearNodeID) != null)
+        {
+            BeClocked beClocked = NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID).gameObject.AddComponent<BeClocked>();
+            beClocked.InitializeBeClocked(myNode);
+            StopClocked stopClocked = NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisappearNodeID).gameObject.AddComponent<StopClocked>();
+            stopClocked.InitializeStopClocked(myNode);
+        }
     }
 
     private void OnMouseUp() {

@@ -74,5 +74,6 @@ public class Synthesizer : MonoBehaviour
         LineCreator.Instance.DeleteLine(targetNode);
 
         myNode.PopUpChildNode(myNode.nodeInfos);
+        myNode.hasPopUp = true;
     }
 }

@@ -860,6 +860,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1662037205}
+  - {fileID: 328559274}
+  - {fileID: 1520149495}
   - {fileID: 38135551}
   - {fileID: 962800976}
   - {fileID: 1516459328}
@@ -867,8 +869,6 @@ RectTransform:
   - {fileID: 1634577547}
   - {fileID: 1488312983}
   - {fileID: 292482522}
-  - {fileID: 328559274}
-  - {fileID: 1520149495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1525,6 +1525,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
   - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
+  nodeGraphSOs:
+  - {fileID: 11400000, guid: f76a0620d4bd0a641a131f0b79d92a1f, type: 2}
   haveNodeDrag: 0
 --- !u!4 &1052891442
 Transform:
