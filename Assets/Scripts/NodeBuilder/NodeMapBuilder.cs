@@ -9,7 +9,6 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     public List<NodeTemplateSO> nodeTemplateList;
     private Queue<NodeData> nodeProperties = new Queue<NodeData>();
     private NodeTypeListSO nodeTypeList;
-    private List<string> nodeSaveIDList = new List<string>();
 
     protected override void Awake()
     {
@@ -39,6 +38,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     {
         nodeHasCreated.Clear();
         nodeProperties.Clear();
+        LineCreator.Instance.nodeLineBinding.Clear();
 
         if (nodeGraph.backGround != null)
         {
@@ -344,10 +344,10 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     public void DeleteNodeMap()
     {
-        foreach (KeyValuePair<Node,Line> keyValuePair in LineCreator.Instance.nodeLineBinding) 
+        foreach (KeyValuePair<string,Node> keyValue in nodeHasCreated)
         {
-            Node currentNode = keyValuePair.Key;
-            Line currentLine = keyValuePair.Value;
+            // 删除节点对象
+            Node currentNode = keyValue.Value;
 
             if (currentNode.nodeType.isControllable)
             {
@@ -357,16 +357,20 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             }
 
             Destroy(currentNode.gameObject);
-            Destroy(currentLine.gameObject);
+
+            // 删除节点对象对应的线条对象
+            if (LineCreator.Instance.nodeLineBinding.TryGetValue(currentNode,out Line line))
+            {
+                Destroy(line.gameObject);
+            }
         }
     }
 
     /// <summary>
     /// 保存整个节点图，包含所有节点的节点状态
     /// </summary>
-    public void SaveNodeMap()
+    public void SaveNodeMap(List<string> nodeSaveIDList)
     {
-        nodeSaveIDList.Clear();
         foreach (KeyValuePair<string,Node> keyValuePair in nodeHasCreated)
         {
             Node currentNode = keyValuePair.Value;
@@ -381,16 +385,18 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
                 isActive = currentNode.gameObject.activeSelf
             };
             SaveProfile<NodeState> saveProfile = new SaveProfile<NodeState>(nodeID,nodeState);
+            SaveManager.Delete(saveProfile.profileName);
             SaveManager.Save(saveProfile);
 
-            nodeSaveIDList.Add(nodeID);
+            if (!nodeSaveIDList.Contains(nodeID))
+                nodeSaveIDList.Add(nodeID);
         }
     }
 
     /// <summary>
     /// 加载整个节点图，包含所有节点的节点状态
     /// </summary>
-    public void LoadNodeMap()
+    public void LoadNodeMap(List<string> nodeSaveIDList)
     {
         foreach (string nodeIDHasSave in nodeSaveIDList)
         {

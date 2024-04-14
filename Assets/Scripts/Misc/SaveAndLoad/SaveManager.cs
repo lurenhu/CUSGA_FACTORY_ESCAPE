@@ -14,7 +14,10 @@ public static class SaveManager
     public static void Delete(string profileName)
     {
         if (!File.Exists($"{saveFolder}/{profileName}"))
-            throw new Exception($"Save Profile {profileName} does not exist");
+        {
+            Debug.Log($"Save Profile {profileName} does not exist");
+            return;
+        }
 
         Debug.Log($"Successfully Delete {saveFolder}/{profileName}");
         File.Delete($"{saveFolder}/{profileName}");

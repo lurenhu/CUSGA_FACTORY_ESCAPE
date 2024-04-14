@@ -26,6 +26,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("节点图参数")]
     [Tooltip("所需生成节点图列表")]
     public List<NodeLevelSO> nodeLevelSOs;
+    private int nodeLevelIndex = 0;// 关卡索引
+    private int nodeGraphIndex = 0;// 节点图索引
+    private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表
 
     
     [HideInInspector] public bool haveNodeDrag = false;
@@ -35,6 +38,60 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
+        InitializeNodeList();
+
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+
     }
+
+    private void Update() {
+        
+    }
+
+    private void InitializeNodeList()
+    {
+        nodeIdsInGraph.Clear();
+
+        foreach (NodeGraphSO nodeGraph in nodeLevelSOs[nodeLevelIndex].levelGraphs)
+        {
+            nodeIdsInGraph.Add(new List<string>());
+        }
+
+    }
+
+    /// <summary>
+    /// 向右转换节点图，index++
+    /// </summary>
+    public void GetRightNodeGraph() {
+        NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[nodeGraphIndex]);
+
+        nodeGraphIndex++;
+        if (nodeGraphIndex >= nodeLevelSOs.Count) {
+            nodeGraphIndex = 0;
+        }
+
+        NodeMapBuilder.Instance.DeleteNodeMap();
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+
+        NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[nodeGraphIndex]);
+    }
+
+    /// <summary>
+    /// 向左转换节点图，Index--
+    /// </summary>
+    public void GetLeftNodeGraph() {
+        NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[nodeGraphIndex]);
+
+        nodeGraphIndex--;
+        if (nodeGraphIndex < 0) {
+            nodeGraphIndex = nodeLevelSOs.Count - 1;
+        }
+
+        NodeMapBuilder.Instance.DeleteNodeMap();
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+        
+        NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[nodeGraphIndex]);
+    }
+
 
 }
