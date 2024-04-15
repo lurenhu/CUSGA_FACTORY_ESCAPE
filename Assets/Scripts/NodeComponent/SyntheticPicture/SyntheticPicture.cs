@@ -88,10 +88,10 @@ public class SyntheticPicture : MonoBehaviour
     /// </summary>
     private void PopUpGraph()
     {
-        Image image = UIManager.Instance.GraphNodeUI.Find("Image").GetComponent<Image>();
+        Image image = UIManager.Instance.graphNodeUI.Find("Image").GetComponent<Image>();
 
         image.sprite = this.image;
 
-        UIManager.Instance.GraphNodeUI.gameObject.SetActive(true);
+        UIManager.Instance.graphNodeUI.gameObject.SetActive(true);
     }
 }

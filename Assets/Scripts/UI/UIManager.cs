@@ -10,23 +10,26 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     [Space(10)]
     [Header("所需UI对象")]
     [Tooltip("图节点展示图的UI对象")]
-    public Transform GraphNodeUI;
+    public Transform graphNodeUI;
     [Tooltip("将节点文本显示的UI对象")]
     public Transform nodeTextForShow;
     [Tooltip("滑动文本框内的文本")]
     public Transform scrollViewContent;
     [Tooltip("节点文本显示UI对象")]
-    public Transform TextNodeUI;
+    public Transform textNodeUI;
     [Tooltip("背景UI对象")]
-    public Transform BackGround;
+    public Transform backGround;
+    [Tooltip("向右侧切换节点图按钮")]
+    public Transform rightNodeGraphButton;
+    [Tooltip("向左侧切换节点图按钮")]
+    public Transform leftNodeGraphButton;
 
     private Coroutine displayNodeTextForShowRoutine;
-
     public bool UIShow = false;
 
     public void CloseGraph()
     {
-        GraphNodeUI.gameObject.SetActive(false);
+        graphNodeUI.gameObject.SetActive(false);
         UIShow = false;
     }
 
@@ -69,7 +72,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
 
     public void CloseTextNodeUI()
     {
-        TextNodeUI.gameObject.SetActive(false);
+        textNodeUI.gameObject.SetActive(false);
         UIShow = false;
     } 
 
@@ -80,7 +83,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     {
         scrollViewContent.GetComponent<TMP_Text>().text = text.text;
 
-        TextNodeUI.gameObject.SetActive(true);
+        textNodeUI.gameObject.SetActive(true);
         UIShow = true;
     }
 }

@@ -42,7 +42,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
 
         if (nodeGraph.backGround != null)
         {
-            UIManager.Instance.BackGround.GetComponent<Image>().sprite = nodeGraph.backGround;
+            UIManager.Instance.backGround.GetComponent<Image>().sprite = nodeGraph.backGround;
         }
 
     }

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
 
 public class StartSceneNode : MonoBehaviour
 {
     private Node myNode;
+
+    public UnityEvent OnTrigger;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();
@@ -30,10 +34,11 @@ public class StartSceneNode : MonoBehaviour
                     return;
                 }
 
-                Destroy(GameManager.Instance.gameObject);
-                Destroy(UIManager.Instance.gameObject);
-                SceneManager.LoadScene(1);
-                
+                if (OnTrigger != null)
+                {
+                    OnTrigger.Invoke();
+                }
+
             }
             else
             {

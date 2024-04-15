@@ -266,8 +266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenDuring: 0.5
   popUpForce: 3
-  nodeLevelSOs: []
+  nodeLevelSOs:
+  - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   nodeGraphSOs: []
+  gameState: 0
   haveNodeDrag: 0
 --- !u!1001 &46532804
 PrefabInstance:
@@ -572,6 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &231511948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -736,6 +741,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &261429190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -977,6 +985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &475377476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &564582017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1589,6 +1603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &703185692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1698,6 +1715,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2099796661}
+        m_TargetAssemblyTypeName: GameStart, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &741936746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -1715,6 +1747,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &765109146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &952569762 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -2092,6 +2130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1036185575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2471,6 +2512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1337929117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2635,6 +2679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1345989562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -2652,6 +2699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1364214657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2791,6 +2841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1412185804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2895,6 +2948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1520353015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2999,6 +3055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1526520344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -3016,6 +3075,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1705077822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -3033,6 +3095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1743223850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -3050,6 +3115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1884939001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1961701349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
@@ -3134,6 +3205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1991645002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3238,6 +3312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2099796660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,6 +3584,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1936faa356577438b6c7220a8beb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2099796661}
+        m_TargetAssemblyTypeName: GameStart, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

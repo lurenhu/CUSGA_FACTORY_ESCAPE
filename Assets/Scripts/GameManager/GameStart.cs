@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
@@ -50,5 +51,18 @@ public class GameStart : MonoBehaviour
             Debug.Log($"{node.name} has create Line");
         }
 
+    }
+
+    public void StartGame()
+    {
+        Destroy(UIManager.Instance.gameObject);
+        SceneManager.LoadScene(1);
+
+        GameManager.Instance.gameState = GameState.Generating;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
