@@ -189,8 +189,6 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  nodePrefab: {fileID: 0}
-  node: {fileID: 0}
   nodeType: {fileID: 0}
 --- !u!114 &4882971823302398723
 MonoBehaviour:
@@ -262,7 +260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3609221670939886791, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  - {fileID: 6225057432446577637, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,8 +304,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6D4B\u8BD5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
-  m_sharedMaterial: {fileID: 3609221670939886791, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
+  m_sharedMaterial: {fileID: 6225057432446577637, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

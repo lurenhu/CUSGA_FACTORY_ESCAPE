@@ -1809,8 +1809,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "[ \u6293 \u4F4F \u672A \u5C3D \u7684 \u4F59 \u6656 ]"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 863a54c786104fb409d18976c5d4ebdb, type: 2}
-  m_sharedMaterial: {fileID: 2858857171122707845, guid: 863a54c786104fb409d18976c5d4ebdb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
+  m_sharedMaterial: {fileID: 6225057432446577637, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3162,11 +3162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051d25b91452674469dcea10df00cb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphNodeUI: {fileID: 0}
+  graphNodeUI: {fileID: 0}
   nodeTextForShow: {fileID: 0}
   scrollViewContent: {fileID: 0}
-  TextNodeUI: {fileID: 0}
-  BackGround: {fileID: 0}
+  textNodeUI: {fileID: 0}
+  backGround: {fileID: 0}
+  rightNodeGraphButton: {fileID: 0}
+  leftNodeGraphButton: {fileID: 0}
   UIShow: 0
 --- !u!1 &1926152501 stripped
 GameObject:

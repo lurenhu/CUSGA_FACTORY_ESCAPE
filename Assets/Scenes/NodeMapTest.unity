@@ -905,11 +905,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051d25b91452674469dcea10df00cb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphNodeUI: {fileID: 962800976}
+  graphNodeUI: {fileID: 0}
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}
-  TextNodeUI: {fileID: 38135551}
-  BackGround: {fileID: 1270675460}
+  textNodeUI: {fileID: 0}
+  backGround: {fileID: 0}
+  rightNodeGraphButton: {fileID: 0}
+  leftNodeGraphButton: {fileID: 0}
   UIShow: 0
 --- !u!4 &457837503
 Transform:
@@ -1467,7 +1469,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e552070ed1ea96b4db6885a9e9f17e35, type: 3}
+    m_Font: {fileID: 12800000, guid: 3a5d503963ae87f4ebe1b4f4f05e2ab5, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
@@ -1527,6 +1529,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
   nodeGraphSOs:
   - {fileID: 11400000, guid: f76a0620d4bd0a641a131f0b79d92a1f, type: 2}
+  gameState: 0
   haveNodeDrag: 0
 --- !u!4 &1052891442
 Transform:
@@ -2344,7 +2347,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8FD9\u91CC\u663E\u793A\u6D4B\u8BD5\u6587\u672C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 863a54c786104fb409d18976c5d4ebdb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2885,7 +2888,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5B58\u653E\u56FE\u6587\u8FC7\u573A\u6587\u672C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c64d717d321e51c4e8c253cdcc35ee8b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3101,7 +3104,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e552070ed1ea96b4db6885a9e9f17e35, type: 3}
+    m_Font: {fileID: 12800000, guid: 3a5d503963ae87f4ebe1b4f4f05e2ab5, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0

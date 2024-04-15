@@ -15,6 +15,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         base.Awake();
 
         nodeTypeList = GameResources.Instance.nodeTypeList;
+        GameManager.Instance.gameState = GameState.Generating;
     }
 
     /// <summary>
