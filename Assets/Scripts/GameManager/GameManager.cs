@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,8 +29,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Tooltip("所需生成节点图列表")]
     public List<NodeLevelSO> nodeLevelSOs;
     public List<NodeGraphSO> nodeGraphSOs;
-    private int nodeLevelIndex = 0;// 关卡索引
-    private int nodeGraphIndex = 0;// 节点图索引
+    [SerializeField] private int nodeLevelIndex = 0;// 关卡索引
+    [SerializeField] private int nodeGraphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
 
     [Space(10)]
@@ -41,10 +42,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     override protected void Awake() {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
     }
     
     private void Start() {
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[nodeGraphIndex]);
+        // NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[nodeGraphIndex]);
     }   
 
     private void Update() {
@@ -56,7 +58,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.Start:
                 break;
             case GameState.Generating:
-                InitializeNodeIdList();
+                if (NodeMapBuilder.Instance == null) return;
+
+                InitializeReference();
                 NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
                 gameState = GameState.Playing;
                 break;
@@ -72,7 +76,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 初始化关卡内节点图的节点ID列表
     /// </summary>
-    private void InitializeNodeIdList()
+    private void InitializeReference()
     {
         if (nodeLevelSOs.Count == 0) return;
 
@@ -82,6 +86,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             nodeIdsInGraph.Add(new List<string>());
         }
+
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetRightNodeGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetLeftNodeGraph);
     }
 
     /// <summary>
@@ -93,7 +100,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         // 节点图索引增加
         nodeGraphIndex++;
-        if (nodeGraphIndex >= nodeLevelSOs.Count) {
+        if (nodeGraphIndex >= nodeLevelSOs[nodeLevelIndex].levelGraphs.Count) {
             nodeGraphIndex = 0;
         }
 
@@ -115,7 +122,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         // 节点图索引减少
         nodeGraphIndex--;
         if (nodeGraphIndex < 0) {
-            nodeGraphIndex = nodeLevelSOs.Count - 1;
+            nodeGraphIndex = nodeLevelSOs[nodeLevelIndex].levelGraphs.Count - 1;
         }
 
         // 生成当前索引的节点图

@@ -55,8 +55,8 @@ public class GameStart : MonoBehaviour
 
     public void StartGame()
     {
-        Destroy(UIManager.Instance.gameObject);
         SceneManager.LoadScene(1);
+        GameManager.Instance.gameState = GameState.Generating;
     }
 
     public void QuitGame()

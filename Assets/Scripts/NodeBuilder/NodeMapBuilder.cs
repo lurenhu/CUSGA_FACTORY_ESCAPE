@@ -398,7 +398,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         {
             NodeState nodeState = SaveManager.Load<NodeState>(nodeIDHasSave).saveData;
 
-            nodeHasCreated[nodeIDHasSave].transform.position = nodeState.localPosition;
+            nodeHasCreated[nodeIDHasSave].transform.localPosition = nodeState.localPosition;
             nodeHasCreated[nodeIDHasSave].childIdList = nodeState.childNodeID;
             nodeHasCreated[nodeIDHasSave].parentID = nodeState.parentNodeID;
             nodeHasCreated[nodeIDHasSave].hasPopUp = nodeState.hasPopUp;
@@ -411,6 +411,8 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             }
             nodeHasCreated[nodeIDHasSave].gameObject.SetActive(nodeState.isActive);
         }
+
+        LocateCameraAtEntranceNode();
     }
 
 }

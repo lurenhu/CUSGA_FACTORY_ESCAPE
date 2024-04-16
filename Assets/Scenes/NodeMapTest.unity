@@ -841,13 +841,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051d25b91452674469dcea10df00cb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphNodeUI: {fileID: 0}
+  graphNodeUI: {fileID: 962800976}
   nodeTextForShow: {fileID: 1488312983}
   scrollViewContent: {fileID: 1047503242}
-  textNodeUI: {fileID: 0}
-  backGround: {fileID: 0}
-  rightNodeGraphButton: {fileID: 0}
-  leftNodeGraphButton: {fileID: 0}
+  textNodeUI: {fileID: 38135551}
+  backGround: {fileID: 1270675460}
+  rightNodeGraphButton: {fileID: 328559274}
+  leftNodeGraphButton: {fileID: 1520149495}
   UIShow: 0
 --- !u!4 &457837503
 Transform:
