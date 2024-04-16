@@ -18,7 +18,7 @@ public enum GameState
 public class GameManager : SingletonMonobehaviour<GameManager>
 {
     [Space(10)]
-    [Header("动画参数")]
+    [Header("弹出动画参数")]
     [Tooltip("弹出动画的持续时间")]
     public float tweenDuring = 0.5f;// 弹出持续时间
     [Tooltip("弹出动画的弹出距离")]
@@ -28,10 +28,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("节点图参数")]
     [Tooltip("所需生成节点图列表")]
     public List<NodeLevelSO> nodeLevelSOs;
-    public List<NodeGraphSO> nodeGraphSOs;
+    [Tooltip("进入对应索引节点图的次数")]
+    public List<int> enterNodeGraphTimesList = new List<int>();
     [SerializeField] private int nodeLevelIndex = 0;// 关卡索引
     [SerializeField] private int nodeGraphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
+    public List<NodeGraphSO> nodeGraphSOs;
 
     [Space(10)]
     [Header("游戏状态参数")]
@@ -61,7 +63,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 if (NodeMapBuilder.Instance == null) return;
 
                 InitializeReference();
-                NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+                NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex],enterNodeGraphTimesList[nodeGraphIndex]);
+                enterNodeGraphTimesList[nodeGraphIndex]++;
                 gameState = GameState.Playing;
                 break;
             case GameState.Playing:
@@ -74,17 +77,19 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
-    /// 初始化关卡内节点图的节点ID列表
+    /// 初始化相关参数与函数回调
     /// </summary>
     private void InitializeReference()
     {
         if (nodeLevelSOs.Count == 0) return;
 
         nodeIdsInGraph.Clear();
+        enterNodeGraphTimesList.Clear();
 
         foreach (NodeGraphSO nodeGraph in nodeLevelSOs[nodeLevelIndex].levelGraphs)
         {
             nodeIdsInGraph.Add(new List<string>());
+            enterNodeGraphTimesList.Add(0);
         }
 
         UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetRightNodeGraph);
@@ -106,7 +111,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         // 生成当前索引的节点图
         NodeMapBuilder.Instance.DeleteNodeMap();
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex],enterNodeGraphTimesList[nodeGraphIndex]);
+        enterNodeGraphTimesList[nodeGraphIndex]++;
 
         // 根据读取的节点状态数据重新载入节点图
         NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[nodeGraphIndex]);
@@ -127,7 +133,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         // 生成当前索引的节点图
         NodeMapBuilder.Instance.DeleteNodeMap();
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex]);
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex],enterNodeGraphTimesList[nodeGraphIndex]);
+        enterNodeGraphTimesList[nodeGraphIndex]++;
         
         // 根据读取的节点状态数据重新载入节点图
         NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[nodeGraphIndex]);

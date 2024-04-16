@@ -20,9 +20,9 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// <summary>
     /// 生成节点图
     /// </summary>
-    public void GenerateNodeMap(NodeGraphSO nodeGraph)
+    public void GenerateNodeMap(NodeGraphSO nodeGraph, int enterTimes)
     {
-        InitEnv(nodeGraph);
+        InitEnv(nodeGraph,enterTimes);
 
         AttemptToBuildNodes(nodeGraph);
         
@@ -34,7 +34,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// <summary>
     /// 规定节点图生成前的环境
     /// </summary>
-    private void InitEnv(NodeGraphSO nodeGraph)
+    private void InitEnv(NodeGraphSO nodeGraph, int enterTimes)
     {
         nodeHasCreated.Clear();
         nodeProperties.Clear();
@@ -45,6 +45,10 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             UIManager.Instance.backGround.GetComponent<Image>().sprite = nodeGraph.backGround;
         }
 
+        if (nodeGraph.dialogForFirstTime != null && enterTimes < 1)
+        {
+            DialogSystem.Instance.GetText(nodeGraph.dialogForFirstTime);
+        }
     }
 
     /// <summary>

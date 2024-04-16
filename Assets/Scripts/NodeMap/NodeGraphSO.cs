@@ -9,6 +9,8 @@ public class NodeGraphSO : ScriptableObject
     public string graphName;
     [Tooltip("背景图片")]
     public Sprite backGround;
+    [Tooltip("进入该节点图的对话文本")]
+    public TextAsset dialogForFirstTime;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
     [HideInInspector] public List<NodeSO> nodeList = new List<NodeSO>();
     [HideInInspector] public Dictionary<string,NodeSO> nodeDictionary = new Dictionary<string, NodeSO>();
