@@ -176,7 +176,7 @@ MonoBehaviour:
   isLeftClickDragging: 0
   isSelected: 0
   textAssets:
-  - {fileID: 4900000, guid: 9da09075f2a9fd94b8eba81a852f7972, type: 3}
+  - {fileID: 4900000, guid: 363debc5fab88544781fefaf5260f841, type: 3}
   stopAfterDialog: 0
   DisplayNodeID: bbb83133-4cd5-49ef-9496-761b7f031894
   DisappearNodeID: 46cba235-88b3-427f-8897-4e231cf1d698

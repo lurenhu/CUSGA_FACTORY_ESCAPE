@@ -27,24 +27,24 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     private float middle = -1500;    
 
     [Tooltip("对话参数")]
-    List<string> character_1List = new List<string>();
-    List<string> character_2List = new List<string>();
+    [SerializeField] List<string> character_1List = new List<string>();
+    [SerializeField] List<string> character_2List = new List<string>();
     List<string> name_list = new List<string>();
     List<string> text_list = new List<string>();
-    List<int> speakingCharacterList = new List<int>();
+    [SerializeField] List<int> speakingCharacterList = new List<int>();
     List<string[]> image_list = new List<string[]>();
     [Header("计时器参数")]
-    private float locktime = 0f;
+    private float lockTime = 0f;
     private bool isTimerRunning = false;
     [Header("其他变量")]
     private Coroutine text_display;
-    public bool is_blitting_text = false;
+    public bool is_playing_text = false;
     public bool text_finished = true;
     private int index = 0;
     private int max_index = 0;
 
     /*
-     * is_blitting_text用于开始检测点击与渲染文字，
+     * is_playing_text用于开始检测点击与渲染文字，
      * text_finished用于检测文字是否渲染完成
      */
 
@@ -67,11 +67,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
 
         // 对话文本展示
-        if (is_blitting_text)
+        if (is_playing_text)
         {
             //设置可点击图标
             mouse.SetActive(text_finished);
-            is_blitting_text = blit_text();
+            is_playing_text = PlayText();
         }
         else 
         {
@@ -87,63 +87,44 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     private void countDown()
     {
         // 更新计时器时间
-        locktime -= Time.deltaTime;
+        lockTime -= Time.deltaTime;
 
         // 检查计时器是否达到持续时间
-        if (locktime < 0f)
+        if (lockTime < 0f)
         {
             // 计时器达到持续时间，执行相应操作
-            //talk_ui.SetActive(false);
             isTimerRunning = false;
-            //text_finished = true;
-            is_blitting_text = true;
-            updateText();
-            
+            is_playing_text = true;
+            UpdateText();
         }        
     }
 
-    /// <summary>
-    /// 清理数据列表
-    /// </summary>
-    public void ClearReference()
-    {        
-        text_list.Clear();
-        name_list.Clear();
-        image_list.Clear();
-        character_1List.Clear();
-        character_2List.Clear();
-        speakingCharacterList.Clear();    
-    }
+    
 
     /// <summary>
-    /// 检测点击以及文本是否播放完毕,使用前记得开is_bliting_text
+    /// 检测点击以及文本是否播放完毕,使用前记得开is_playing_text
     /// </summary>
-    public bool blit_text()
+    public bool PlayText()
     {
         if (index <= max_index)   //文字内容没有播完
         {
             if (!talk_ui.activeSelf)
             {
-                //设置立绘初始位置
-                //string[] image_pos = image_list[0];
-
                 talk_ui.SetActive(true);
                 UIManager.Instance.UIShow = true;
-                //image_update(image_pos);
-
                 //自动拉取第一行
-                updateText();
+                UpdateText();
             }
             if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))//鼠标点击或F键
             {
                 //检测文字需要渲染
-                updateText();
+                UpdateText();
             }
             return true;      //不按按键保持talk状态
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))//鼠标点击或F键
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonUp(0))//鼠标点击或F键
             {
                 //文字渲染完成
                 ClearReference();
@@ -160,7 +141,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// <summary>
     /// 更新对话框内文本
     /// </summary>
-    public void updateText()   
+    public void UpdateText()   
     {
         if (text_finished)
         {
@@ -170,24 +151,20 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
             {
                 name_text.text = name_list[index];
             }
-            //string[] image_pos = image_list[index];                
-            //image_update(image_pos);
 
-            //将文本渲染设置为唯一携程
+            // 启动文本逐字渲染
             if (text_list.Count > 0)
             {
                 string content = text_list[index];
-                text_display = StartCoroutine(setTextUI(content));
+                text_display = StartCoroutine(SetTextUI(content));
                 text_finished = false;
             }
             
         }
         else //文本没结束的时候再按R，停止携程并直接输出文字
         {
-            name_text.text = name_list[index];
             StopCoroutine(text_display);
-            string content = text_list[index];
-            textLabel.text = content;
+            textLabel.text = text_list[index];
             text_finished = true;
             index++;
         }
@@ -198,28 +175,31 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// </summary>
     private void LoadImageForCharacter()
     {
+        // 导入左侧角色差分
         if (character_1List.Count > 0)
         {
+            character_1.gameObject.SetActive(true);
             character_1.sprite = GameResources.Instance.characters.Find(x => x.name == character_1List[index]).sprite;
-            // character_1.SetNativeSize();
         }
         else
         {
+            character_1.gameObject.SetActive(false);
             Debug.Log("Character_1 No Image");
-            return;
         }
 
+        // 导入右侧角色差分
         if (character_2List.Count > 0)
         {
+            character_2.gameObject.SetActive(true);
             character_2.sprite = GameResources.Instance.characters.Find(x => x.name == character_2List[index]).sprite;
-            // character_2.SetNativeSize();
         }
         else
         {
-            Debug.Log("Character_1 No Image");
-            return;
+            character_2.gameObject.SetActive(false);
+            Debug.Log("Character_2 No Image");
         }
 
+        // 根据谈话者设置差分明暗
         if (speakingCharacterList.Count > 0)
         {
             Color dark = new Color(0.5f, 0.5f, 0.5f, 1);
@@ -248,7 +228,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// <summary>
     /// 逐字渲染文字
     /// </summary>
-    public IEnumerator setTextUI(string content)
+    public IEnumerator SetTextUI(string content)
     {
         textLabel.text = string.Empty;
         for (int i = 0; i < content.Length; i++)
@@ -258,7 +238,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
         text_finished = true;
         index++;
-        //mouse.SetActive(true);
     }
 
     /// <summary>
@@ -271,41 +250,28 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         var rows = textFile.text.Split('\n');
         foreach (var row in rows)
         {
-            Debug.Log(row);
             string text = row.ToString();
             string[] row_list = text.Split(':');
-            Debug.Log(row_list[0]);
             character_1List.Add(row_list[0]);
             character_2List.Add(row_list[1]);
             name_list.Add(row_list[2]);
             text_list.Add(row_list[3]);
             speakingCharacterList.Add(int.Parse(row_list[4]));
 
-            InitializeReference();
+            EnablePlayTextState();
         }
     }
 
-    /// <summary>
-    /// 初始化所有数据
-    /// </summary>
-    private void InitializeReference()
-    {
-        index = 0;
-        max_index = text_list.Count - 1;
-        is_blitting_text = true;
-    }
     //从ai处获取文本
     public void get_text_in_other_ways(string name, string text, string[] image_display)
     {
-        name_list.Clear();
-        text_list.Clear();
-        image_list.Clear(); 
+        ClearReference();
 
         name_list.Add(name);
         text_list.Add(text);
         image_list.Add(image_display);
-        //Debug.Log("get_text_in_other_ways");
-        InitializeReference();
+
+        EnablePlayTextState();
     }
     
     /// <summary>
@@ -313,16 +279,40 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// </summary>
     public void lockUI_and_setText(float locktime,string text) 
     {
+        ClearReference();
+
         // 计时器完成后的操作
-        //Debug.Log("计时器开始");
         isTimerRunning = true;
-        is_blitting_text = false;
+        is_playing_text = false;
         talk_ui.SetActive(true);
         UIManager.Instance.UIShow = true;
-        this.locktime = locktime;
+        this.lockTime = locktime;
         this.name_text.text = "823";
         textLabel.text= text;
     }    
+
+    /// <summary>
+    /// 清理数据列表
+    /// </summary>
+    public void ClearReference()
+    {        
+        text_list.Clear();
+        name_list.Clear();
+        image_list.Clear();
+        character_1List.Clear();
+        character_2List.Clear();
+        speakingCharacterList.Clear();    
+    }
+
+    /// <summary>
+    /// 启动文本播放状态
+    /// </summary>
+    private void EnablePlayTextState()
+    {
+        index = 0;
+        max_index = text_list.Count - 1;
+        is_playing_text = true;
+    }
     
     
 

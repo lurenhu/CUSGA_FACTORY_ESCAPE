@@ -44,7 +44,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-
+        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[nodeGraphIndex]);
     }   
 
     private void Update() {

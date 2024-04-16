@@ -30,7 +30,6 @@ public class CameraController : MonoBehaviour
             {
                 // 计算鼠标移动的距离
                 Vector2 delta = lastMousePos - mousePosition;
-
                 // 将摄像机移动与鼠标移动相反的方向
                 Camera.main.transform.Translate(delta);
             }
