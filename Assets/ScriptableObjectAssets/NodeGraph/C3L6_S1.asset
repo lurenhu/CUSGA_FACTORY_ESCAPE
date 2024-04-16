@@ -1,0 +1,538 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9017932849982685860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cd0e186a24b66409f15f00652b2099, type: 3}
+  m_Name: AILockedNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u63A5\u53E3"
+  id: b57bae92-6988-4cd0-9e28-3763a219ad33
+  parentNodeIdList:
+  - 878da788-ae5d-4251-8214-9c0ea9d6af60
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1291
+    y: 721
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  anxietyValue: 0
+  submissionTimes: 0
+--- !u!114 &-8725815536020356910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u4E2D\u63A7\u5BA4"
+  id: 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 5a911aef-3b37-4687-8444-1ca19f510468
+  - d8c105aa-b126-415b-9c7c-f8e92eebd507
+  - 91eecd28-22ee-485e-8483-eda9f2675b18
+  - 823e94c6-b2ed-439d-8845-d6165661e584
+  - a063637d-c0b5-4226-8773-f148dc8a6d0d
+  - 01bdcf0e-f88a-4a1c-bf5f-bd29ce720040
+  - a2f2a6d5-4c7f-483c-8f10-c82fb032f4af
+  - 81d942d3-aff3-4e9f-950d-7e55183a428c
+  - b5f5cb82-1c19-457a-b19e-fa67dbe766d6
+  - fe88236d-ba89-4ef6-8950-dac567e97d68
+  - e4873194-bb64-4fba-b527-a3c93cf3cc9f
+  - c322b4f5-9006-49d5-8575-99b9b68e3d6c
+  audioList: []
+  nodeTextForShow: "\u5DE5\u5382\u7684\u4E2D\u5FC3\u63A7\u5236\u5BA4\uFF0C\u5899\u58C1\u5230\u5904\u90FD\u662F\u8BE1\u5F02\u7684\u626D\u66F2\u6587\u5B57"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 568
+    y: 394
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-8673329516915782391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u7528\u822A\u6807\u7684\u6A21\u578B\u5C31\u6709\u5E0C\u671B\u4E86"
+  id: a063637d-c0b5-4226-8773-f148dc8a6d0d
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 566
+    y: 230
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-7337934201769378457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u4E00\u5207\u90FD\u5728\u6211\u624B\u91CC"
+  id: 91eecd28-22ee-485e-8483-eda9f2675b18
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 120
+    y: 486
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-6458371668514617869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u6EDA\u51FA\u6211\u7684\u672A\u6765\uFF01"
+  id: fe88236d-ba89-4ef6-8950-dac567e97d68
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1253
+    y: 299
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-6030230236718072110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
+  m_Name: DialogNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u5DE5\u5382\u63A7\u5236\u53F0"
+  id: 5a911aef-3b37-4687-8444-1ca19f510468
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList:
+  - 878da788-ae5d-4251-8214-9c0ea9d6af60
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 9f14a741bea149048b740135ae4ad77b, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 827
+    y: 516
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  textAssets: []
+  stopAfterDialog: 0
+  DisplayNodeID: 
+  DisappearNodeID: 
+--- !u!114 &-5289628206075322390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u6211\u4E0D\u53EF\u80FD\u5931\u8D25"
+  id: e4873194-bb64-4fba-b527-a3c93cf3cc9f
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 483
+    y: 679
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-5274002460657855317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u6211\u5F88\u5FEB\u5C31\u80FD\u6210\u529F\uFF01 "
+  id: 823e94c6-b2ed-439d-8845-d6165661e584
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 363
+    y: 297
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-3981577222426456503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u71D5\u96C0\u5B89\u77E5\u9E3F\u9E44\u4E4B\u5FD7\u54C9 "
+  id: d8c105aa-b126-415b-9c7c-f8e92eebd507
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 334
+    y: 524
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-3908880105724811290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u8C01\u90FD\u522B\u60F3\u5077\u8D70\u6211\u7684\u68A6\u60F3"
+  id: 81d942d3-aff3-4e9f-950d-7e55183a428c
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 903
+    y: 88
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-1043385316555575695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u8FD9\u6837\u5C31\u80FD\u7ED5\u5F00\u9650\u5236!"
+  id: a2f2a6d5-4c7f-483c-8f10-c82fb032f4af
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 806
+    y: 292
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-75578305543755856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
+  m_Name: DialogNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u5927\u95E8\u5F00\u5173\u6309\u94AE"
+  id: 878da788-ae5d-4251-8214-9c0ea9d6af60
+  parentNodeIdList:
+  - 5a911aef-3b37-4687-8444-1ca19f510468
+  childrenNodeIdList:
+  - b57bae92-6988-4cd0-9e28-3763a219ad33
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 9f14a741bea149048b740135ae4ad77b, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1068
+    y: 622
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  textAssets: []
+  stopAfterDialog: 0
+  DisplayNodeID: 
+  DisappearNodeID: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
+  m_Name: C3L6_S1
+  m_EditorClassIdentifier: 
+  graphName: 
+  backGround: {fileID: 0}
+  nodeTypeList: {fileID: 0}
+  nodeList:
+  - {fileID: -8725815536020356910}
+  - {fileID: 7104430862578059710}
+  - {fileID: -1043385316555575695}
+  - {fileID: -6030230236718072110}
+  - {fileID: -75578305543755856}
+  - {fileID: -9017932849982685860}
+  - {fileID: 8322577537880944470}
+  - {fileID: -6458371668514617869}
+  - {fileID: -5289628206075322390}
+  - {fileID: 3743100403760735594}
+  - {fileID: -3908880105724811290}
+  - {fileID: 8457865934053402011}
+  - {fileID: -8673329516915782391}
+  - {fileID: -5274002460657855317}
+  - {fileID: -3981577222426456503}
+  - {fileID: -7337934201769378457}
+  nodeToDrawLineFrom: {fileID: 0}
+  linePosition: {x: 0, y: 0}
+--- !u!114 &3743100403760735594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u4F46\u51E1\u4ED6\u4EEC\u80AF\u591A\u575A\u6301\u4E00\u4E0B"
+  id: b5f5cb82-1c19-457a-b19e-fa67dbe766d6
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 1029
+    y: 348
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &7104430862578059710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 1c6f1192-5b47-4a80-9b13-c931ae19348d
+  parentNodeIdList: []
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 593
+    y: 563
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &8322577537880944470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u773C\u955C\u505A\u4E0D\u6210\u6211\u5C31\u4E0D\u59D3\u5411"
+  id: c322b4f5-9006-49d5-8575-99b9b68e3d6c
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 793
+    y: 740
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &8457865934053402011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u575A\u6301\u534A\u751F\uFF0C\u600E\u80FD\u5C31\u6B64\u9A7B\u8DB3 "
+  id: 01bdcf0e-f88a-4a1c-bf5f-bd29ce720040
+  parentNodeIdList:
+  - 49944a61-3bba-465b-b0ea-ea37d219e5ee
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u7528\u7EA2\u8272\u7C89\u7B14\u4E66\u5199\u4E0B\u7684\u6F66\u8349\u7B14\u8FF9"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 408
+    y: 83
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
