@@ -419,6 +419,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
                     LineCreator.Instance.ShowLine(GetNode(childNodeID));
                 }
             }
+
+            if (!currentNode.gameObject.activeSelf)
+            {
+                LineCreator.Instance.DeleteLine(currentNode);
+            }
         }
 
         LocateCameraAtEntranceNode();

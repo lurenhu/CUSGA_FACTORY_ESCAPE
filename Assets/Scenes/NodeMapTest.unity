@@ -1237,8 +1237,6 @@ MonoBehaviour:
   enterNodeGraphTimesList: 
   nodeLevelIndex: 0
   nodeGraphIndex: 0
-  nodeGraphSOs:
-  - {fileID: 11400000, guid: 1a69038ac3af2b84fa61dd9b3e98cec9, type: 2}
   gameState: 0
   haveNodeDrag: 0
 --- !u!4 &1052891442
@@ -1642,9 +1640,6 @@ MonoBehaviour:
   textFile: {fileID: 0}
   textSpeed: 0.05
   move_time: 0.5
-  character_1List: []
-  character_2List: []
-  speakingCharacterList: 
   is_playing_text: 0
   text_finished: 1
 --- !u!4 &1316451270
@@ -2496,6 +2491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9184620300839283666, guid: c89d338d1c9c23540a31eac9b8126690, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2597,6 +2596,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8753333942592236105, guid: 1acf42199cf33814a876d755765841a3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2645,7 +2648,7 @@ PrefabInstance:
     - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 9d766e093c3b9334eaac07c6ef6abeaa, type: 2}
+      objectReference: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
     - target: {fileID: 3469718140284456733, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1

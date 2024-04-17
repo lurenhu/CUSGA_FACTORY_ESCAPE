@@ -340,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphName: 
   backGround: {fileID: 0}
-  dialogForFirstTime: {fileID: 4900000, guid: 896e8277a8063924eb7d1ebd5df5dcd5, type: 3}
+  dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: 3953888579129355829}
