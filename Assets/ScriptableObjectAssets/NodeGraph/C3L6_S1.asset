@@ -194,8 +194,9 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  textAssets: []
-  stopAfterDialog: 0
+  textAssets:
+  - {fileID: 4900000, guid: 75eb117a5039cb847b9b432447c14da9, type: 3}
+  stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
 --- !u!114 &-5289628206075322390
@@ -379,8 +380,9 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  textAssets: []
-  stopAfterDialog: 0
+  textAssets:
+  - {fileID: 4900000, guid: d9360ea5ffe177b4595da524e5a06e60, type: 3}
+  stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
 --- !u!114 &11400000
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphName: 
   backGround: {fileID: 0}
+  dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: -8725815536020356910}
