@@ -21,7 +21,6 @@ public abstract record SaveProfileData {}
 
 public record NodeState : SaveProfileData
 {
-    public NodeTypeSO nodeType;
     public Vector2 localPosition;
     public List<string> childNodeID;
     public string parentNodeID;

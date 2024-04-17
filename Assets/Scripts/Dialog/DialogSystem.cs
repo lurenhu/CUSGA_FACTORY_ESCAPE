@@ -27,11 +27,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     private float middle = -1500;    
 
     [Tooltip("对话参数")]
-    [SerializeField] List<string> character_1List = new List<string>();
-    [SerializeField] List<string> character_2List = new List<string>();
+    List<string> character_1List = new List<string>();
+    List<string> character_2List = new List<string>();
     List<string> name_list = new List<string>();
     List<string> text_list = new List<string>();
-    [SerializeField] List<int> speakingCharacterList = new List<int>();
+    List<int> speakingCharacterList = new List<int>();
     List<string[]> image_list = new List<string[]>();
     [Header("计时器参数")]
     private float lockTime = 0f;
@@ -63,7 +63,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         // AI思考
         if (isTimerRunning)
         {
-            countDown();
+            CountDown();
         }
 
         // 对话文本展示
@@ -84,7 +84,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// <summary>
     /// AI思考时间
     /// </summary>
-    private void countDown()
+    private void CountDown()
     {
         // 更新计时器时间
         lockTime -= Time.deltaTime;

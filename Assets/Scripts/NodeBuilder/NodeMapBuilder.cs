@@ -377,13 +377,13 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             string nodeID = keyValuePair.Key;
 
             NodeState nodeState = new NodeState{
-                nodeType = currentNode.nodeType,
                 localPosition = currentNode.transform.position,
                 childNodeID = currentNode.childIdList,
                 parentNodeID = currentNode.parentID,
                 hasPopUp = currentNode.hasPopUp,
                 isActive = currentNode.gameObject.activeSelf
             };
+
             SaveProfile<NodeState> saveProfile = new SaveProfile<NodeState>(nodeID,nodeState);
             SaveManager.Delete(saveProfile.profileName);
             SaveManager.Save(saveProfile);
@@ -400,23 +400,40 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     {
         foreach (string nodeIDHasSave in nodeSaveIDList)
         {
-            NodeState nodeState = SaveManager.Load<NodeState>(nodeIDHasSave).saveData;
+            NodeState nodeState = SaveManager.Load<NodeState>(nodeIDHasSave).saveData;// 找到该节点ID的状态信息
+            Node currentNode = GetNode(nodeIDHasSave);// 在当前节点图中找到该节点实例
 
-            nodeHasCreated[nodeIDHasSave].transform.localPosition = nodeState.localPosition;
-            nodeHasCreated[nodeIDHasSave].childIdList = nodeState.childNodeID;
-            nodeHasCreated[nodeIDHasSave].parentID = nodeState.parentNodeID;
-            nodeHasCreated[nodeIDHasSave].hasPopUp = nodeState.hasPopUp;
-            if (nodeState.hasPopUp)
+            // 载入节点状态
+            currentNode.transform.localPosition = nodeState.localPosition;
+            currentNode.gameObject.SetActive(nodeState.isActive);
+            currentNode.childIdList = nodeState.childNodeID;
+            currentNode.LoadNodeInfo();
+            currentNode.parentID = nodeState.parentNodeID;
+            currentNode.hasPopUp = nodeState.hasPopUp;
+            
+            // 显示该节点与被弹出节点之间的连线 
+            if (currentNode.hasPopUp)
             {
-                foreach (string childNodeID in nodeState.childNodeID)
+                foreach (string childNodeID in currentNode.childIdList)
                 {
                     LineCreator.Instance.ShowLine(GetNode(childNodeID));
                 }
             }
-            nodeHasCreated[nodeIDHasSave].gameObject.SetActive(nodeState.isActive);
         }
 
         LocateCameraAtEntranceNode();
+    }
+
+    /// <summary>
+    /// 删除节点图所保存的节点状态数据
+    /// </summary>
+    /// <param name="nodeSaveIDList">节点图的所有节点id列表</param>
+    public void DeleteNodeMapData(List<string> nodeSaveIDList)
+    {
+        foreach (string nodeIDHasSave in nodeSaveIDList)
+        {
+            SaveManager.Delete(nodeIDHasSave);
+        }
     }
 
 }

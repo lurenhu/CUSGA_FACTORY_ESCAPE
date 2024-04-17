@@ -1234,8 +1234,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
   - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
+  enterNodeGraphTimesList: 
+  nodeLevelIndex: 0
+  nodeGraphIndex: 0
   nodeGraphSOs:
-  - {fileID: 11400000, guid: f76a0620d4bd0a641a131f0b79d92a1f, type: 2}
+  - {fileID: 11400000, guid: 1a69038ac3af2b84fa61dd9b3e98cec9, type: 2}
   gameState: 0
   haveNodeDrag: 0
 --- !u!4 &1052891442

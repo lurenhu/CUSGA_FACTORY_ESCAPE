@@ -15,16 +15,15 @@ public class Synthesizer : MonoBehaviour
         SynthesizableNodeSO synthesizableNodeSO = (SynthesizableNodeSO)nodeSO;
 
         targetNodeID = synthesizableNodeSO.targetIdForMerge;
-    }
-
-    private void Start() {
+        
         myNode = transform.GetComponent<Node>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision) {
-        if (targetNode == null && NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(targetNodeID, out Node targetNodeTemp))
-            targetNode = targetNodeTemp;
+    private void Start() {
+        targetNode = NodeMapBuilder.Instance.GetNode(targetNodeID);
+    }
 
+    private void OnTriggerStay2D(Collider2D collision) {
         if (targetNode != null)
         {
             if (hasSynthesized || targetNode.isPopping || myNode.isPopping || targetNode.isDragging || myNode.isDragging) return;
@@ -35,6 +34,10 @@ public class Synthesizer : MonoBehaviour
 
                 hasSynthesized = true;
             }
+        }
+        else
+        {
+            Debug.Log($"{name} have no target Node");
         }
     }
 

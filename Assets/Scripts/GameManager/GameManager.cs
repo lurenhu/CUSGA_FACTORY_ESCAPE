@@ -33,7 +33,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private int nodeLevelIndex = 0;// 关卡索引
     [SerializeField] private int nodeGraphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
-    public List<NodeGraphSO> nodeGraphSOs;
 
     [Space(10)]
     [Header("游戏状态参数")]
@@ -48,7 +47,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-        // NodeMapBuilder.Instance.GenerateNodeMap(nodeGraphSOs[nodeGraphIndex]);
     }   
 
     private void Update() {

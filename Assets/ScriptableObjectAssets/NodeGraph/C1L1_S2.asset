@@ -248,6 +248,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 9742a81d890063241a3bccb7938b5472, type: 3}
   stopAfterDialog: 0
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &-1406888407874368923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,8 @@ MonoBehaviour:
   m_Name: C1L1_S2
   m_EditorClassIdentifier: 
   graphName: 
+  backGround: {fileID: 0}
+  dialogForFirstTime: {fileID: 4900000, guid: b3c8a6869b604304d8aa135d93954faa, type: 3}
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: -5600423241434503506}
@@ -345,6 +349,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 6ed0855e7e9b9714fa129d1951136e28, type: 3}
   stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &3711610818464710491
 MonoBehaviour:
   m_ObjectHideFlags: 0

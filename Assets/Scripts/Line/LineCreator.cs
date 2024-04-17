@@ -12,7 +12,7 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     }
 
     /// <summary>
-    /// 创建节点
+    /// 创建节点线条
     /// </summary>
     public void CreateLine(Node node)
     {
@@ -22,7 +22,7 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
 
         Line lineComponent = line.GetComponent<Line>();
 
-        Node parentNode = NodeMapBuilder.Instance.nodeHasCreated[node.parentID];
+        Node parentNode = NodeMapBuilder.Instance.GetNode(node.parentID);
 
         lineComponent.InitializeLine(node.transform,parentNode.transform);
 
@@ -32,9 +32,6 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     /// <summary>
     /// 根据位置创建线条
     /// </summary>
-    /// <param name="startPoint"></param>
-    /// <param name="endPoint"></param>
-    /// <returns></returns>
     public GameObject CreateLine(Transform startPoint, Transform endPoint)
     {
         GameObject line = Instantiate(LinePrefab, transform.position, Quaternion.identity,transform);

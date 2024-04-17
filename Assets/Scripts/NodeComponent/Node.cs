@@ -72,7 +72,7 @@ public class Node : MonoBehaviour
 
         foreach (string childNodeID in childIdList)
         {
-            NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(childNodeID,out Node childNode);
+            Node childNode = NodeMapBuilder.Instance.GetNode(childNodeID);
 
             Vector2 direction = new Vector2((childNode.rect.center - rect.center).x, (rect.center - childNode.rect.center).y).normalized;
 
@@ -131,7 +131,7 @@ public class Node : MonoBehaviour
     {
         foreach (NodeInfo childNode in nodes)
         {
-            Node currentNode = childNode.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
+            Node currentNode = childNode.node;
 
             currentNode.transform.position = transform.position;
             currentNode.gameObject.SetActive(true);
@@ -152,7 +152,7 @@ public class Node : MonoBehaviour
 
     public void PopUpChildNode(NodeInfo node)
     {
-        Node currentNode = node.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
+        Node currentNode = node.node;
 
         currentNode.transform.position = transform.position;
         currentNode.gameObject.SetActive(true);
@@ -197,7 +197,6 @@ public class Node : MonoBehaviour
     /// <summary>
     /// 复制字符串列表
     /// </summary>
-                
     private List<string> CopyStringList(List<string> oldStringList)
     {
         List<string> newStringList = new List<string>();
@@ -214,6 +213,6 @@ public class Node : MonoBehaviour
 [Serializable]
 public class NodeInfo
 {
-    public Node node;
+    public Node node;// 将被弹出的节点
     public Vector2 direction;// 弹出方向偏移距离
 }

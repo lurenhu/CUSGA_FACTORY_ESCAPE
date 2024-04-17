@@ -314,6 +314,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: ee0ea52e67f1c8c42bc02c4adf48658f, type: 3}
   stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +329,8 @@ MonoBehaviour:
   m_Name: C1L1_S1
   m_EditorClassIdentifier: 
   graphName: 
+  backGround: {fileID: 0}
+  dialogForFirstTime: {fileID: 4900000, guid: 363debc5fab88544781fefaf5260f841, type: 3}
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: 859551779857616185}
@@ -479,6 +483,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 8a3069c1dafcab5499bc0d7501168508, type: 3}
   stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &2523198226253261872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +519,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 03324564785883648ae303d28f9be281, type: 3}
   stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &5592052527169294264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +555,8 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 2412d9e346c521d4098c32618c90bfd9, type: 3}
   stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
 --- !u!114 &6285247695829056170
 MonoBehaviour:
   m_ObjectHideFlags: 0
