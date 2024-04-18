@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c6cb3e5e90582468b52ef3b82d9808, type: 3}
   m_Name: NodeLevel_1
   m_EditorClassIdentifier: 
-  levelName: C1L1
+  levelName: Level_1
   levelGraphs:
   - {fileID: 11400000, guid: 1a69038ac3af2b84fa61dd9b3e98cec9, type: 2}
   - {fileID: 11400000, guid: 7771db413b638694d98b2f5ac4eef64d, type: 2}
   - {fileID: 11400000, guid: fa2e999b0af27764ab0e12b69ad7df7d, type: 2}
+  initialAnxietyValue: 0
+  rate: 0
+  videoClip: {fileID: 0}
+  graphicsAndTextList: []

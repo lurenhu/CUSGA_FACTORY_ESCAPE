@@ -52,12 +52,25 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     public Image graphic;
     [Tooltip("过场图文演出字体UI对象")]
     public TMP_Text tmpText;
+    private int graphIndex = 0; 
+    private List<GraphicsAndText> graphicsAndTextList = new List<GraphicsAndText>();
     private Queue<string> textForShow = new Queue<string>();
+
+
+    public void ShowCutScenes(List<GraphicsAndText> graphicsAndTextList)
+    {
+        this.graphicsAndTextList = graphicsAndTextList;
+
+        ShowCutScene(graphicsAndTextList[graphIndex]);
+
+        cutSceneUIPanel.gameObject.SetActive(true);
+        DialogSystem.Instance.gameObject.SetActive(false);
+    }
 
     /// <summary>
     /// 展示过场演出图片文本
     /// </summary>
-    public void ShowCutScene(GraphicsAndText graphicsAndText)
+    private void ShowCutScene(GraphicsAndText graphicsAndText)
     {
         var rows = graphicsAndText.text.text.Split("\n");
         foreach (var row in rows)
@@ -68,8 +81,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         graphic.sprite = graphicsAndText.graphic;
         graphic.SetNativeSize();
         tmpText.text = textForShow.Dequeue();
-
-        cutSceneUIPanel.gameObject.SetActive(true);
     }
 
     private void Update() {
@@ -83,7 +94,14 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             }
             else
             {
-                cutSceneUIPanel.gameObject.SetActive(false);
+                graphIndex++;
+                if (graphIndex >= graphicsAndTextList.Count)
+                {
+                    cutSceneUIPanel.gameObject.SetActive(false);
+                    DialogSystem.Instance.gameObject.SetActive(true);
+                    return;
+                }
+                ShowCutScene(graphicsAndTextList[graphIndex]);
             }
         }
     }

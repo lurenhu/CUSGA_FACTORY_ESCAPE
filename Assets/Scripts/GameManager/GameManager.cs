@@ -12,11 +12,20 @@ public enum GameState
     Generating,
     Playing,
     Pause,
-    End
+    Won,
+    Fail,
 }
 
 public class GameManager : SingletonMonobehaviour<GameManager>
 {
+    [Header("AI参数")]
+    [Tooltip("AI当前焦虑值")]
+    public float currentAnxiety;
+    [Tooltip("AI的最大焦虑值")]
+    public float maxAnxiety;
+    [Tooltip("AI解锁成功条件(胜利概率)")]
+    public float rate;
+
     [Space(10)]
     [Header("弹出动画参数")]
     [Tooltip("弹出动画的持续时间")]
@@ -29,7 +38,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Tooltip("所需生成节点图列表")]
     public List<NodeLevelSO> nodeLevelSOs;
     [Tooltip("进入对应索引节点图的次数")]
-    public List<int> enterNodeGraphTimesList = new List<int>();
+    private List<int> enterNodeGraphTimesList = new List<int>();
     [SerializeField] private int nodeLevelIndex = 0;// 关卡索引
     [SerializeField] private int nodeGraphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
@@ -60,18 +69,46 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.Generating:
                 if (NodeMapBuilder.Instance == null) return;
 
-                InitializeReference();
-                NodeMapBuilder.Instance.GenerateNodeMap(nodeLevelSOs[nodeLevelIndex].levelGraphs[nodeGraphIndex],enterNodeGraphTimesList[nodeGraphIndex]);
-                enterNodeGraphTimesList[nodeGraphIndex]++;
+                GetGenerateNodeMap();                
+
                 gameState = GameState.Playing;
                 break;
             case GameState.Playing:
                 break;
             case GameState.Pause:
                 break;
-            case GameState.End:
+            case GameState.Won:
+                break;
+            case GameState.Fail:
                 break;
         }
+    }
+
+    /// <summary>
+    /// 生成节点图并初始化相关参数
+    /// </summary>
+    private void GetGenerateNodeMap()
+    {
+        InitializeReference();
+
+        NodeLevelSO currentNodeLevel = nodeLevelSOs[nodeLevelIndex];
+        NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[nodeGraphIndex];
+
+        maxAnxiety = currentNodeLevel.initialAnxietyValue;
+        currentAnxiety = maxAnxiety;
+        rate = currentNodeLevel.rate;
+
+        if (currentNodeLevel.videoClip != null)
+        {
+            VideoManager.Instance.PlayVideo(currentNodeLevel.videoClip);
+        }
+        if (currentNodeLevel.graphicsAndTextList.Count > 0)
+        {
+            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextList);
+        }
+
+        NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[nodeGraphIndex]);
+        enterNodeGraphTimesList[nodeGraphIndex]++;
     }
 
     /// <summary>
