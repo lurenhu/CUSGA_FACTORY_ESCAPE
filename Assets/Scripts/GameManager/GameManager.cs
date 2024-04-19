@@ -48,7 +48,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("游戏状态参数")]
     public GameState gameState = GameState.Start;
 
-
     [HideInInspector] public bool haveNodeDrag = false;
 
     override protected void Awake() {

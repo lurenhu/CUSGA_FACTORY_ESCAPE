@@ -20,6 +20,4 @@ MonoBehaviour:
   initialAnxietyValue: 0
   rate: 0
   videoClip: {fileID: 0}
-  graphicsAndTextList:
-  - graphic: {fileID: 21300000, guid: 5fc7a8dc5fccf9e45a5acb571e0bf0a7, type: 3}
-    text: {fileID: 4900000, guid: ee0ea52e67f1c8c42bc02c4adf48658f, type: 3}
+  graphicsAndTextList: []
