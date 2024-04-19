@@ -107,6 +107,8 @@ public class Dialog : MonoBehaviour
 
             if (dialogIndex == textAssets.Count)
             {
+                parentNode.childIdList.Clear();
+
                 // 消除当前节点
                 LineCreator.Instance.DeleteLine(myNode);
                 myNode.gameObject.SetActive(false);
@@ -114,11 +116,12 @@ public class Dialog : MonoBehaviour
                 // 将当前节点的所有子节点的父节点设置为当前节点的父节点
                 foreach (string childNodeId in myNode.childIdList)
                 {
-                    Node childeNode = NodeMapBuilder.Instance.nodeHasCreated[childNodeId];
-                    LineCreator.Instance.DeleteLine(childeNode);
+                    Node childeNode = NodeMapBuilder.Instance.GetNode(childNodeId);
+                    Destroy(LineCreator.Instance.GetLine(childeNode));
                     LineCreator.Instance.nodeLineBinding.Remove(childeNode);
 
                     childeNode.parentID = parentNode.id;
+                    parentNode.childIdList.Add(childNodeId);
                     LineCreator.Instance.CreateLine(childeNode);
                 }
                 parentNode.PopUpChildNode(myNode.nodeInfos);

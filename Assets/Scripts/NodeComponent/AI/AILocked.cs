@@ -5,7 +5,6 @@ using UnityEngine;
 public class AILocked : MonoBehaviour
 {
     [Header("可调整参数")]
-    public int anxietyValue;// 焦虑值
     public int submissionTimes;// 剩余提交次数
     private bool hasResult = false;// 是否已经获取结果
 
@@ -27,7 +26,9 @@ public class AILocked : MonoBehaviour
     {
         AILockedNodeSO aiLockedNodeSO = (AILockedNodeSO)nodeSO;
 
-        anxietyValue = aiLockedNodeSO.anxietyValue;
+        GameManager.Instance.maxAnxiety = aiLockedNodeSO.anxietyValue;
+        GameManager.Instance.rate = aiLockedNodeSO.rate;
+        
         submissionTimes = aiLockedNodeSO.submissionTimes;
     }
 
@@ -63,7 +64,7 @@ public class AILocked : MonoBehaviour
 
     private void StaticEventHandler_OnCommit(CommitArgs args)
     {
-        anxietyValue += args.anxiety_change_value;
+        GameManager.Instance.currentAnxiety += args.anxiety_change_value;
         submissionTimes--;
 
         if (submissionTimes == 0)
@@ -78,17 +79,13 @@ public class AILocked : MonoBehaviour
     /// </summary>
     private void CheckAnxietyValue()
     {
-        if (anxietyValue >= 80 && anxietyValue < 100)
+        if (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety < GameManager.Instance.rate)
         {
-            myNode.PopUpChildNode(myNode.nodeInfos[0]);
+            Debug.Log("win");
         }
-        else if (anxietyValue >= 30 && anxietyValue < 80)
+        else
         {
-            myNode.PopUpChildNode(myNode.nodeInfos[1]);
-        }
-        else if (anxietyValue >= 0 && anxietyValue < 30)
-        {
-            myNode.PopUpChildNode(myNode.nodeInfos[2]);
+            Debug.Log("fail");
         }
 
         hasResult = true;

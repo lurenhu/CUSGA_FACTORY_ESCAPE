@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public enum GameState
 {
     Start,
+    Transition,
     Generating,
     Playing,
     Pause,
@@ -66,6 +67,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         switch (gameState) {
             case GameState.Start:
                 break;
+            case GameState.Transition:
+                if (NodeMapBuilder.Instance == null) return;
+
+                GetCutScene();
+
+                gameState = GameState.Generating;
+                break;  
             case GameState.Generating:
                 if (NodeMapBuilder.Instance == null) return;
 
@@ -85,6 +93,23 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
+    /// 获取过场动画
+    /// </summary>
+    private void GetCutScene()
+    {
+        NodeLevelSO currentNodeLevel = nodeLevelSOs[nodeLevelIndex];
+
+        if (currentNodeLevel.videoClip != null)
+        {
+            VideoManager.Instance.PlayVideo(currentNodeLevel.videoClip);
+        }
+        if (currentNodeLevel.graphicsAndTextList.Count > 0)
+        {
+            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextList);
+        }
+    }
+
+    /// <summary>
     /// 生成节点图并初始化相关参数
     /// </summary>
     private void GetGenerateNodeMap()
@@ -97,15 +122,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         maxAnxiety = currentNodeLevel.initialAnxietyValue;
         currentAnxiety = maxAnxiety;
         rate = currentNodeLevel.rate;
-
-        if (currentNodeLevel.videoClip != null)
-        {
-            VideoManager.Instance.PlayVideo(currentNodeLevel.videoClip);
-        }
-        if (currentNodeLevel.graphicsAndTextList.Count > 0)
-        {
-            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextList);
-        }
 
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[nodeGraphIndex]);
         enterNodeGraphTimesList[nodeGraphIndex]++;

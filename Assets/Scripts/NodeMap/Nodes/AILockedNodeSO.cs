@@ -6,9 +6,11 @@ public class AILockedNodeSO : NodeSO
     [Space(10)]
     [Header("AI锁节点数据")]
     [Tooltip("开始的焦虑值")]
-    public int anxietyValue = Setting.intDefaultValue;
+    public float anxietyValue;
+    [Tooltip("AI锁解锁成功比例")]
+    public float rate;
     [Tooltip("可提交次数")]
-    public int submissionTimes = Setting.intDefaultValue;
+    public int submissionTimes;
 
 
     #if UNITY_EDITOR

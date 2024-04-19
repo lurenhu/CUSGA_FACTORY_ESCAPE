@@ -359,10 +359,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             Destroy(currentNode.gameObject);
 
             // 删除节点对象对应的线条对象
-            if (LineCreator.Instance.nodeLineBinding.TryGetValue(currentNode,out Line line))
-            {
-                Destroy(line.gameObject);
-            }
+            LineCreator.Instance.DeleteAllLine();
         }
     }
 
@@ -398,6 +395,8 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     public void LoadNodeMap(List<string> nodeSaveIDList)
     {
+        LineCreator.Instance.DeleteAllLine();
+
         foreach (string nodeIDHasSave in nodeSaveIDList)
         {
             NodeState nodeState = SaveManager.Load<NodeState>(nodeIDHasSave).saveData;// 找到该节点ID的状态信息
@@ -407,17 +406,15 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             currentNode.transform.localPosition = nodeState.localPosition;
             currentNode.gameObject.SetActive(nodeState.isActive);
             currentNode.childIdList = nodeState.childNodeID;
-            currentNode.LoadNodeInfo();
             currentNode.parentID = nodeState.parentNodeID;
             currentNode.hasPopUp = nodeState.hasPopUp;
             
+            LineCreator.Instance.CreateLine(currentNode);
+            
             // 显示该节点与被弹出节点之间的连线 
-            if (currentNode.hasPopUp)
+            if (GetNode(currentNode.parentID) != null && GetNode(currentNode.parentID).hasPopUp)
             {
-                foreach (string childNodeID in currentNode.childIdList)
-                {
-                    LineCreator.Instance.ShowLine(GetNode(childNodeID));
-                }
+                LineCreator.Instance.ShowLine(currentNode);
             }
 
             if (!currentNode.gameObject.activeSelf)

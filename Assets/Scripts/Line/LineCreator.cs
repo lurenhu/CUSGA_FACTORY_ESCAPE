@@ -16,13 +16,14 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     /// </summary>
     public void CreateLine(Node node)
     {
+        Node parentNode = NodeMapBuilder.Instance.GetNode(node.parentID);
+        if (parentNode == null) return;
+        
         GameObject line = Instantiate(LinePrefab, transform.position, Quaternion.identity,transform);
 
         line.SetActive(false);
 
         Line lineComponent = line.GetComponent<Line>();
-
-        Node parentNode = NodeMapBuilder.Instance.GetNode(node.parentID);
 
         lineComponent.InitializeLine(node.transform,parentNode.transform);
 
@@ -43,6 +44,23 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
         return line;
     }
 
+    /// <summary>
+    /// 删除所有线条对象
+    /// </summary>
+    public void DeleteAllLine()
+    {
+        foreach (KeyValuePair<Node,Line> keyValuePair in nodeLineBinding)
+        {
+            Line currentLine = keyValuePair.Value;
+            Destroy(currentLine.gameObject);
+        }
+
+        nodeLineBinding.Clear();
+    }
+
+    /// <summary>
+    /// 将所创建的节点线条展现
+    /// </summary>
     public void ShowLine(Node node)
     {
         Line line = nodeLineBinding.TryGetValue(node, out Line lineComponent) ? lineComponent : null;
@@ -54,7 +72,7 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
     }
 
     /// <summary>
-    /// 删除节点
+    /// 删除节点线条
     /// </summary>
     public void DeleteLine(Node node)
     {
@@ -64,6 +82,20 @@ public class LineCreator : SingletonMonobehaviour<LineCreator>
         {
             line.gameObject.SetActive(false);
         }
+    }
+
+    public Line GetLine(Node node)
+    {
+        if (nodeLineBinding.TryGetValue(node,out Line line))
+        {
+            return line;
+        }
+        else
+        {
+            Debug.Log($"No Match Node Line For {node}");
+            return null;
+        }
+
     }
 
 }
