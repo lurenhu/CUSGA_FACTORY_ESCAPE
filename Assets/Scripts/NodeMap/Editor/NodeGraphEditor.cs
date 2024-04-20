@@ -317,6 +317,10 @@ public class NodeGraphEditor : EditorWindow
 
         menu.AddSeparator("");
 
+        menu.AddItem(new GUIContent("创建AI焦虑变化节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAIAnxietyChanged)));
+
+        menu.AddSeparator("");
+
         menu.AddItem(new GUIContent("Select All Node"), false, SelectAllNode);
 
         menu.AddSeparator("");
@@ -553,6 +557,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isChasing)
         {
             ChasingNodeSO node = ScriptableObject.CreateInstance<ChasingNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isAIAnxietyChanged)
+        {
+            AIAnxietyChangedSO node = ScriptableObject.CreateInstance<AIAnxietyChangedSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

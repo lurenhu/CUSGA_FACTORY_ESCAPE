@@ -192,6 +192,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             TextShow textShow = nodeGameObject.GetComponent<TextShow>();
             textShow.InitializeTextNode(currentNode);
         }
+        else if (currentNode.nodeType.isAIAnxietyChanged)
+        {
+            AIAnxietyChanged aIAnxietyChanged = nodeGameObject.GetComponent<AIAnxietyChanged>();
+            aIAnxietyChanged.InitializeAiAnxietyChanged(currentNode);
+        }
     }
 
     /// <summary>

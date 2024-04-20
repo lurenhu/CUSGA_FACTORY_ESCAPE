@@ -1004,6 +1004,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   nodeLevelIndex: 0
   nodeGraphIndex: 0
+  nodeGraph: {fileID: 11400000, guid: e7fd259b8d1799a448b95d5f4c821ffd, type: 2}
   gameState: 0
   haveNodeDrag: 0
 --- !u!4 &1052891442
@@ -1974,6 +1975,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72d4f579b3225894ea78c6a409413891, type: 2}
   - {fileID: 11400000, guid: 9ae6cedef76c57044ba7338b5e9b8bb3, type: 2}
   - {fileID: 11400000, guid: 461ee7a7f8577dd40b6aeab051d1603e, type: 2}
+  - {fileID: 11400000, guid: f61c01ef2e80f9449b9f98d7eef98901, type: 2}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

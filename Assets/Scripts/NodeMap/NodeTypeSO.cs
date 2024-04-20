@@ -24,4 +24,9 @@ public class NodeTypeSO : ScriptableObject
     public bool isText;
     public bool isChasing;
     public bool isExit;
+    
+    [Space(10)]
+    [Header("特殊节点")]
+    public bool isAIAnxietyChanged;
+
 }
