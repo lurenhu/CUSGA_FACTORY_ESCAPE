@@ -315,9 +315,10 @@ public class NodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("创建文本节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isText)));
         menu.AddItem(new GUIContent("创建追逐节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isChasing)));
 
-        menu.AddSeparator("");
+        menu.AddSeparator("Level1");
 
         menu.AddItem(new GUIContent("创建AI焦虑变化节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAIAnxietyChanged)));
+        menu.AddItem(new GUIContent("创建关卡1的AI节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isLevel1AILock)));
 
         menu.AddSeparator("");
 
@@ -564,6 +565,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isAIAnxietyChanged)
         {
             AIAnxietyChangedSO node = ScriptableObject.CreateInstance<AIAnxietyChangedSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isLevel1AILock)
+        {
+            Level1AILockSO node = ScriptableObject.CreateInstance<Level1AILockSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

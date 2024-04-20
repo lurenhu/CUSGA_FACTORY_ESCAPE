@@ -26,7 +26,8 @@ public class NodeTypeSO : ScriptableObject
     public bool isExit;
     
     [Space(10)]
-    [Header("特殊节点")]
+    [Header("关卡1")]
     public bool isAIAnxietyChanged;
+    public bool isLevel1AILock;
 
 }

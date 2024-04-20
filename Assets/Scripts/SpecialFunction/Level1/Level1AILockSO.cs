@@ -1,19 +1,20 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class AILockedNodeSO : NodeSO
+public class Level1AILockSO : NodeSO
 {
     [Space(10)]
-    [Header("AI锁节点数据")]
-    [Tooltip("可提交次数")]
+    [Header("Level1AILock的参数")]
+    [Tooltip("AI对话次数")]
     public int submissionTimes;
-
 
     #if UNITY_EDITOR
 
     public void Initialize(Rect rect, NodeGraphSO nodeGraph, NodeTypeSO NodeType)
     {
-        this.name = "AILockedNode";
+        this.name = "Level1AILock";
         this.rect = rect;
         this.id = Guid.NewGuid().ToString();
         this.nodeGraph = nodeGraph;

@@ -52,11 +52,20 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     public Image graphic;
     [Tooltip("过场图文演出字体UI对象")]
     public TMP_Text tmpText;
+    [Header("文字播放参数")]
+    [Tooltip("每个文字播放之间的间隔时间")]
+    public float playingTimeInterval;
+
     private int graphIndex = 0; 
     private List<GraphicsAndText> graphicsAndTextList = new List<GraphicsAndText>();
     private Queue<string> textForShow = new Queue<string>();
 
+    private bool textFinished;// 判断当前文本是否结束
+    private bool cancelTyping;// 判断是否取消打字
 
+    /// <summary>
+    /// 获取所有的图片与对应的文本内容，并开始图文演出
+    /// </summary>
     public void ShowCutScenes(List<GraphicsAndText> graphicsAndTextList)
     {
         this.graphicsAndTextList = graphicsAndTextList;
@@ -68,7 +77,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     }
 
     /// <summary>
-    /// 展示过场演出图片文本
+    /// 获取并排列好文本,并初始化文本与图片内容
     /// </summary>
     private void ShowCutScene(GraphicsAndText graphicsAndText)
     {
@@ -80,7 +89,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         graphic.sprite = graphicsAndText.graphic;
         graphic.SetNativeSize();
-        tmpText.text = textForShow.Dequeue();
+        StartCoroutine(PlayingRowText(textForShow.Dequeue()));
     }
 
     private void Update() {
@@ -88,11 +97,15 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (textForShow.Count > 0)
+            if (textFinished && textForShow.Count > 0)
             {
-                tmpText.text = textForShow.Dequeue();
+                StartCoroutine(PlayingRowText(textForShow.Dequeue()));
             }
-            else
+            else if (!textFinished && !cancelTyping)
+            {
+                cancelTyping = true;
+            }
+            else if (textFinished && textForShow.Count == 0)
             {
                 graphIndex++;
                 if (graphIndex >= graphicsAndTextList.Count)
@@ -104,5 +117,22 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 ShowCutScene(graphicsAndTextList[graphIndex]);
             }
         }
+    }
+
+    IEnumerator PlayingRowText(string textToPlay)
+    {
+        textFinished = false;
+        tmpText.text = Setting.stringDefaultValue;
+        int index = 0;
+        while (!cancelTyping && index < textToPlay.Length-1)
+        {
+            tmpText.text += textToPlay[index];
+            index++;
+            yield return new WaitForSeconds(playingTimeInterval);
+        }
+
+        tmpText.text = textToPlay;
+        cancelTyping = false;
+        textFinished = true;
     }
 }

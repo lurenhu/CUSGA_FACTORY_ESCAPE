@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public enum GameState
 {
     Start,
-    Transition,
     Generating,
     Playing,
     Pause,
@@ -58,7 +57,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-        NodeMapBuilder.Instance.GenerateNodeMap(nodeGraph,2);
+        //NodeMapBuilder.Instance.GenerateNodeMap(nodeGraph,2);
     }   
 
     private void Update() {
@@ -69,13 +68,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         switch (gameState) {
             case GameState.Start:
                 break;
-            case GameState.Transition:
-                if (NodeMapBuilder.Instance == null) return;
-
-                GetCutScene();
-
-                gameState = GameState.Generating;
-                break;  
             case GameState.Generating:
                 if (NodeMapBuilder.Instance == null) return;
 
@@ -116,6 +108,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// </summary>
     private void GetGenerateNodeMap()
     {
+        GetCutScene();
         InitializeReference();
 
         NodeLevelSO currentNodeLevel = nodeLevelSOs[nodeLevelIndex];
@@ -127,6 +120,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[nodeGraphIndex]);
         enterNodeGraphTimesList[nodeGraphIndex]++;
+
+        if (currentNodeLevel.canNotTransitionForFirstTimes)
+        {
+            UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(false);
+            UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>

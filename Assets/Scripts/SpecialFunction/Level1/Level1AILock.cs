@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AILocked : MonoBehaviour
+public class Level1AILock : MonoBehaviour
 {
-    [Header("可调整参数")]
-    public int submissionTimes;// 剩余提交次数
-    private bool hasResult = false;// 是否已经获取结果
-
     private Node myNode;
+    private int submissionTimes;
+    private bool hasResult;
+
+    public void InitializeLevel1AILock(NodeSO nodeSO)
+    {
+        Level1AILockSO level1AILockSO= (Level1AILockSO)nodeSO;
+
+        submissionTimes = level1AILockSO.submissionTimes;
+
+        myNode = GetComponent<Node>();
+    }
 
     private void OnEnable() {
         StaticEventHandler.OnCommit += StaticEventHandler_OnCommit;

@@ -1,19 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStart : MonoBehaviour
+public class GameStart : SingletonMonobehaviour<GameStart>
 {
-    public static GameStart Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
-
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
 
@@ -54,10 +46,11 @@ public class GameStart : MonoBehaviour
     }
 
     public void StartGame()
-    {
-        SceneManager.LoadScene(1);
+    {   
+        SceneManager.LoadSceneAsync("NodeMapTest");
         GameManager.Instance.gameState = GameState.Generating;
     }
+
 
     public void QuitGame()
     {

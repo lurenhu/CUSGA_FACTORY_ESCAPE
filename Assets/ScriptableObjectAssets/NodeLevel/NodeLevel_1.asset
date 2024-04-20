@@ -21,3 +21,4 @@ MonoBehaviour:
   rate: 0
   videoClip: {fileID: 0}
   graphicsAndTextList: []
+  canNotTransitionForFirstTimes: 1

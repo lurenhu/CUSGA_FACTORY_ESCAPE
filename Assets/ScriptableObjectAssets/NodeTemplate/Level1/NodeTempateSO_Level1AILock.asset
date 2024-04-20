@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
+  m_Name: NodeTempateSO_Level1AILock
+  m_EditorClassIdentifier: 
+  guid: d774140f0989285419715d4a6ab5a6e3
+  nodePrefab: {fileID: 4026254294051308990, guid: 80734d49d3e2e224e804d717d0969d91, type: 3}
+  previousPrefab: {fileID: 4026254294051308990, guid: 80734d49d3e2e224e804d717d0969d91, type: 3}
+  nodeType: {fileID: 11400000, guid: 68409fa6eee40434c8a0a3fac8097c91, type: 2}
