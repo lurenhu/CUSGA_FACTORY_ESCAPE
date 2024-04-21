@@ -58,3 +58,9 @@ public class GraphicsAndText
     public Sprite graphic;
     public TextAsset text;
 }
+
+[System.Serializable]
+public class CutSceneAsset
+{
+    public List<GraphicsAndText> list;
+}

@@ -19,6 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fa2e999b0af27764ab0e12b69ad7df7d, type: 2}
   initialAnxietyValue: 0
   rate: 0
-  videoClip: {fileID: 0}
-  graphicsAndTextList: []
+  graphicsAndTextLists: []
   canNotTransitionForFirstTimes: 1

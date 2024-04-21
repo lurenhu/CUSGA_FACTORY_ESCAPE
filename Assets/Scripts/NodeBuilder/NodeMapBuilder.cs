@@ -197,6 +197,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             AIAnxietyChanged aIAnxietyChanged = nodeGameObject.GetComponent<AIAnxietyChanged>();
             aIAnxietyChanged.InitializeAiAnxietyChanged(currentNode);
         }
+        else if (currentNode.nodeType.isLevel1AILock)
+        {
+            Level1AILock level1AILock = nodeGameObject.GetComponent<Level1AILock>();
+            level1AILock.InitializeLevel1AILock(currentNode);
+        }
     }
 
     /// <summary>

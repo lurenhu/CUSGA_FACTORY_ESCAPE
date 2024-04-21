@@ -68,6 +68,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     public void ShowCutScenes(List<GraphicsAndText> graphicsAndTextList)
     {
+        RestoreInitialState();
+
         this.graphicsAndTextList = graphicsAndTextList;
 
         ShowCutScene(graphicsAndTextList[graphIndex]);
@@ -119,6 +121,9 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         }
     }
 
+    /// <summary>
+    /// 启动文字逐一播放
+    /// </summary>
     IEnumerator PlayingRowText(string textToPlay)
     {
         textFinished = false;
@@ -134,5 +139,15 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         tmpText.text = textToPlay;
         cancelTyping = false;
         textFinished = true;
+    }
+
+    /// <summary>
+    /// 恢复初始状态
+    /// </summary>
+    private void RestoreInitialState()
+    {
+        graphIndex = 0;
+        graphicsAndTextList.Clear();
+        textForShow.Clear();
     }
 }

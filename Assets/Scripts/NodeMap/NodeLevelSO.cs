@@ -16,8 +16,7 @@ public class NodeLevelSO : ScriptableObject
 
     [Space(5)]
     [Header("过场演出")]
-    public VideoClip videoClip;
-    public List<GraphicsAndText> graphicsAndTextList;
+    [SerializeField] public List<CutSceneAsset> graphicsAndTextLists;
 
     [Space(5)]
     [Header("线性叙述相关参数")]

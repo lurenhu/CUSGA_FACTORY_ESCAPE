@@ -5,8 +5,8 @@ using UnityEngine;
 public class Level1AILock : MonoBehaviour
 {
     private Node myNode;
-    private int submissionTimes;
-    private bool hasResult;
+    [SerializeField] private int submissionTimes;
+    [SerializeField] private bool hasResult = false;
 
     public void InitializeLevel1AILock(NodeSO nodeSO)
     {
@@ -74,24 +74,35 @@ public class Level1AILock : MonoBehaviour
         if (submissionTimes == 0)
         {
             CheckAnxietyValue();
+            hasResult = true;
             tongyi_AI.instance.input_field.SetActive(false);
         }
     }
 
     /// <summary>
-    /// 检查焦虑值并弹出对应子节点
+    /// 检查焦虑值并给出相关的结局
     /// </summary>
     private void CheckAnxietyValue()
     {
-        if (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety < GameManager.Instance.rate)
+        if (GameManager.Instance.level1GetResultTimes == 0)
         {
-            Debug.Log("win");
+            if (GameManager.Instance.CheckAnxietyValue())
+            {
+                Debug.Log("out of area");
+            }
+            else
+            {
+                VideoManager.Instance.ShowCutScenes(GameManager.Instance.nodeLevelSOs[GameManager.Instance.levelIndex].graphicsAndTextLists[GameManager.Instance.cutSceneIndex].list);// 臭太tm臭啦
+                GameManager.Instance.level1GetResultTimes++;
+                GameManager.Instance.cutSceneIndex++;
+
+                UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(true);
+                UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(true);
+            }
         }
         else
         {
-            Debug.Log("fail");
+            GameManager.Instance.ShowCutScenes(GameManager.Instance.CheckAnxietyValue());
         }
-
-        hasResult = true;
     }
 }

@@ -264,14 +264,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c294515993014b244916a52f1f5664c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnxiety: 0
+  maxAnxiety: 0
+  rate: 0
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
-  - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
-  enterNodeGraphTimesList: 
-  nodeLevelIndex: 0
-  nodeGraphIndex: 0
+  - {fileID: 11400000, guid: 82d00e54e35d5c34ea5dd8ede862606d, type: 2}
+  levelIndex: 0
+  graphIndex: 0
+  cutSceneIndex: 0
+  nodeGraph: {fileID: 0}
   gameState: 0
+  level1GetResultTimes: 0
   haveNodeDrag: 0
 --- !u!1001 &46532804
 PrefabInstance:
@@ -2769,6 +2774,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u4E3B\u83DC\u5355"
       objectReference: {fileID: 0}
+    - target: {fileID: 5597742021608182675, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 6842394444348995949, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
     - target: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: id
       value: MainManu
