@@ -49,15 +49,16 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     [Tooltip("过场图文演出UI面板")]
     public Transform cutSceneUIPanel;
     [Tooltip("过场图文演出图片UI对象")]
-    public Image graphic;
-    [Tooltip("过场图文演出字体UI对象")]
     public TMP_Text tmpText;
+    [Tooltip("过场图文演出的导演组件")]
+    public Animator animator;
     [Header("文字播放参数")]
     [Tooltip("每个文字播放之间的间隔时间")]
     public float playingTimeInterval;
 
-    private int graphIndex = 0; 
-    private List<GraphicsAndText> graphicsAndTextList = new List<GraphicsAndText>();
+    private string currentAnimationState = Setting.stringDefaultValue;
+    private int animationIndex = 0; 
+    private List<CutSceneCell> cutSceneCellList = new List<CutSceneCell>();
     private Queue<string> textForShow = new Queue<string>();
 
     private bool textFinished;// 判断当前文本是否结束
@@ -66,13 +67,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <summary>
     /// 获取所有的图片与对应的文本内容，并开始图文演出
     /// </summary>
-    public void ShowCutScenes(List<GraphicsAndText> graphicsAndTextList)
+    public void ShowCutScenes(List<CutSceneCell> cutSceneCellList)
     {
         RestoreInitialState();
 
-        this.graphicsAndTextList = graphicsAndTextList;
+        this.cutSceneCellList = cutSceneCellList;
 
-        ShowCutScene(graphicsAndTextList[graphIndex]);
+        ShowCutScene(cutSceneCellList[animationIndex]);
 
         cutSceneUIPanel.gameObject.SetActive(true);
         DialogSystem.Instance.gameObject.SetActive(false);
@@ -81,16 +82,15 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <summary>
     /// 获取并排列好文本,并初始化文本与图片内容
     /// </summary>
-    private void ShowCutScene(GraphicsAndText graphicsAndText)
+    private void ShowCutScene(CutSceneCell cutSceneCell)
     {
-        var rows = graphicsAndText.text.text.Split("\n");
+        var rows = cutSceneCell.text.text.Split("\n");
         foreach (var row in rows)
         {
             textForShow.Enqueue(row);
         }
 
-        graphic.sprite = graphicsAndText.graphic;
-        graphic.SetNativeSize();
+        ChangeAnimation(cutSceneCell.animationStateName);
         StartCoroutine(PlayingRowText(textForShow.Dequeue()));
     }
 
@@ -109,14 +109,14 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             }
             else if (textFinished && textForShow.Count == 0)
             {
-                graphIndex++;
-                if (graphIndex >= graphicsAndTextList.Count)
+                animationIndex++;
+                if (animationIndex >= cutSceneCellList.Count)
                 {
                     cutSceneUIPanel.gameObject.SetActive(false);
                     DialogSystem.Instance.gameObject.SetActive(true);
                     return;
                 }
-                ShowCutScene(graphicsAndTextList[graphIndex]);
+                ShowCutScene(cutSceneCellList[animationIndex]);
             }
         }
     }
@@ -146,8 +146,20 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private void RestoreInitialState()
     {
-        graphIndex = 0;
-        graphicsAndTextList.Clear();
+        animationIndex = 0;
+        cutSceneCellList.Clear();
         textForShow.Clear();
+    }
+
+    /// <summary>
+    /// 切换动画状态
+    /// </summary>
+    private void ChangeAnimation(string animationStateName, float crossFade = 0.2f)
+    {
+        if (currentAnimationState != animationStateName)
+        {
+            currentAnimationState = animationStateName;
+            animator.CrossFade(animationStateName,crossFade);
+        }
     }
 }

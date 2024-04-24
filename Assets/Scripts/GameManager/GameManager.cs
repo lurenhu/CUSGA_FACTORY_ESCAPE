@@ -41,10 +41,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private List<int> enterNodeGraphTimesList = new List<int>();
     [SerializeField] public int levelIndex = 0;// 关卡索引
     [SerializeField] private int graphIndex = 0;// 节点图索引
-    [SerializeField] public int cutSceneIndex = 0;// 过场演出索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
-
-    public NodeGraphSO nodeGraph;
 
     [Space(10)]
     [Header("游戏状态参数")]
@@ -60,7 +57,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
     
     private void Start() {
-        //NodeMapBuilder.Instance.GenerateNodeMap(nodeGraph,2);
     }   
 
     private void Update() {
@@ -90,29 +86,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
-    /// 获取过场动画
-    /// </summary>
-    private void GetCutScene()
-    {
-        NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
-
-        if (currentNodeLevel.graphicsAndTextLists.Count > 0)
-        {
-            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextLists[cutSceneIndex].list);
-            cutSceneIndex++;
-        }
-    }
-
-    /// <summary>
     /// 生成节点图并初始化相关参数
     /// </summary>
     private void GetGenerateNodeMap()
     {
-        GetCutScene();
-        InitializeReference();
-
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[graphIndex];
+
+        if (currentNodeLevel == null) return;
+        
+        GetCutScene(currentNodeLevel);
+        InitializeReference(currentNodeLevel);
 
         maxAnxiety = currentNodeLevel.initialAnxietyValue;
         currentAnxiety = maxAnxiety;
@@ -131,14 +115,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 初始化相关参数与函数回调
     /// </summary>
-    private void InitializeReference()
+    private void InitializeReference(NodeLevelSO currentNodeLevel)
     {
-        if (nodeLevelSOs.Count == 0) return;
-
         nodeIdsInGraph.Clear();
         enterNodeGraphTimesList.Clear();
 
-        foreach (NodeGraphSO nodeGraph in nodeLevelSOs[levelIndex].levelGraphs)
+        foreach (NodeGraphSO nodeGraph in currentNodeLevel.levelGraphs)
         {
             nodeIdsInGraph.Add(new List<string>());
             enterNodeGraphTimesList.Add(0);
@@ -146,6 +128,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetRightNodeGraph);
         UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetLeftNodeGraph);
+    }
+    
+    /// <summary>
+    /// 获取过场动画
+    /// </summary>
+    private void GetCutScene(NodeLevelSO currentNodeLevel)
+    {
+        if (currentNodeLevel.cutSceneList.Count > 0)
+        {
+            VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
+        }
     }
 
     /// <summary>
@@ -221,11 +214,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         if (isWin)
         {
-            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextLists[currentNodeLevel.graphicsAndTextLists.Count - 2].list);
         }
         else
         {
-            VideoManager.Instance.ShowCutScenes(currentNodeLevel.graphicsAndTextLists[currentNodeLevel.graphicsAndTextLists.Count - 1].list);
         }
     }
 

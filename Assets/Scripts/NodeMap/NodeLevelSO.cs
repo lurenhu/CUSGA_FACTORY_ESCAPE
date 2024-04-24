@@ -15,8 +15,8 @@ public class NodeLevelSO : ScriptableObject
     public float rate;
 
     [Space(5)]
-    [Header("过场演出")]
-    [SerializeField] public List<CutSceneAsset> graphicsAndTextLists;
+    [Header("进入该关卡时播放过场演出")]
+    [SerializeField] public List<CutSceneCell> cutSceneList;
 
     [Space(5)]
     [Header("线性叙述相关参数")]

@@ -6,20 +6,22 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
+using System.Net.Http.Headers;
 
 public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 {
     [Header("UI组件")]
-    public GameObject talk_ui;
-    public Text textLabel;
-    public Text name_text;
+    public GameObject dialogPanel;
+    public TMP_Text dialogText;
+    public TMP_Text nameText;
     public Image character_1;
     public Image character_2;
     public GameObject mouse;
     [Header("对话参数")]
     public TextAsset textFile;  //对话文件    
     [Header("文字显示速度，值越小显示越快")]
-    public float textSpeed = 0.05f;
+    public float playingTimeInterval = 0.05f;
     [Header("立绘移动参数")]
     public float move_time = 0.5f;
     private float left = -4300;
@@ -27,21 +29,19 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     private float middle = -1500;    
 
     [Tooltip("对话参数")]
-    List<string> character_1List = new List<string>();
-    List<string> character_2List = new List<string>();
-    List<string> name_list = new List<string>();
-    List<string> text_list = new List<string>();
+    List<string> character1List = new List<string>();
+    List<string> character2List = new List<string>();
+    List<string> nameList = new List<string>();
+    [SerializeField] List<string> textList = new List<string>();
     List<int> speakingCharacterList = new List<int>();
-    List<string[]> image_list = new List<string[]>();
+    List<string[]> imageList = new List<string[]>();
     [Header("计时器参数")]
     private float lockTime = 0f;
     private bool isTimerRunning = false;
     [Header("其他变量")]
-    private Coroutine text_display;
-    public bool is_playing_text = false;
-    public bool text_finished = true;
-    private int index = 0;
-    private int max_index = 0;
+    public bool textFinished = true;
+    public bool cancelTyping = false;
+    public int textIndex = 0;
 
     /*
      * is_playing_text用于开始检测点击与渲染文字，
@@ -51,7 +51,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     void Start()
     {
-        talk_ui.SetActive(false);
+        dialogPanel.SetActive(false);
         if (textFile!=null)
         { 
             GetText(textFile);
@@ -60,26 +60,31 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     private void Update()
     {
+        if (!dialogPanel.activeSelf) return;
+
         // AI思考
         if (isTimerRunning)
         {
             CountDown();
         }
+        else
+        {
+            UpdateText();
+        }
 
-        // 对话文本展示
-        if (is_playing_text)
-        {
-            //设置可点击图标
-            mouse.SetActive(text_finished);
-            is_playing_text = PlayText();
-        }
-        else 
-        {
-            mouse.SetActive(false);
-            
-        }
-        
+        mouse.SetActive(textFinished);
     }   
+
+    /// <summary>
+    /// 设置初始状态
+    /// </summary>
+    private void SetInitialValue()
+    {
+        nameText.text = nameList[textIndex];
+        StartCoroutine(PlayingRowText(textList[textIndex]));
+
+        LoadImageForCharacter();
+    }
 
     /// <summary>
     /// AI思考时间
@@ -94,79 +99,33 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         {
             // 计时器达到持续时间，执行相应操作
             isTimerRunning = false;
-            is_playing_text = true;
-            UpdateText();
+            SetInitialValue();
         }        
     }
 
-    
-
-    /// <summary>
-    /// 检测点击以及文本是否播放完毕,使用前记得开is_playing_text
-    /// </summary>
-    public bool PlayText()
-    {
-        if (index <= max_index)   //文字内容没有播完
-        {
-            if (!talk_ui.activeSelf)
-            {
-                talk_ui.SetActive(true);
-                UIManager.Instance.UIShow = true;
-                //自动拉取第一行
-                UpdateText();
-            }
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))//鼠标点击或F键
-            {
-                //检测文字需要渲染
-                UpdateText();
-            }
-            return true;      //不按按键保持talk状态
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonUp(0))//鼠标点击或F键
-            {
-                //文字渲染完成
-                ClearReference();
-                talk_ui.SetActive(false);
-                UIManager.Instance.UIShow = false;
-                return false;
-            }
-            
-        }
-        return true;
-
-    }
- 
     /// <summary>
     /// 更新对话框内文本
     /// </summary>
     public void UpdateText()   
     {
-        if (text_finished)
+        if (Input.GetMouseButtonUp(0))
         {
-            LoadImageForCharacter();
-
-            if (name_list.Count > 0)
+            if (textFinished && textIndex < textList.Count)
             {
-                name_text.text = name_list[index];
-            }
+                LoadImageForCharacter();
 
-            // 启动文本逐字渲染
-            if (text_list.Count > 0)
-            {
-                string content = text_list[index];
-                text_display = StartCoroutine(SetTextUI(content));
-                text_finished = false;
+                nameText.text = nameList[textIndex];
+                StartCoroutine(PlayingRowText(textList[textIndex]));
             }
-            
-        }
-        else //文本没结束的时候再按R，停止携程并直接输出文字
-        {
-            StopCoroutine(text_display);
-            textLabel.text = text_list[index];
-            text_finished = true;
-            index++;
+            else if (!textFinished && !cancelTyping)
+            {
+                cancelTyping = true;
+            }
+            else if (textFinished && textIndex >= textList.Count)
+            {
+                dialogPanel.SetActive(false);
+                UIManager.Instance.UIShow = false;
+            }
         }
     }
 
@@ -176,10 +135,10 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     private void LoadImageForCharacter()
     {
         // 导入左侧角色差分
-        if (character_1List.Count > 0)
+        if (character1List.Count > 0)
         {
             character_1.gameObject.SetActive(true);
-            character_1.sprite = GameResources.Instance.characters.Find(x => x.name == character_1List[index]).sprite;
+            character_1.sprite = GameResources.Instance.characters.Find(x => x.name == character1List[textIndex]).sprite;
         }
         else
         {
@@ -188,10 +147,10 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
 
         // 导入右侧角色差分
-        if (character_2List.Count > 0)
+        if (character2List.Count > 0)
         {
             character_2.gameObject.SetActive(true);
-            character_2.sprite = GameResources.Instance.characters.Find(x => x.name == character_2List[index]).sprite;
+            character_2.sprite = GameResources.Instance.characters.Find(x => x.name == character2List[textIndex]).sprite;
         }
         else
         {
@@ -203,7 +162,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (speakingCharacterList.Count > 0)
         {
             Color dark = new Color(0.5f, 0.5f, 0.5f, 1);
-            switch (speakingCharacterList[index])
+            switch (speakingCharacterList[textIndex])
             {
                 case 1:
                     character_1.material.DOColor(Color.white, 0.5f);
@@ -228,16 +187,23 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// <summary>
     /// 逐字渲染文字
     /// </summary>
-    public IEnumerator SetTextUI(string content)
+    IEnumerator PlayingRowText(string textToPlay)
     {
-        textLabel.text = string.Empty;
-        for (int i = 0; i < content.Length; i++)
+        textFinished = false;
+        dialogText.text = Setting.stringDefaultValue;
+        int index = 0;
+        while (!cancelTyping && index < textToPlay.Length-1)
         {
-            textLabel.text += content[i];
-            yield return new WaitForSeconds(textSpeed);
+            dialogText.text += textToPlay[index];
+            index++;
+            yield return new WaitForSeconds(playingTimeInterval);
         }
-        text_finished = true;
-        index++;
+
+        dialogText.text = textToPlay;
+        cancelTyping = false;
+        textFinished = true;
+
+        textIndex++;
     }
 
     /// <summary>
@@ -250,16 +216,17 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         var rows = textFile.text.Split('\n');
         foreach (var row in rows)
         {
-            string text = row.ToString();
-            string[] row_list = text.Split(':');
-            character_1List.Add(row_list[0]);
-            character_2List.Add(row_list[1]);
-            name_list.Add(row_list[2]);
-            text_list.Add(row_list[3]);
+            string[] row_list = row.Split(':');
+            character1List.Add(row_list[0]);
+            character2List.Add(row_list[1]);
+            nameList.Add(row_list[2]);
+            textList.Add(row_list[3]);
             speakingCharacterList.Add(int.Parse(row_list[4]));
-
-            EnablePlayTextState();
         }
+
+        dialogPanel.SetActive(true);
+        UIManager.Instance.UIShow = true;
+        SetInitialValue();
     }
 
     //从ai处获取文本
@@ -267,28 +234,26 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     {
         ClearReference();
 
-        name_list.Add(name);
-        text_list.Add(text);
-        image_list.Add(image_display);
-
-        EnablePlayTextState();
+        nameList.Add(name);
+        textList.Add(text);
+        imageList.Add(image_display);
     }
     
     /// <summary>
     /// 开始计时并加lock
     /// </summary>
-    public void lockUI_and_setText(float locktime,string text) 
+    public void lockUI_and_setText(float lockTime,string text) 
     {
         ClearReference();
 
         // 计时器完成后的操作
         isTimerRunning = true;
-        is_playing_text = false;
-        talk_ui.SetActive(true);
+        dialogPanel.SetActive(true);
         UIManager.Instance.UIShow = true;
-        this.lockTime = locktime;
-        this.name_text.text = "823";
-        textLabel.text= text;
+        this.lockTime = lockTime;
+        nameText.text = "823";
+        dialogText.text= text;
+        LoadImageForCharacter();
     }    
 
     /// <summary>
@@ -296,24 +261,13 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     /// </summary>
     public void ClearReference()
     {        
-        text_list.Clear();
-        name_list.Clear();
-        image_list.Clear();
-        character_1List.Clear();
-        character_2List.Clear();
-        speakingCharacterList.Clear();    
-    }
+        textList.Clear();
+        nameList.Clear();
+        imageList.Clear();
+        character1List.Clear();
+        character2List.Clear();
+        speakingCharacterList.Clear();
 
-    /// <summary>
-    /// 启动文本播放状态
-    /// </summary>
-    private void EnablePlayTextState()
-    {
-        index = 0;
-        max_index = text_list.Count - 1;
-        is_playing_text = true;
+        textIndex = 0;    
     }
-    
-    
-
 }

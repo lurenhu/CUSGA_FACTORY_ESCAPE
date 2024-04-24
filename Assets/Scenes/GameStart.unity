@@ -270,11 +270,9 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
-  - {fileID: 11400000, guid: 82d00e54e35d5c34ea5dd8ede862606d, type: 2}
+  - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   levelIndex: 0
   graphIndex: 0
-  cutSceneIndex: 0
-  nodeGraph: {fileID: 0}
   gameState: 0
   level1GetResultTimes: 0
   haveNodeDrag: 0

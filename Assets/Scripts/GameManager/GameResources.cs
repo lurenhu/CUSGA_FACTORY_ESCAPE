@@ -53,14 +53,14 @@ public class Video
 }
 
 [System.Serializable]
-public class GraphicsAndText
+public class CutSceneCell
 {
-    public Sprite graphic;
+    public string animationStateName;
     public TextAsset text;
 }
 
 [System.Serializable]
 public class CutSceneAsset
 {
-    public List<GraphicsAndText> list;
+    public List<CutSceneCell> list;
 }

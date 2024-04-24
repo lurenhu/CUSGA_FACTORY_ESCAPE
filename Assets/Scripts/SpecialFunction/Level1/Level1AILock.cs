@@ -92,9 +92,8 @@ public class Level1AILock : MonoBehaviour
             }
             else
             {
-                VideoManager.Instance.ShowCutScenes(GameManager.Instance.nodeLevelSOs[GameManager.Instance.levelIndex].graphicsAndTextLists[GameManager.Instance.cutSceneIndex].list);// 臭太tm臭啦
+                VideoManager.Instance.ShowCutScenes(GameManager.Instance.nodeLevelSOs[GameManager.Instance.levelIndex].cutSceneList);// 臭太tm臭啦
                 GameManager.Instance.level1GetResultTimes++;
-                GameManager.Instance.cutSceneIndex++;
 
                 UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(true);
                 UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(true);
