@@ -69,6 +69,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     public void ShowCutScenes(List<CutSceneCell> cutSceneCellList)
     {
+        if (cutSceneCellList.Count == 0) return;
+
         RestoreInitialState();
 
         this.cutSceneCellList = cutSceneCellList;

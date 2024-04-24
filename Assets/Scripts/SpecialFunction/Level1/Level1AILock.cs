@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Level1AILock : MonoBehaviour
@@ -9,6 +10,7 @@ public class Level1AILock : MonoBehaviour
     [SerializeField] private bool hasResult = false;
     private List<CutSceneCell> firstFailResult;
     private List<CutSceneCell> secondFailResult;
+    private bool getCutScene = false;
 
     public void InitializeLevel1AILock(NodeSO nodeSO)
     {
@@ -77,9 +79,16 @@ public class Level1AILock : MonoBehaviour
 
         if (submissionTimes == 0)
         {
-            CheckAnxietyValue();
             hasResult = true;
             tongyi_AI.instance.input_field.SetActive(false);
+        }
+    }
+
+    private void Update() {
+        if (hasResult && !DialogSystem.Instance.dialogPanel.activeSelf && !getCutScene)
+        {
+            CheckAnxietyValue();
+            getCutScene = true;
         }
     }
 
@@ -100,6 +109,8 @@ public class Level1AILock : MonoBehaviour
 
                 UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(true);
                 UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(true);
+
+                GameManager.Instance.level1GetResultTimes++;
             }
         }
         else
@@ -107,6 +118,11 @@ public class Level1AILock : MonoBehaviour
             if (GameManager.Instance.CheckAnxietyValue())
             {
                 GameManager.Instance.levelIndex++;
+                GameManager.Instance.gameState = GameState.Generating;
+            }
+            else
+            {
+                VideoManager.Instance.ShowCutScenes(secondFailResult);
             }
         }
     }

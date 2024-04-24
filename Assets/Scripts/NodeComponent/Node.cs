@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using TMPro;
 using UnityEditor.EditorTools;
+using System.Collections;
 
 [DisallowMultipleComponent]
 public class Node : MonoBehaviour
