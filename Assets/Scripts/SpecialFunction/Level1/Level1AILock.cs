@@ -7,12 +7,16 @@ public class Level1AILock : MonoBehaviour
     private Node myNode;
     [SerializeField] private int submissionTimes;
     [SerializeField] private bool hasResult = false;
+    private List<CutSceneCell> firstFailResult;
+    private List<CutSceneCell> secondFailResult;
 
     public void InitializeLevel1AILock(NodeSO nodeSO)
     {
         Level1AILockSO level1AILockSO= (Level1AILockSO)nodeSO;
 
         submissionTimes = level1AILockSO.submissionTimes;
+        firstFailResult = level1AILockSO.firstFailResult;
+        secondFailResult = level1AILockSO.secondFailResult;
 
         myNode = GetComponent<Node>();
     }
@@ -92,8 +96,7 @@ public class Level1AILock : MonoBehaviour
             }
             else
             {
-                VideoManager.Instance.ShowCutScenes(GameManager.Instance.nodeLevelSOs[GameManager.Instance.levelIndex].cutSceneList);// 臭太tm臭啦
-                GameManager.Instance.level1GetResultTimes++;
+                VideoManager.Instance.ShowCutScenes(firstFailResult);
 
                 UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(true);
                 UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(true);
@@ -101,7 +104,10 @@ public class Level1AILock : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.ShowCutScenes(GameManager.Instance.CheckAnxietyValue());
+            if (GameManager.Instance.CheckAnxietyValue())
+            {
+                GameManager.Instance.levelIndex++;
+            }
         }
     }
 }

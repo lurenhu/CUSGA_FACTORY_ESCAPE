@@ -102,6 +102,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         currentAnxiety = maxAnxiety;
         rate = currentNodeLevel.rate;
 
+        NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;
 
@@ -192,7 +193,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
-    /// 检查当前的焦虑值比例
+    /// 检查当前的焦虑值是否处在焦虑值比例内
     /// </summary>
     public bool CheckAnxietyValue()
     {
@@ -205,20 +206,5 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             return false;
         }
     }
-
-    /// <summary>
-    /// 根据输赢状态给出对应的演出
-    /// </summary>
-    public void ShowCutScenes(bool isWin)
-    {
-        NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
-        if (isWin)
-        {
-        }
-        else
-        {
-        }
-    }
-
 
 }

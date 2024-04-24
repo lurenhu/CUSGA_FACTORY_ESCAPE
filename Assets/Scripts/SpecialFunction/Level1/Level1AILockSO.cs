@@ -9,6 +9,8 @@ public class Level1AILockSO : NodeSO
     [Header("Level1AILock的参数")]
     [Tooltip("AI对话次数")]
     public int submissionTimes;
+    public List<CutSceneCell> firstFailResult;
+    public List<CutSceneCell> secondFailResult;
 
     #if UNITY_EDITOR
 

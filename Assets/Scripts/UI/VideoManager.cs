@@ -75,7 +75,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         ShowCutScene(cutSceneCellList[animationIndex]);
 
-        cutSceneUIPanel.gameObject.SetActive(true);
         DialogSystem.Instance.gameObject.SetActive(false);
     }
 
@@ -149,6 +148,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         animationIndex = 0;
         cutSceneCellList.Clear();
         textForShow.Clear();
+        cutSceneUIPanel.gameObject.SetActive(true);
     }
 
     /// <summary>

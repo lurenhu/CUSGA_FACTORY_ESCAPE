@@ -354,6 +354,8 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     public void DeleteNodeMap()
     {
+        if (nodeHasCreated.Count == 0) return; 
+
         foreach (KeyValuePair<string,Node> keyValue in nodeHasCreated)
         {
             // 删除节点对象
