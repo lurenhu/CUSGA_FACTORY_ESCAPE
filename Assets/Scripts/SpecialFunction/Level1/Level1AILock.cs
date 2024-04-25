@@ -80,12 +80,14 @@ public class Level1AILock : MonoBehaviour
         if (submissionTimes == 0)
         {
             hasResult = true;
-            tongyi_AI.instance.input_field.SetActive(false);
         }
     }
 
     private void Update() {
-        if (hasResult && !DialogSystem.Instance.dialogPanel.activeSelf && !getCutScene)
+        if (hasResult && DialogSystem.Instance.textFinished && Input.GetMouseButtonDown(0) && DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf)
+            DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
+
+        if (hasResult && !DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf && !getCutScene)
         {
             CheckAnxietyValue();
             getCutScene = true;

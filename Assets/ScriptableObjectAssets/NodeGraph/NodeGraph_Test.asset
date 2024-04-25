@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9024562813633071491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: f6d334d2-2840-48f2-8763-5f7d58c13b6c
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 824b2189-09d6-4abf-b01a-49ff59900dc6
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 201
+    y: 200
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-7998719140008363755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 845a8bbf-1017-4152-b12c-a80bc3ee1f9a
+  parentNodeIdList:
+  - 824b2189-09d6-4abf-b01a-49ff59900dc6
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 798
+    y: 384
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
+--- !u!114 &-22216726789352604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cd0e186a24b66409f15f00652b2099, type: 3}
+  m_Name: AILockedNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 824b2189-09d6-4abf-b01a-49ff59900dc6
+  parentNodeIdList:
+  - f6d334d2-2840-48f2-8763-5f7d58c13b6c
+  childrenNodeIdList:
+  - 845a8bbf-1017-4152-b12c-a80bc3ee1f9a
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 550
+    y: 221
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
+  submissionTimes: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
+  m_Name: NodeGraph_Test
+  m_EditorClassIdentifier: 
+  graphName: 
+  backGround: {fileID: 0}
+  dialogForFirstTime: {fileID: 0}
+  nodeTypeList: {fileID: 0}
+  nodeList:
+  - {fileID: -9024562813633071491}
+  - {fileID: -7998719140008363755}
+  - {fileID: -22216726789352604}
+  nodeToDrawLineFrom: {fileID: 0}
+  linePosition: {x: 0, y: 0}

@@ -23,16 +23,24 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform rightNodeGraphButton;
     [Tooltip("向左侧切换节点图按钮")]
     public Transform leftNodeGraphButton;
+    [Tooltip("AI对话日志")]
+    public Transform AIDialogLog;
+    
 
-    private Coroutine displayNodeTextForShowRoutine;
     public bool UIShow = false;
 
+    /// <summary>
+    /// 关闭图片节点UI
+    /// </summary>
     public void CloseGraph()
     {
         graphNodeUI.gameObject.SetActive(false);
         UIShow = false;
     }
 
+    /// <summary>
+    /// 展示该节点的文本内容
+    /// </summary>
     public void DisplayNodeText(string nodeTextForShow)
     {
         if (!this.nodeTextForShow.gameObject.activeSelf)
@@ -44,32 +52,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     }
 
     /// <summary>
-    /// 启动展示文本协程
+    /// 关闭文本节点UI
     /// </summary>
-    public void StartDisplayNodeTextForShowRoutine(string nodeTextForShow)
-    {
-        if (displayNodeTextForShowRoutine != null)
-        {
-            StopCoroutine(displayNodeTextForShowRoutine);
-        }
-
-        displayNodeTextForShowRoutine = StartCoroutine(DisplayNodeTextForShow(nodeTextForShow));
-    }
-
-    /// <summary>
-    /// 显示节点文本内容
-    /// </summary>
-    private IEnumerator DisplayNodeTextForShow(string nodeTextForShow)
-    {
-        this.nodeTextForShow.gameObject.SetActive(true);
-
-        this.nodeTextForShow.GetComponent<TMP_Text>().text = nodeTextForShow;
-
-        yield return new WaitForSeconds(2f);
-
-        this.nodeTextForShow.gameObject.SetActive(false);
-    }
-
     public void CloseTextNodeUI()
     {
         textNodeUI.gameObject.SetActive(false);
@@ -85,5 +69,13 @@ public class UIManager : SingletonMonobehaviour<UIManager>
 
         textNodeUI.gameObject.SetActive(true);
         UIShow = true;
+    }
+
+    /// <summary>
+    /// 打开与关闭AI日志
+    /// </summary>
+    public void DisplayAndCloseAILog()
+    {
+        AIDialogLog.gameObject.SetActive(!AIDialogLog.gameObject.activeSelf);
     }
 }

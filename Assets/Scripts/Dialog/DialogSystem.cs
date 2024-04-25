@@ -8,73 +8,76 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 using System.Net.Http.Headers;
+using Unity.Mathematics;
 
 public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 {
-    [Header("UI组件")]
+    [Header("普通对话UI组件")]
     public GameObject dialogPanel;
     public TMP_Text dialogText;
     public TMP_Text nameText;
     public Image character_1;
     public Image character_2;
     public GameObject mouse;
-    [Header("对话参数")]
-    public TextAsset textFile;  //对话文件    
-    [Header("文字显示速度，值越小显示越快")]
+    [Space(5)]
+    [Header("AI对话UI组件")]
+    public Transform AIDialogPanel;
+    public TMP_Text AIDialogText;
+    public TMP_Text AINameText;
+    public Image AICharacter_1;
+    public Image AICharacter_2;
+    [Space(5)]
+    [Header("参数")]
+    [Tooltip("文本显示间隔时间")]
     public float playingTimeInterval = 0.05f;
-    [Header("立绘移动参数")]
-    public float move_time = 0.5f;
-    private float left = -4300;
-    private float right = 500;
-    private float middle = -1500;    
-
-    [Tooltip("对话参数")]
-    List<string> character1List = new List<string>();
-    List<string> character2List = new List<string>();
-    List<string> nameList = new List<string>();
-    [SerializeField] List<string> textList = new List<string>();
-    List<int> speakingCharacterList = new List<int>();
+    List<string> character1List = new List<string>();// 存储角色1的图片数据
+    List<string> character2List = new List<string>();// 存储角色2的图片数据
+    List<string> nameList = new List<string>();// 存储每个对话的发出者的姓名
+    List<string> textList = new List<string>();// 存储每个对话的文本内容
+    List<int> speakingCharacterList = new List<int>();// 存储对话者的属于左侧还是右侧（用于控制角色头像动画）
     List<string[]> imageList = new List<string[]>();
-    [Header("计时器参数")]
-    private float lockTime = 0f;
-    private bool isTimerRunning = false;
-    [Header("其他变量")]
-    public bool textFinished = true;
-    public bool cancelTyping = false;
-    public int textIndex = 0;
-
-    /*
-     * is_playing_text用于开始检测点击与渲染文字，
-     * text_finished用于检测文字是否渲染完成
-     */
-
+    private float lockTime = 0f;// AI思考时间
+    private bool isTimerRunning = false;// 是否进行AI思考
+    public bool textFinished = true;// 文本动画是否播放结束
+    private bool cancelTyping = false;// 是否取消打字
+    private int textIndex = 0;// 文本索引
 
     void Start()
     {
-        dialogPanel.SetActive(false);
-        if (textFile!=null)
-        { 
-            GetText(textFile);
-        }
     }
 
     private void Update()
     {
-        if (!dialogPanel.activeSelf) return;
-
-        // AI思考
-        if (isTimerRunning)
+        if (AIDialogPanel.gameObject.activeSelf)
         {
-            CountDown();
+            UpdateTextForAI();
         }
-        else
+
+        
+
+        if (dialogPanel.activeSelf)
         {
             UpdateText();
+            mouse.SetActive(textFinished);
         }
-
-        mouse.SetActive(textFinished);
     }   
 
+    /// <summary>
+    /// 清理数据列表
+    /// </summary>
+    private void ClearReference()
+    {        
+        textList.Clear();
+        nameList.Clear();
+        imageList.Clear();
+        character1List.Clear();
+        character2List.Clear();
+        speakingCharacterList.Clear();
+
+        textIndex = 0;    
+    }
+
+#region 普通文本对话脚本
     /// <summary>
     /// 设置初始状态
     /// </summary>
@@ -87,26 +90,9 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     }
 
     /// <summary>
-    /// AI思考时间
-    /// </summary>
-    private void CountDown()
-    {
-        // 更新计时器时间
-        lockTime -= Time.deltaTime;
-
-        // 检查计时器是否达到持续时间
-        if (lockTime < 0f)
-        {
-            // 计时器达到持续时间，执行相应操作
-            isTimerRunning = false;
-            SetInitialValue();
-        }        
-    }
-
-    /// <summary>
     /// 更新对话框内文本
     /// </summary>
-    public void UpdateText()   
+    private void UpdateText()   
     {
         if (Input.GetMouseButtonUp(0))
         {
@@ -228,6 +214,45 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         UIManager.Instance.UIShow = true;
         SetInitialValue();
     }
+#endregion
+
+#region AI对话脚本
+
+    /// <summary>
+    /// 更新对话框内文本
+    /// </summary>
+    private void UpdateTextForAI()   
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!textFinished && !cancelTyping)
+            {
+                cancelTyping = true;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 逐字渲染文字
+    /// </summary>
+    IEnumerator PlayingRowTextForAI(string textToPlay)
+    {
+        textFinished = false;
+        AIDialogText.text = Setting.stringDefaultValue;
+        int index = 0;
+        while (!cancelTyping && index < textToPlay.Length-1)
+        {
+            AIDialogText.text += textToPlay[index];
+            index++;
+            yield return new WaitForSeconds(playingTimeInterval);
+        }
+
+        AIDialogText.text = textToPlay;
+        cancelTyping = false;
+        textFinished = true;
+
+        textIndex++;
+    }
 
     //从ai处获取文本
     public void get_text_in_other_ways(string name, string text, string[] image_display)
@@ -236,7 +261,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
         nameList.Add(name);
         textList.Add(text);
-        imageList.Add(image_display);
+        // imageList.Add(image_display);
+
+        AINameText.text = name;
+        StartCoroutine(PlayingRowTextForAI(text));
+
     }
     
     /// <summary>
@@ -248,26 +277,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
         // 计时器完成后的操作
         isTimerRunning = true;
-        dialogPanel.SetActive(true);
         UIManager.Instance.UIShow = true;
         this.lockTime = lockTime;
-        nameText.text = "823";
-        dialogText.text= text;
+        AINameText.text = "823";
+        AIDialogText.text= text;
         LoadImageForCharacter();
     }    
-
-    /// <summary>
-    /// 清理数据列表
-    /// </summary>
-    public void ClearReference()
-    {        
-        textList.Clear();
-        nameList.Clear();
-        imageList.Clear();
-        character1List.Clear();
-        character2List.Clear();
-        speakingCharacterList.Clear();
-
-        textIndex = 0;    
-    }
+#endregion
 }

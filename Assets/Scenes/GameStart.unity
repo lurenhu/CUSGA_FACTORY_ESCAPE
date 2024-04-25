@@ -270,6 +270,7 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
+  - {fileID: 11400000, guid: 925519c667fc43f408084f3bc5db48e3, type: 2}
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
   levelIndex: 0
@@ -3188,6 +3189,7 @@ MonoBehaviour:
   backGround: {fileID: 0}
   rightNodeGraphButton: {fileID: 0}
   leftNodeGraphButton: {fileID: 0}
+  AIDialogLog: {fileID: 0}
   UIShow: 0
 --- !u!1 &1890877373
 GameObject:

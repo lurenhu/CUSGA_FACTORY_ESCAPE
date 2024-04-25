@@ -6,7 +6,7 @@ public class AILocked : MonoBehaviour
 {
     [Header("可调整参数")]
     public int submissionTimes;// 剩余提交次数
-    private bool hasResult = false;// 是否已经获取结果
+    [SerializeField] private bool hasResult = false;// 是否已经获取结果
 
     private Node myNode;
 
@@ -67,8 +67,12 @@ public class AILocked : MonoBehaviour
         if (submissionTimes == 0)
         {
             CheckAnxietyValue();
-            tongyi_AI.instance.input_field.SetActive(false);
         }
+    }
+
+    private void Update() {
+        if (hasResult && DialogSystem.Instance.textFinished && Input.GetMouseButtonDown(0) && DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf)
+            DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
     }
 
     /// <summary>
