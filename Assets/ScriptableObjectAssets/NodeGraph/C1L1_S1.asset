@@ -284,6 +284,7 @@ MonoBehaviour:
   stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphName: 
   backGround: {fileID: 0}
-  dialogForFirstTime: {fileID: 4900000, guid: b80aab8b017854447b5691582fa5abc8, type: 3}
+  dialogForFirstTime: {fileID: 4900000, guid: b937675b826822347a18efdb32d05746, type: 3}
   nodeTypeList: {fileID: 0}
   nodeList:
   - {fileID: 859551779857616185}
@@ -453,6 +454,7 @@ MonoBehaviour:
   stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
 --- !u!114 &2052939281837269702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +528,7 @@ MonoBehaviour:
   stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
 --- !u!114 &5592052527169294264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +565,7 @@ MonoBehaviour:
   stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
 --- !u!114 &6285247695829056170
 MonoBehaviour:
   m_ObjectHideFlags: 0
