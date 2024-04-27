@@ -26,6 +26,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public TMP_Text AINameText;
     public Image AICharacter_1;
     public Image AICharacter_2;
+    public GameObject dialogCellPrefab;
+    public Transform content;
+    public TMP_Text submitText;
+    public TMP_Text value;
+    public RectTransform anxietyValue;
     [Space(5)]
     [Header("参数")]
     [Tooltip("文本显示间隔时间")]
@@ -248,10 +253,14 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
 
         AIDialogText.text = textToPlay;
+
         cancelTyping = false;
         textFinished = true;
 
         textIndex++;
+
+        GameObject dialogCell = Instantiate(dialogCellPrefab,content);
+        dialogCell.GetComponentInChildren<TMP_Text>().text = textToPlay;
     }
 
     //从ai处获取文本
@@ -281,7 +290,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         this.lockTime = lockTime;
         AINameText.text = "823";
         AIDialogText.text= text;
-        LoadImageForCharacter();
     }    
 #endregion
 }

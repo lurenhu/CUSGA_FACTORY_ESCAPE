@@ -1154,6 +1154,17 @@ Transform:
   - {fileID: 1453675097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651763585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6838965401693746778, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 444224529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &655651866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1521,13 @@ MonoBehaviour:
   popUpForce: 2
   nodeLevelSOs:
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
+  - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
+  - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
+  - {fileID: 11400000, guid: 647d9f2fffc30024bb38e05de6bdfb94, type: 2}
+  - {fileID: 11400000, guid: 08bbb8749cc2de3468fea077d4b46650, type: 2}
+  - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}
+  - {fileID: 11400000, guid: 8d40aab09abf8be4eb9fb4f21578ac29, type: 2}
+  - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
   levelIndex: 0
   graphIndex: 0
   gameState: 0
@@ -1530,6 +1548,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1065489833 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7153179420784414106, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 444224529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1065489834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7456208142268156017, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 444224529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1068859738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1844,11 @@ MonoBehaviour:
   AINameText: {fileID: 444224535}
   AICharacter_1: {fileID: 444224534}
   AICharacter_2: {fileID: 444224531}
+  dialogCellPrefab: {fileID: 3399822387790502116, guid: ddceac11cba4f4345b06098e12ac363c, type: 3}
+  content: {fileID: 1995766197}
+  submitText: {fileID: 1065489834}
+  value: {fileID: 651763585}
+  anxietyValue: {fileID: 1065489833}
   playingTimeInterval: 0.05
   textFinished: 1
 --- !u!4 &1316451270
@@ -2445,6 +2484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1995766197 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4781800695795702574, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 444224529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1711750577622859435
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,7 +39,12 @@ public class AILocked : MonoBehaviour
             {
                 // 节点交互内容
                 if(!hasResult)
+                {
                     tongyi_AI.instance.input_field.SetActive(true);
+                    DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
+                    DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
+                    DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
+                }
                 
             }
             else
@@ -64,6 +69,10 @@ public class AILocked : MonoBehaviour
         GameManager.Instance.currentAnxiety += args.anxiety_change_value;
         submissionTimes--;
 
+        DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
+        DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
+        DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
+
         if (submissionTimes == 0)
         {
             hasResult = true;
@@ -72,7 +81,10 @@ public class AILocked : MonoBehaviour
 
     private void Update() {
         if (hasResult && DialogSystem.Instance.textFinished && Input.GetMouseButtonDown(0) && DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf)
+        {
             DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
+            UIManager.Instance.UIShow = false;
+        }
 
         if (hasResult && !DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf && !getCutScene)
         {

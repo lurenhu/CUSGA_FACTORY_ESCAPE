@@ -164,7 +164,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         enterNodeGraphTimesList[graphIndex]++;
 
         // 根据读取的节点状态数据重新载入节点图
-        NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
+        if (enterNodeGraphTimesList[graphIndex] != 1)
+            NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
     }
 
     /// <summary>
@@ -189,7 +190,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         enterNodeGraphTimesList[graphIndex]++;
         
         // 根据读取的节点状态数据重新载入节点图
-        NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
+        if (enterNodeGraphTimesList[graphIndex] != 1)
+            NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
     }
 
     /// <summary>
