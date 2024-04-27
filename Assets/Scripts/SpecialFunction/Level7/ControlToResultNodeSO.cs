@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class TimerToResultNodeSO : NodeSO
+public class ControlToResultNodeSO : NodeSO
 {
-    [Space(10)]
-    [Header("计时器触发结局节点所需数据")]
-    public string startNodeId;
-    public float duration;
+    [Space(5)]
+    [Header("移动节点参数")]
+    [Tooltip("当该节点的锤子撞击目标节点是触发事件")]
+    public string targetNodeID;
 
     #if UNITY_EDITOR
 
     public void Initialize(Rect rect, NodeGraphSO nodeGraph, NodeTypeSO NodeType)
     {
-        this.name = "ChangeSceneNode";
+        this.name = "ControlToResultNode";
         this.rect = rect;
         this.id = Guid.NewGuid().ToString();
         this.nodeGraph = nodeGraph;

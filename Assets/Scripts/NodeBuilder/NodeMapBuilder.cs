@@ -217,6 +217,16 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             Controll Controll = nodeGameObject.GetComponent<Controll>();
             Controll.InitializeControl(currentNode);
         }
+        else if (currentNode.nodeType.isTimerToResult)
+        {
+            TimerToResult TimerToResult = nodeGameObject.GetComponent<TimerToResult>();
+            TimerToResult.InitializeTimerToResult(currentNode);
+        }
+        else if (currentNode.nodeType.isControlToResult)
+        {
+            ControlToResult ControlToResult = nodeGameObject.GetComponent<ControlToResult>();
+            ControlToResult.InitializeControlToResult(currentNode);
+        }
     }
 
     /// <summary>
@@ -379,6 +389,18 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             if (currentNode.nodeType.isControllable)
             {
                 Controllable controllable = currentNode.GetComponent<Controllable>();
+                Destroy(controllable.line);
+                Destroy(controllable.hammer);
+            }
+            else if (currentNode.nodeType.isControl)
+            {
+                Controll controllable = currentNode.GetComponent<Controll>();
+                Destroy(controllable.line);
+                Destroy(controllable.hammer);
+            }
+            else if (currentNode.nodeType.isControlToResult)
+            {
+                ControlToResult controllable = currentNode.GetComponent<ControlToResult>();
                 Destroy(controllable.line);
                 Destroy(controllable.hammer);
             }

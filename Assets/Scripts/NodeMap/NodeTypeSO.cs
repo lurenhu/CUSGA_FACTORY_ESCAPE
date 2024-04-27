@@ -39,6 +39,13 @@ public class NodeTypeSO : ScriptableObject
     [Header("关卡4")]
     public bool isChangeScene;
 
+    [Space(10)]
+    [Header("关卡7")]
+    public bool isTimerToResult;
+    public bool isControlToResult;
+
+
+
 
 
 }

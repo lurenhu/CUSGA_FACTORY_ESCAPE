@@ -329,6 +329,11 @@ public class NodeGraphEditor : EditorWindow
 
         menu.AddItem(new GUIContent("创建切换节点图节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isChangeScene)));
 
+        menu.AddSeparator("Level7");
+
+        menu.AddItem(new GUIContent("创建时间计时至结局节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isTimerToResult)));
+        menu.AddItem(new GUIContent("创建控制至出口导出结局节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isControlToResult)));
+
         menu.AddSeparator("");
 
         menu.AddItem(new GUIContent("Select All Node"), false, SelectAllNode);
@@ -602,6 +607,20 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isChangeScene)
         {
             ChangeSceneNodeSO node = ScriptableObject.CreateInstance<ChangeSceneNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isTimerToResult)
+        {
+            TimerToResultNodeSO node = ScriptableObject.CreateInstance<TimerToResultNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isControlToResult)
+        {
+            ControlToResultNodeSO node = ScriptableObject.CreateInstance<ControlToResultNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

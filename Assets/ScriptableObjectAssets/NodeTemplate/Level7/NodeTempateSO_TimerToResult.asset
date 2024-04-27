@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9ee4a7f5e972489e6a325caa88a14, type: 3}
+  m_Name: NodeTempateSO_TimerToResult
+  m_EditorClassIdentifier: 
+  guid: e815cd73a4ae7694ba91017c3aac2edb
+  nodePrefab: {fileID: 4026254294051308990, guid: c57fb692f3286f040a3945d53fa5bc91, type: 3}
+  previousPrefab: {fileID: 4026254294051308990, guid: c57fb692f3286f040a3945d53fa5bc91, type: 3}
+  nodeType: {fileID: 11400000, guid: 9b0211b86b9b3fc449f746951dafc264, type: 2}

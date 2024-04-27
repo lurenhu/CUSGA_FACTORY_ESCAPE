@@ -7,10 +7,12 @@ public class TimerToResult : MonoBehaviour
 {
     [Header("观测参数")]
     public Node startNode;
-    public Node stopNode;
     public Node myNode;
     private float duration = 1;
-    private Coroutine timerCoroutine;
+
+    private void Start() {
+        StartCoroutine(StartTimer());
+    }
 
     private void OnMouseUp()
     {
@@ -55,14 +57,10 @@ public class TimerToResult : MonoBehaviour
 
         duration = timingNodeSO.duration;
         startNode = NodeMapBuilder.Instance.GetNode(timingNodeSO.startNodeId);
-        stopNode = NodeMapBuilder.Instance.GetNode(timingNodeSO.stopNodeId);
         myNode = transform.GetComponent<Node>();
 
         BeClocked beClocked = startNode.gameObject.AddComponent<BeClocked>();
         beClocked.InitializeBeClocked(this.myNode);
-        
-        StopClocked stopClocked = stopNode.gameObject.AddComponent<StopClocked>();
-        stopClocked.InitializeStopClocked(this.myNode);
     }
 
     /// <summary>
