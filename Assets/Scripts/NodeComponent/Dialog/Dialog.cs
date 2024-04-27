@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Dialog : MonoBehaviour
     private Node myNode;
     private Node parentNode;
     private int dialogIndex = 0;
+    private Sprite changeBackGroundImage;
 
     private void Start() {
         parentNode = NodeMapBuilder.Instance.GetNode(myNode.parentID);
@@ -30,6 +32,7 @@ public class Dialog : MonoBehaviour
 
         textAssets = dialogNodeSO.textAssets;
         stopAfterDialog = dialogNodeSO.stopAfterDialog;
+        changeBackGroundImage = dialogNodeSO.changeBackGroundImage;
 
         if (NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID) != null && NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisappearNodeID) != null)
         {
@@ -47,6 +50,9 @@ public class Dialog : MonoBehaviour
         {
             if (myNode.isSelected)
             {
+                if (changeBackGroundImage != null)
+                    StartCoroutine(ChangingBackGroundImage(changeBackGroundImage));
+
                 // 节点交互内容
                 if (stopAfterDialog)
                 {
@@ -77,6 +83,15 @@ public class Dialog : MonoBehaviour
             myNode.isDragging = false;
             GameManager.Instance.haveNodeDrag = false;
         } 
+    }
+
+    private IEnumerator ChangingBackGroundImage(Sprite sprite)
+    {
+        yield return StartCoroutine(UIManager.Instance.Fade(1,0,2,Color.white));
+
+        UIManager.Instance.backGround.GetComponent<Image>().sprite = sprite;
+
+        yield return StartCoroutine(UIManager.Instance.Fade(0,1,2,Color.white));
     }
 
     /// <summary>

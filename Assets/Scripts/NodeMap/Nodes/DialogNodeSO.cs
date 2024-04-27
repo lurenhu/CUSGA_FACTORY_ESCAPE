@@ -12,6 +12,7 @@ public class DialogNodeSO : NodeSO
     public bool stopAfterDialog = false;
     public string DisplayNodeID;
     public string DisappearNodeID;
+    public Sprite changeBackGroundImage;
 
     #if UNITY_EDITOR
 

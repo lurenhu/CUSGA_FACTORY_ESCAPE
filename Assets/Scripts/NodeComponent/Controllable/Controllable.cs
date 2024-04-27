@@ -15,7 +15,7 @@ public class Controllable : MonoBehaviour
     public float Friction = 0.5f;
 
     private Rigidbody2D BeControlledRb;
-    private Node myNode;
+    [SerializeField] private Node myNode;
     private SpringJoint2D springJoint;
     [HideInInspector] public GameObject line;
     [HideInInspector] public GameObject hammer;
@@ -49,7 +49,7 @@ public class Controllable : MonoBehaviour
         line = LineCreator.Instance.CreateLine(transform, hammer.transform);
 
         BeControlledRb = hammer.GetComponent<Rigidbody2D>();
-        myNode = transform.GetComponentInParent<Node>();
+        myNode = transform.GetComponent<Node>();
         springJoint = transform.GetComponent<SpringJoint2D>();
 
         springJoint.autoConfigureDistance = false;
@@ -125,7 +125,7 @@ public class Controllable : MonoBehaviour
         }
         else
         {
-            Debug.LogError("目标节点不存在");
+            Debug.Log("目标节点不存在");
         }
     }
 }

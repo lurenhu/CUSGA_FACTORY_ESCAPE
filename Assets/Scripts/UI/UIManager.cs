@@ -78,4 +78,20 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     {
         AIDialogLog.gameObject.SetActive(!AIDialogLog.gameObject.activeSelf);
     }
+
+    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color color)
+    {
+        Image image = backGround.GetComponent<Image>();
+        image.color = color;
+
+        float time = 0;
+
+        while (time <= fadeSecounds)
+        {
+            time += Time.deltaTime;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSecounds));
+            yield return null;
+        }
+
+    }
 }

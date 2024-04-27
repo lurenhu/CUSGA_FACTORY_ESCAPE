@@ -322,7 +322,12 @@ public class NodeGraphEditor : EditorWindow
 
         menu.AddSeparator("Level3");
 
-        menu.AddItem(new GUIContent("创建移动节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isMoving)));
+        menu.AddItem(new GUIContent("创建移动距离触发结果节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isMoving)));
+        menu.AddItem(new GUIContent("创建碰撞触发结果节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isControl)));
+
+        menu.AddSeparator("Level4");
+
+        menu.AddItem(new GUIContent("创建切换节点图节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isChangeScene)));
 
         menu.AddSeparator("");
 
@@ -583,6 +588,20 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isMoving)
         {
             MovingNodeSO node = ScriptableObject.CreateInstance<MovingNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isControl)
+        {
+            ControllNodeSO node = ScriptableObject.CreateInstance<ControllNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isChangeScene)
+        {
+            ChangeSceneNodeSO node = ScriptableObject.CreateInstance<ChangeSceneNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

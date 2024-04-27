@@ -39,7 +39,7 @@ public class Chasing : MonoBehaviour
 
         Vector2 direction = (chasingTargetNode.transform.position - myNode.transform.position).normalized;
 
-        // gameObject.transform.Translate()
+        gameObject.transform.Translate(direction * Time.deltaTime * moveSpeed);
     }
 
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   id: f6d334d2-2840-48f2-8763-5f7d58c13b6c
   parentNodeIdList: []
   childrenNodeIdList:
-  - 824b2189-09d6-4abf-b01a-49ff59900dc6
+  - ea0fcb94-373e-497d-acd7-9dd86feb40e2
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
@@ -44,8 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeText: 
   id: 845a8bbf-1017-4152-b12c-a80bc3ee1f9a
-  parentNodeIdList:
-  - 824b2189-09d6-4abf-b01a-49ff59900dc6
+  parentNodeIdList: []
   childrenNodeIdList: []
   audioList: []
   nodeTextForShow: 
@@ -59,39 +58,7 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
---- !u!114 &-22216726789352604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cd0e186a24b66409f15f00652b2099, type: 3}
-  m_Name: AILockedNode
-  m_EditorClassIdentifier: 
-  nodeText: 
-  id: 824b2189-09d6-4abf-b01a-49ff59900dc6
-  parentNodeIdList:
-  - f6d334d2-2840-48f2-8763-5f7d58c13b6c
-  childrenNodeIdList:
-  - 845a8bbf-1017-4152-b12c-a80bc3ee1f9a
-  audioList: []
-  nodeTextForShow: 
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 550
-    y: 221
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 1
-  submissionTimes: 2
+  isSelected: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +78,38 @@ MonoBehaviour:
   nodeList:
   - {fileID: -9024562813633071491}
   - {fileID: -7998719140008363755}
-  - {fileID: -22216726789352604}
+  - {fileID: 4462063586291402874}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
+--- !u!114 &4462063586291402874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbb04b9292ca9b4d931a9ded9a814a1, type: 3}
+  m_Name: ControllableNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: ea0fcb94-373e-497d-acd7-9dd86feb40e2
+  parentNodeIdList:
+  - f6d334d2-2840-48f2-8763-5f7d58c13b6c
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 4c9c11e46f9f8314a87510406af731d7, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 455
+    y: 219
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  speedToPop: 10
+  collidedNodeId: 

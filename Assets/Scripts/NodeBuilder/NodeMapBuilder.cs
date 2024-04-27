@@ -123,7 +123,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
     /// </summary>
     private void MatchCorrespondingNodeType(NodeSO currentNode, GameObject nodeGameObject)
     {
-        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance || currentNode.nodeType.isExit)// 不需要进行初始化的节点类型
+        if (currentNode.nodeType.isDefault || currentNode.nodeType.isEntrance || currentNode.nodeType.isExit || currentNode.nodeType.isChangeScene)// 不需要进行初始化的节点类型
         {
             return;
         }
@@ -211,6 +211,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         {
             Chasing Chasing = nodeGameObject.GetComponent<Chasing>();
             Chasing.InitializeChasingNode(currentNode);
+        }
+        else if (currentNode.nodeType.isControl)
+        {
+            Controll Controll = nodeGameObject.GetComponent<Controll>();
+            Controll.InitializeControl(currentNode);
         }
     }
 
