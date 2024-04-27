@@ -7,7 +7,7 @@ public class AILocked : MonoBehaviour
     [Header("可调整参数")]
     public int submissionTimes;// 剩余提交次数
     [SerializeField] private bool hasResult = false;// 是否已经获取结果
-
+    [SerializeField] private bool getCutScene = false;// 是否已经获取结果
     private Node myNode;
 
     private void OnEnable() {
@@ -66,29 +66,36 @@ public class AILocked : MonoBehaviour
 
         if (submissionTimes == 0)
         {
-            CheckAnxietyValue();
+            hasResult = true;
         }
     }
 
     private void Update() {
         if (hasResult && DialogSystem.Instance.textFinished && Input.GetMouseButtonDown(0) && DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf)
             DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
+
+        if (hasResult && !DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf && !getCutScene)
+        {
+            CheckAnxietyValue();
+            getCutScene = true;
+        }
+
     }
 
     /// <summary>
-    /// 检查焦虑值并弹出对应子节点
+    /// 检查焦虑值并给出相关的结局
     /// </summary>
     private void CheckAnxietyValue()
     {
-        if (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety < GameManager.Instance.rate)
+        if (GameManager.Instance.CheckAnxietyValue())
         {
-            Debug.Log("win");
+            // 前往下一关
+            GameManager.Instance.levelIndex++;
+            GameManager.Instance.gameState = GameState.Generating;
         }
         else
         {
-            Debug.Log("fail");
+            // 播放失败过场
         }
-
-        hasResult = true;
     }
 }

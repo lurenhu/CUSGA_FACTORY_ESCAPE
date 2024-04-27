@@ -1811,6 +1811,7 @@ MonoBehaviour:
   AICharacter_1: {fileID: 444224534}
   AICharacter_2: {fileID: 444224531}
   playingTimeInterval: 0.05
+  textFinished: 1
 --- !u!4 &1316451270
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,6 +2407,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 461ee7a7f8577dd40b6aeab051d1603e, type: 2}
   - {fileID: 11400000, guid: f61c01ef2e80f9449b9f98d7eef98901, type: 2}
   - {fileID: 11400000, guid: 67591905ef70cfe46b1ab24f05253420, type: 2}
+  - {fileID: 11400000, guid: 87d293f978f94db4ca59559d4eba8e90, type: 2}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0

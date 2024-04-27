@@ -202,6 +202,16 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             Level1AILock level1AILock = nodeGameObject.GetComponent<Level1AILock>();
             level1AILock.InitializeLevel1AILock(currentNode);
         }
+        else if (currentNode.nodeType.isMoving)
+        {
+            Moving moving = nodeGameObject.GetComponent<Moving>();
+            moving.InitializeMoving(currentNode);
+        }
+        else if (currentNode.nodeType.isChasing)
+        {
+            Chasing Chasing = nodeGameObject.GetComponent<Chasing>();
+            Chasing.InitializeChasingNode(currentNode);
+        }
     }
 
     /// <summary>

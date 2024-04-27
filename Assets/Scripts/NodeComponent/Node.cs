@@ -110,7 +110,7 @@ public class Node : MonoBehaviour
 
     protected virtual void OnMouseDrag() 
     {
-        if (isPopping || nodeType.isQTE || UIManager.Instance.UIShow) return;
+        if (isPopping || nodeType.isQTE ||  nodeType.isChasing || UIManager.Instance.UIShow) return;
         
         // 获取鼠标位移并将对象进行跟随鼠标进行位移
         Vector2 currentMouseWorldPosition = HelperUtility.TranslateScreenToWorld(Input.mousePosition);

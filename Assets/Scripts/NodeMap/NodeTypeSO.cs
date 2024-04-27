@@ -30,4 +30,8 @@ public class NodeTypeSO : ScriptableObject
     public bool isAIAnxietyChanged;
     public bool isLevel1AILock;
 
+     [Space(10)]
+    [Header("关卡3")]
+    public bool isMoving;
+
 }
