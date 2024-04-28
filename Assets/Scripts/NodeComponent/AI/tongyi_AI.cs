@@ -72,7 +72,8 @@ public class tongyi_AI : MonoBehaviour
             soundManager.Instance.PlaySFX(test_SFX);
             return;
         }
-        string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录        
+        string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录     
+        DialogSystem.Instance.AddAIDialogLogCell(content);   
         writeAndLoadHistory.writeText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
         await PostMessage(bot,content);      

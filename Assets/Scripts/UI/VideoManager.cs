@@ -66,55 +66,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     [Header("连续播发过场动画")]
     private bool isPlayingAutoCutScene = false;
 
-    /// <summary>
-    /// 展示自动播放场景
-    /// </summary>
-    /// <param name="cutSceneCell"></param>
-    public void ShowAutoCutScene(CutSceneCell cutSceneCell)
-    {
-        var rows = cutSceneCell.text.text.Split("\n");
-        foreach (var row in rows)
-        {
-            textForShow.Enqueue(row);
-        }
-
-        ChangeAnimation(cutSceneCell.animationStateName);
-        StartCoroutine(PlayingAutoText());
-    }
-
-    
-
-    /// <summary>
-    /// 获取所有的图片与对应的文本内容，并开始图文演出
-    /// </summary>
-    public void ShowCutScenes(List<CutSceneCell> cutSceneCellList)
-    {
-        if (cutSceneCellList.Count == 0) return;
-
-        RestoreInitialState();
-
-        this.cutSceneCellList = cutSceneCellList;
-
-        ShowCutScene(cutSceneCellList[animationIndex]);
-
-        DialogSystem.Instance.gameObject.SetActive(false);
-    }
-
-    /// <summary>
-    /// 获取并排列好文本,并初始化文本与图片内容
-    /// </summary>
-    private void ShowCutScene(CutSceneCell cutSceneCell)
-    {
-        var rows = cutSceneCell.text.text.Split("\n");
-        foreach (var row in rows)
-        {
-            textForShow.Enqueue(row);
-        }
-
-        ChangeAnimation(cutSceneCell.animationStateName);
-        StartCoroutine(PlayingRowText(textForShow.Dequeue()));
-    }
-
     private void Update() {
         if (!cutSceneUIPanel.gameObject.activeSelf) return;
 
@@ -146,6 +97,39 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         }
     }
 
+
+#region 播放图文动画(可交互)
+    /// <summary>
+    /// 获取所有的图片与对应的文本内容，并开始图文演出
+    /// </summary>
+    public void ShowCutScenes(List<CutSceneCell> cutSceneCellList)
+    {
+        if (cutSceneCellList.Count == 0) return;
+
+        RestoreInitialState();
+
+        this.cutSceneCellList = cutSceneCellList;
+
+        ShowCutScene(cutSceneCellList[animationIndex]);
+
+        DialogSystem.Instance.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// 获取并排列好文本,并初始化文本与图片内容
+    /// </summary>
+    private void ShowCutScene(CutSceneCell cutSceneCell)
+    {
+        var rows = cutSceneCell.text.text.Split("\n");
+        foreach (var row in rows)
+        {
+            textForShow.Enqueue(row);
+        }
+
+        ChangeAnimation(cutSceneCell.animationStateName);
+        StartCoroutine(PlayingRowText(textForShow.Dequeue()));
+    }
+
     /// <summary>
     /// 启动文字逐一播放
     /// </summary>
@@ -164,6 +148,26 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         tmpText.text = textToPlay;
         cancelTyping = false;
         textFinished = true;
+    }
+#endregion 
+
+#region 自动播放动画字幕
+    /// <summary>
+    /// 展示自动播放场景
+    /// </summary>
+    /// <param name="cutSceneCell"></param>
+    public void ShowAutoCutScene(CutSceneCell cutSceneCell)
+    {
+        var rows = cutSceneCell.text.text.Split("\n");
+        foreach (var row in rows)
+        {
+            textForShow.Enqueue(row);
+        }
+
+        isPlayingAutoCutScene = true;
+
+        ChangeAnimation(cutSceneCell.animationStateName);
+        StartCoroutine(PlayingAutoText());
     }
 
     /// <summary>
@@ -208,7 +212,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         yield return new WaitForSeconds(time);
 
         textFinished = true;
+
+        isPlayingAutoCutScene = false;
     }
+#endregion
 
     /// <summary>
     /// 恢复初始状态

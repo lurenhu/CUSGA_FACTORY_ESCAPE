@@ -8,7 +8,7 @@ using UnityEngine.Pool;
 public class UIManager : SingletonMonobehaviour<UIManager>
 {
     [Space(10)]
-    [Header("所需UI对象")]
+    [Header("节点功能UI对象")]
     [Tooltip("图节点展示图的UI对象")]
     public Transform graphNodeUI;
     [Tooltip("将节点文本显示的UI对象")]
@@ -17,14 +17,20 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform scrollViewContent;
     [Tooltip("节点文本显示UI对象")]
     public Transform textNodeUI;
+    [Tooltip("AI对话日志")]
+    public Transform AIDialogLog;
+
+    [Space(5)]
+    [Header("场景UI对象")]
     [Tooltip("背景UI对象")]
     public Transform backGround;
+    [Tooltip("前景UI对象")]
+    public Transform frontGround;
     [Tooltip("向右侧切换节点图按钮")]
     public Transform rightNodeGraphButton;
     [Tooltip("向左侧切换节点图按钮")]
     public Transform leftNodeGraphButton;
-    [Tooltip("AI对话日志")]
-    public Transform AIDialogLog;
+    
     
 
     public bool UIShow = false;

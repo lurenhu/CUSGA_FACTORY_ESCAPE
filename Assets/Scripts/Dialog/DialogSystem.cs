@@ -58,8 +58,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
             UpdateTextForAI();
         }
 
-        
-
         if (dialogPanel.activeSelf)
         {
             UpdateText();
@@ -259,8 +257,16 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
         textIndex++;
 
+        AddAIDialogLogCell(textToPlay);
+    }
+
+    /// <summary>
+    /// 添加对话历史记录
+    /// </summary>
+    public void AddAIDialogLogCell(string dialogText)
+    {
         GameObject dialogCell = Instantiate(dialogCellPrefab,content);
-        dialogCell.GetComponentInChildren<TMP_Text>().text = textToPlay;
+        dialogCell.GetComponentInChildren<TMP_Text>().text = dialogText;
     }
 
     //从ai处获取文本

@@ -50,7 +50,7 @@ public class Cipher : MonoBehaviour
         else
             value++;
 
-        transform.Find("Value").GetComponent<TMP_Text>().text = value.ToString();
+        transform.Find("Value").GetComponentInChildren<TMP_Text>().text = value.ToString();
     }
 
     public void InitializeCipherNode(int index, int value)
@@ -59,7 +59,7 @@ public class Cipher : MonoBehaviour
         this.value = value;
         myNode = transform.GetComponent<Node>();
 
-        transform.Find("Value").GetComponent<TMP_Text>().text = value.ToString();
-        transform.Find("Index").GetComponentInChildren<TMP_Text>().text = (index + 1).ToString();
+        transform.Find("Value").GetComponentInChildren<TMP_Text>().text = value.ToString();
+        transform.Find("Index").GetComponentInChildren<TMP_Text>().text = "[" + (index + 1).ToString() + "]";
     }
 }
