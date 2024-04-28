@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameStart : SingletonMonobehaviour<GameStart>
 {
+    public Transform loadPanel;
+    public Slider loadSlider;
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
 
@@ -47,9 +50,36 @@ public class GameStart : SingletonMonobehaviour<GameStart>
 
     public void StartGame()
     {   
-        SceneManager.LoadSceneAsync("NodeMapTest");
+        StartCoroutine(LoadLevel());
+    }
+
+    IEnumerator LoadLevel()
+    {
+        loadPanel.gameObject.SetActive(true);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync("NodeMapTest");
+
+        operation.allowSceneActivation = false;
+
+        while (!operation.isDone)
+        {
+            loadSlider.value = operation.progress;
+
+            if (operation.progress >= 0.9)
+            {
+                loadSlider.value = 1;
+
+                yield return new WaitForSeconds(1);
+
+                operation.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
+
         GameManager.Instance.gameState = GameState.Generating;
     }
+
 
 
     public void QuitGame()

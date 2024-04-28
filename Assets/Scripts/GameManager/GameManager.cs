@@ -44,6 +44,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
 
     [Space(10)]
+    [Header("过场UI")]
+    public CanvasGroup canvasGroup;
+
+    [Space(10)]
     [Header("游戏状态参数")]
     public GameState gameState = GameState.Start;
 
@@ -56,6 +60,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         DontDestroyOnLoad(gameObject);
     }
     
+    private void OnEnable() {
+        
+    }
+
+    private void OnDisable() {
+        
+    }
+
     private void Start() {
     }   
 
@@ -70,7 +82,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.Generating:
                 if (NodeMapBuilder.Instance == null) return;
 
-                GetGenerateNodeMap();                
+                StartCoroutine(GetGenerateNodeMap());                
 
                 gameState = GameState.Playing;
                 break;
@@ -88,13 +100,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 生成节点图并初始化相关参数
     /// </summary>
-    private void GetGenerateNodeMap()
+    private IEnumerator GetGenerateNodeMap()
     {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[graphIndex];
 
-        if (currentNodeLevel == null) return;
-        
         GetCutScene(currentNodeLevel);
         InitializeReference(currentNodeLevel);
 
@@ -111,6 +124,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(false);
             UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(false);
         }
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
     /// <summary>
@@ -207,6 +221,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             return false;
         }
+    }
+
+    /// <summary>
+    /// 淡入淡出
+    /// </summary>
+    private IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color backGround)
+    {
+        Image image = canvasGroup.GetComponent<Image>();
+        image.color = backGround;
+
+        float time = 0;
+
+        while (time <= fadeSecounds)
+        {
+            time += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSecounds);
+            yield return null;
+        }
+
     }
 
 }
