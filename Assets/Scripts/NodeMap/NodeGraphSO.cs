@@ -7,6 +7,8 @@ public class NodeGraphSO : ScriptableObject
 {
     [Tooltip("节点图的名称")]
     public string graphName;
+    [Tooltip("前景图片")]
+    public Sprite foreGround;
     [Tooltip("背景图片")]
     public Sprite backGround;
     [Tooltip("进入该节点图的对话文本")]

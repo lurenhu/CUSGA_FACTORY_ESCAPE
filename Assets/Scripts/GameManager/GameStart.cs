@@ -57,7 +57,7 @@ public class GameStart : SingletonMonobehaviour<GameStart>
         yield return StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
 
         SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadSceneAsync("NodeMapTest",LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
 
         GameManager.Instance.gameState = GameState.Generating;
     }

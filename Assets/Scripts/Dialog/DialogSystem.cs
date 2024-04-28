@@ -18,7 +18,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public TMP_Text nameText;
     public Image character_1;
     public Image character_2;
-    public GameObject mouse;
     [Space(5)]
     [Header("AI对话UI组件")]
     public Transform AIDialogPanel;
@@ -31,6 +30,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public TMP_Text submitText;
     public TMP_Text value;
     public RectTransform anxietyValue;
+    public List<Image> SubmitTimer;
     [Space(5)]
     [Header("参数")]
     [Tooltip("文本显示间隔时间")]
@@ -61,7 +61,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (dialogPanel.activeSelf)
         {
             UpdateText();
-            mouse.SetActive(textFinished);
         }
     }   
 
