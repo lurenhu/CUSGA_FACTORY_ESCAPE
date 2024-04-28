@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.UI;
 using TMPro;
 
 public class VideoManager : SingletonMonobehaviour<VideoManager>
@@ -64,6 +63,27 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     private bool textFinished;// 判断当前文本是否结束
     private bool cancelTyping;// 判断是否取消打字
 
+    [Header("连续播发过场动画")]
+    private bool isPlayingAutoCutScene = false;
+
+    /// <summary>
+    /// 展示自动播放场景
+    /// </summary>
+    /// <param name="cutSceneCell"></param>
+    public void ShowAutoCutScene(CutSceneCell cutSceneCell)
+    {
+        var rows = cutSceneCell.text.text.Split("\n");
+        foreach (var row in rows)
+        {
+            textForShow.Enqueue(row);
+        }
+
+        ChangeAnimation(cutSceneCell.animationStateName);
+        StartCoroutine(PlayingAutoText());
+    }
+
+    
+
     /// <summary>
     /// 获取所有的图片与对应的文本内容，并开始图文演出
     /// </summary>
@@ -98,7 +118,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     private void Update() {
         if (!cutSceneUIPanel.gameObject.activeSelf) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isPlayingAutoCutScene)
         {
             if (textFinished && textForShow.Count > 0)
             {
@@ -120,6 +140,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 ShowCutScene(cutSceneCellList[animationIndex]);
             }
         }
+        else if (Input.GetMouseButtonDown(0) && isPlayingAutoCutScene)
+        {
+
+        }
     }
 
     /// <summary>
@@ -139,6 +163,50 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         tmpText.text = textToPlay;
         cancelTyping = false;
+        textFinished = true;
+    }
+
+    /// <summary>
+    /// 自动播放文本内容
+    /// </summary>
+    private IEnumerator PlayingAutoText()
+    {
+        string rowText = textForShow.Dequeue();
+
+        while (rowText != null)
+        {
+            yield return StartCoroutine(PlayingAutoRowText(rowText));
+            rowText = textForShow.Dequeue();
+        }
+    }
+
+    /// <summary>
+    /// 启动自动文字逐一播放
+    /// </summary>
+    IEnumerator PlayingAutoRowText(string rowText)
+    {
+        var tag = rowText.Split(":");
+        float R = float.Parse(tag[0]);
+        float G = float.Parse(tag[1]);
+        float B = float.Parse(tag[2]);
+        float A = float.Parse(tag[3]);
+        string textToPlay = tag[4];
+        float time = float.Parse(tag[5]);
+
+        textFinished = false;
+
+        tmpText.color = new Color(R, G, B, A);
+        tmpText.text = Setting.stringDefaultValue;
+        int index = 0;
+        while (index < textToPlay.Length-1)
+        {
+            tmpText.text += textToPlay[index];
+            index++;
+            yield return new WaitForSeconds(playingTimeInterval);
+        }
+        tmpText.text = textToPlay;
+        yield return new WaitForSeconds(time);
+
         textFinished = true;
     }
 
