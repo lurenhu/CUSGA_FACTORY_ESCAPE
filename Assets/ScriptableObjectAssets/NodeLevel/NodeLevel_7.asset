@@ -17,5 +17,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78bd3dbd01d3e7c41a93c5ec8738913d, type: 2}
   initialAnxietyValue: 0
   rate: 0
-  cutSceneList: []
-  canNotTransitionForFirstTimes: 0
+  cutSceneList:
+  - animationStateName: L6_A5
+    text: {fileID: 0}
+    isAuto: 0
+  - animationStateName: L6_Video
+    text: {fileID: 0}
+    isAuto: 1
+  - animationStateName: L6_A8
+    text: {fileID: 0}
+    isAuto: 0
+  - animationStateName: L6_A9
+    text: {fileID: 0}
+    isAuto: 0
+  - animationStateName: L6_A11
+    text: {fileID: 0}
+    isAuto: 0
+  - animationStateName: L6_A12
+    text: {fileID: 0}
+    isAuto: 0
