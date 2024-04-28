@@ -89,3 +89,12 @@ MonoBehaviour:
   musics: []
   SFXs: []
   videos: []
+  QTESprites:
+  - direction: 0
+    sprite: {fileID: 21300000, guid: cd690e21171891242a4db8dbf066eae0, type: 3}
+  - direction: 1
+    sprite: {fileID: 21300000, guid: 9dd02a90c851c9f41a73a46b57bb1419, type: 3}
+  - direction: 2
+    sprite: {fileID: 21300000, guid: d33b4cd502dcc5e478d4fe7cd6107f2f, type: 3}
+  - direction: 3
+    sprite: {fileID: 21300000, guid: e437a9cd38afaec4ebdc2dad08f3c182, type: 3}

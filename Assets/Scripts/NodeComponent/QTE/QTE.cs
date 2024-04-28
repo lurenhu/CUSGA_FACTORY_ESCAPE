@@ -1,19 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UIElements;
 
 public class QTE : MonoBehaviour
 {
     [Header("观测数据")]
     public Node myNode;
+    public float dragDistanceThreshold = 2;
     private Vector2 dragStartPosition;
-    public float dragDistanceThreshold;
     private Direction direction;
+    private SpriteRenderer spriteRenderer;
 
     private void Start() {
-        myNode = transform.GetComponent<Node>();
+        switch (direction)
+        {
+            case Direction.Left:
+                spriteRenderer.sprite = GameResources.Instance.QTESprites.Find(x => x.direction == Direction.Left).sprite;
+                break;
+            case Direction.Right:
+                spriteRenderer.sprite = GameResources.Instance.QTESprites.Find(x => x.direction == Direction.Right).sprite;
+                break;
+            case Direction.Up:
+                spriteRenderer.sprite = GameResources.Instance.QTESprites.Find(x => x.direction == Direction.Up).sprite;
+                break;
+            case Direction.Down:
+                spriteRenderer.sprite = GameResources.Instance.QTESprites.Find(x => x.direction == Direction.Down).sprite;
+                break;
+            default:
+                Debug.Log("No This Direction");
+                return;
+        }
+
     }
 
     /// <summary>
@@ -26,6 +44,9 @@ public class QTE : MonoBehaviour
         dragDistanceThreshold = qTENodeSO.dragDistance;
 
         direction = qTENodeSO.direction;
+
+        myNode = transform.GetComponent<Node>();
+        spriteRenderer = transform.GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseUp()

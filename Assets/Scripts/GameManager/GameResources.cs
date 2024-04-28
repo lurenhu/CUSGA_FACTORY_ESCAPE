@@ -36,6 +36,9 @@ public class GameResources : MonoBehaviour
     [Tooltip("视频列表")]
     public List<Video> videos = new List<Video>();
 
+    [Tooltip("QTE图片")]
+    public List<QTESprite> QTESprites = new List<QTESprite>();
+
 }
 
 [System.Serializable]
@@ -60,7 +63,9 @@ public class CutSceneCell
 }
 
 [System.Serializable]
-public class CutSceneAsset
+public class QTESprite
 {
-    public List<CutSceneCell> list;
+    public Direction direction;
+    public Sprite sprite;
 }
+
