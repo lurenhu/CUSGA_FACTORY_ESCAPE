@@ -18,4 +18,3 @@ MonoBehaviour:
   initialAnxietyValue: 0
   rate: 0
   cutSceneList: []
-  canNotTransitionForFirstTimes: 0
