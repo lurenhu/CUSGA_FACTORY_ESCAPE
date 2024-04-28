@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: C2L2_S2
   m_EditorClassIdentifier: 
   graphName: 
-  backGround: {fileID: 0}
+  backGround: {fileID: 21300000, guid: cce3fd0104102fb418ec164a1cc438d2, type: 3}
   dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:
