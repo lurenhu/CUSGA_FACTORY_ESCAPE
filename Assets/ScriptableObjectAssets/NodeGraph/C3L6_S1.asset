@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: C3L6_S1
   m_EditorClassIdentifier: 
   graphName: 
-  backGround: {fileID: 0}
+  backGround: {fileID: 21300000, guid: 18d8d0568d4b5c948944495a092917f4, type: 3}
   dialogForFirstTime: {fileID: 4900000, guid: 73066af3e36730a4d964122a0d4671cd, type: 3}
   nodeTypeList: {fileID: 0}
   nodeList:
