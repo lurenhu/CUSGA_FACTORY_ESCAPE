@@ -187,6 +187,8 @@ public class Node : MonoBehaviour
     /// </summary>
     public void GetSelectedAnimate()
     {
+        if (!gameObject.activeSelf) return;
+        
         transform.DOScale(new Vector3(1.1f,1.1f,1),0.2f);
         StartCoroutine(ChangeColor(selectedColor,0.2f));
     }
@@ -196,6 +198,8 @@ public class Node : MonoBehaviour
     /// </summary>
     public void GetUnSelectedAnimate()
     {
+        if (!gameObject.activeSelf) return;
+
         transform.DOScale(new Vector3(1f,1f,1),0.2f);
         StartCoroutine(ChangeColor(unSelectedColor,0.2f));
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class AILocked : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class AILocked : MonoBehaviour
                 if(!hasResult)
                 {
                     tongyi_AI.instance.input_field.SetActive(true);
+                    DialogSystem.Instance.PopUpAIDialogPanel();
                     DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
                     DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
                     DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
