@@ -29,7 +29,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 90
+        time: 60
         value: {x: 1.2, y: 1.2, z: 1.2}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Image_1
+    path: 
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -144,7 +144,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3637979773
+      path: 0
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -204,7 +204,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 90
+    m_StopTime: 60
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -318,7 +318,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 90
+        time: 60
         value: 1.2
         inSlope: 0
         outSlope: 0
@@ -330,7 +330,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Image_1
+    path: 
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -348,7 +348,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 90
+        time: 60
         value: 1.2
         inSlope: 0
         outSlope: 0
@@ -360,7 +360,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Image_1
+    path: 
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -378,7 +378,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 90
+        time: 60
         value: 1.2
         inSlope: 0
         outSlope: 0
@@ -390,7 +390,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Image_1
+    path: 
     classID: 224
     script: {fileID: 0}
     flags: 0
