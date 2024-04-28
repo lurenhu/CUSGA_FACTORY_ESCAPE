@@ -1219,84 +1219,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: musicSound.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
       propertyPath: sfxSounds.Array.data[1].name
-      value: textOccurSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[2].name
       value: mixSFX
       objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[3].name
+      propertyPath: sfxSounds.Array.data[2].name
       value: QTESFX
       objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[4].name
+      propertyPath: sfxSounds.Array.data[3].name
       value: lockSFX
       objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[5].name
+      propertyPath: sfxSounds.Array.data[4].name
       value: AISFX
       objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+      propertyPath: sfxSounds.Array.data[5].name
+      value: sceneChangeSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
       propertyPath: sfxSounds.Array.data[6].name
-      value: sceneChangeSFX
+      value: pointOccurSFX
       objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
     - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
       propertyPath: sfxSounds.Array.data[7].name
-      value: sceneChangeSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: musicSound.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ab06fef2fb014f34d8363193d8e587ec, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: musicSound.Array.data[1].name
-      value: fadeTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: musicSound.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ab06fef2fb014f34d8363193d8e587ec, type: 3}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: musicSound.Array.data[2].name
-      value: fadeTest
+      value: textOccurSFX
       objectReference: {fileID: 0}
     - target: {fileID: 4117030568269782621, guid: 1862dbca589e71a4dace207267126c51, type: 3}
       propertyPath: m_Name
