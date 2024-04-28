@@ -8,16 +8,19 @@ public class soundManager : SingletonMonobehaviour<soundManager>
 {
     [Header("文件管理与播放器")]
     public Sound[] musicSound, sfxSounds;
-    public AudioSource musicSource, sfxSource,textSource;
-    public bool is_update_text=false;
+    public AudioSource musicSource, sfxSource, textSource;
+    public bool is_update_text = false;
+    [Header("音量控制")]
     public float totalVolume=1f;
     
 
     private Coroutine fadeCoroutine; // 用于控制渐强的协程
+    //设置总音量
     public void setTotalVolume(float volume) 
     {
         totalVolume = volume;
     }
+    //分项音量由比例计算得出
     public void setMusicVolume(float volume)
     {
         musicSource.volume = volume*totalVolume;
@@ -29,7 +32,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
 
     }
 
-    public void PlayMusic(string name)
+    public void PlayMusic(string name,bool loop = true)
     {
         Debug.Log("play");
         Sound s = Array.Find(musicSound, x => x.name == name);
@@ -39,6 +42,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         }
         else
         {
+            musicSource.loop = loop;
             musicSource.clip = s.clip;
             musicSource.Play();
         }
@@ -69,9 +73,12 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     //渐强播放音乐
     public void PlayMusicInFade(AudioClip music, bool loop=true, bool volume_is_up=true)
     {
-        musicSource.loop = loop;
-        musicSource.clip = music;
-        musicSource.Play();
+        PlayMusic(music);
+        FadeVolume(volume_is_up);
+    }
+    public void PlayMusicInFade(string name, bool loop = true, bool volume_is_up = true)
+    {
+        PlayMusic(name);
         FadeVolume(volume_is_up);
     }
     public void StopMusic()
