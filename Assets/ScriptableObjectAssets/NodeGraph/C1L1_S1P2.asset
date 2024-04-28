@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5142483941492360909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u6D82\u6539\u8FC7\u7684\u65E5\u5386"
+  id: d7859bea-718b-4f23-9e7b-74f5351761a2
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u4E00\u4E2A\u65E5\u5386\uFF0C\u4E0A\u9762\u6709\u7EA2\u8272\u7B14\u8FF9\u6807\u8BB0\u4E869\u670815\u65E5"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 983
+    y: 522
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-5100638587196858694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u5C0F\u578B\u8F66\u95F4"
+  id: ec63bad6-8a10-4d98-abd5-75592b407721
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - cc3d3ab1-fa78-4f7e-b551-c1b8838c2658
+  - 6663b964-9f9c-4d3a-99d9-cd5f10f5b7e0
+  - 8af8920b-54a0-4497-a092-134e353e4570
+  - d06b81ea-3fba-402e-814e-030033668e28
+  - d7859bea-718b-4f23-9e7b-74f5351761a2
+  audioList: []
+  nodeTextForShow: "\u4E00\u95F4\u5C0F\u578B\u8F66\u95F4\uFF0C\u7B97\u4E0D\u4E0A\u72ED\u5C0F\uFF0C\u5230\u5904\u90FD\u662F\u770B\u8D77\u6765\u5341\u5206\u9AD8\u7EA7\u7684\u4EEA\u5668\u4E0E\u673A\u68B0"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 714
+    y: 433
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-4869184661536882656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u804C\u5458\u8868"
+  id: 6663b964-9f9c-4d3a-99d9-cd5f10f5b7e0
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u8BB0\u5F55\u4E86\u5728\u8FD9\u4E2A\u8F66\u95F4\u5DE5\u4F5C\u7684\u5458\u5DE5"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 458
+    y: 352
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  text: {fileID: 4900000, guid: 216d78dd535647844bcb4f948cb0978d, type: 3}
+--- !u!114 &-3239695080615231834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 4a4dc66b-6726-4e15-b893-8e6edf1b5cef
+  parentNodeIdList: []
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 908
+    y: 642
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &-2880375971010999907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u5173\u505C\u63D0\u9192"
+  id: d06b81ea-3fba-402e-814e-030033668e28
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 612
+    y: 638
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  text: {fileID: 4900000, guid: 1f54d70da09f3564c97337f7816416a4, type: 3}
+--- !u!114 &-2875278233769702552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cd0e186a24b66409f15f00652b2099, type: 3}
+  m_Name: AILockedNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u63A5\u53E3"
+  id: cc3d3ab1-fa78-4f7e-b551-c1b8838c2658
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: "\u548C\u773C\u955C\u7684\u7269\u7406\u63A5\u5165\u6570\u636E\u7EBF\u4E00\u6837\uFF0C\u662F\u901A\u7528\u7684\u63A5\u53E3\uFF0C\u53EF\u4EE5\u8BA9823\u63A5\u5165\u7EC8\u7AEF"
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 4a778520d30f4de49b5addb565588102, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 735
+    y: 267
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  submissionTimes: 0
+--- !u!114 &-2815733610962583175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0555a64c7eb7780449c40bb6f3a313cc, type: 3}
+  m_Name: TextNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u8F66\u95F4\u529F\u80FD"
+  id: 8af8920b-54a0-4497-a092-134e353e4570
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: a20c2a9f3cef50f48b49dbcb81c35e5d, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 405
+    y: 550
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  text: {fileID: 4900000, guid: 67cb09223be48d94f910c40eabaad304, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
+  m_Name: C1L1_S1P2
+  m_EditorClassIdentifier: 
+  graphName: "\u5C0F\u578B\u8F66\u95F4"
+  backGround: {fileID: 0}
+  dialogForFirstTime: {fileID: 0}
+  nodeTypeList: {fileID: 0}
+  nodeList:
+  - {fileID: -5100638587196858694}
+  - {fileID: -3239695080615231834}
+  - {fileID: -2815733610962583175}
+  - {fileID: -4869184661536882656}
+  - {fileID: -2875278233769702552}
+  - {fileID: -2880375971010999907}
+  - {fileID: -5142483941492360909}
+  nodeToDrawLineFrom: {fileID: 0}
+  linePosition: {x: 0, y: 0}

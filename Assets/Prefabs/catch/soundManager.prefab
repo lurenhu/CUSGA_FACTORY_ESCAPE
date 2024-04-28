@@ -48,11 +48,30 @@ MonoBehaviour:
   musicSound:
   - name: testMusic
     clip: {fileID: 8300000, guid: 37e5df0af4c6f72499fd93cbff8b02ce, type: 3}
+  - name: fadeTest
+    clip: {fileID: 8300000, guid: ab06fef2fb014f34d8363193d8e587ec, type: 3}
   sfxSounds:
   - name: testSE
     clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: textOccurSFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: mixSFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: QTESFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: lockSFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: AISFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: sceneChangeSFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
+  - name: sceneChangeSFX
+    clip: {fileID: 8300000, guid: dc33aa1a5dad57d4295a0d75704a0bd9, type: 3}
   musicSource: {fileID: 1828993017306691820}
   sfxSource: {fileID: 1828993017306691820}
+  textSource: {fileID: 0}
+  is_update_text: 0
+  totalVolume: 1
 --- !u!82 &1828993017306691820
 AudioSource:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 376
-    y: 245
+    y: 244
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 788
-    y: 160
+    y: 159
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: C4L7_S1
   m_EditorClassIdentifier: 
-  graphName: 
+  graphName: "\u95E8\u53E3"
   backGround: {fileID: 0}
   dialogForFirstTime: {fileID: 4900000, guid: 009445d78324bed4c83a6722dbc50ec1, type: 3}
   nodeTypeList: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 969
-    y: 385
+    y: 384
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 369
-    y: 414
+    y: 413
     width: 160
     height: 100
   isLeftClickDragging: 0
