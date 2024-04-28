@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GameStart : SingletonMonobehaviour<GameStart>
 {
-    public Transform loadPanel;
-    public Slider loadSlider;
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
 
@@ -55,27 +53,11 @@ public class GameStart : SingletonMonobehaviour<GameStart>
 
     IEnumerator LoadLevel()
     {
-        loadPanel.gameObject.SetActive(true);
+        GameManager.Instance.canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync("NodeMapTest");
-
-        operation.allowSceneActivation = false;
-
-        while (!operation.isDone)
-        {
-            loadSlider.value = operation.progress;
-
-            if (operation.progress >= 0.9)
-            {
-                loadSlider.value = 1;
-
-                yield return new WaitForSeconds(1);
-
-                operation.allowSceneActivation = true;
-            }
-
-            yield return null;
-        }
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("NodeMapTest",LoadSceneMode.Additive);
 
         GameManager.Instance.gameState = GameState.Generating;
     }

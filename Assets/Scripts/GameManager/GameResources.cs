@@ -60,6 +60,7 @@ public class CutSceneCell
 {
     public string animationStateName;
     public TextAsset text;
+    public bool isAuto;
 }
 
 [System.Serializable]
