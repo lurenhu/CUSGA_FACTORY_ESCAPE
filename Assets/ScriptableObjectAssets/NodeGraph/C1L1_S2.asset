@@ -251,6 +251,7 @@ MonoBehaviour:
   DisplayNodeID: 
   DisappearNodeID: 
   changeBackGroundImage: {fileID: 0}
+  changeBackGroundImage: {fileID: 0}
 --- !u!114 &-1406888407874368923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +353,7 @@ MonoBehaviour:
   stopAfterDialog: 1
   DisplayNodeID: 
   DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
   changeBackGroundImage: {fileID: 0}
 --- !u!114 &3711610818464710491
 MonoBehaviour:
