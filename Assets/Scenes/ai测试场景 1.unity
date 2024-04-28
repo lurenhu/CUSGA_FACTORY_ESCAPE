@@ -1218,34 +1218,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[1].name
-      value: mixSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[2].name
-      value: QTESFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[3].name
-      value: lockSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[4].name
-      value: AISFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[5].name
-      value: sceneChangeSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[6].name
-      value: pointOccurSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4105729764405431747, guid: 1862dbca589e71a4dace207267126c51, type: 3}
-      propertyPath: sfxSounds.Array.data[7].name
-      value: textOccurSFX
-      objectReference: {fileID: 0}
     - target: {fileID: 4117030568269782621, guid: 1862dbca589e71a4dace207267126c51, type: 3}
       propertyPath: m_Name
       value: soundManager
