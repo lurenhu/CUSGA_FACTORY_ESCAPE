@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: C2L3_S1P2
   m_EditorClassIdentifier: 
-  graphName: 
+  graphName: "\u7B2C\u4E8C\u8F66\u95F4"
   backGround: {fileID: 21300000, guid: cce3fd0104102fb418ec164a1cc438d2, type: 3}
   dialogForFirstTime: {fileID: 4900000, guid: 28146de8ee8682743a5764ca6fefe416, type: 3}
   nodeTypeList: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 291
-    y: 180
+    y: 179
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: 
+  nodeText: "\u7B2C\u4E8C\u8F66\u95F4"
   id: d0ebdca6-06e6-4da0-a17c-f4fcd9cee19d
   parentNodeIdList: []
   childrenNodeIdList:
