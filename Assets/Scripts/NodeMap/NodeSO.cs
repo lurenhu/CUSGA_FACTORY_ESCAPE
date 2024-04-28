@@ -17,9 +17,9 @@ public class NodeSO : ScriptableObject
     [HideInInspector] public NodeGraphSO nodeGraph;
     [HideInInspector] public NodeTypeSO nodeType;
     [HideInInspector] public NodeTypeListSO nodeTypeList;
+    [HideInInspector] public Rect rect;
 
     #if UNITY_EDITOR
-    [HideInInspector] public Rect rect;
     [HideInInspector] public bool isLeftClickDragging = false;
     [HideInInspector] public bool isSelected = false;
 

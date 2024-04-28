@@ -3,7 +3,6 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System;
 using TMPro;
-using UnityEditor.EditorTools;
 using System.Collections;
 
 [DisallowMultipleComponent]
@@ -188,7 +187,7 @@ public class Node : MonoBehaviour
     public void GetSelectedAnimate()
     {
         if (!gameObject.activeSelf) return;
-        
+
         transform.DOScale(new Vector3(1.1f,1.1f,1),0.2f);
         StartCoroutine(ChangeColor(selectedColor,0.2f));
     }

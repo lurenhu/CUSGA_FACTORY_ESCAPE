@@ -2444,6 +2444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3593721442240235534, guid: 09f22cc405ad1844a83441309623d42b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492365999513715162, guid: 09f22cc405ad1844a83441309623d42b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3038,6 +3042,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9184620300839283666, guid: c89d338d1c9c23540a31eac9b8126690, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 863a54c786104fb409d18976c5d4ebdb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
