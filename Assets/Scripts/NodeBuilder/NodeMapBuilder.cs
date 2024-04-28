@@ -45,6 +45,11 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
             UIManager.Instance.backGround.GetComponent<Image>().sprite = nodeGraph.backGround;
         }
 
+        if (nodeGraph.foreGround != null)
+        {
+            UIManager.Instance.frontGround.GetComponent<Image>().sprite = nodeGraph.foreGround;
+        }
+
         if (nodeGraph.dialogForFirstTime != null && enterTimes < 1)
         {
             DialogSystem.Instance.GetText(nodeGraph.dialogForFirstTime);

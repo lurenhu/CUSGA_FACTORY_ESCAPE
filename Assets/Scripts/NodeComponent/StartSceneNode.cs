@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 
@@ -29,7 +28,7 @@ public class StartSceneNode : MonoBehaviour
                 // 弹出子节点
                 if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
-                    PopUpChildNode(myNode.nodeInfos);
+                    StartPopUpCoroutine(myNode.nodeInfos);
                     myNode.hasPopUp = true;
                     return;
                 }
@@ -65,18 +64,25 @@ public class StartSceneNode : MonoBehaviour
     }
 
 
-    private void PopUpChildNode(List<NodeInfo> nodeInfos)
+    private void StartPopUpCoroutine(List<NodeInfo> nodeInfos)
+    {
+        StartCoroutine(PopUpChildNode(nodeInfos));
+    }   
+
+    private IEnumerator PopUpChildNode(List<NodeInfo> nodeInfos)
     {
         foreach (NodeInfo childNode in nodeInfos)
         {
             Node currentNode = childNode.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
 
             currentNode.transform.position = transform.position;
+            currentNode.transform.localScale = Vector3.one * 0.3f;
             currentNode.gameObject.SetActive(true);
 
             GameStart.Instance.CreateLine(currentNode);
 
-            currentNode.transform.DOMove(
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
                 ).SetRelative().OnStart(() => 
                 {
@@ -84,7 +90,12 @@ public class StartSceneNode : MonoBehaviour
                 }).OnComplete(() => 
                 {
                     currentNode.isPopping = false;
-                });
+                }));
+                
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

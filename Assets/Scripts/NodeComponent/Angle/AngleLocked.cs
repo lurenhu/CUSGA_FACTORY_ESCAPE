@@ -66,7 +66,7 @@ public class AngleLocked : MonoBehaviour
             {
                 if (!hasPopUpPointers)
                 {
-                    myNode.PopUpChildNode(pointers);
+                    StartCoroutine(myNode.PopUpChildNode(pointers));
                     hasPopUpPointers = true;
                     return;
                 }
@@ -75,7 +75,7 @@ public class AngleLocked : MonoBehaviour
                 if (CheckPointerInAngle() && !myNode.hasPopUp)
                 {
                     ClearAllPointers();
-                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                 }
                 else

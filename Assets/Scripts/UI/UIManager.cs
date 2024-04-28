@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Pool;
-
+using DG.Tweening;
 public class UIManager : SingletonMonobehaviour<UIManager>
 {
     [Space(10)]
@@ -67,6 +66,24 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     } 
 
     /// <summary>
+    /// 打开图片节点UI
+    /// </summary>
+    public void PopUpGraph(Sprite sprite)
+    {
+        Image image = graphNodeUI.Find("Close/Graph").GetComponent<Image>();
+
+        image.sprite = sprite;
+
+        gameObject.SetActive(true);
+        
+        graphNodeUI.transform.localScale = Vector3.one * 0.3f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(graphNodeUI.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(graphNodeUI.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+        UIShow = true;
+    }
+
+    /// <summary>
     /// 展示文本节点UI
     /// </summary>
     public void DisplayTextNodeContent(TextAsset text) 
@@ -74,6 +91,10 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         scrollViewContent.GetComponent<TMP_Text>().text = text.text;
 
         textNodeUI.gameObject.SetActive(true);
+        textNodeUI.transform.localScale = Vector3.one * 0.3f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(textNodeUI.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(textNodeUI.transform.DOScale(new Vector3(1f,1f,1),0.1f));
         UIShow = true;
     }
 
@@ -83,6 +104,10 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public void DisplayAndCloseAILog()
     {
         AIDialogLog.gameObject.SetActive(!AIDialogLog.gameObject.activeSelf);
+        AIDialogLog.transform.localScale = Vector3.one * 0.3f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(AIDialogLog.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(textNodeUI.transform.DOScale(new Vector3(1f,1f,1),0.1f));
     }
 
     public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color color)

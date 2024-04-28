@@ -7,8 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
-using System.Net.Http.Headers;
-using Unity.Mathematics;
 
 public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 {
@@ -18,7 +16,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public TMP_Text nameText;
     public Image character_1;
     public Image character_2;
-    public GameObject mouse;
     [Space(5)]
     [Header("AI对话UI组件")]
     public Transform AIDialogPanel;
@@ -31,6 +28,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public TMP_Text submitText;
     public TMP_Text value;
     public RectTransform anxietyValue;
+    public List<Image> SubmitTimer;
     [Space(5)]
     [Header("参数")]
     [Tooltip("文本显示间隔时间")]
@@ -61,7 +59,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (dialogPanel.activeSelf)
         {
             UpdateText();
-            mouse.SetActive(textFinished);
         }
     }   
 
@@ -214,6 +211,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         }
 
         dialogPanel.SetActive(true);
+        PopUpDialogPanel();
         UIManager.Instance.UIShow = true;
         SetInitialValue();
     }
@@ -298,4 +296,20 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         AIDialogText.text= text;
     }    
 #endregion
+
+    public void PopUpDialogPanel()
+    {
+        dialogPanel.transform.localScale = Vector3.one * 0.3f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(dialogPanel.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(dialogPanel.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+    }
+
+    public void PopUpAIDialogPanel()
+    {
+        AIDialogPanel.transform.localScale = Vector3.one * 0.3f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(AIDialogPanel.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(AIDialogPanel.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+    }
 }

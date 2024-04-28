@@ -36,7 +36,7 @@ public class QuickClick : MonoBehaviour
                 // 节点交互内容
                 if (!myNode.hasPopUp && ClickNumber == 0)
                 {
-                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                 }
     

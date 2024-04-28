@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Graph : MonoBehaviour
 {
@@ -29,8 +30,7 @@ public class Graph : MonoBehaviour
             if (myNode.isSelected)
             {
                 // 节点交互内容
-                PopUpGraph();
-    
+                UIManager.Instance.PopUpGraph(image);    
             }
             else
             {
@@ -48,12 +48,5 @@ public class Graph : MonoBehaviour
         } 
     }
 
-    private void PopUpGraph()
-    {
-        Image image = UIManager.Instance.graphNodeUI.Find("Close/Graph").GetComponent<Image>();
-
-        image.sprite = this.image;
-
-        UIManager.Instance.graphNodeUI.gameObject.SetActive(true);
-    }
+    
 }

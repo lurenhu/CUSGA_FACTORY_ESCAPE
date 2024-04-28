@@ -3,7 +3,6 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System;
 using TMPro;
-using UnityEditor.EditorTools;
 using System.Collections;
 
 [DisallowMultipleComponent]
@@ -24,9 +23,11 @@ public class Node : MonoBehaviour
     [HideInInspector] public Rect rect;
     [HideInInspector] public NodeTypeSO nodeType;
     
-    private SpriteRenderer spriteRenderer;
+    [HideInInspector] public SpriteRenderer spriteRenderer;
     private BoxCollider2D col2D;
     private Vector2 lastMouseWorldPosition;
+    private Color selectedColor = new Color(1, 1, 1, 1);
+    private Color unSelectedColor = new Color(1, 1, 1, 0.9f);
 
     /// <summary>
     /// 初始化节点数据
@@ -128,18 +129,20 @@ public class Node : MonoBehaviour
     /// <summary>
     /// 弹出所有子节点
     /// </summary>
-    public void PopUpChildNode(List<NodeInfo> nodes)
+    public IEnumerator PopUpChildNode(List<NodeInfo> nodes)
     {
         foreach (NodeInfo childNode in nodes)
         {
             Node currentNode = childNode.node;
 
             currentNode.transform.position = transform.position;
+            currentNode.transform.localScale = Vector3.one * 0.3f;
             currentNode.gameObject.SetActive(true);
 
             LineCreator.Instance.ShowLine(currentNode);
 
-            currentNode.transform.DOMove(
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
                 ).SetRelative().OnStart(() => 
                 {
@@ -147,7 +150,12 @@ public class Node : MonoBehaviour
                 }).OnComplete(() => 
                 {
                     currentNode.isPopping = false;
-                });
+                }));
+                
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -178,10 +186,10 @@ public class Node : MonoBehaviour
     /// </summary>
     public void GetSelectedAnimate()
     {
-        if (spriteRenderer.material.color != Color.red)
-        {
-            spriteRenderer.material.DOColor(Color.red,1f);
-        }
+        if (!gameObject.activeSelf) return;
+
+        transform.DOScale(new Vector3(1.1f,1.1f,1),0.2f);
+        StartCoroutine(ChangeColor(selectedColor,0.2f));
     }
 
     /// <summary>
@@ -189,9 +197,26 @@ public class Node : MonoBehaviour
     /// </summary>
     public void GetUnSelectedAnimate()
     {
-        if (spriteRenderer.material.color != Color.white)
+        if (!gameObject.activeSelf) return;
+
+        transform.DOScale(new Vector3(1f,1f,1),0.2f);
+        StartCoroutine(ChangeColor(unSelectedColor,0.2f));
+    }
+
+    IEnumerator ChangeColor(Color targetColor, float duration)
+    {
+        float time = 0;
+
+        while (time <= duration)
         {
-            spriteRenderer.material.DOColor(Color.white,1f);
+            time += Time.deltaTime;
+            spriteRenderer.color = new Color(
+                Mathf.Lerp(spriteRenderer.color.r,targetColor.r,time/duration),
+                Mathf.Lerp(spriteRenderer.color.g,targetColor.g,time/duration),
+                Mathf.Lerp(spriteRenderer.color.b,targetColor.b,time/duration),
+                Mathf.Lerp(spriteRenderer.color.a,targetColor.a,time/duration)
+                );
+            yield return null;
         }
     }
 

@@ -63,7 +63,7 @@ public class Dialog : MonoBehaviour
                     KeepDialog();
                     if (!myNode.hasPopUp)
                     {
-                        myNode.PopUpChildNode(myNode.nodeInfos);
+                        StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
                         myNode.hasPopUp = true;
                     }
                 }
@@ -139,7 +139,7 @@ public class Dialog : MonoBehaviour
                     parentNode.childIdList.Add(childNodeId);
                     LineCreator.Instance.CreateLine(childeNode);
                 }
-                parentNode.PopUpChildNode(myNode.nodeInfos);
+                StartCoroutine(parentNode.PopUpChildNode(myNode.nodeInfos));
             }
         }
         

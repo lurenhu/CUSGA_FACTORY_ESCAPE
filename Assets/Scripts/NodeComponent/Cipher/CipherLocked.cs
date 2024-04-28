@@ -65,7 +65,7 @@ public class CipherLocked : MonoBehaviour
                 // 第一次点击弹出所有的锁节点
                 if (!hasPopUpCipherNode)
                 {
-                    myNode.PopUpChildNode(cipherNodes);
+                    StartCoroutine(myNode.PopUpChildNode(cipherNodes));
                     hasPopUpCipherNode = true;
                     return;
                 }
@@ -74,7 +74,7 @@ public class CipherLocked : MonoBehaviour
                 if (UnLocked() && !myNode.hasPopUp)
                 {
                     DestroyAllCipherNode();
-                    myNode.PopUpChildNode(myNode.nodeInfos);
+                    StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                 }
     

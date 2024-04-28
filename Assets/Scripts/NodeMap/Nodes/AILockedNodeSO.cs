@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AILockedNodeSO : NodeSO
@@ -7,6 +8,8 @@ public class AILockedNodeSO : NodeSO
     [Header("AI锁节点数据")]
     [Tooltip("可提交次数")]
     public int submissionTimes;
+    [Tooltip("AI对话失败时播放过场")]
+    public List<CutSceneCell> failCutScene;
 
 
     #if UNITY_EDITOR

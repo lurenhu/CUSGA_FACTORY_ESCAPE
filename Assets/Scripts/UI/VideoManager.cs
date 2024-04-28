@@ -85,15 +85,50 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 if (animationIndex >= cutSceneCellList.Count)
                 {
                     cutSceneUIPanel.gameObject.SetActive(false);
+                    UIManager.Instance.UIShow = false;
                     DialogSystem.Instance.gameObject.SetActive(true);
+                    StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
                     return;
                 }
-                ShowCutScene(cutSceneCellList[animationIndex]);
+
+                if (cutSceneCellList[animationIndex].isAuto)
+                {
+                    ShowAutoCutScene(cutSceneCellList[animationIndex]);
+                }
+                else
+                {
+                    ShowCutScene(cutSceneCellList[animationIndex]);
+                }
             }
         }
-        else if (Input.GetMouseButtonDown(0) && isPlayingAutoCutScene)
+        else if (isPlayingAutoCutScene)
         {
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            
+            // 动画播放结束
+            if (stateInfo.normalizedTime >= 1f)
+            {
+                isPlayingAutoCutScene = false;
 
+                animationIndex++;
+                if (animationIndex >= cutSceneCellList.Count)
+                {
+                    cutSceneUIPanel.gameObject.SetActive(false);
+                    UIManager.Instance.UIShow = false;
+                    DialogSystem.Instance.gameObject.SetActive(true);
+                    StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+                    return;
+                }
+
+                if (cutSceneCellList[animationIndex].isAuto)
+                {
+                    ShowAutoCutScene(cutSceneCellList[animationIndex]);
+                }
+                else
+                {
+                    ShowCutScene(cutSceneCellList[animationIndex]);
+                }
+            }
         }
     }
 
@@ -110,9 +145,19 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         this.cutSceneCellList = cutSceneCellList;
 
-        ShowCutScene(cutSceneCellList[animationIndex]);
+        if (cutSceneCellList[animationIndex].isAuto)
+        {
+            ShowAutoCutScene(cutSceneCellList[animationIndex]);
+        }
+        else
+        {
+            ShowCutScene(cutSceneCellList[animationIndex]);
+        }
 
+        cutSceneUIPanel.gameObject.SetActive(true);
+        UIManager.Instance.UIShow = true;
         DialogSystem.Instance.gameObject.SetActive(false);
+        StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
     }
 
     /// <summary>
@@ -156,7 +201,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// 展示自动播放场景
     /// </summary>
     /// <param name="cutSceneCell"></param>
-    public void ShowAutoCutScene(CutSceneCell cutSceneCell)
+    private void ShowAutoCutScene(CutSceneCell cutSceneCell)
     {
         var rows = cutSceneCell.text.text.Split("\n");
         foreach (var row in rows)
@@ -225,7 +270,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         animationIndex = 0;
         cutSceneCellList.Clear();
         textForShow.Clear();
-        cutSceneUIPanel.gameObject.SetActive(true);
     }
 
     /// <summary>

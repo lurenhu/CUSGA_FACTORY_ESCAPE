@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -29,7 +29,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("弹出动画参数")]
     [Tooltip("弹出动画的持续时间")]
-    public float tweenDuring = 0.5f;// 弹出持续时间
+    public float tweenDuring = 0.2f;// 弹出持续时间
     [Tooltip("弹出动画的弹出距离")]
     public float popUpForce = 3;// 弹出距离
 
@@ -51,26 +51,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("游戏状态参数")]
     public GameState gameState = GameState.Start;
 
-    public int level1GetResultTimes = 0;
+    [HideInInspector] public int level1GetResultTimes = 0;
 
     [HideInInspector] public bool haveNodeDrag = false;
 
     override protected void Awake() {
         base.Awake();
+        SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
+
         DontDestroyOnLoad(gameObject);
     }
     
-    private void OnEnable() {
-        
-    }
-
-    private void OnDisable() {
-        
-    }
-
-    private void Start() {
-    }   
-
     private void Update() {
         HandleGameState();
     }
@@ -102,13 +93,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// </summary>
     private IEnumerator GetGenerateNodeMap()
     {
-        canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
-
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[graphIndex];
 
-        GetCutScene(currentNodeLevel);
         InitializeReference(currentNodeLevel);
 
         maxAnxiety = currentNodeLevel.initialAnxietyValue;
@@ -119,12 +106,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;
 
-        if (currentNodeLevel.canNotTransitionForFirstTimes)
-        {
-            UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(false);
-            UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(false);
-        }
         yield return StartCoroutine(Fade(1,0,2,Color.black));
+        canvasGroup.blocksRaycasts = false;
     }
 
     /// <summary>
@@ -139,17 +122,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             nodeIdsInGraph.Add(new List<string>());
             enterNodeGraphTimesList.Add(0);
-        }
+        }   
 
-        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetRightNodeGraph);
-        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(GetLeftNodeGraph);
-    }
-    
-    /// <summary>
-    /// 获取过场动画
-    /// </summary>
-    private void GetCutScene(NodeLevelSO currentNodeLevel)
-    {
+        MatchRightAndLeftNodeGraphName(currentNodeLevel);
+
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
+
         if (currentNodeLevel.cutSceneList.Count > 0)
         {
             VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
@@ -157,9 +136,44 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
+    /// 匹配左右两侧的切换节点图按钮
+    /// </summary>
+    private void MatchRightAndLeftNodeGraphName(NodeLevelSO currentNodeLevel)
+    {
+         int rightGraphIndex = graphIndex + 1;
+        if (rightGraphIndex >= currentNodeLevel.levelGraphs.Count)
+        {
+            rightGraphIndex = 0;
+        }
+        UIManager.Instance.rightNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[rightGraphIndex].graphName;
+
+        int leftGraphIndex = graphIndex - 1;
+        if (leftGraphIndex < 0)
+        {
+            leftGraphIndex = currentNodeLevel.levelGraphs.Count - 1;
+        }
+        UIManager.Instance.rightNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[leftGraphIndex].graphName;
+    }
+    
+    private void ChangeToRightGraph()
+    {
+        StartCoroutine(ChangeToRightGraphCoroutine());
+    }
+
+    IEnumerator ChangeToRightGraphCoroutine()
+    {
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        GetRightNodeGraph();
+
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+    /// <summary>
     /// 向右转换节点图，index++
     /// </summary>
-    public void GetRightNodeGraph() {
+    private void GetRightNodeGraph() {
+        NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         // 保存当前节点图的节点数据
         NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[graphIndex]);
 
@@ -168,11 +182,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (graphIndex >= nodeLevelSOs[levelIndex].levelGraphs.Count) {
             graphIndex = 0;
         }
+        
+        MatchRightAndLeftNodeGraphName(currentNodeLevel);
 
         // 生成当前索引的节点图
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(
-            nodeLevelSOs[levelIndex].levelGraphs[graphIndex],
+            currentNodeLevel.levelGraphs[graphIndex],
             enterNodeGraphTimesList[graphIndex]
             );
         enterNodeGraphTimesList[graphIndex]++;
@@ -182,10 +198,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
     }
 
+    private void ChangeToLeftGraph()
+    {
+        StartCoroutine(ChangeToLeftGraphCoroutine());
+    }
+
+    IEnumerator ChangeToLeftGraphCoroutine()
+    {
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        GetLeftNodeGraph();
+
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
     /// <summary>
     /// 向左转换节点图，Index--
     /// </summary>
-    public void GetLeftNodeGraph() {
+    private void GetLeftNodeGraph() {
+        NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         // 保存当前节点图的节点数据
         NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[graphIndex]);
 
@@ -195,10 +226,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             graphIndex = nodeLevelSOs[levelIndex].levelGraphs.Count - 1;
         }
 
+        MatchRightAndLeftNodeGraphName(currentNodeLevel);
+
         // 生成当前索引的节点图
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(
-            nodeLevelSOs[levelIndex].levelGraphs[graphIndex],
+            currentNodeLevel.levelGraphs[graphIndex],
             enterNodeGraphTimesList[graphIndex]
             );
         enterNodeGraphTimesList[graphIndex]++;
@@ -226,7 +259,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 淡入淡出
     /// </summary>
-    private IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color backGround)
+    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color backGround)
     {
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backGround;

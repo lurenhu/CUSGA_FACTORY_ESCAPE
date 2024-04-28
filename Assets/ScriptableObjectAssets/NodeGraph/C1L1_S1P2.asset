@@ -24,8 +24,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 983
-    y: 522
+    x: 942
+    y: 376
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -58,8 +58,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 714
-    y: 433
+    x: 673
+    y: 287
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -88,8 +88,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 458
-    y: 352
+    x: 417
+    y: 206
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 908
-    y: 642
+    x: 867
+    y: 496
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -148,8 +148,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 612
-    y: 638
+    x: 571
+    y: 492
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -179,13 +179,14 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 735
-    y: 267
+    x: 694
+    y: 121
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
   submissionTimes: 0
+  failCutScene: []
 --- !u!114 &-2815733610962583175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,8 +211,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 405
-    y: 550
+    x: 364
+    y: 404
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -230,7 +231,8 @@ MonoBehaviour:
   m_Name: C1L1_S1P2
   m_EditorClassIdentifier: 
   graphName: "\u5C0F\u578B\u8F66\u95F4"
-  backGround: {fileID: 0}
+  foreGround: {fileID: 21300000, guid: d6f5bfe6942050b41b6579cb24bcc600, type: 3}
+  backGround: {fileID: 21300000, guid: 593e8c0d10f8119488ff0d2e87634694, type: 3}
   dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:
