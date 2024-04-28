@@ -327,6 +327,7 @@ MonoBehaviour:
   isLeftClickDragging: 0
   isSelected: 0
   submissionTimes: 0
+  failCutScene: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_Name: C1L1_S3
   m_EditorClassIdentifier: 
   graphName: "\u4E3B\u7BA1\u529E\u516C\u5BA4"
+  foreGround: {fileID: 21300000, guid: d6f5bfe6942050b41b6579cb24bcc600, type: 3}
   backGround: {fileID: 21300000, guid: 593e8c0d10f8119488ff0d2e87634694, type: 3}
   dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}

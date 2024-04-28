@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: C3L5_S2
   m_EditorClassIdentifier: 
   graphName: "\u97F3\u9891\u6D4B\u8BD5\u5BA4"
+  foreGround: {fileID: 21300000, guid: 99040e032c4e3a94bb588d7a514c277b, type: 3}
   backGround: {fileID: 21300000, guid: 18d8d0568d4b5c948944495a092917f4, type: 3}
   dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
