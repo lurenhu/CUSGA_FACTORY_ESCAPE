@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,7 +29,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("弹出动画参数")]
     [Tooltip("弹出动画的持续时间")]
-    public float tweenDuring = 0.5f;// 弹出持续时间
+    public float tweenDuring = 0.2f;// 弹出持续时间
     [Tooltip("弹出动画的弹出距离")]
     public float popUpForce = 3;// 弹出距离
 
@@ -52,7 +51,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("游戏状态参数")]
     public GameState gameState = GameState.Start;
 
-    public int level1GetResultTimes = 0;
+    [HideInInspector] public int level1GetResultTimes = 0;
 
     [HideInInspector] public bool haveNodeDrag = false;
 

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden_Blur
-  m_Shader: {fileID: 4800000, guid: 19c43a57a811f4b43b0b4202b0c4347d, type: 3}
+  m_Name: Custom_BrightnessShader
+  m_Shader: {fileID: 4800000, guid: 7815ede949f2f9647ab8c12b92f135c6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,6 +29,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurIntensity: 0
+    - _Brightness: 0
     m_Colors: []
   m_BuildTextureStacks: []

@@ -2881,6 +2881,22 @@ PrefabInstance:
       propertyPath: nodeInfos.Array.data[2].direction.y
       value: -0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8937023694941252024, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: m_Color.a
+      value: 0.9019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937023694941252024, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937023694941252024, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937023694941252024, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3427,8 +3443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0197f4b700e094685d9aabe13c6f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadPanel: {fileID: 0}
-  loadSlider: {fileID: 0}
   startNodes:
   - {fileID: 1364214659}
   - {fileID: 2144188422}

@@ -76,7 +76,7 @@ public class Synthesizer : MonoBehaviour
         targetNode.gameObject.SetActive(false);
         LineCreator.Instance.DeleteLine(targetNode);
 
-        myNode.PopUpChildNode(myNode.nodeInfos);
+        StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
         myNode.hasPopUp = true;
     }
 }
