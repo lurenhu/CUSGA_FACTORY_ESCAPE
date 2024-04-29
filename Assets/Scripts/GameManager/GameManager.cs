@@ -42,6 +42,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] public int levelIndex = 0;// 关卡索引
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
+    Coroutine ChangeNodeGraph;
 
     [Space(10)]
     [Header("过场UI")]
@@ -168,7 +169,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             leftGraphIndex = currentNodeLevel.levelGraphs.Count - 1;
         }
-        UIManager.Instance.rightNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[leftGraphIndex].graphName;
+        UIManager.Instance.leftNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[leftGraphIndex].graphName;
 
         UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
         UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
@@ -176,7 +177,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     
     private void ChangeToRightGraph()
     {
-        StartCoroutine(ChangeToRightGraphCoroutine());
+        if (ChangeNodeGraph != null)
+        {
+            StopCoroutine(ChangeNodeGraph);
+        }
+
+        ChangeNodeGraph = StartCoroutine(ChangeToRightGraphCoroutine());
     }
 
     IEnumerator ChangeToRightGraphCoroutine()
@@ -200,7 +206,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         // 节点图索引增加
         graphIndex++;
-        if (graphIndex >= nodeLevelSOs[levelIndex].levelGraphs.Count) {
+        if (graphIndex >= currentNodeLevel.levelGraphs.Count) {
             graphIndex = 0;
         }
         
@@ -221,7 +227,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private void ChangeToLeftGraph()
     {
-        StartCoroutine(ChangeToLeftGraphCoroutine());
+        if (ChangeNodeGraph != null)
+        {
+            StopCoroutine(ChangeNodeGraph);
+        }
+
+        ChangeNodeGraph = StartCoroutine(ChangeToLeftGraphCoroutine());
     }
 
     IEnumerator ChangeToLeftGraphCoroutine()
@@ -246,7 +257,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         // 节点图索引减少
         graphIndex--;
         if (graphIndex < 0) {
-            graphIndex = nodeLevelSOs[levelIndex].levelGraphs.Count - 1;
+            graphIndex = currentNodeLevel.levelGraphs.Count - 1;
         }
 
         MatchRightAndLeftNodeGraphName(currentNodeLevel);
