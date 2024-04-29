@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8937023694941252024}
   - component: {fileID: 8659072959071610734}
   - component: {fileID: -1118975419862333421}
+  - component: {fileID: -2024315774349845796}
   - component: {fileID: 7002341296060549221}
   - component: {fileID: -82175455696104681}
   m_Layer: 6
@@ -150,6 +151,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!231 &-2024315774349845796
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026254294051308990}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 1
+  m_DampingRatio: 0
+  m_Frequency: 1
 --- !u!114 &7002341296060549221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +201,7 @@ MonoBehaviour:
     width: 0
     height: 0
   nodeType: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &-82175455696104681
 MonoBehaviour:
   m_ObjectHideFlags: 0

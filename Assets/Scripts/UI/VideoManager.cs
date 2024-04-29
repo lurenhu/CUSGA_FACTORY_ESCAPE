@@ -166,12 +166,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private void ShowCutScene(CutSceneCell cutSceneCell)
     {
-        tmpText.text = Setting.stringDefaultValue;
-        
-        var rows = cutSceneCell.text.text.Split("\n");
-        foreach (var row in rows)
+        if (cutSceneCell.text != null)  
         {
-            textForShow.Enqueue(row);
+            var rows = cutSceneCell.text.text.Split("\n");
+            foreach (var row in rows)
+            {
+                textForShow.Enqueue(row);
+            }
         }
 
         if (cutSceneCell.music != null)

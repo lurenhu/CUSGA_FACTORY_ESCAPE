@@ -21,12 +21,20 @@ MonoBehaviour:
   - animationStateName: L3_A1
     text: {fileID: 4900000, guid: 56daae2fa6fc0244487d03adba593a0e, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L3_A2
     text: {fileID: 4900000, guid: 41e36fb10ca28ff44b71ed33674040b9, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L3_A3
-    text: {fileID: 4900000, guid: 9f8911bf8a02c9548ad464b149bb260e, type: 3}
-    isAuto: 0
-  - animationStateName: L3_A4
     text: {fileID: 4900000, guid: 643822edae620eb478e14af2dca823b3, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: L3_A4
+    text: {fileID: 4900000, guid: a4223f9b81c0bca4495597ad633bf201, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
