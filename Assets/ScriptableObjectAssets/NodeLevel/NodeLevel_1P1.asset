@@ -21,7 +21,7 @@ MonoBehaviour:
   - animationStateName: L0_A1
     text: {fileID: 4900000, guid: 96ee5bae7e3fcb34781ce64b7da490f9, type: 3}
     isAuto: 0
-    music: {fileID: 0}
+    music: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
     sfx: {fileID: 0}
   - animationStateName: L0_A2
     text: {fileID: 4900000, guid: 1db43a2d52ece014d810c5d658afc871, type: 3}
@@ -79,7 +79,7 @@ MonoBehaviour:
     music: {fileID: 0}
     sfx: {fileID: 0}
   - animationStateName: L0_Video
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: 13d6acc91a3286e45b1fb0f2ae05f62e, type: 3}
     isAuto: 1
-    music: {fileID: 0}
+    music: {fileID: 8300000, guid: 6cac6981c657b51469603c69c863782f, type: 3}
     sfx: {fileID: 0}

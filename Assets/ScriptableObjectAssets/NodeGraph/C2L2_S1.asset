@@ -325,7 +325,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  text: {fileID: 0}
+  text: {fileID: 4900000, guid: cfc56f20d36dad242930cbba03f9f560, type: 3}
 --- !u!114 &-5676994132545035673
 MonoBehaviour:
   m_ObjectHideFlags: 0
