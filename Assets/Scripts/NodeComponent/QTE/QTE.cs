@@ -79,18 +79,12 @@ public class QTE : MonoBehaviour
         // 鼠标左键按下开始拖动
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-            if (hit.collider.gameObject == this)
-            {
-                Debug.Log("Mouse down");
-                dragStartPosition = Input.mousePosition;
-                GameManager.Instance.isDraggingQTE = true;
-            }
+            Debug.Log("Mouse down");
+            dragStartPosition = Input.mousePosition;
         }
 
         // 鼠标左键持续按下时进行拖动判断
-        if (Input.GetMouseButton(0) && !myNode.hasPopUp && GameManager.Instance.isDraggingQTE)
+        if (myNode.isDragging && Input.GetMouseButton(0) && !myNode.hasPopUp)
         {
             Debug.Log("QTE Get Move");
             Vector2 dragCurrentPosition = Input.mousePosition;
@@ -110,15 +104,11 @@ public class QTE : MonoBehaviour
                 else
                 {
                     StaticEventHandler.CallStopTiming(myNode);
+                    myNode.isDragging = false;
+                    GameManager.Instance.haveNodeDrag = false;
                 } 
             }
         }
-
-        if (Input.GetMouseButtonUp(0) && GameManager.Instance.isDraggingQTE)
-        {
-            GameManager.Instance.isDraggingQTE = false;
-        }
-
 
     }
 

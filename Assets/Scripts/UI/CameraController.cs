@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     
     private void Update()
     {
-        if (GameManager.Instance.haveNodeDrag || UIManager.Instance.UIShow || GameManager.Instance.isDraggingQTE) return;
+        if (GameManager.Instance.haveNodeDrag || UIManager.Instance.UIShow) return;
             
         // 获取鼠标位置
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

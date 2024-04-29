@@ -51,7 +51,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("游戏状态参数")]
     public GameState gameState = GameState.Start;
-    public bool isDraggingQTE = false;
     [HideInInspector] public int level1GetResultTimes = 0;
     [HideInInspector] public bool haveNodeDrag = false;
 
