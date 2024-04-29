@@ -9,6 +9,7 @@ public class Chasing : MonoBehaviour
     private Node myNode;
 
     private string chasingTargetId;
+    private List<CutSceneCell> failCutScene;
     private Node chasingTargetNode;
 
 
@@ -17,6 +18,7 @@ public class Chasing : MonoBehaviour
         ChasingNodeSO chasingNodeSO = (ChasingNodeSO)nodeSO;
 
         chasingTargetId = chasingNodeSO.chasingTargetId;
+        failCutScene = chasingNodeSO.failCutScene;
 
         myNode = transform.GetComponent<Node>();
     }
@@ -30,7 +32,8 @@ public class Chasing : MonoBehaviour
 
         if (collider.GetComponent<Node>() == chasingTargetNode)
         {
-            Debug.Log("be caught");
+            Debug.Log("游戏失败");
+            VideoManager.Instance.ShowCutScenes(failCutScene);
         }
     }
 
