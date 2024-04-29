@@ -206,7 +206,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         if (cutSceneCell.music != null)
         {
-            soundManager.Instance.PlayMusic(cutSceneCell.music);
+            soundManager.Instance.PlayMusicInFade(cutSceneCell.music);
         }
 
         if (cutSceneCell.sfx != null)
@@ -270,7 +270,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         if (cutSceneCell.music != null)
         {
-            soundManager.Instance.PlayMusic(cutSceneCell.music);
+            soundManager.Instance.PlayMusicInFade(cutSceneCell.music);
         }
 
         if (cutSceneCell.sfx != null)

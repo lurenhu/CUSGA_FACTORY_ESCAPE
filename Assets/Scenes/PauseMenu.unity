@@ -309,7 +309,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &43385811
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,8 +524,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- \u6682 \u505C \u9009 \u5355 -"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
-  m_sharedMaterial: {fileID: 6842394444348995949, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -698,7 +710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &315682406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,7 +834,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &348637219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1036,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &422935568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1112,7 +1160,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.75
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &435544582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1537,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.75
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &500329212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1589,7 +1661,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &536588222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2055,7 +2139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &903494074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2708,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1435629755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2724,7 +2832,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348637222}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1766931454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,8 +2904,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u63A7 \u5236 \u7CFB \u7EDF"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
-  m_sharedMaterial: {fileID: 6842394444348995949, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3024,7 +3144,7 @@ PrefabInstance:
     - target: {fileID: 5597742021608182675, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 6842394444348995949, guid: d6f7c31954023d14780dbcfe5e1d2161, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: id
       value: MainManu

@@ -48,6 +48,7 @@ public class GameStart : SingletonMonobehaviour<GameStart>
 
     public void StartGame()
     {   
+        soundManager.Instance.StopMusicInFade();
         StartCoroutine(LoadLevel());
     }
 
@@ -69,5 +70,15 @@ public class GameStart : SingletonMonobehaviour<GameStart>
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        soundManager.Instance.setMusicVolume(volume);
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        soundManager.Instance.setSfxVolume(volume);
     }
 }

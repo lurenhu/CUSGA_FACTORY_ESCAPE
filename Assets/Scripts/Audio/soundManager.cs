@@ -17,8 +17,6 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         base.Awake();
 
         PlayMusic("Theme");
-    
-        DontDestroyOnLoad(this);
     }
 
     private Coroutine fadeCoroutine; // 用于控制渐强的协程

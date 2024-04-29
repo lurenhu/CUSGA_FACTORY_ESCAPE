@@ -54,4 +54,14 @@ public class GamePause : SingletonMonobehaviour<GamePause>
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        soundManager.Instance.setMusicVolume(volume);
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        soundManager.Instance.setSfxVolume(volume);
+    }
 }
