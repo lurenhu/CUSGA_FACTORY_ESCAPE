@@ -7,7 +7,7 @@ public class AngleLocked : MonoBehaviour
 {
     [Header("可调整参数")]
     public GameObject pointerPrefab;
-    public float angelRange = 5;
+    public float angelRange = 10;
     [Space(5)]
     [Header("观测参数")]
     public List<NodeInfo> pointers;
