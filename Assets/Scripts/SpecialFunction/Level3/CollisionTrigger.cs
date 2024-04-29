@@ -8,6 +8,7 @@ public class CollisionTrigger : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
 
         StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+        soundManager.Instance.PlaySFX("ChangeScene");
         GameManager.Instance.gameState = GameState.Fail;
     }
 }

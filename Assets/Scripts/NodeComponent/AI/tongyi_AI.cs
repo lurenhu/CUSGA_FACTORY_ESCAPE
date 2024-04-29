@@ -73,7 +73,8 @@ public class tongyi_AI : MonoBehaviour
             return;
         }
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录     
-        DialogSystem.Instance.AddAIDialogLogCell(content);   
+        DialogSystem.Instance.AddAIDialogLogCell(content); 
+        soundManager.Instance.PlaySFX("AIDialog");  
         writeAndLoadHistory.writeText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
         await PostMessage(bot,content);      

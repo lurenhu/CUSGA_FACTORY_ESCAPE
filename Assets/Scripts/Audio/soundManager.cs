@@ -2,17 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class soundManager : SingletonMonobehaviour<soundManager>
 {
     [Header("文件管理与播放器")]
     public Sound[] musicSound, sfxSounds;
-    public AudioSource musicSource, sfxSource, textSource;
+    public AudioSource musicSource, sfxSource;
     public bool is_update_text = false;
     [Header("音量控制")]
     public float totalVolume=1f;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        PlayMusic("Theme");
     
+        DontDestroyOnLoad(this);
+    }
 
     private Coroutine fadeCoroutine; // 用于控制渐强的协程
     //设置总音量
@@ -47,6 +54,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
             musicSource.Play();
         }
     }
+
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
@@ -59,10 +67,12 @@ public class soundManager : SingletonMonobehaviour<soundManager>
             sfxSource.PlayOneShot(s.clip);
         }
     }
+
     public void PlaySFX(AudioClip SE)
     {
         sfxSource.PlayOneShot(SE);
     }
+
     public void PlayMusic(AudioClip music,bool loop=true)
     {   
         musicSource.loop = loop;
@@ -70,28 +80,33 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         musicSource.Play();
         
     }
+
     //渐强播放音乐
     public void PlayMusicInFade(AudioClip music, bool loop=true, bool volume_is_up=true)
     {
         PlayMusic(music);
         FadeVolume(volume_is_up);
     }
+
     public void PlayMusicInFade(string name, bool loop = true, bool volume_is_up = true)
     {
         PlayMusic(name);
         FadeVolume(volume_is_up);
     }
+
     public void StopMusic()
     {
         musicSource.Stop();
     }
+
     //渐弱停止音乐
     public void StopMusicInFade(bool volume_is_up = false)
     {
         FadeVolume(volume_is_up);
         //musicSource.Stop();
     }
-    public void playTextSound(bool is_use,string soundName="textSound")
+
+    public void PlayTextSound(bool is_use,string soundName="textSound")
     {
         if (is_use)
         {
@@ -104,7 +119,9 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         
     }
     
-    //可调用的渐强渐弱音量控制函数
+    /// <summary>
+    /// 可调用的渐强渐弱音量控制函数
+    /// </summary>
     private void FadeVolume(bool volume_is_up)
     {
         float fadeDuration, startVolume, targetVolume;
@@ -155,7 +172,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     private void Update()
     {
         //文字渲染时的音效
-        playTextSound(is_update_text);  
+        PlayTextSound(is_update_text);  
 
     }
 

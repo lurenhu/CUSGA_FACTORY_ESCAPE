@@ -61,6 +61,8 @@ public class CutSceneCell
     public string animationStateName;
     public TextAsset text;
     public bool isAuto;
+    public AudioClip music;
+    public AudioClip sfx;
 }
 
 [System.Serializable]

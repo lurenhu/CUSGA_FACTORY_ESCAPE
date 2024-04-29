@@ -15,7 +15,7 @@ MonoBehaviour:
   levelName: 
   levelGraphs:
   - {fileID: 11400000, guid: 78bd3dbd01d3e7c41a93c5ec8738913d, type: 2}
-  initialAnxietyValue: 0
+  initialAnxietyValue: 100
   rate: 0
   cutSceneList:
   - animationStateName: L6_A5

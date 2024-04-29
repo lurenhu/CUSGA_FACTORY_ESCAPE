@@ -15,6 +15,6 @@ MonoBehaviour:
   levelName: C2L3
   levelGraphs:
   - {fileID: 11400000, guid: 7a58ab5044a09404a86db6821d72cc25, type: 2}
-  initialAnxietyValue: 0
+  initialAnxietyValue: 100
   rate: 0
   cutSceneList: []

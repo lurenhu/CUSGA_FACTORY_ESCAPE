@@ -182,6 +182,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         int index = 0;
         while (!cancelTyping && index < textToPlay.Length-1)
         {
+            soundManager.Instance.PlaySFX("Text");
             dialogText.text += textToPlay[index];
             index++;
             yield return new WaitForSeconds(playingTimeInterval);
@@ -245,6 +246,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         int index = 0;
         while (!cancelTyping && index < textToPlay.Length-1)
         {
+            soundManager.Instance.PlaySFX("Text");
             AIDialogText.text += textToPlay[index];
             index++;
             yield return new WaitForSeconds(playingTimeInterval);
@@ -301,6 +303,8 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     public void PopUpDialogPanel()
     {
+        soundManager.Instance.PlaySFX("NodeBorn");
+
         dialogPanel.transform.localScale = Vector3.one * 0.3f;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogPanel.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
@@ -309,6 +313,8 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     public void PopUpAIDialogPanel()
     {
+        soundManager.Instance.PlaySFX("NodeBorn");
+
         AIDialogPanel.transform.localScale = Vector3.one * 0.3f;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(AIDialogPanel.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));

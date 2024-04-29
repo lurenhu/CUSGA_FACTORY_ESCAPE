@@ -140,6 +140,7 @@ public class Node : MonoBehaviour
             currentNode.gameObject.SetActive(true);
 
             LineCreator.Instance.ShowLine(currentNode);
+            soundManager.Instance.PlaySFX("NodeBorn");
 
             Sequence sequence = DOTween.Sequence();
             sequence.Append(currentNode.transform.DOMove(
@@ -170,6 +171,7 @@ public class Node : MonoBehaviour
             currentNode.gameObject.SetActive(true);
 
             LineCreator.Instance.ShowLine(currentNode);
+            soundManager.Instance.PlaySFX("NodeBorn");
 
             Sequence sequence = DOTween.Sequence();
             sequence.Append(currentNode.transform.DOMove(
@@ -193,6 +195,8 @@ public class Node : MonoBehaviour
     public void GetSelectedAnimate()
     {
         if (!gameObject.activeSelf) return;
+        
+        soundManager.Instance.PlaySFX("Selected");
 
         transform.DOScale(new Vector3(1.1f,1.1f,1),0.2f);
         StartCoroutine(ChangeColor(selectedColor,0.2f));

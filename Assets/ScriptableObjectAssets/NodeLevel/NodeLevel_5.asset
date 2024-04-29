@@ -16,7 +16,6 @@ MonoBehaviour:
   levelGraphs:
   - {fileID: 11400000, guid: 4a92ea1d6d69ebb4da87141718951316, type: 2}
   - {fileID: 11400000, guid: 21e5c5a20c8b3a84985eb942ae0010e8, type: 2}
-  initialAnxietyValue: 0
+  initialAnxietyValue: 100
   rate: 0
   cutSceneList: []
-  canNotTransitionForFirstTimes: 0

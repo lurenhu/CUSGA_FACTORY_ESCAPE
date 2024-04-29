@@ -56,6 +56,8 @@ public class GameStart : SingletonMonobehaviour<GameStart>
         GameManager.Instance.canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
 
+        soundManager.Instance.PlaySFX("ChangeScene");
+
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
 

@@ -174,6 +174,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             textForShow.Enqueue(row);
         }
 
+        if (cutSceneCell.music != null)
+        {
+            soundManager.Instance.PlayMusic(cutSceneCell.music);
+        }
+        
         ChangeAnimation(cutSceneCell.animationStateName);
         StartCoroutine(PlayingRowText(textForShow.Dequeue()));
     }
@@ -188,6 +193,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         int index = 0;
         while (!cancelTyping && index < textToPlay.Length-1)
         {
+            soundManager.Instance.PlaySFX("Text");
             tmpText.text += textToPlay[index];
             index++;
             yield return new WaitForSeconds(playingTimeInterval);
@@ -252,11 +258,12 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         textFinished = false;
 
-        tmpText.color = new Color(R, G, B, A);
+        tmpText.color = new Color(R/255f, G/255f, B/255f, A/255f);
         tmpText.text = Setting.stringDefaultValue;
         int index = 0;
         while (index < textToPlay.Length-1)
         {
+            soundManager.Instance.PlaySFX("Text");
             tmpText.text += textToPlay[index];
             index++;
             yield return new WaitForSeconds(playingTimeInterval);

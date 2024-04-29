@@ -57,7 +57,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     override protected void Awake() {
         base.Awake();
+
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
+        StartCoroutine(Fade(1,0,2,Color.black));
 
         DontDestroyOnLoad(gameObject);
     }
@@ -175,6 +177,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
+        soundManager.Instance.PlaySFX("ChangeScene");
+
         GetRightNodeGraph();
 
         yield return StartCoroutine(Fade(1,0,2,Color.black));
@@ -217,6 +221,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator ChangeToLeftGraphCoroutine()
     {
         yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        soundManager.Instance.PlaySFX("ChangeScene");
 
         GetLeftNodeGraph();
 

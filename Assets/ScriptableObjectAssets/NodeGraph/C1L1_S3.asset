@@ -326,7 +326,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  submissionTimes: 0
+  submissionTimes: 5
   failCutScene: []
 --- !u!114 &11400000
 MonoBehaviour:

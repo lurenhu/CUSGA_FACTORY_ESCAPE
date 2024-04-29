@@ -55,7 +55,6 @@ public class AILocked : MonoBehaviour
                         image.color = orange;
                     }
                 }
-                
             }
             else
             {
@@ -116,6 +115,7 @@ public class AILocked : MonoBehaviour
             // 前往下一关
             GameManager.Instance.canvasGroup.blocksRaycasts = true;
             StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+            soundManager.Instance.PlaySFX("ChangeScene");
             GameManager.Instance.levelIndex++;
             GameManager.Instance.gameState = GameState.Generating;
         }
@@ -124,6 +124,7 @@ public class AILocked : MonoBehaviour
             // 播放失败过场
             GameManager.Instance.canvasGroup.blocksRaycasts = true;
             StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+            soundManager.Instance.PlaySFX("ChangeScene");
             VideoManager.Instance.ShowCutScenes(failCutScene);
 
         }

@@ -80,7 +80,7 @@ public class StartSceneNode : MonoBehaviour
             currentNode.gameObject.SetActive(true);
 
             GameStart.Instance.CreateLine(currentNode);
-
+            soundManager.Instance.PlaySFX("NodeBorn");
             Sequence sequence = DOTween.Sequence();
             sequence.Append(currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring

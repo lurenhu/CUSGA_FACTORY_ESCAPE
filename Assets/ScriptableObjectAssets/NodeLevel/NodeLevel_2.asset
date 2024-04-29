@@ -16,7 +16,7 @@ MonoBehaviour:
   levelGraphs:
   - {fileID: 11400000, guid: 21a6539e7e6df624cb8c9f1bb9ac2cc3, type: 2}
   - {fileID: 11400000, guid: d8605e26b1b37584cbedd7a3670e0469, type: 2}
-  initialAnxietyValue: 0
+  initialAnxietyValue: 100
   rate: 0
   cutSceneList:
   - animationStateName: L2_A1
