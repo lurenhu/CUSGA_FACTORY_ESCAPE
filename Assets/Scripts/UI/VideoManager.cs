@@ -208,6 +208,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         {
             soundManager.Instance.PlayMusic(cutSceneCell.music);
         }
+
+        if (cutSceneCell.sfx != null)
+        {
+            soundManager.Instance.PlaySFX(cutSceneCell.sfx);
+        }
         
         ChangeAnimation(cutSceneCell);
         StartCoroutine(PlayingRowText(textForShow.Dequeue()));
@@ -261,6 +266,16 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 textForShow.Enqueue(row);
             }
             StartCoroutine(PlayingAutoText());
+        }
+
+        if (cutSceneCell.music != null)
+        {
+            soundManager.Instance.PlayMusic(cutSceneCell.music);
+        }
+
+        if (cutSceneCell.sfx != null)
+        {
+            soundManager.Instance.PlaySFX(cutSceneCell.sfx);
         }
 
         ChangeAnimation(cutSceneCell);
