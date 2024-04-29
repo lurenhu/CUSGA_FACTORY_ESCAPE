@@ -12,6 +12,7 @@ public class NodeLevelSO : ScriptableObject
     [Space(5)]
     [Header("AI参数")]
     public float initialAnxietyValue;
+    [Range(0,1)]
     public float rate;
 
     [Space(5)]

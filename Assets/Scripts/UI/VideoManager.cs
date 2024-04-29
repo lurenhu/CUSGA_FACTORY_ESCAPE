@@ -286,16 +286,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <summary>
     /// 切换动画状态
     /// </summary>
-    private void ChangeAnimation(CutSceneCell cutSceneCell, float crossFade = 0.2f)
+    private void ChangeAnimation(CutSceneCell cutSceneCell)
     {
         string animationStateName = cutSceneCell.animationStateName;
 
-        if (currentAnimationState != animationStateName && !cutSceneCell.isAuto)
-        {
-            currentAnimationState = animationStateName;
-            animator.CrossFade(animationStateName,crossFade);
-        }
-        else if (currentAnimationState != animationStateName && cutSceneCell.isAuto)
+        if (currentAnimationState != animationStateName)
         {
             currentAnimationState = animationStateName;
             animator.Play(animationStateName);
