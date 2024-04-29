@@ -70,11 +70,12 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     /// </summary>
     public void PopUpGraph(Sprite sprite)
     {
-        Image image = graphNodeUI.Find("Close/Graph").GetComponent<Image>();
+        Image image = graphNodeUI.Find("BackGround/Graph").GetComponent<Image>();
 
         image.sprite = sprite;
+        image.SetNativeSize();
 
-        gameObject.SetActive(true);
+        graphNodeUI.gameObject.SetActive(true);
         
         graphNodeUI.transform.localScale = Vector3.one * 0.3f;
         Sequence sequence = DOTween.Sequence();
@@ -88,6 +89,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     /// </summary>
     public void DisplayTextNodeContent(TextAsset text) 
     {
+        if (text == null) return;
+
         scrollViewContent.GetComponent<TMP_Text>().text = text.text;
 
         textNodeUI.gameObject.SetActive(true);
