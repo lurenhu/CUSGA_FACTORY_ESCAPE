@@ -186,9 +186,18 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <summary>
     /// 启动文字逐一播放
     /// </summary>
-    IEnumerator PlayingRowText(string textToPlay)
+    IEnumerator PlayingRowText(string rowText)
     {
         textFinished = false;
+
+        var tag = rowText.Split(":");
+        float R = float.Parse(tag[0]);
+        float G = float.Parse(tag[1]);
+        float B = float.Parse(tag[2]);
+        float A = float.Parse(tag[3]);
+        string textToPlay = tag[4];
+
+        tmpText.color = new Color(R/255f, G/255f, B/255f, A/255f);
         tmpText.text = Setting.stringDefaultValue;
         int index = 0;
         while (!cancelTyping && index < textToPlay.Length-1)
