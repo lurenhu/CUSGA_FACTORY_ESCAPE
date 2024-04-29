@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339d75ca9e141d428c9d39b52bf541b, type: 3}
   m_Name: STAFF
   m_EditorClassIdentifier: 
-  graphName: 
-  foreGround: {fileID: 0}
-  backGround: {fileID: 0}
+  graphName: STAFF
+  foreGround: {fileID: 21300000, guid: f5b2f58b9ec608445afb59b0e584c732, type: 3}
+  backGround: {fileID: 21300000, guid: 7425ca2f04a2f624aa171f3967fe9ab3, type: 3}
   dialogForFirstTime: {fileID: 0}
   nodeTypeList: {fileID: 0}
   nodeList:

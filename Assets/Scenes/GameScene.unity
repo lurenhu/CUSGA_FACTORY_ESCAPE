@@ -248,7 +248,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 46.25171, y: 0, z: 48.030518, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 44.936157, y: 0, z: 42.951782, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1035,6 +1035,10 @@ PrefabInstance:
     - target: {fileID: 7034798811657272688, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -15.0235
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045991285217008961, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7304757940382614813, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
       propertyPath: m_AnchorMax.y

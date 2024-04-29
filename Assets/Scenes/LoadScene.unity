@@ -173,15 +173,15 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
+  - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
+  - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}
+  - {fileID: 11400000, guid: 647d9f2fffc30024bb38e05de6bdfb94, type: 2}
+  - {fileID: 11400000, guid: 08bbb8749cc2de3468fea077d4b46650, type: 2}
+  - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   - {fileID: 11400000, guid: 7ff408f64e2aff744b03cf827e679500, type: 2}
-  - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
-  - {fileID: 11400000, guid: 647d9f2fffc30024bb38e05de6bdfb94, type: 2}
-  - {fileID: 11400000, guid: 08bbb8749cc2de3468fea077d4b46650, type: 2}
-  - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}
   - {fileID: 11400000, guid: 8d40aab09abf8be4eb9fb4f21578ac29, type: 2}
-  - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
   levelIndex: 0
   graphIndex: 0
   canvasGroup: {fileID: 112346908}
@@ -450,7 +450,7 @@ MonoBehaviour:
   - name: AIDialog
     clip: {fileID: 8300000, guid: 71f2bb6742039a24b88eedb4c0d5efd7, type: 3}
   - name: Text
-    clip: {fileID: 8300000, guid: 5003fd7e992f9a74ebda92ae1027c1e2, type: 3}
+    clip: {fileID: 8300000, guid: cc04c6aa5cfe15b47a155c27c4c3f77c, type: 3}
   - name: ChangeScene
     clip: {fileID: 8300000, guid: aea200a45b68d0349b1573db1f96487a, type: 3}
   - name: NodeBorn
@@ -507,7 +507,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
