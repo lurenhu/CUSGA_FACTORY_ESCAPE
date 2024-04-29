@@ -25,8 +25,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 376
-    y: 244
+    x: 531
+    y: 294
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -54,12 +54,12 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 788
-    y: 159
+    x: 947
+    y: 285
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0
   startNodeId: 524d2403-8b22-408f-b6ad-31e1abe16a8f
   duration: 120
 --- !u!114 &11400000
@@ -110,8 +110,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 969
-    y: 384
+    x: 1128
+    y: 510
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -140,10 +140,10 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 367
-    y: 413
+    x: 526
+    y: 539
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0
   targetNodeID: 91b29ecf-b622-4cba-b91a-f1368cf3bf0b
