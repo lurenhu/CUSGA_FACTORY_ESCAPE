@@ -17,4 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1ee07de102a1614eba138abcd344333, type: 2}
   initialAnxietyValue: 100
   rate: 0
-  cutSceneList: []
+  cutSceneList:
+  - animationStateName: C3
+    text: {fileID: 0}
+    isAuto: 1
+    music: {fileID: 0}
+    sfx: {fileID: 0}

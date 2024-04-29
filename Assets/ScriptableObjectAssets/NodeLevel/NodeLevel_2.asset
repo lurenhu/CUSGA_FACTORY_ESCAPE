@@ -22,24 +22,45 @@ MonoBehaviour:
   - animationStateName: L2_A1
     text: {fileID: 4900000, guid: ae8168c1ebecb8141b9c5242a2715c06, type: 3}
     isAuto: 0
+    music: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
+    sfx: {fileID: 0}
   - animationStateName: L2_A2
     text: {fileID: 4900000, guid: 29994bf76b96bfd488d740b05acc4a0a, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A3
     text: {fileID: 4900000, guid: 0817f80daca5af9469c26d96868d9dee, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A4
     text: {fileID: 4900000, guid: 612aeae7690f0ba4e9f1b895366ffa77, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A5_1
     text: {fileID: 4900000, guid: a55d77d90db84ed4b9586edf6073931f, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A5_2
     text: {fileID: 4900000, guid: cfaf61bdf2533d042b3b97a82a055fbd, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A6
     text: {fileID: 4900000, guid: 7d76dcb5e356d824b8e619646c1bd0db, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
   - animationStateName: L2_A7
     text: {fileID: 4900000, guid: d1127490c4c516a489fd1e86798a0997, type: 3}
     isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: C2
+    text: {fileID: 0}
+    isAuto: 1
+    music: {fileID: 0}
+    sfx: {fileID: 0}

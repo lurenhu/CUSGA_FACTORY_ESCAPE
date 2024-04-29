@@ -21,7 +21,7 @@ MonoBehaviour:
   - animationStateName: L3_A1
     text: {fileID: 4900000, guid: 56daae2fa6fc0244487d03adba593a0e, type: 3}
     isAuto: 0
-    music: {fileID: 0}
+    music: {fileID: 8300000, guid: e1d61c445ee5201408ae39c8d0376be2, type: 3}
     sfx: {fileID: 0}
   - animationStateName: L3_A2
     text: {fileID: 4900000, guid: 41e36fb10ca28ff44b71ed33674040b9, type: 3}

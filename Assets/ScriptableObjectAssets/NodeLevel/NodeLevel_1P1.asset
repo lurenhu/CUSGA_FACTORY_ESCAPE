@@ -81,5 +81,10 @@ MonoBehaviour:
   - animationStateName: L0_Video
     text: {fileID: 4900000, guid: 13d6acc91a3286e45b1fb0f2ae05f62e, type: 3}
     isAuto: 1
-    music: {fileID: 8300000, guid: 6cac6981c657b51469603c69c863782f, type: 3}
+    music: {fileID: 0}
+    sfx: {fileID: 8300000, guid: 6cac6981c657b51469603c69c863782f, type: 3}
+  - animationStateName: C1
+    text: {fileID: 0}
+    isAuto: 1
+    music: {fileID: 0}
     sfx: {fileID: 0}
