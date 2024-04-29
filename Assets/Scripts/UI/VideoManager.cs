@@ -70,7 +70,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     private void Update() {
         if (!cutSceneUIPanel.gameObject.activeSelf) return;
 
-        if (Input.GetMouseButtonDown(0) && !isPlayingAutoCutScene)
+        if (Input.GetMouseButtonUp(0) && !isPlayingAutoCutScene)
         {
             if (textFinished && textForShow.Count > 0)
             {
@@ -107,7 +107,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
             
             // 动画播放结束
-            if (stateInfo.normalizedTime >= 1f && Input.GetMouseButtonUp(0))
+            if (stateInfo.normalizedTime >= 1f)
             {
                 isPlayingAutoCutScene = false;
 
@@ -179,7 +179,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             soundManager.Instance.PlayMusic(cutSceneCell.music);
         }
         
-        ChangeAnimation(cutSceneCell.animationStateName);
+        ChangeAnimation(cutSceneCell);
         StartCoroutine(PlayingRowText(textForShow.Dequeue()));
     }
 
@@ -224,9 +224,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             StartCoroutine(PlayingAutoText());
         }
 
-        isPlayingAutoCutScene = true;
-
-        ChangeAnimation(cutSceneCell.animationStateName);
+        ChangeAnimation(cutSceneCell);
     }
 
     /// <summary>
@@ -272,8 +270,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         yield return new WaitForSeconds(time);
 
         textFinished = true;
-
-        isPlayingAutoCutScene = false;
     }
 #endregion
 
@@ -290,12 +286,20 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <summary>
     /// 切换动画状态
     /// </summary>
-    private void ChangeAnimation(string animationStateName, float crossFade = 0.2f)
+    private void ChangeAnimation(CutSceneCell cutSceneCell, float crossFade = 0.2f)
     {
-        if (currentAnimationState != animationStateName)
+        string animationStateName = cutSceneCell.animationStateName;
+
+        if (currentAnimationState != animationStateName && !cutSceneCell.isAuto)
         {
             currentAnimationState = animationStateName;
             animator.CrossFade(animationStateName,crossFade);
+        }
+        else if (currentAnimationState != animationStateName && cutSceneCell.isAuto)
+        {
+            currentAnimationState = animationStateName;
+            animator.Play(animationStateName);
+            isPlayingAutoCutScene = true;
         }
     }
 }

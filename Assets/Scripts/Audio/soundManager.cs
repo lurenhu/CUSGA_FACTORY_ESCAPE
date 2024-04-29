@@ -57,6 +57,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
 
     public void PlaySFX(string name)
     {
+        Debug.Log("playSFX");
         Sound s = Array.Find(sfxSounds, x => x.name == name);
         if (s == null)
         {

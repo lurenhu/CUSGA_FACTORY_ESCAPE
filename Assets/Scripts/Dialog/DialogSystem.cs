@@ -53,6 +53,13 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     {
         if (VideoManager.Instance.isPlayingCutScene) return;
 
+        if (!dialogPanel.activeSelf && textIndex < textList.Count)
+        {
+            dialogPanel.SetActive(true);
+            PopUpDialogPanel();
+            SetInitialValue();
+        }
+
         if (AIDialogPanel.gameObject.activeSelf)
         {
             UpdateTextForAI();
@@ -213,10 +220,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
             speakingCharacterList.Add(int.Parse(row_list[4]));
         }
 
-        dialogPanel.SetActive(true);
-        PopUpDialogPanel();
         UIManager.Instance.UIShow = true;
-        SetInitialValue();
     }
 #endregion
 
