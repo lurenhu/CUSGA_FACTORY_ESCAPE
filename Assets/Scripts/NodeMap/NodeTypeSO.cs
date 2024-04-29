@@ -43,6 +43,7 @@ public class NodeTypeSO : ScriptableObject
     [Header("关卡7")]
     public bool isTimerToResult;
     public bool isControlToResult;
+    public bool isAnimator;
 
 
 

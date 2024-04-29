@@ -15,6 +15,7 @@ MonoBehaviour:
   levelName: C2L3
   levelGraphs:
   - {fileID: 11400000, guid: a2c6b380c55bbc944b88352ae694ceaf, type: 2}
+  audioClip: {fileID: 8300000, guid: e1d61c445ee5201408ae39c8d0376be2, type: 3}
   initialAnxietyValue: 100
   rate: 0
   cutSceneList:

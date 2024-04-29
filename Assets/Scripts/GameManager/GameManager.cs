@@ -64,7 +64,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
         StartCoroutine(Fade(1,0,2,Color.black));
-
         DontDestroyOnLoad(gameObject);
     }
     
@@ -113,6 +112,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;
+
+        if (levelIndex == 6)
+        {
+            UIManager.Instance.SkyUI.gameObject.SetActive(true);
+        }
 
         yield return StartCoroutine(Fade(1,0,2,Color.black));
         canvasGroup.blocksRaycasts = false;
@@ -315,6 +319,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         SceneManager.UnloadSceneAsync("GameScene");
 
         yield return Fade(1,0,2,Color.black);
+    }
+
+    public void PlayCurrentLevelAudio()
+    {
+        NodeLevelSO currentLevel = nodeLevelSOs[levelIndex];
+
+        soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
     }
 
 }

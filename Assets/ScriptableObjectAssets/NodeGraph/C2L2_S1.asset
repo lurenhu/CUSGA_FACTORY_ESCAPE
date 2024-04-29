@@ -1446,7 +1446,14 @@ MonoBehaviour:
   isLeftClickDragging: 0
   isSelected: 0
   submissionTimes: 5
-  failCutScene: []
+  openingRemark: 
+  AIName: 
+  failCutScene:
+  - animationStateName: over
+    text: {fileID: 4900000, guid: 23b7d48900f64aa499b7aa666d79c3bc, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
 --- !u!114 &4643586695001519201
 MonoBehaviour:
   m_ObjectHideFlags: 0

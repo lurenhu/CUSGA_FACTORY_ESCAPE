@@ -333,6 +333,7 @@ public class NodeGraphEditor : EditorWindow
 
         menu.AddItem(new GUIContent("创建时间计时至结局节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isTimerToResult)));
         menu.AddItem(new GUIContent("创建控制至出口导出结局节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isControlToResult)));
+        menu.AddItem(new GUIContent("创建播放动画节点"),false,() => CreateNode(mousePosition, nodeTypeList.list.Find(x => x.isAnimator)));
 
         menu.AddSeparator("");
 
@@ -621,6 +622,13 @@ public class NodeGraphEditor : EditorWindow
         else if (nodeType.isControlToResult)
         {
             ControlToResultNodeSO node = ScriptableObject.CreateInstance<ControlToResultNodeSO>();
+            currentNodeGraph.nodeList.Add(node);
+            node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
+            AssetDatabase.AddObjectToAsset(node,currentNodeGraph);
+        }
+        else if (nodeType.isAnimator)
+        {
+            AnimatorControlNodeSO node = ScriptableObject.CreateInstance<AnimatorControlNodeSO>();
             currentNodeGraph.nodeList.Add(node);
             node.Initialize(new Rect(mousePosition,new Vector2(nodeWidth,nodeHeight)),currentNodeGraph,nodeType);
             AssetDatabase.AddObjectToAsset(node,currentNodeGraph);

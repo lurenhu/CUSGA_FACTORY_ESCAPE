@@ -16,7 +16,7 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     {
         base.Awake();
 
-        PlayMusic("Theme");
+        PlayMusicInFade("Theme");
     }
 
     private Coroutine fadeCoroutine; // 用于控制渐强的协程
@@ -48,8 +48,11 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         else
         {
             musicSource.loop = loop;
-            musicSource.clip = s.clip;
-            musicSource.Play();
+            if (musicSource.clip != s.clip)
+            {
+                musicSource.clip = s.clip;
+                musicSource.Play();    
+            }
         }
     }
 
@@ -75,8 +78,12 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     public void PlayMusic(AudioClip music,bool loop=true)
     {   
         musicSource.loop = loop;
-        musicSource.clip = music;
-        musicSource.Play();
+        if (musicSource.clip != music)
+        {
+            musicSource.clip = music;
+            musicSource.Play();    
+        }
+        
         
     }
 

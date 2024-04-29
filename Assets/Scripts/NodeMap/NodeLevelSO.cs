@@ -8,6 +8,8 @@ public class NodeLevelSO : ScriptableObject
 {
     public string levelName;
     public List<NodeGraphSO> levelGraphs;
+    [Tooltip("进入该关卡的动画")]
+    public AudioClip audioClip;
 
     [Space(5)]
     [Header("AI参数")]
@@ -18,5 +20,4 @@ public class NodeLevelSO : ScriptableObject
     [Space(5)]
     [Header("进入该关卡时播放过场演出")]
     [SerializeField] public List<CutSceneCell> cutSceneList;
-
 }

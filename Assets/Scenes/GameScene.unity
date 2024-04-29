@@ -128,6 +128,81 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5959124127173249779, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
   m_PrefabInstance: {fileID: 4165867486672541106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &84847180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84847181}
+  - component: {fileID: 84847183}
+  - component: {fileID: 84847182}
+  m_Layer: 5
+  m_Name: Sky_L7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &84847181
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 446028217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 337}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &84847182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: be21f8017b4fc504881b677647970dc0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &84847183
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847180}
+  m_CullTransparentMesh: 1
 --- !u!1 &124575775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1428,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2144297950}
+  - {fileID: 84847181}
   - {fileID: 1855675081}
   - {fileID: 285454114}
   - {fileID: 328559274}
@@ -1408,6 +1483,8 @@ MonoBehaviour:
   frontGround: {fileID: 285454114}
   rightNodeGraphButton: {fileID: 328559274}
   leftNodeGraphButton: {fileID: 1520149495}
+  AnimatorUI: {fileID: 1855675081}
+  SkyUI: {fileID: 0}
   UIShow: 0
 --- !u!4 &457837503
 Transform:
@@ -2685,6 +2762,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2094eab2b22dace4b8da05589ff7c348, type: 2}
   - {fileID: 11400000, guid: 9cfdede320372f4499287ce326c3bcd1, type: 2}
   - {fileID: 11400000, guid: 4aac2737a0c94354d9e68f7106cd4739, type: 2}
+  - {fileID: 11400000, guid: af309ec15ad93994db2ca1e1643fcdd9, type: 2}
 --- !u!4 &1754642206
 Transform:
   m_ObjectHideFlags: 0
@@ -2721,13 +2799,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1855675081}
   - component: {fileID: 1855675082}
+  - component: {fileID: 1855675083}
   m_Layer: 5
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1855675081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2769,6 +2848,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &1855675083
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855675080}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f706ed1b3925fdb4aa34fb03b37e56a4, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1866028305 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6596726450633776596, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}

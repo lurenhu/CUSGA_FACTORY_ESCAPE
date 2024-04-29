@@ -87,7 +87,12 @@ MonoBehaviour:
   isLeftClickDragging: 0
   isSelected: 1
   chasingTargetId: b006eeb9-e3b2-414d-9231-9b3ddedc9342
-  failCutScene: []
+  failCutScene:
+  - animationStateName: over
+    text: {fileID: 4900000, guid: 23b7d48900f64aa499b7aa666d79c3bc, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
 --- !u!114 &7333639550724290714
 MonoBehaviour:
   m_ObjectHideFlags: 0

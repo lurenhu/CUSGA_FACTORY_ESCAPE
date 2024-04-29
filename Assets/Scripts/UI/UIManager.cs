@@ -29,7 +29,10 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform rightNodeGraphButton;
     [Tooltip("向左侧切换节点图按钮")]
     public Transform leftNodeGraphButton;
-    
+    [Tooltip("动画UI对象")]
+    public Transform AnimatorUI;
+    [Tooltip("第七关的天空UI")]
+    public Transform SkyUI;    
     
 
     public bool UIShow = false;
