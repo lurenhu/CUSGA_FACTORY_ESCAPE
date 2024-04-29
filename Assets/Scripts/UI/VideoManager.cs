@@ -88,7 +88,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                     cutSceneUIPanel.gameObject.SetActive(false);
                     UIManager.Instance.UIShow = false;
                     isPlayingCutScene = false;
-                    StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+                    StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
                     return;
                 }
 
@@ -107,7 +107,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
             
             // 动画播放结束
-            if (stateInfo.normalizedTime >= 1f)
+            if (stateInfo.normalizedTime >= 1f && Input.GetMouseButtonUp(0))
             {
                 isPlayingAutoCutScene = false;
 
@@ -117,7 +117,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                     cutSceneUIPanel.gameObject.SetActive(false);
                     UIManager.Instance.UIShow = false;
                     isPlayingCutScene = false;
-                    StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+                    StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
                     return;
                 }
 
@@ -166,6 +166,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private void ShowCutScene(CutSceneCell cutSceneCell)
     {
+        tmpText.text = Setting.stringDefaultValue;
+        
         var rows = cutSceneCell.text.text.Split("\n");
         foreach (var row in rows)
         {
@@ -204,6 +206,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <param name="cutSceneCell"></param>
     private void ShowAutoCutScene(CutSceneCell cutSceneCell)
     {
+        tmpText.text = Setting.stringDefaultValue;
+
         if (cutSceneCell.text != null)  
         {
             var rows = cutSceneCell.text.text.Split("\n");
