@@ -8,8 +8,13 @@ public class AILockedNodeSO : NodeSO
     [Header("AI锁节点数据")]
     [Tooltip("可提交次数")]
     public int submissionTimes = 5;
+    [Tooltip("AI开场白")]
+    public string openingRemark;
+    [Tooltip("AI名称")]
+    public string AIName;
     [Tooltip("AI对话失败时播放过场")]
     public List<CutSceneCell> failCutScene;
+    
 
 
     #if UNITY_EDITOR

@@ -56,6 +56,7 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
         if (!dialogPanel.activeSelf && textIndex < textList.Count)
         {
             dialogPanel.SetActive(true);
+            UIManager.Instance.UIShow = true;
             PopUpDialogPanel();
             SetInitialValue();
         }
@@ -280,8 +281,8 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     {
         ClearReference();
 
-        nameList.Add(name);
-        textList.Add(text);
+        // nameList.Add(name);
+        // textList.Add(text);
         // imageList.Add(image_display);
 
         AINameText.text = name;

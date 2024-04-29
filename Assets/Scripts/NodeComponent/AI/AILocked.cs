@@ -9,6 +9,8 @@ public class AILocked : MonoBehaviour
     [SerializeField] private bool hasResult = false;// 是否已经获取结果
     [SerializeField] private bool getCutScene = false;// 是否已经获取结果
     private List<CutSceneCell> failCutScene= new List<CutSceneCell>();
+    private string openingRemark;
+    private string AIName;
     private Node myNode;
 
     private Color orange = new Color(0.9137256f, 0.5647059f, 0.2078432f);
@@ -32,6 +34,8 @@ public class AILocked : MonoBehaviour
 
         submissionTimes = aiLockedNodeSO.submissionTimes;
         failCutScene = aiLockedNodeSO.failCutScene;
+        openingRemark = aiLockedNodeSO.openingRemark;   
+        AIName = aiLockedNodeSO.AIName;
     }
 
     private void OnMouseUp()
@@ -45,7 +49,10 @@ public class AILocked : MonoBehaviour
                 // 节点交互内容
                 if(!hasResult)
                 {
-                    tongyi_AI.instance.input_field.SetActive(true);
+                    DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(true);
+                    UIManager.Instance.UIShow = true;
+                    DialogSystem.Instance.AINameText.text = AIName;
+                    DialogSystem.Instance.AIDialogText.text = openingRemark;
                     DialogSystem.Instance.PopUpAIDialogPanel();
                     DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
                     DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
@@ -79,8 +86,6 @@ public class AILocked : MonoBehaviour
         submissionTimes--;
         DialogSystem.Instance.SubmitTimer[submissionTimes].color = green;
 
-
-        DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
         DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
         DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
 
@@ -95,14 +100,8 @@ public class AILocked : MonoBehaviour
         {
             DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
             UIManager.Instance.UIShow = false;
-        }
-
-        if (hasResult && !DialogSystem.Instance.AIDialogPanel.gameObject.activeSelf && !getCutScene)
-        {
             CheckAnxietyValue();
-            getCutScene = true;
         }
-
     }
 
     /// <summary>
