@@ -129,7 +129,7 @@ public class Node : MonoBehaviour
     /// <summary>
     /// 弹出所有子节点
     /// </summary>
-    public IEnumerator PopUpChildNode(List<NodeInfo> nodes)
+    public IEnumerator PopUpChildNodes(List<NodeInfo> nodes)
     {
         foreach (NodeInfo childNode in nodes)
         {
@@ -159,27 +159,33 @@ public class Node : MonoBehaviour
         }
     }
 
-    public void PopUpChildNode(NodeInfo node)
+    public void PopUpChildNode(List<NodeInfo> nodes)
     {
-        Node currentNode = node.node;
+        foreach (NodeInfo childNode in nodes)
+        {
+            Node currentNode = childNode.node;
 
-        currentNode.transform.position = transform.position;
-        currentNode.gameObject.SetActive(true);
+            currentNode.transform.position = transform.position;
+            currentNode.transform.localScale = Vector3.one * 0.3f;
+            currentNode.gameObject.SetActive(true);
 
-        LineCreator.Instance.ShowLine(currentNode);
+            LineCreator.Instance.ShowLine(currentNode);
 
-        currentNode.transform.DOMove(
-            node.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
-            ).SetRelative().OnStart(() => 
-            {
-                currentNode.isPopping = true;
-            }).OnComplete(() => 
-            {
-                currentNode.isPopping = false;
-            });
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(currentNode.transform.DOMove(
+                childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
+                ).SetRelative().OnStart(() => 
+                {
+                    currentNode.isPopping = true;
+                }).OnComplete(() => 
+                {
+                    currentNode.isPopping = false;
+                }));
+                
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+            sequence.Append(currentNode.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+        }
     }
-
-    
 
     /// <summary>
     /// 获取被选中动画

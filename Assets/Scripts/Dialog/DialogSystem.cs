@@ -51,6 +51,8 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
 
     private void Update()
     {
+        if (VideoManager.Instance.isPlayingCutScene) return;
+
         if (AIDialogPanel.gameObject.activeSelf)
         {
             UpdateTextForAI();

@@ -59,7 +59,7 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   startNodeId: 524d2403-8b22-408f-b6ad-31e1abe16a8f
   duration: 120
 --- !u!114 &11400000
@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: C4L7_S1
   m_EditorClassIdentifier: 
   graphName: "\u95E8\u53E3"
+  foreGround: {fileID: 0}
   backGround: {fileID: 0}
   dialogForFirstTime: {fileID: 4900000, guid: 009445d78324bed4c83a6722dbc50ec1, type: 3}
   nodeTypeList: {fileID: 0}
@@ -114,7 +115,7 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
 --- !u!114 &8975460976640730648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,10 +140,10 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 369
+    x: 367
     y: 413
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   targetNodeID: 91b29ecf-b622-4cba-b91a-f1368cf3bf0b

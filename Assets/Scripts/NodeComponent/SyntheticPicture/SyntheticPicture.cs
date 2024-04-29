@@ -80,7 +80,7 @@ public class SyntheticPicture : MonoBehaviour
         targetNode.gameObject.SetActive(false);
         LineCreator.Instance.DeleteLine(targetNode);
 
-        StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
+        StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
     }
 
     /// <summary>

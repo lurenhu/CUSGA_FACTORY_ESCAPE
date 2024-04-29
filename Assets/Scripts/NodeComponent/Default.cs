@@ -23,7 +23,7 @@ public class Default : MonoBehaviour
                 // 弹出子节点
                 if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
-                    StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
+                    StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                     return;
                 }

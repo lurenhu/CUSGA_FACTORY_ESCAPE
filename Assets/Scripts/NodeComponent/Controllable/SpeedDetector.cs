@@ -23,7 +23,7 @@ public class SpeedDetector : MonoBehaviour
         
         if (speed > speedToPop && !myNode.hasPopUp)
         {
-            StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
+            StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
             myNode.hasPopUp = true;
         }
     }

@@ -97,7 +97,7 @@ public class QTE : MonoBehaviour
             {
                 if (currentDirection == direction)
                 {
-                    StartCoroutine(myNode.PopUpChildNode(myNode.nodeInfos));
+                    StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                 }
                 else

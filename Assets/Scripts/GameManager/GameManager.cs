@@ -126,9 +126,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         MatchRightAndLeftNodeGraphName(currentNodeLevel);
 
-        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
-        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
-
         if (currentNodeLevel.cutSceneList.Count > 0)
         {
             VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
@@ -140,7 +137,18 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// </summary>
     private void MatchRightAndLeftNodeGraphName(NodeLevelSO currentNodeLevel)
     {
-         int rightGraphIndex = graphIndex + 1;
+        if (currentNodeLevel.levelGraphs.Count > 1)
+        {
+            UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(true);
+            UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            UIManager.Instance.rightNodeGraphButton.gameObject.SetActive(false);
+            UIManager.Instance.leftNodeGraphButton.gameObject.SetActive(false);
+        }
+
+        int rightGraphIndex = graphIndex + 1;
         if (rightGraphIndex >= currentNodeLevel.levelGraphs.Count)
         {
             rightGraphIndex = 0;
@@ -153,6 +161,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             leftGraphIndex = currentNodeLevel.levelGraphs.Count - 1;
         }
         UIManager.Instance.rightNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[leftGraphIndex].graphName;
+
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
     }
     
     private void ChangeToRightGraph()

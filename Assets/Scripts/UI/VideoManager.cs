@@ -65,6 +65,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
     [Header("连续播发过场动画")]
     private bool isPlayingAutoCutScene = false;
+    public bool isPlayingCutScene = false;
 
     private void Update() {
         if (!cutSceneUIPanel.gameObject.activeSelf) return;
@@ -86,7 +87,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 {
                     cutSceneUIPanel.gameObject.SetActive(false);
                     UIManager.Instance.UIShow = false;
-                    DialogSystem.Instance.gameObject.SetActive(true);
+                    isPlayingCutScene = false;
                     StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
                     return;
                 }
@@ -115,7 +116,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 {
                     cutSceneUIPanel.gameObject.SetActive(false);
                     UIManager.Instance.UIShow = false;
-                    DialogSystem.Instance.gameObject.SetActive(true);
+                    isPlayingCutScene = false;
                     StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
                     return;
                 }
@@ -144,6 +145,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         RestoreInitialState();
 
         this.cutSceneCellList = cutSceneCellList;
+        cutSceneUIPanel.gameObject.SetActive(true);
 
         if (cutSceneCellList[animationIndex].isAuto)
         {
@@ -154,9 +156,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             ShowCutScene(cutSceneCellList[animationIndex]);
         }
 
-        cutSceneUIPanel.gameObject.SetActive(true);
         UIManager.Instance.UIShow = true;
-        DialogSystem.Instance.gameObject.SetActive(false);
+        isPlayingCutScene = true;
         StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
     }
 
@@ -203,16 +204,19 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// <param name="cutSceneCell"></param>
     private void ShowAutoCutScene(CutSceneCell cutSceneCell)
     {
-        var rows = cutSceneCell.text.text.Split("\n");
-        foreach (var row in rows)
+        if (cutSceneCell.text != null)  
         {
-            textForShow.Enqueue(row);
+            var rows = cutSceneCell.text.text.Split("\n");
+            foreach (var row in rows)
+            {
+                textForShow.Enqueue(row);
+            }
+            StartCoroutine(PlayingAutoText());
         }
 
         isPlayingAutoCutScene = true;
 
         ChangeAnimation(cutSceneCell.animationStateName);
-        StartCoroutine(PlayingAutoText());
     }
 
     /// <summary>
