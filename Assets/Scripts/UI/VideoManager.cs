@@ -294,6 +294,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         {
             currentAnimationState = animationStateName;
             animator.Play(animationStateName);
+        }
+
+        if (cutSceneCell.isAuto)
+        {
             isPlayingAutoCutScene = true;
         }
     }
