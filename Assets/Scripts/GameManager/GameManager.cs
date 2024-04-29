@@ -13,7 +13,7 @@ public enum GameState
     Playing,
     Pause,
     Won,
-    Fail,
+    Fake,
 }
 
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -52,8 +52,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public GameState gameState = GameState.Start;
 
     [HideInInspector] public int level1GetResultTimes = 0;
-
     [HideInInspector] public bool haveNodeDrag = false;
+
+    [Space(10)]
+    [Header("游戏结局过场动画")]
+    public List<CutSceneCell> winCutScene;
+    public List<CutSceneCell> fakeCutScene;
 
     override protected void Awake() {
         base.Awake();
@@ -84,8 +88,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.Pause:
                 break;
             case GameState.Won:
+                VideoManager.Instance.ShowCutScenes(winCutScene);
                 break;
-            case GameState.Fail:
+            case GameState.Fake:
+                VideoManager.Instance.ShowCutScenes(fakeCutScene);
                 break;
         }
     }
@@ -289,7 +295,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSecounds);
             yield return null;
         }
+    }
 
+    public IEnumerator ChangeSceneToMainMenu()
+    {
+        yield return Fade(0,1,2,Color.black);
+
+        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.UnloadSceneAsync("GameScene");
+
+        yield return Fade(1,0,2,Color.black);
     }
 
 }

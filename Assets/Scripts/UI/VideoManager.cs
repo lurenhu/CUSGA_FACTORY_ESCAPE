@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class VideoManager : SingletonMonobehaviour<VideoManager>
 {
@@ -83,23 +84,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             else if (textFinished && textForShow.Count == 0)
             {
                 animationIndex++;
-                if (animationIndex >= cutSceneCellList.Count)
-                {
-                    cutSceneUIPanel.gameObject.SetActive(false);
-                    UIManager.Instance.UIShow = false;
-                    isPlayingCutScene = false;
-                    StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
-                    return;
-                }
-
-                if (cutSceneCellList[animationIndex].isAuto)
-                {
-                    ShowAutoCutScene(cutSceneCellList[animationIndex]);
-                }
-                else
-                {
-                    ShowCutScene(cutSceneCellList[animationIndex]);
-                }
+                GetNextRowText();
             }
         }
         else if (isPlayingAutoCutScene)
@@ -112,24 +97,68 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 isPlayingAutoCutScene = false;
 
                 animationIndex++;
-                if (animationIndex >= cutSceneCellList.Count)
-                {
-                    cutSceneUIPanel.gameObject.SetActive(false);
-                    UIManager.Instance.UIShow = false;
-                    isPlayingCutScene = false;
-                    StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
-                    return;
-                }
-
-                if (cutSceneCellList[animationIndex].isAuto)
-                {
-                    ShowAutoCutScene(cutSceneCellList[animationIndex]);
-                }
-                else
-                {
-                    ShowCutScene(cutSceneCellList[animationIndex]);
-                }
+                GetNextRowText();
             }
+        }
+    }
+
+    /// <summary>
+    /// 恢复初始状态
+    /// </summary>
+    private void RestoreInitialState()
+    {
+        animationIndex = 0;
+        cutSceneCellList.Clear();
+        textForShow.Clear();
+    }
+
+    /// <summary>
+    /// 切换动画状态
+    /// </summary>
+    private void ChangeAnimation(CutSceneCell cutSceneCell)
+    {
+        string animationStateName = cutSceneCell.animationStateName;
+
+        if (currentAnimationState != animationStateName)
+        {
+            currentAnimationState = animationStateName;
+            animator.Play(animationStateName);
+        }
+
+        if (cutSceneCell.isAuto)
+        {
+            isPlayingAutoCutScene = true;
+        }
+    }
+
+    /// <summary>
+    /// 获取下一段文本
+    /// </summary>
+    private void GetNextRowText()
+    {
+        if (animationIndex >= cutSceneCellList.Count)
+        {
+            if (GameManager.Instance.gameState == GameState.Won || GameManager.Instance.gameState == GameState.Fake)
+            {
+                StartCoroutine(GameManager.Instance.ChangeSceneToMainMenu());
+            }
+            else
+            {
+                cutSceneUIPanel.gameObject.SetActive(false);
+                UIManager.Instance.UIShow = false;
+                isPlayingCutScene = false;
+                StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
+                return;
+            }
+        }
+
+        if (cutSceneCellList[animationIndex].isAuto)
+        {
+            ShowAutoCutScene(cutSceneCellList[animationIndex]);
+        }
+        else
+        {
+            ShowCutScene(cutSceneCellList[animationIndex]);
         }
     }
 
@@ -283,32 +312,5 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     }
 #endregion
 
-    /// <summary>
-    /// 恢复初始状态
-    /// </summary>
-    private void RestoreInitialState()
-    {
-        animationIndex = 0;
-        cutSceneCellList.Clear();
-        textForShow.Clear();
-    }
-
-    /// <summary>
-    /// 切换动画状态
-    /// </summary>
-    private void ChangeAnimation(CutSceneCell cutSceneCell)
-    {
-        string animationStateName = cutSceneCell.animationStateName;
-
-        if (currentAnimationState != animationStateName)
-        {
-            currentAnimationState = animationStateName;
-            animator.Play(animationStateName);
-        }
-
-        if (cutSceneCell.isAuto)
-        {
-            isPlayingAutoCutScene = true;
-        }
-    }
+    
 }

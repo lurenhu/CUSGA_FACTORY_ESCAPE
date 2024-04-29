@@ -5,6 +5,11 @@ using UnityEngine;
 public class CollisionTriggerToResult : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other) {
-        GameManager.Instance.gameState = GameState.Fail;
+        StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
+        GameManager.Instance.canvasGroup.blocksRaycasts = true;
+        
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        GameManager.Instance.gameState = GameState.Fake;
     }
 }
