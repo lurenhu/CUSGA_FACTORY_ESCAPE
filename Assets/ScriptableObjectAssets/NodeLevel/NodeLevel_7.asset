@@ -19,20 +19,23 @@ MonoBehaviour:
   rate: 0
   cutSceneList:
   - animationStateName: L6_A5
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: ced494fc54e0f324fa969511aa55a6e5, type: 3}
     isAuto: 0
   - animationStateName: L6_Video
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: 31a1f4488ff1f8c41b182b7746d2d15f, type: 3}
     isAuto: 1
   - animationStateName: L6_A8
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: e87a19825f49dc647ad1daa28a269a1a, type: 3}
     isAuto: 0
   - animationStateName: L6_A9
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: 7b7954bbbbab4ac44906de460f6c7874, type: 3}
+    isAuto: 0
+  - animationStateName: L6_A10
+    text: {fileID: 4900000, guid: 15ddafbec50528949852391c29778a46, type: 3}
     isAuto: 0
   - animationStateName: L6_A11
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: ed558457a89dfff40a8eea666fa09f65, type: 3}
     isAuto: 0
   - animationStateName: L6_A12
-    text: {fileID: 0}
+    text: {fileID: 4900000, guid: 86f67876aa81b4941a8a2e22b9642f22, type: 3}
     isAuto: 0
