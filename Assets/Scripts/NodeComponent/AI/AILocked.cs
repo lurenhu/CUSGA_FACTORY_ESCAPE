@@ -54,7 +54,6 @@ public class AILocked : MonoBehaviour
                     DialogSystem.Instance.AINameText.text = AIName;
                     DialogSystem.Instance.AIDialogText.text = openingRemark;
                     DialogSystem.Instance.PopUpAIDialogPanel();
-                    DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
                     DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
                     DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
                     foreach (Image image in DialogSystem.Instance.SubmitTimer)

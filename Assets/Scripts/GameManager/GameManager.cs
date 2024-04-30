@@ -414,12 +414,32 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         UnLoadScene = StartCoroutine(UnloadGameSceneCoroutine(unLoadSceneName));
     }
 
+    /// <summary>
+    /// 关闭场景
+    /// </summary>
     IEnumerator UnloadGameSceneCoroutine(string unLoadSceneName)
     {
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         SceneManager.UnloadSceneAsync(unLoadSceneName);
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+        
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+    /// <summary>
+    /// 添加暂停场景
+    /// </summary>
+    public IEnumerator LoadPauseMenu()
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        SceneManager.LoadSceneAsync("PauseMenu",LoadSceneMode.Additive);
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");

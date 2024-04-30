@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class UIManager : SingletonMonobehaviour<UIManager>
 {
     [Space(10)]
@@ -32,7 +33,9 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     [Tooltip("动画UI对象")]
     public Transform AnimatorUI;
     [Tooltip("第七关的天空UI")]
-    public Transform SkyUI;    
+    public Transform SkyUI;
+
+    Coroutine OpenPause;    
     
 
     public bool UIShow = false;
@@ -131,4 +134,17 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         }
 
     }
+
+    /// <summary>
+    /// 打开暂停场景
+    /// </summary>
+    public void OpenPauseMenu()
+    {
+        if (OpenPause != null)
+        {
+            StopCoroutine(OpenPause);
+        }
+        OpenPause = StartCoroutine(GameManager.Instance.LoadPauseMenu());
+    }
+   
 }
