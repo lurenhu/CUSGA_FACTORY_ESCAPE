@@ -24,3 +24,8 @@ MonoBehaviour:
     isAuto: 0
     music: {fileID: 0}
     sfx: {fileID: 0}
+  - animationStateName: C4
+    text: {fileID: 0}
+    isAuto: 1
+    music: {fileID: 0}
+    sfx: {fileID: 0}

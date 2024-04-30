@@ -188,8 +188,38 @@ MonoBehaviour:
   gameState: 0
   level1GetResultTimes: 0
   haveNodeDrag: 0
-  winCutScene: []
-  fakeCutScene: []
+  winCutScene:
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  fakeCutScene:
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: 
+    text: {fileID: 0}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
 --- !u!1 &112346906
 GameObject:
   m_ObjectHideFlags: 0
