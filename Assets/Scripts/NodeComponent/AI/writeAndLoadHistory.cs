@@ -83,4 +83,10 @@ public class writeAndLoadHistory : MonoBehaviour
         return final_request_body;
         
     }
+    static public void clearHistory()
+    {
+        string folderPath = Application.dataPath + "/chatHistory";
+        string filePath = folderPath + "/chatHistory.txt";
+        File.WriteAllText(filePath, string.Empty);
+    }
 }

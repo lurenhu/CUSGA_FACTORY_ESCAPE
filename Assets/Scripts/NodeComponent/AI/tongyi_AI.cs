@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+
 using static System.Net.Mime.MediaTypeNames;
 [System.Serializable]
 public class tongyi_AI : MonoBehaviour
@@ -15,7 +16,7 @@ public class tongyi_AI : MonoBehaviour
     [SerializeField] public Button send_button;
     public GameObject input_field;
     [Header("Ai设置")]
-    public string name = "对话角色1";
+    public string AIname = "对话角色1";
     public TextAsset chatHistory;
     public bool use_history;
     [Header("用户cookie")]    
@@ -24,6 +25,10 @@ public class tongyi_AI : MonoBehaviour
     public robotCollection[] robots;    
     [Header("对接用变量")]
     public int anxiety_change_value = 0;
+    public int one_change_value = -5;
+    public int two_change_value = -10;
+    public int three_change_value = -15;
+
     public string reply_text;
     public bool reply_is_finished=false;
     public AudioClip test_SFX;
@@ -39,7 +44,9 @@ public class tongyi_AI : MonoBehaviour
         robots=new robotCollection[]
             { 
               new robotCollection("焦虑评估器","1816f35255d946519e4494862bf6cb4a"),
-              new robotCollection("对话角色1","89f40467361e43ecb565ab323063bea4")               
+              new robotCollection("对话角色1","89f40467361e43ecb565ab323063bea4") ,              
+              new robotCollection("对话角色2","71f7547370eb454bbc79b5e4f491591b") ,             
+              new robotCollection("对话角色3","9aee25c1b3d049f39f6fd225b174557b")               
             };
     }
     // Start is called before the first frame update
@@ -48,7 +55,7 @@ public class tongyi_AI : MonoBehaviour
         //给button绑方法,确定机器人id
         //setChatUIActive(false);
         
-        robotCollection bot = Array.Find(robots, x => x.name == name);
+        robotCollection bot = Array.Find(robots, x => x.name == AIname);
         if (bot == null)
         {
             Debug.Log("Not found");
@@ -73,8 +80,7 @@ public class tongyi_AI : MonoBehaviour
             return;
         }
         string content = chat_input_field.text;     //在这里获取文本的信息,并将它记录     
-        DialogSystem.Instance.AddAIDialogLogCell(content); 
-        soundManager.Instance.PlaySFX("AIDialog");  
+        DialogSystem.Instance.AddAIDialogLogCell(content);   
         writeAndLoadHistory.writeText(new string[] { "陶特", "user", content });
         chat_input_field.text = "";        
         await PostMessage(bot,content);      
@@ -345,13 +351,13 @@ public class tongyi_AI : MonoBehaviour
                 anxiety_change_value = 0;
                 break;
             case 1:
-                anxiety_change_value = -15;
+                anxiety_change_value = three_change_value;
                 break;
             case 2:
-                anxiety_change_value = -5;
+                anxiety_change_value = two_change_value;
                 break;
             case 3:
-                anxiety_change_value = 0;
+                anxiety_change_value = one_change_value;
                 break;
         }
         if (anxiety_change_value >= 0)
@@ -360,5 +366,12 @@ public class tongyi_AI : MonoBehaviour
         }
         Debug.Log($"anxiety_change_value:{anxiety_change_value}");
         StaticEventHandler.CallCommit(anxiety_change_value);
+    }
+    public void changeRobot(int chapter)
+    {
+        writeAndLoadHistory.clearHistory();
+        string name = "对话角色" + chapter.ToString();
+        robotCollection bot = Array.Find(robots, x => x.name == name);
+        send_button.onClick.AddListener(delegate { sendMessage(bot); });
     }
 }
