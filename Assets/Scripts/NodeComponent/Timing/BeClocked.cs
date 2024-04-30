@@ -15,6 +15,7 @@ public class BeClocked : MonoBehaviour
         if (timingNode != null && !timingNode.gameObject.activeSelf)
         {
             timingNode.gameObject.SetActive(true);
+            TimeManager.Instance.startTimer = true;
         }
     }
     

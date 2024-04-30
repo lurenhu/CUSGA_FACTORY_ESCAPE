@@ -112,11 +112,7 @@ public class AILocked : MonoBehaviour
         if (GameManager.Instance.CheckAnxietyValue())
         {
             // 前往下一关
-            GameManager.Instance.canvasGroup.blocksRaycasts = true;
-            StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
-            soundManager.Instance.PlaySFX("ChangeScene");
-            GameManager.Instance.levelIndex++;
-            GameManager.Instance.gameState = GameState.Generating;
+            StaticEventHandler.CallGetNextNodeLevel();
         }
         else
         {
@@ -124,8 +120,8 @@ public class AILocked : MonoBehaviour
             GameManager.Instance.canvasGroup.blocksRaycasts = true;
             StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
             soundManager.Instance.PlaySFX("ChangeScene");
+            
             VideoManager.Instance.ShowCutScenes(failCutScene);
-
         }
     }
 }

@@ -48,24 +48,8 @@ public class GameStart : SingletonMonobehaviour<GameStart>
 
     public void StartGame()
     {   
-        soundManager.Instance.StopMusicInFade();
-        StartCoroutine(LoadLevel());
+        StartCoroutine(GameManager.Instance.ChangeSceneToGameScene());
     }
-
-    IEnumerator LoadLevel()
-    {
-        GameManager.Instance.canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
-
-        soundManager.Instance.PlaySFX("ChangeScene");
-
-        SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
-
-        GameManager.Instance.gameState = GameState.Generating;
-    }
-
-
 
     public void QuitGame()
     {

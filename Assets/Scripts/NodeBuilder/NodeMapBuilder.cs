@@ -119,7 +119,7 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         }
         else 
         {
-            Debug.Log(node.name + " Not Parent");
+            Debug.Log("Fuck Every Player And Your Mother");
         }
     }
 

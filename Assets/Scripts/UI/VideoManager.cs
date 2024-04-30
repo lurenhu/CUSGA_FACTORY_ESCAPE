@@ -142,11 +142,15 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             {
                 StartCoroutine(GameManager.Instance.ChangeSceneToMainMenu());
             }
-            else
+            else if (GameManager.Instance.gameState == GameState.Playing)
             {
                 cutSceneUIPanel.gameObject.SetActive(false);
                 UIManager.Instance.UIShow = false;
+
                 isPlayingCutScene = false;
+                
+                GameManager.Instance.PlayCurrentLevelAudio();
+
                 StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
                 return;
             }
@@ -187,7 +191,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         UIManager.Instance.UIShow = true;
         isPlayingCutScene = true;
-        StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
     }
 
     /// <summary>
@@ -206,11 +209,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         if (cutSceneCell.music != null)
         {
+            soundManager.Instance.StopMusicInFade();
             soundManager.Instance.PlayMusicInFade(cutSceneCell.music);
         }
 
         if (cutSceneCell.sfx != null)
         {
+            soundManager.Instance.StopMusicInFade();
             soundManager.Instance.PlaySFX(cutSceneCell.sfx);
         }
         
@@ -270,11 +275,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         if (cutSceneCell.music != null)
         {
+            soundManager.Instance.StopMusicInFade();
             soundManager.Instance.PlayMusicInFade(cutSceneCell.music);
         }
 
         if (cutSceneCell.sfx != null)
         {
+            soundManager.Instance.StopMusicInFade();
             soundManager.Instance.PlaySFX(cutSceneCell.sfx);
         }
 

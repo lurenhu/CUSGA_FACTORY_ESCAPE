@@ -106,8 +106,7 @@ public class Moving : MonoBehaviour
             //如果拖动距离超过阈值，则触发回调函数
             if (dragDistance.magnitude >= triggerDistance)
             {
-                GameManager.Instance.levelIndex++;
-                GameManager.Instance.gameState = GameState.Generating;
+                StaticEventHandler.CallGetNextNodeLevel();
             }
         }
     }

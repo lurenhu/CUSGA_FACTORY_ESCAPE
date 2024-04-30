@@ -15,11 +15,18 @@ public static class StaticEventHandler
         OnStopTiming?.Invoke(new StopTimingArgs() {node = node});
     }
 
-    public static event Action<SceneChangeArgs> OnSceneChange;
-    public static void CallSceneChange(Node node)
+    public static event Action<StartTimingArgs> OnStartTiming;
+    public static void CallStartTiming(Node node)
     {
-        OnSceneChange?.Invoke(new SceneChangeArgs() {});
+        OnStartTiming?.Invoke(new StartTimingArgs() {node = node});
     }
+
+    public static event Action<GetNextNodeLevel> OnGetNextNodeLevel;
+    public static void CallGetNextNodeLevel()
+    {
+        OnGetNextNodeLevel?.Invoke(new GetNextNodeLevel() {});
+    }
+
 }
 public class CommitArgs : EventArgs
 {
@@ -31,8 +38,12 @@ public class StopTimingArgs : EventArgs
     public Node node;
 }
 
-public class SceneChangeArgs : EventArgs
+public class StartTimingArgs : EventArgs
+{
+    public Node node;
+}
+
+public class GetNextNodeLevel : EventArgs
 {
     
 }
-

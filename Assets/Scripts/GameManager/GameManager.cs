@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -43,9 +44,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
     Coroutine ChangeNodeGraph;
+    Coroutine GameSceneChanged;
 
     [Space(10)]
-    [Header("过场UI")]
+    [Header("场景过度")]
     public CanvasGroup canvasGroup;
 
     [Space(10)]
@@ -67,6 +69,43 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         DontDestroyOnLoad(gameObject);
     }
     
+    private void OnEnable() {
+        StaticEventHandler.OnGetNextNodeLevel += StaticEventHandler_OnGetNextNodeLevel;
+    }
+
+    private void OnDisable() {
+        StaticEventHandler.OnGetNextNodeLevel -= StaticEventHandler_OnGetNextNodeLevel;
+    }
+
+    private void StaticEventHandler_OnGetNextNodeLevel(GetNextNodeLevel args)
+    {
+        Debug.Log("触发进入下一关卡事件");
+        if (GameSceneChanged != null)
+        {
+            StopCoroutine(GameSceneChanged);
+        }
+        GameSceneChanged = StartCoroutine(GetNextNodeLevel());
+    }
+
+    IEnumerator GetNextNodeLevel()
+    {
+        canvasGroup.blocksRaycasts = true;
+        UIManager.Instance.UIShow = true;
+        
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        levelIndex++;
+        gameState = GameState.Generating;
+
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+
+        canvasGroup.blocksRaycasts = false;
+        UIManager.Instance.UIShow = false;
+    }
+
     private void Update() {
         HandleGameState();
     }
@@ -78,7 +117,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.Generating:
                 if (NodeMapBuilder.Instance == null) return;
 
-                StartCoroutine(GetGenerateNodeMap());                
+                GetGenerateNodeMap();
 
                 gameState = GameState.Playing;
                 break;
@@ -98,7 +137,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 生成节点图并初始化相关参数
     /// </summary>
-    private IEnumerator GetGenerateNodeMap()
+    private void GetGenerateNodeMap()
     {
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
         NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[graphIndex];
@@ -117,9 +156,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             UIManager.Instance.SkyUI.gameObject.SetActive(true);
         }
-
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
-        canvasGroup.blocksRaycasts = false;
     }
 
     /// <summary>
@@ -313,18 +349,39 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     public IEnumerator ChangeSceneToMainMenu()
     {
-        yield return Fade(0,1,2,Color.black);
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
 
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu",LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("GameScene");
 
-        yield return Fade(1,0,2,Color.black);
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    public IEnumerator ChangeSceneToGameScene()
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        levelIndex = 0;
+        gameState = GameState.Generating;
+
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
     public void PlayCurrentLevelAudio()
     {
         NodeLevelSO currentLevel = nodeLevelSOs[levelIndex];
 
+        soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
     }
 

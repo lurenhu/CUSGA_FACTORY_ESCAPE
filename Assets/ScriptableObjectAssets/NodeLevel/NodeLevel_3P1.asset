@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a58ab5044a09404a86db6821d72cc25, type: 2}
   audioClip: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
   initialAnxietyValue: 100
-  rate: 0
+  rate: 1
   cutSceneList: []
