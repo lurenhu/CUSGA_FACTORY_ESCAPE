@@ -67,7 +67,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     override protected void Awake() {
         base.Awake();
-        Screen.SetResolution(1920, 1080, false);
+        Screen.SetResolution(1920, 1080, true);
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
         StartCoroutine(Fade(1,0,2,Color.black));
         DontDestroyOnLoad(gameObject);
