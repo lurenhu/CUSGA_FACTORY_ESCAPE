@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GamePause : SingletonMonobehaviour<GamePause>
+public class GameMenu : SingletonMonobehaviour<GameMenu>
 {
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
@@ -44,15 +46,40 @@ public class GamePause : SingletonMonobehaviour<GamePause>
 
     }
 
-    public void Continue()
+    public void StartGame()
     {   
-        SceneManager.UnloadSceneAsync("PauseMenu");
+        GameManager.Instance.StartChangeSceneCoroutine("MainMenu","GameScene");
+        GameManager.Instance.levelIndex = 0;
+        GameManager.Instance.gameState = GameState.Generating;
     }
 
-
-    public void Back()
+    public void QuitGame()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        Application.Quit();
+    }
+
+    public void Continue()
+    {   
+        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","GameScene");
+        GameManager.Instance.gameState = GameState.Generating;
+    }
+
+    public void PauseBackMain()
+    {
+        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","MainMenu");
+        GameManager.Instance.gameState = GameState.Start;
+    }
+
+    public void ReStart()
+    {
+        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","GameScene");
+        GameManager.Instance.gameState = GameState.Generating;
+    }
+
+    public void FailBackMain()
+    {
+        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","MainMenu");
+        GameManager.Instance.gameState = GameState.Start;
     }
 
     public void ChangeMusicVolume(float volume)

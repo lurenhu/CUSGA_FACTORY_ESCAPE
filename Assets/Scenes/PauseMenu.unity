@@ -266,62 +266,59 @@ PrefabInstance:
       propertyPath: parentID
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 40064194}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &40064187 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 40064186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40064188}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &40064188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 40064186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &40064189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 40064186}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &40064194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40064188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &43385811
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,62 +664,59 @@ PrefabInstance:
       propertyPath: parentID
       value: SFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 247491803}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &247491796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 247491795}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247491797}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &247491797 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 247491795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &247491798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 247491795}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &247491803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247491797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeSFXVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &315682406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -791,62 +785,63 @@ PrefabInstance:
       propertyPath: parentID
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 315682414}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &315682407 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 315682406}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315682408}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &315682408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 315682406}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &315682409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 315682406}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &315682414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315682408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &348637219
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +899,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 348637219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b11dd78aa6573c34bbecf083da1532f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f47df1976b020b419444d8b845328a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startNodes:
@@ -993,62 +988,63 @@ PrefabInstance:
       propertyPath: parentID
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 391457776}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &391457769 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 391457768}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391457770}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &391457770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 391457768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &391457771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 391457768}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &391457776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391457770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &422935568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1117,62 +1113,59 @@ PrefabInstance:
       propertyPath: parentID
       value: SFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 422935576}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &422935569 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 422935568}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422935570}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &422935570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 422935568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &422935571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 422935568}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &422935576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422935570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeSFXVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.75
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &435544582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,47 +1378,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 460282544}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &460282537 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 460282536}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460282538}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &460282538 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 460282536}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &460282539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 460282536}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &460282544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460282538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &484172618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1494,62 +1464,63 @@ PrefabInstance:
       propertyPath: parentID
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 484172626}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &484172619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 484172618}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484172620}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &484172620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 484172618}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &484172621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 484172618}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &484172626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484172620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.75
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &500329212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1618,62 +1589,59 @@ PrefabInstance:
       propertyPath: parentID
       value: SFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 500329220}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &500329213 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 500329212}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500329214}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &500329214 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 500329212}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &500329215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 500329212}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &500329220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500329214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeSFXVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &536588222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1809,47 +1777,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 536588230}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &536588223 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 536588222}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536588224}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &536588224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 536588222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &536588225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 536588222}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &536588230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536588224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &576862343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1833,8 @@ MonoBehaviour:
   frontGround: {fileID: 0}
   rightNodeGraphButton: {fileID: 0}
   leftNodeGraphButton: {fileID: 0}
+  AnimatorUI: {fileID: 0}
+  SkyUI: {fileID: 0}
   UIShow: 0
 --- !u!4 &576862345
 Transform:
@@ -1972,62 +1919,55 @@ PrefabInstance:
       propertyPath: parentID
       value: MainManu
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseBackMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 635123790}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &635123783 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 635123782}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635123784}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &635123784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 635123782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &635123785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 635123782}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &635123790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635123784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: Back
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &765232097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2096,62 +2036,55 @@ PrefabInstance:
       propertyPath: parentID
       value: SFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 765232105}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &765232098 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 765232097}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765232099}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &765232099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 765232097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &765232100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 765232097}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &765232105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765232099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeSFXVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &903494074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,62 +2302,55 @@ PrefabInstance:
       propertyPath: parentID
       value: MainManu
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1032154827}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &1032154820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1032154819}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032154821}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1032154821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 1032154819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1032154822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1032154819}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1032154827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032154821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: Continue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1105278479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2556,47 +2482,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1105278487}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &1105278480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1105278479}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105278481}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1105278481 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 1105278479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1105278482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1105278479}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1105278487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105278481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1209994291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2665,62 +2568,59 @@ PrefabInstance:
       propertyPath: parentID
       value: SFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1209994299}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &1209994292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1209994291}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209994293}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1209994293 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 1209994291}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1209994294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1209994291}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1209994299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209994293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeSFXVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1435629755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2789,62 +2689,63 @@ PrefabInstance:
       propertyPath: parentID
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 348637222}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1435629763}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
 --- !u!114 &1435629756 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1435629755}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435629757}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1435629757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 1435629755}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1435629758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1435629755}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1435629763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435629757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 348637222}
-        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1766931454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,9 +3094,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1964799546}
     - targetCorrespondingSourceObject: {fileID: 943596532751882522, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -3205,37 +3103,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7002341296060549221, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1964799538}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964799540}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b310f196c42cb468920a89d9310945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1964799540 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026254294051308990, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
-  m_PrefabInstance: {fileID: 1964799538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1964799541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3767762095330288059, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
   m_PrefabInstance: {fileID: 1964799538}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1964799546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964799540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa5e4512b23d4b41b6bbd24d16ea645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

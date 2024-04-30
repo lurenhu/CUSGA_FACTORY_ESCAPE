@@ -184,8 +184,9 @@ GameObject:
   - component: {fileID: 8659072959071610734}
   - component: {fileID: 8489064152141022636}
   - component: {fileID: 7002341296060549221}
+  - component: {fileID: 8600867057891630172}
   m_Layer: 6
-  m_Name: StartSceneNode
+  m_Name: MenuNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,3 +362,18 @@ MonoBehaviour:
     height: 0
   nodeType: {fileID: 0}
   spriteRenderer: {fileID: 0}
+--- !u!114 &8600867057891630172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026254294051308990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714d2d00e11a7564ba01eaa700d7e7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []

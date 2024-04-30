@@ -118,6 +118,7 @@ public class AILocked : MonoBehaviour
         {
             // 播放失败过场
             StaticEventHandler.CallGetResult(failCutScene);
+            GameManager.Instance.gameState = GameState.Fail;
         }
     }
 }

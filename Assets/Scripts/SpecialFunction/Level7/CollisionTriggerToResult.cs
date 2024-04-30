@@ -6,5 +6,6 @@ public class CollisionTriggerToResult : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other) {
         StaticEventHandler.CallGetResult(GameManager.Instance.fakeCutScene);
+        GameManager.Instance.gameState = GameState.Result;
     }
 }

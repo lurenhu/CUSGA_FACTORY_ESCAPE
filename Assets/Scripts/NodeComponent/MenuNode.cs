@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public class PauseSceneNode : MonoBehaviour
+public class MenuNode : MonoBehaviour
 {
     private Node myNode;
 
@@ -41,7 +41,7 @@ public class PauseSceneNode : MonoBehaviour
             else
             {
                 // 删除其他所有节点的选中状态
-                GamePause.Instance.ClearAllSelectedNode(myNode);
+                GameMenu.Instance.ClearAllSelectedNode(myNode);
                 myNode.GetSelectedAnimate();
     
                 myNode.isSelected = true;
@@ -70,9 +70,10 @@ public class PauseSceneNode : MonoBehaviour
             Node currentNode = childNode.node; // Instantiate(childNode.node,transform.position,Quaternion.identity);
 
             currentNode.transform.position = transform.position;
+            currentNode.transform.localScale = Vector3.one * 0.3f; 
             currentNode.gameObject.SetActive(true);
 
-            GamePause.Instance.CreateLine(currentNode);
+            GameMenu.Instance.CreateLine(currentNode);
             soundManager.Instance.PlaySFX("NodeBorn");
 
             soundManager.Instance.PlaySFX("NodeBorn");

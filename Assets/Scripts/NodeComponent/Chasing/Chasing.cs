@@ -32,8 +32,8 @@ public class Chasing : MonoBehaviour
 
         if (collider.GetComponent<Node>() == chasingTargetNode)
         {
-            Debug.Log("游戏失败");
-            VideoManager.Instance.ShowCutScenes(failCutScene);
+            StaticEventHandler.CallGetResult(failCutScene);
+            GameManager.Instance.gameState = GameState.Fail;
         }
     }
 

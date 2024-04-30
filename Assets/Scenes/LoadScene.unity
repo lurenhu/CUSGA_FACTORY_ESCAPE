@@ -173,10 +173,10 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
-  - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
   - {fileID: 11400000, guid: 7ff408f64e2aff744b03cf827e679500, type: 2}
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
+  - {fileID: 11400000, guid: 1a344f23be93de94d949b2e2295aa533, type: 2}
   - {fileID: 11400000, guid: 647d9f2fffc30024bb38e05de6bdfb94, type: 2}
   - {fileID: 11400000, guid: 08bbb8749cc2de3468fea077d4b46650, type: 2}
   - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}

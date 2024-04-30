@@ -136,6 +136,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private void GetNextRowText()
     {
+        // 文本播放结束
         if (animationIndex >= cutSceneCellList.Count)
         {
             if (GameManager.Instance.gameState == GameState.Result)
@@ -144,7 +145,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             }
             else if (GameManager.Instance.gameState == GameState.Fail)
             {
-
+                GameManager.Instance.StartChangeSceneCoroutine("GameScene","FailMenu");
             }
             else if (GameManager.Instance.gameState == GameState.Playing)
             {

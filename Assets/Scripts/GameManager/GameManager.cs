@@ -203,7 +203,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
         }
     }
-
+#region 左右两侧节点图切换按钮脚本
     /// <summary>
     /// 匹配左右两侧的切换节点图按钮
     /// </summary>
@@ -244,18 +244,19 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             StopCoroutine(ChangeNodeGraph);
         }
-
         ChangeNodeGraph = StartCoroutine(ChangeToRightGraphCoroutine());
     }
 
     IEnumerator ChangeToRightGraphCoroutine()
     {
+        canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         soundManager.Instance.PlaySFX("ChangeScene");
 
         GetRightNodeGraph();
 
+        canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
@@ -300,12 +301,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     IEnumerator ChangeToLeftGraphCoroutine()
     {
+        canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         soundManager.Instance.PlaySFX("ChangeScene");
 
         GetLeftNodeGraph();
 
+        canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
@@ -337,6 +340,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (enterNodeGraphTimesList[graphIndex] != 1)
             NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
     }
+#endregion
 
     /// <summary>
     /// 检查当前的焦虑值是否处在焦虑值比例内
