@@ -40,6 +40,10 @@ public class UIManager : SingletonMonobehaviour<UIManager>
 
     public bool UIShow = false;
 
+    private void Update() {
+        nodeTextForShow.gameObject.SetActive(!UIShow);
+    }
+
     /// <summary>
     /// 关闭图片节点UI
     /// </summary>

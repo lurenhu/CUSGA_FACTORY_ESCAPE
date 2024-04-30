@@ -198,6 +198,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }   
 
         MatchRightAndLeftNodeGraphName(currentNodeLevel);
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
 
         if (currentNodeLevel.cutSceneList.Count > 0)
         {
@@ -234,9 +236,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             leftGraphIndex = currentNodeLevel.levelGraphs.Count - 1;
         }
         UIManager.Instance.leftNodeGraphButton.GetComponentInChildren<TMP_Text>().text = currentNodeLevel.levelGraphs[leftGraphIndex].graphName;
-
-        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
-        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
     }
     
     private void ChangeToRightGraph()
@@ -439,6 +438,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
+        NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[graphIndex]);
+
         SceneManager.LoadSceneAsync("PauseMenu",LoadSceneMode.Additive);
 
         soundManager.Instance.StopMusicInFade();
@@ -446,6 +447,46 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+    /// <summary>
+    /// 从暂停界面返回至游戏场景
+    /// </summary>
+    public IEnumerator BackToGameSceneFromPauseMenu()
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        SceneManager.UnloadSceneAsync("PauseMenu");
+        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        LoadNodeGraph();
+        
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+    /// <summary>
+    /// 载入节点图以
+    /// </summary>
+    private void LoadNodeGraph()
+    {
+        NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
+
+        MatchRightAndLeftNodeGraphName(currentNodeLevel);
+
+        NodeMapBuilder.Instance.GenerateNodeMap(
+            currentNodeLevel.levelGraphs[graphIndex],
+            enterNodeGraphTimesList[graphIndex]
+            );
+        enterNodeGraphTimesList[graphIndex]++;
+
+        // 根据读取的节点状态数据重新载入节点图
+        if (enterNodeGraphTimesList[graphIndex] != 1)
+            NodeMapBuilder.Instance.LoadNodeMap(nodeIdsInGraph[graphIndex]);
     }
 
 
