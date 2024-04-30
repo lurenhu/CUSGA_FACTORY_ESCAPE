@@ -8,6 +8,7 @@ public class TimerToResultNodeSO : NodeSO
     [Space(10)]
     [Header("计时器触发结局节点所需数据")]
     public string startNodeId;
+    public string stopNodeId;
     public float duration;
 
     #if UNITY_EDITOR

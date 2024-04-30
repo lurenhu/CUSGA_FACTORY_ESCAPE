@@ -29,7 +29,14 @@ public class TimeManager : SingletonMonobehaviour<TimeManager>
 
         if (startTimer && timingNode.gameObject.activeSelf)
         {
-            timingNode.GetComponent<Timing>().StartTimerCoroutine();
+            if (timingNode.nodeType.isTiming)
+            {
+                timingNode.GetComponent<Timing>().StartTimerCoroutine();
+            }
+            else if (timingNode.nodeType.isTimerToResult)
+            {
+                timingNode.GetComponent<TimerToResult>().StartTimerCoroutine();
+            }
             startTimer = false;
         }
 

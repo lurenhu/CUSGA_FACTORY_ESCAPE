@@ -47,6 +47,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     Coroutine GetNextLevel;
     Coroutine ResultCoroutine;
     Coroutine ChangeScene;
+    Coroutine UnLoadScene;
 
     [Space(10)]
     [Header("场景过度")]
@@ -375,6 +376,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
+    /// <summary>
+    /// 切换场景及对应游戏状态
+    /// </summary>
     public void StartChangeSceneCoroutine(string unLoadSceneName, string loadSceneName, GameState gameState)
     {
         if (ChangeScene != null)
@@ -401,6 +405,33 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
+    public void UnloadGameScene(string unLoadSceneName)
+    {
+        if (UnLoadScene != null)
+        {
+            StopCoroutine(UnLoadScene);
+        }
+        UnLoadScene = StartCoroutine(UnloadGameSceneCoroutine(unLoadSceneName));
+    }
+
+    IEnumerator UnloadGameSceneCoroutine(string unLoadSceneName)
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        SceneManager.UnloadSceneAsync(unLoadSceneName);
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+        
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+
+    /// <summary>
+    /// 播放当前关卡的音乐
+    /// </summary>
     public void PlayCurrentLevelAudio()
     {
         NodeLevelSO currentLevel = nodeLevelSOs[levelIndex];

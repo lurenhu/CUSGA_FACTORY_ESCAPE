@@ -59,7 +59,7 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
 
     public void Continue()
     {   
-        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","GameScene",GameState.Generating);
+        GameManager.Instance.UnloadGameScene("PauseMenu");
     }
 
     public void PauseBackMain()

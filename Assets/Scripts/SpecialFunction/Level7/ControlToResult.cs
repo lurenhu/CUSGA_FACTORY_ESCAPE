@@ -92,7 +92,7 @@ public class ControlToResult : MonoBehaviour
         {
             targetNode.transform.GetComponent<BoxCollider2D>().isTrigger = false;
 
-            targetNode.gameObject.AddComponent<CollisionTrigger>();
+            targetNode.gameObject.AddComponent<CollisionTriggerToResult>();
 
             hasSetSpeed = true;
         }

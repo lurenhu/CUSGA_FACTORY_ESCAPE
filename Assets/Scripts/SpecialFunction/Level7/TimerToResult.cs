@@ -9,9 +9,9 @@ public class TimerToResult : MonoBehaviour
     public Node startNode;
     public Node myNode;
     private float duration = 1;
+    private Coroutine timerCoroutine;
 
     private void Start() {
-        StartCoroutine(StartTimer());
     }
 
     private void OnMouseUp()
@@ -53,14 +53,23 @@ public class TimerToResult : MonoBehaviour
     /// </summary>
     public void InitializeTimerToResult(NodeSO nodeSO)
     {
-        TimingNodeSO timingNodeSO = (TimingNodeSO)nodeSO;
+        TimerToResultNodeSO timingNodeSO = (TimerToResultNodeSO)nodeSO;
 
         duration = timingNodeSO.duration;
-        startNode = NodeMapBuilder.Instance.GetNode(timingNodeSO.startNodeId);
-        myNode = transform.GetComponent<Node>();
+        TimeManager.Instance.startTimingNodeId = timingNodeSO.startNodeId;
+        TimeManager.Instance.endTimingNodeId = timingNodeSO.stopNodeId;
 
-        BeClocked beClocked = startNode.gameObject.AddComponent<BeClocked>();
-        beClocked.InitializeBeClocked(this.myNode);
+        myNode = transform.GetComponent<Node>();
+        TimeManager.Instance.timingNode = myNode;
+    }
+
+    public void StartTimerCoroutine()
+    {
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+        }
+        timerCoroutine = StartCoroutine(StartTimer());
     }
 
     /// <summary>
@@ -69,6 +78,7 @@ public class TimerToResult : MonoBehaviour
     private IEnumerator StartTimer()
     {
         float currentTime = duration; // 初始化当前时间为倒计时时间
+        SetCurrentTimeText(currentTime);
 
         while (currentTime > 0)
         {
@@ -76,21 +86,23 @@ public class TimerToResult : MonoBehaviour
 
             currentTime -= 1f; // 减去一秒钟
 
-            // 计算分钟和秒数
-            int minutes = Mathf.FloorToInt(currentTime / 60);
-            int seconds = Mathf.FloorToInt(currentTime % 60);
-
-            // 将分钟和秒数格式化成00:00的形式
-            string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-            transform.GetComponentInChildren<TMP_Text>().text = timerString;
-
-            Debug.Log("剩余时间：" + timerString);
+            SetCurrentTimeText(currentTime);
         }
 
         Debug.Log("时间到！");
         // 在此处执行计时结束后的操作
         StaticEventHandler.CallGetResult(GameManager.Instance.winCutScene);
         GameManager.Instance.gameState = GameState.Result;
+    }
+
+    private void SetCurrentTimeText(float currentTime)
+    {
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        transform.GetComponentInChildren<TMP_Text>().text = timerString;
+
+        Debug.Log("剩余时间：" + timerString);
     }
 
 }

@@ -14,48 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 
   levelGraphs:
-  - {fileID: 11400000, guid: 78bd3dbd01d3e7c41a93c5ec8738913d, type: 2}
+  - {fileID: 11400000, guid: f65a0317f91b8e644b3aa50a61a7eb02, type: 2}
   audioClip: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
   initialAnxietyValue: 100
   rate: 1
   cutSceneList:
-  - animationStateName: L6_A5
-    text: {fileID: 4900000, guid: ced494fc54e0f324fa969511aa55a6e5, type: 3}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: L6_Video
-    text: {fileID: 4900000, guid: 31a1f4488ff1f8c41b182b7746d2d15f, type: 3}
-    isAuto: 1
-    music: {fileID: 8300000, guid: 73e85ecfb39309645ba9d82b64d3de0a, type: 3}
-    sfx: {fileID: 0}
-  - animationStateName: L6_A8
+  - animationStateName: L7_A1
     text: {fileID: 4900000, guid: e87a19825f49dc647ad1daa28a269a1a, type: 3}
     isAuto: 0
-    music: {fileID: 8300000, guid: 9e4a1fdc3e4e2f54ba48498353d61aa6, type: 3}
-    sfx: {fileID: 0}
-  - animationStateName: L6_A9
-    text: {fileID: 4900000, guid: 7b7954bbbbab4ac44906de460f6c7874, type: 3}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: L6_A10
-    text: {fileID: 4900000, guid: 15ddafbec50528949852391c29778a46, type: 3}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: L6_A11
-    text: {fileID: 4900000, guid: ed558457a89dfff40a8eea666fa09f65, type: 3}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: L6_A12
-    text: {fileID: 4900000, guid: 86f67876aa81b4941a8a2e22b9642f22, type: 3}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: C4
-    text: {fileID: 0}
-    isAuto: 1
     music: {fileID: 0}
     sfx: {fileID: 0}

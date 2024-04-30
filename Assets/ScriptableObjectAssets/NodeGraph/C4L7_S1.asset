@@ -1,6 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7887313790167195694
+--- !u!114 &-6035507256504525324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee03c330c8022847a87ceda06970ab5, type: 3}
+  m_Name: ControlToResultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u9676\u7279"
+  id: c74c99c7-9443-42bb-8584-669eea6ddc8e
+  parentNodeIdList:
+  - 274300bb-421b-42b5-9e65-9537029dd0be
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: d6175e4338a08a744b9a6ed3eff56923, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 450
+    y: 437
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  targetNodeID: 58428818-5905-4ee4-86dc-2a6a47d29c5f
+--- !u!114 &-4569637122678718872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,25 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
   m_Name: DefaultNode
   m_EditorClassIdentifier: 
-  nodeText: "\u95E8\u53E3"
-  id: 32a05116-c358-44ff-b2c4-334d1b166fb8
-  parentNodeIdList: []
-  childrenNodeIdList:
-  - 215e2dec-d666-4824-a0d7-ba3d361e3129
+  nodeText: "\u79BB\u5F00\u5DE5\u5382"
+  id: 58428818-5905-4ee4-86dc-2a6a47d29c5f
+  parentNodeIdList:
+  - 274300bb-421b-42b5-9e65-9537029dd0be
+  childrenNodeIdList: []
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeType: {fileID: 11400000, guid: 2c278a0abbeb133458fb0928018e2085, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 480
-    y: 182
+    x: 887
+    y: 281
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &-1164732815083234732
+--- !u!114 &-4159849950188130337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +74,7 @@ MonoBehaviour:
   m_Name: ChangeSceneNode
   m_EditorClassIdentifier: 
   nodeText: 
-  id: 0a9612aa-c31a-4362-91c8-460d2b1bde0e
+  id: 07e2de49-440f-4ea6-bcf0-5a9521213d76
   parentNodeIdList: []
   childrenNodeIdList: []
   audioList: []
@@ -53,14 +84,44 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 896
-    y: 174
+    x: 947
+    y: 81
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 1
+  startNodeId: c74c99c7-9443-42bb-8584-669eea6ddc8e
+  stopNodeId: 42ef9743-c37c-485f-b910-0e7358cd09f0
+  duration: 120
+--- !u!114 &-2837984553600554366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: 
+  id: 42ef9743-c37c-485f-b910-0e7358cd09f0
+  parentNodeIdList: []
+  childrenNodeIdList: []
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 814
+    y: 497
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  startNodeId: 524d2403-8b22-408f-b6ad-31e1abe16a8f
-  duration: 120
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,19 +135,50 @@ MonoBehaviour:
   m_Name: C4L7_S1
   m_EditorClassIdentifier: 
   graphName: "\u95E8\u53E3"
-  foreGround: {fileID: 0}
-  backGround: {fileID: 0}
+  foreGround: {fileID: 21300000, guid: 09ce48429d066024f9a2b987b8cc7172, type: 3}
+  backGround: {fileID: 21300000, guid: 455146f80bd923e47b3050b09fd72b54, type: 3}
   dialogForFirstTime: {fileID: 4900000, guid: 009445d78324bed4c83a6722dbc50ec1, type: 3}
   nodeTypeList: {fileID: 0}
   nodeList:
-  - {fileID: -7887313790167195694}
-  - {fileID: 3564825303168370515}
-  - {fileID: -1164732815083234732}
-  - {fileID: 8975460976640730648}
-  - {fileID: 2218372663000480188}
+  - {fileID: 1510058879300007705}
+  - {fileID: -2837984553600554366}
+  - {fileID: -6035507256504525324}
+  - {fileID: -4569637122678718872}
+  - {fileID: -4159849950188130337}
+  - {fileID: 3155600471398303823}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
---- !u!114 &2218372663000480188
+--- !u!114 &1510058879300007705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u95E8\u53E3"
+  id: 80aea917-8fbd-4a83-9691-ceef9707a44a
+  parentNodeIdList: []
+  childrenNodeIdList:
+  - 274300bb-421b-42b5-9e65-9537029dd0be
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 5848e6b287417a448a663bae523b7a37, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 368
+    y: 89
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+--- !u!114 &3155600471398303823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,12 +191,12 @@ MonoBehaviour:
   m_Name: AnimatorNode
   m_EditorClassIdentifier: 
   nodeText: 
-  id: 215e2dec-d666-4824-a0d7-ba3d361e3129
+  id: 274300bb-421b-42b5-9e65-9537029dd0be
   parentNodeIdList:
-  - 32a05116-c358-44ff-b2c4-334d1b166fb8
+  - 80aea917-8fbd-4a83-9691-ceef9707a44a
   childrenNodeIdList:
-  - c8defe53-35c2-4830-b999-d733dfae8e46
-  - 91b29ecf-b622-4cba-b91a-f1368cf3bf0b
+  - c74c99c7-9443-42bb-8584-669eea6ddc8e
+  - 58428818-5905-4ee4-86dc-2a6a47d29c5f
   audioList: []
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
@@ -112,69 +204,9 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 590
-    y: 331
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 1
---- !u!114 &3564825303168370515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ab0ee51c41e35469a30111c06e6c06, type: 3}
-  m_Name: DefaultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u79BB\u5F00\u5DE5\u5382"
-  id: 91b29ecf-b622-4cba-b91a-f1368cf3bf0b
-  parentNodeIdList:
-  - 215e2dec-d666-4824-a0d7-ba3d361e3129
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: 
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: 34723c279a6bac143b007919e1730dde, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 1078
-    y: 401
+    x: 613
+    y: 236
     width: 160
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
---- !u!114 &8975460976640730648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee03c330c8022847a87ceda06970ab5, type: 3}
-  m_Name: ControlToResultNode
-  m_EditorClassIdentifier: 
-  nodeText: "\u9676\u7279"
-  id: c8defe53-35c2-4830-b999-d733dfae8e46
-  parentNodeIdList: []
-  childrenNodeIdList: []
-  audioList: []
-  nodeTextForShow: 
-  nodeGraph: {fileID: 11400000}
-  nodeType: {fileID: 11400000, guid: d6175e4338a08a744b9a6ed3eff56923, type: 2}
-  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
-  rect:
-    serializedVersion: 2
-    x: 465
-    y: 556
-    width: 160
-    height: 100
-  isLeftClickDragging: 0
-  isSelected: 1
-  targetNodeID: 91b29ecf-b622-4cba-b91a-f1368cf3bf0b
