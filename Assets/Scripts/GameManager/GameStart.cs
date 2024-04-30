@@ -48,7 +48,9 @@ public class GameStart : SingletonMonobehaviour<GameStart>
 
     public void StartGame()
     {   
-        StartCoroutine(GameManager.Instance.ChangeSceneToGameScene());
+        GameManager.Instance.levelIndex = 0;
+        GameManager.Instance.gameState = GameState.Generating;
+        GameManager.Instance.StartChangeSceneCoroutine("MainMenu","GameScene");
     }
 
     public void QuitGame()

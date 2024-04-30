@@ -138,9 +138,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     {
         if (animationIndex >= cutSceneCellList.Count)
         {
-            if (GameManager.Instance.gameState == GameState.Won || GameManager.Instance.gameState == GameState.Fake)
+            if (GameManager.Instance.gameState == GameState.Result)
             {
-                StartCoroutine(GameManager.Instance.ChangeSceneToMainMenu());
+                GameManager.Instance.StartChangeSceneCoroutine("GameScene","MainMenu");
+            }
+            else if (GameManager.Instance.gameState == GameState.Fail)
+            {
+
             }
             else if (GameManager.Instance.gameState == GameState.Playing)
             {

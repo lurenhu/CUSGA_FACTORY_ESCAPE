@@ -13,8 +13,8 @@ public enum GameState
     Generating,
     Playing,
     Pause,
-    Won,
-    Fake,
+    Result,
+    Fail,
 }
 
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -44,8 +44,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
     Coroutine ChangeNodeGraph;
-    Coroutine GameSceneChanged;
+    Coroutine GetNextLevel;
     Coroutine ResultCoroutine;
+    Coroutine ChangeScene;
 
     [Space(10)]
     [Header("场景过度")]
@@ -73,16 +74,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void OnEnable() {
         StaticEventHandler.OnGetNextNodeLevel += StaticEventHandler_OnGetNextNodeLevel;
 
-        StaticEventHandler.OnGetResult += StaticEventHandler_OnGetFailResult;
+        StaticEventHandler.OnGetResult += StaticEventHandler_OnGetResult;
     }
 
     private void OnDisable() {
         StaticEventHandler.OnGetNextNodeLevel -= StaticEventHandler_OnGetNextNodeLevel;
 
-        StaticEventHandler.OnGetResult -= StaticEventHandler_OnGetFailResult;
+        StaticEventHandler.OnGetResult -= StaticEventHandler_OnGetResult;
     }
 
-    private void StaticEventHandler_OnGetFailResult(GetResult result)
+    private void StaticEventHandler_OnGetResult(GetResult result)
     {
         if (ResultCoroutine != null)
         {
@@ -108,11 +109,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void StaticEventHandler_OnGetNextNodeLevel(GetNextNodeLevel args)
     {
         Debug.Log("触发进入下一关卡事件");
-        if (GameSceneChanged != null)
+        if (GetNextLevel != null)
         {
-            StopCoroutine(GameSceneChanged);
+            StopCoroutine(GetNextLevel);
         }
-        GameSceneChanged = StartCoroutine(GetNextNodeLevel());
+        GetNextLevel = StartCoroutine(GetNextNodeLevel());
     }
 
     IEnumerator GetNextNodeLevel()
@@ -150,11 +151,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
             case GameState.Pause:
                 break;
-            case GameState.Won:
-                VideoManager.Instance.ShowCutScenes(winCutScene);
+            case GameState.Result:
                 break;
-            case GameState.Fake:
-                VideoManager.Instance.ShowCutScenes(fakeCutScene);
+            case GameState.Fail:
                 break;
         }
     }
@@ -357,7 +356,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 淡入淡出
     /// </summary>
-    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backGround)
+    IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backGround)
     {
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backGround;
@@ -372,32 +371,26 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
-    public IEnumerator ChangeSceneToMainMenu()
+    public void StartChangeSceneCoroutine(string unLoadSceneName, string loadSceneName)
     {
-        canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
-
-        SceneManager.LoadSceneAsync("MainMenu",LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("GameScene");
-
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
-        canvasGroup.blocksRaycasts = false;
+        if (ChangeScene != null)
+        {
+            StopCoroutine(ChangeScene);
+        }
+        ChangeScene = StartCoroutine(ChangeSceneCoroutine(unLoadSceneName,loadSceneName));
     }
 
-    public IEnumerator ChangeSceneToGameScene()
+    IEnumerator ChangeSceneCoroutine(string unLoadSceneName, string loadSceneName)
     {
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
-        SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(loadSceneName,LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(unLoadSceneName);
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");
-
-        levelIndex = 0;
-        gameState = GameState.Generating;
-
+        
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
@@ -408,8 +401,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
-
-        StartCoroutine(Fade(1,0,2,Color.black));
     }
 
 }
