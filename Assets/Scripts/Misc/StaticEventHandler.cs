@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 public static class StaticEventHandler
@@ -27,6 +28,12 @@ public static class StaticEventHandler
         OnGetNextNodeLevel?.Invoke(new GetNextNodeLevel() {});
     }
 
+    public static event Action<GetResult> OnGetResult;
+    public static void CallGetResult(List<CutSceneCell> cutSceneCells)
+    {
+        OnGetResult?.Invoke(new GetResult() {cutSceneCells = cutSceneCells});
+    }
+
 }
 public class CommitArgs : EventArgs
 {
@@ -46,4 +53,9 @@ public class StartTimingArgs : EventArgs
 public class GetNextNodeLevel : EventArgs
 {
     
+}
+
+public class GetResult : EventArgs
+{
+    public List<CutSceneCell> cutSceneCells;
 }

@@ -45,6 +45,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
     Coroutine ChangeNodeGraph;
     Coroutine GameSceneChanged;
+    Coroutine ResultCoroutine;
 
     [Space(10)]
     [Header("场景过度")]
@@ -71,10 +72,37 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     
     private void OnEnable() {
         StaticEventHandler.OnGetNextNodeLevel += StaticEventHandler_OnGetNextNodeLevel;
+
+        StaticEventHandler.OnGetResult += StaticEventHandler_OnGetFailResult;
     }
 
     private void OnDisable() {
         StaticEventHandler.OnGetNextNodeLevel -= StaticEventHandler_OnGetNextNodeLevel;
+
+        StaticEventHandler.OnGetResult -= StaticEventHandler_OnGetFailResult;
+    }
+
+    private void StaticEventHandler_OnGetFailResult(GetResult result)
+    {
+        if (ResultCoroutine != null)
+        {
+            StopCoroutine(ResultCoroutine);
+        }
+        ResultCoroutine = StartCoroutine(GetResult(result.cutSceneCells));
+    }
+
+    IEnumerator GetResult(List<CutSceneCell> cutSceneCells)
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        VideoManager.Instance.ShowCutScenes(cutSceneCells);
+
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
     private void StaticEventHandler_OnGetNextNodeLevel(GetNextNodeLevel args)
@@ -90,8 +118,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator GetNextNodeLevel()
     {
         canvasGroup.blocksRaycasts = true;
-        UIManager.Instance.UIShow = true;
-        
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         soundManager.Instance.StopMusicInFade();
@@ -100,10 +126,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         levelIndex++;
         gameState = GameState.Generating;
 
+        canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
 
-        canvasGroup.blocksRaycasts = false;
-        UIManager.Instance.UIShow = false;
     }
 
     private void Update() {
@@ -332,17 +357,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// 淡入淡出
     /// </summary>
-    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color backGround)
+    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backGround)
     {
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backGround;
 
         float time = 0;
 
-        while (time <= fadeSecounds)
+        while (time <= fadeSeconds)
         {
             time += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSecounds);
+            canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSeconds);
             yield return null;
         }
     }
@@ -383,6 +408,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
+
+        StartCoroutine(Fade(1,0,2,Color.black));
     }
 
 }

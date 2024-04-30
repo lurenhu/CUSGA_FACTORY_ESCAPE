@@ -150,8 +150,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 isPlayingCutScene = false;
                 
                 GameManager.Instance.PlayCurrentLevelAudio();
-
-                StartCoroutine(GameManager.Instance.Fade(1,0,2,Color.black));
                 return;
             }
         }

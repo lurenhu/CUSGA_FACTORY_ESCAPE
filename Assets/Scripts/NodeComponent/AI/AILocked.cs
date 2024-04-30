@@ -117,11 +117,7 @@ public class AILocked : MonoBehaviour
         else
         {
             // 播放失败过场
-            GameManager.Instance.canvasGroup.blocksRaycasts = true;
-            StartCoroutine(GameManager.Instance.Fade(0,1,2,Color.black));
-            soundManager.Instance.PlaySFX("ChangeScene");
-            
-            VideoManager.Instance.ShowCutScenes(failCutScene);
+            StaticEventHandler.CallGetResult(failCutScene);
         }
     }
 }

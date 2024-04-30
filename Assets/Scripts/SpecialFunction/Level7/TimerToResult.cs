@@ -89,7 +89,7 @@ public class TimerToResult : MonoBehaviour
 
         Debug.Log("时间到！");
         // 在此处执行计时结束后的操作
-        GameManager.Instance.gameState = GameState.Won;
+        StaticEventHandler.CallGetResult(GameManager.Instance.winCutScene);
     }
 
 }
