@@ -139,7 +139,7 @@ public class tongyi_AI : MonoBehaviour
             reply_is_finished = false;
 
         }
-        else if (bot_name == "对话角色1")
+        else if (bot_name == "对话角色1"|| bot_name == "对话角色2" || bot_name == "对话角色3")
         {   
             int seed = 1683806810;
             //用对话历史
@@ -318,7 +318,7 @@ public class tongyi_AI : MonoBehaviour
     {
         Debug.Log("check_anxiety_change");
         
-        string text;
+        //string text;
         reply_text.Replace("了", "");
         //int anxiety_change_value=0;
         if (reply_text.Contains("焦虑值"))
