@@ -9,6 +9,7 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
 {
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
+    Coroutine ContinueFromPause;
 
     public void ClearAllSelectedNode(Node node)
     {
@@ -62,8 +63,18 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
         GameManager.Instance.UnloadGameScene("PauseMenu");
     }
 
+    public void ContinueByLoad()
+    {
+        if (ContinueFromPause != null)
+        {
+            StopCoroutine(ContinueFromPause);
+        }
+        StartCoroutine(GameManager.Instance.BackToGameSceneFromPauseMenu());
+    }
+
     public void PauseBackMain()
     {
+        SceneManager.UnloadSceneAsync("GameScene");
         GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","MainMenu",GameState.Start);
     }
 
