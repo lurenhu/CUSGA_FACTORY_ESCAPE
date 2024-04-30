@@ -54,7 +54,6 @@ public class Level1AILock : MonoBehaviour
                 if(!hasResult)
                 {
                     tongyi_AI.instance.input_field.SetActive(true);
-                    DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
                     DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
                     DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
                 }
@@ -82,7 +81,6 @@ public class Level1AILock : MonoBehaviour
         GameManager.Instance.currentAnxiety += args.anxiety_change_value;
         submissionTimes--;
 
-        DialogSystem.Instance.submitText.text = "剩余对话次数:" + submissionTimes;
         DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
         DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
 

@@ -25,7 +25,6 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     public Image AICharacter_2;
     public GameObject dialogCellPrefab;
     public Transform content;
-    public TMP_Text submitText;
     public TMP_Text value;
     public RectTransform anxietyValue;
     public List<Image> SubmitTimer;
