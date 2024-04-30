@@ -20,4 +20,29 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
   initialAnxietyValue: 100
   rate: 1
-  cutSceneList: []
+  cutSceneList:
+  - animationStateName: L1_A1
+    text: {fileID: 4900000, guid: 462b030e0ed624940a334d0bff35132d, type: 3}
+    isAuto: 0
+    music: {fileID: 8300000, guid: e1d61c445ee5201408ae39c8d0376be2, type: 3}
+    sfx: {fileID: 0}
+  - animationStateName: L1_A2
+    text: {fileID: 4900000, guid: ee542617e8229b144b4ddc90137f47e4, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: L1_A3
+    text: {fileID: 4900000, guid: 598599d1a3b1c6541969d28c96da6533, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: L1_A4
+    text: {fileID: 4900000, guid: 8fd4d7384badcff41aff29e2724ef7b3, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
+  - animationStateName: L1_A5
+    text: {fileID: 4900000, guid: bbb4dd07e1fc6b049a333945db7ba41a, type: 3}
+    isAuto: 0
+    music: {fileID: 0}
+    sfx: {fileID: 0}
