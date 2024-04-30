@@ -189,34 +189,34 @@ MonoBehaviour:
   level1GetResultTimes: 0
   haveNodeDrag: 0
   winCutScene:
-  - animationStateName: 
-    text: {fileID: 0}
+  - animationStateName: TrueEnd1
+    text: {fileID: 4900000, guid: b029d0403df8ed84c8e54f6dfb1499ab, type: 3}
+    isAuto: 0
+    music: {fileID: 8300000, guid: dc88f38701932f14c9737d369714423e, type: 3}
+    sfx: {fileID: 0}
+  - animationStateName: TrueEnd2
+    text: {fileID: 4900000, guid: aa6b9abe51e3d124cae35c3744baa994, type: 3}
     isAuto: 0
     music: {fileID: 0}
     sfx: {fileID: 0}
-  - animationStateName: 
-    text: {fileID: 0}
+  - animationStateName: TrueEnd3
+    text: {fileID: 4900000, guid: 29bf56948d8d2e24296a65066eb73d0c, type: 3}
     isAuto: 0
     music: {fileID: 0}
     sfx: {fileID: 0}
-  - animationStateName: 
+  - animationStateName: TheEnd
     text: {fileID: 0}
-    isAuto: 0
+    isAuto: 1
     music: {fileID: 0}
     sfx: {fileID: 0}
   fakeCutScene:
-  - animationStateName: 
-    text: {fileID: 0}
+  - animationStateName: FakeEnd1
+    text: {fileID: 4900000, guid: 13af42f93d06d284a9ca0a766615116e, type: 3}
     isAuto: 0
-    music: {fileID: 0}
+    music: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
     sfx: {fileID: 0}
-  - animationStateName: 
-    text: {fileID: 0}
-    isAuto: 0
-    music: {fileID: 0}
-    sfx: {fileID: 0}
-  - animationStateName: 
-    text: {fileID: 0}
+  - animationStateName: FakeEnd2
+    text: {fileID: 4900000, guid: 8fe69e53b4b9f6e4289554c5d9d7e338, type: 3}
     isAuto: 0
     music: {fileID: 0}
     sfx: {fileID: 0}
