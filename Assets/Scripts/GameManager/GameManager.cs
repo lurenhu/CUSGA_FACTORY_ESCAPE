@@ -48,6 +48,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     Coroutine ResultCoroutine;
     Coroutine ChangeScene;
     Coroutine UnLoadScene;
+    Coroutine BackGameSceneFromPause;
 
     [Space(10)]
     [Header("场景过度")]
@@ -66,7 +67,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     override protected void Awake() {
         base.Awake();
-
+        Screen.SetResolution(1920, 1080, false);
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
         StartCoroutine(Fade(1,0,2,Color.black));
         DontDestroyOnLoad(gameObject);
@@ -440,6 +441,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[graphIndex]);
 
+        SceneManager.UnloadSceneAsync("GameScene");
         SceneManager.LoadSceneAsync("PauseMenu",LoadSceneMode.Additive);
 
         soundManager.Instance.StopMusicInFade();
@@ -449,17 +451,31 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
+    public void StartBackToGameSceneFromPauseMenu()
+    {
+        if (BackGameSceneFromPause != null)
+        {
+            StopCoroutine(BackGameSceneFromPause);
+        }
+
+        BackGameSceneFromPause = StartCoroutine(BackToGameSceneFromPauseMenu());
+    }
+
     /// <summary>
     /// 从暂停界面返回至游戏场景
     /// </summary>
-    public IEnumerator BackToGameSceneFromPauseMenu()
+    IEnumerator BackToGameSceneFromPauseMenu()
     {
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         SceneManager.UnloadSceneAsync("PauseMenu");
-        SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
 
+        while (!asyncOperation.isDone) 
+        {
+            yield return null;
+        }
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");
 
@@ -474,9 +490,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// </summary>
     private void LoadNodeGraph()
     {
+        Debug.Log(1);
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
 
         MatchRightAndLeftNodeGraphName(currentNodeLevel);
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
 
         NodeMapBuilder.Instance.GenerateNodeMap(
             currentNodeLevel.levelGraphs[graphIndex],

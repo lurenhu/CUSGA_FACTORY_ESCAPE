@@ -41,7 +41,10 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public bool UIShow = false;
 
     private void Update() {
-        nodeTextForShow.gameObject.SetActive(!UIShow);
+        if (nodeTextForShow != null)
+        {
+            nodeTextForShow.gameObject.SetActive(!UIShow);
+        }
     }
 
     /// <summary>

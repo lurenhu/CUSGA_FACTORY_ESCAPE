@@ -2320,7 +2320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
+      value: ContinueByLoad
       objectReference: {fileID: 0}
     - target: {fileID: 8600867057891630172, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
