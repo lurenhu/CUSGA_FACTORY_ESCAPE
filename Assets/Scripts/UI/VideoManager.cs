@@ -141,11 +141,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         {
             if (GameManager.Instance.gameState == GameState.Result)
             {
-                GameManager.Instance.StartChangeSceneCoroutine("GameScene","MainMenu");
+                GameManager.Instance.StartChangeSceneCoroutine("GameScene","MainMenu",GameState.Result);
             }
             else if (GameManager.Instance.gameState == GameState.Fail)
             {
-                GameManager.Instance.StartChangeSceneCoroutine("GameScene","FailMenu");
+                GameManager.Instance.StartChangeSceneCoroutine("GameScene","FailMenu",GameState.Fail);
             }
             else if (GameManager.Instance.gameState == GameState.Playing)
             {

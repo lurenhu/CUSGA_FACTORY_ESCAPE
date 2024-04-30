@@ -375,25 +375,27 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
-    public void StartChangeSceneCoroutine(string unLoadSceneName, string loadSceneName)
+    public void StartChangeSceneCoroutine(string unLoadSceneName, string loadSceneName, GameState gameState)
     {
         if (ChangeScene != null)
         {
             StopCoroutine(ChangeScene);
         }
-        ChangeScene = StartCoroutine(ChangeSceneCoroutine(unLoadSceneName,loadSceneName));
+        ChangeScene = StartCoroutine(ChangeSceneCoroutine(unLoadSceneName,loadSceneName,gameState));
     }
 
-    IEnumerator ChangeSceneCoroutine(string unLoadSceneName, string loadSceneName)
+    IEnumerator ChangeSceneCoroutine(string unLoadSceneName, string loadSceneName, GameState gameState)
     {
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
-        SceneManager.LoadSceneAsync(loadSceneName,LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(unLoadSceneName);
+        SceneManager.LoadSceneAsync(loadSceneName,LoadSceneMode.Additive);
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");
+
+        this.gameState = gameState;
         
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));

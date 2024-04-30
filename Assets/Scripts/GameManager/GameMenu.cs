@@ -48,9 +48,8 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
 
     public void StartGame()
     {   
-        GameManager.Instance.StartChangeSceneCoroutine("MainMenu","GameScene");
         GameManager.Instance.levelIndex = 0;
-        GameManager.Instance.gameState = GameState.Generating;
+        GameManager.Instance.StartChangeSceneCoroutine("MainMenu","GameScene",GameState.Generating);
     }
 
     public void QuitGame()
@@ -60,26 +59,22 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
 
     public void Continue()
     {   
-        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","GameScene");
-        GameManager.Instance.gameState = GameState.Generating;
+        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","GameScene",GameState.Generating);
     }
 
     public void PauseBackMain()
     {
-        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","MainMenu");
-        GameManager.Instance.gameState = GameState.Start;
+        GameManager.Instance.StartChangeSceneCoroutine("PauseMenu","MainMenu",GameState.Start);
     }
 
     public void ReStart()
     {
-        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","GameScene");
-        GameManager.Instance.gameState = GameState.Generating;
+        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","GameScene",GameState.Generating);
     }
 
     public void FailBackMain()
     {
-        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","MainMenu");
-        GameManager.Instance.gameState = GameState.Start;
+        GameManager.Instance.StartChangeSceneCoroutine("FailMenu","MainMenu",GameState.Start);
     }
 
     public void ChangeMusicVolume(float volume)
