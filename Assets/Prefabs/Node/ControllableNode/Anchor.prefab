@@ -184,12 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535304cd432bac346a53326e50396e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 20
   distance: 2
   frequency: 5
   dampingRatio: 0.5
   hammerPrefab: {fileID: 1460533025384689470, guid: 82dd1f3653638944e9cdf4b531a84509, type: 3}
-  Friction: 0.5
+  Friction: 10
   myNode: {fileID: 0}
   line: {fileID: 0}
   hammer: {fileID: 0}
@@ -222,3 +222,4 @@ MonoBehaviour:
     width: 0
     height: 0
   nodeType: {fileID: 0}
+  spriteRenderer: {fileID: 0}
