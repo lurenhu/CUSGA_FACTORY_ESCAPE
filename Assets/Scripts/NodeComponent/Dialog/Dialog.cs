@@ -34,12 +34,10 @@ public class Dialog : MonoBehaviour
         stopAfterDialog = dialogNodeSO.stopAfterDialog;
         changeBackGroundImage = dialogNodeSO.changeBackGroundImage;
 
-        if (NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID) != null && NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisappearNodeID) != null)
+        if (NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID) != null)
         {
-            BeClocked beClocked = NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID).gameObject.AddComponent<BeClocked>();
+            DisplayDialogNode beClocked = NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisplayNodeID).gameObject.AddComponent<DisplayDialogNode>();
             beClocked.InitializeBeClocked(myNode);
-            StopClocked stopClocked = NodeMapBuilder.Instance.GetNode(dialogNodeSO.DisappearNodeID).gameObject.AddComponent<StopClocked>();
-            stopClocked.InitializeStopClocked(myNode);
         }
     }
 

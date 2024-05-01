@@ -11,7 +11,6 @@ public class DialogNodeSO : NodeSO
     [Tooltip("是否在对话结束后替换其子节点")]
     public bool stopAfterDialog = false;
     public string DisplayNodeID;
-    public string DisappearNodeID;
     public Sprite changeBackGroundImage;
 
     #if UNITY_EDITOR
