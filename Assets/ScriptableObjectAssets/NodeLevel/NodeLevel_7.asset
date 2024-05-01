@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f65a0317f91b8e644b3aa50a61a7eb02, type: 2}
   audioClip: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
   initialAnxietyValue: 100
-  rate: 1
+  rate: 0.8
   cutSceneList:
   - animationStateName: L7_A1
     text: {fileID: 4900000, guid: e87a19825f49dc647ad1daa28a269a1a, type: 3}
