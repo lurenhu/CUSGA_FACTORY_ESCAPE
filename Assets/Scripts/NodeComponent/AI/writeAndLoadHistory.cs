@@ -78,6 +78,18 @@ public class writeAndLoadHistory : MonoBehaviour
         string folderPath = Application.dataPath + "/chatHistory";
         string filePath = folderPath + $"/{name}.txt";
         string content;
+        // 检查文件夹是否存在，不存在则创建
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        // 检查文件是否存在
+        if (!File.Exists(filePath))
+        {
+            // 创建文件
+            File.Create(filePath).Close();
+        }
         using (StreamReader reader = new StreamReader(filePath))
         {
             content = reader.ReadToEnd();
