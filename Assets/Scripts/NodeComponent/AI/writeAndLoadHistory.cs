@@ -52,11 +52,29 @@ public class writeAndLoadHistory : MonoBehaviour
         }
         //Debug.Log("File written successfully.");
     }
+    static public void loadmodel(string name) 
+    {
+        string folderPath = Application.dataPath + "/chatHistory";
+        string filePath = folderPath + $"/{name}.txt";
+        string content;
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            content = reader.ReadToEnd();
+        }
+        filePath = folderPath + "/chatHistory.txt";
+        // 将内容写入目标文件
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.Write(content);
+            writer.Close();
+        }
+        
+
+
+    }
     static public string loadText(TextAsset textFile)
     {
-        //instance.name_list.Clear();
-        //instance.role_list.Clear();
-        //instance.content_list.Clear();
+        
         string[] rows = textFile.text.Split('\n');
         string final_request_body = "";
         foreach (string row in rows)

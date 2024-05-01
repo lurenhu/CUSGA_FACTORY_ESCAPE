@@ -26,8 +26,8 @@ public class tongyi_AI : MonoBehaviour
     [Header("对接用变量")]
     public int anxiety_change_value = 0;
     public int one_change_value = -5;
-    public int two_change_value = -10;
-    public int three_change_value = -15;
+    public int two_change_value = -15;
+    public int three_change_value = -20;
 
     public string reply_text;
     public bool reply_is_finished=false;
@@ -144,7 +144,8 @@ public class tongyi_AI : MonoBehaviour
             int seed = 1683806810;
             //用对话历史
             if(use_history)
-            {
+            {   
+                
                 string chat_history =writeAndLoadHistory.loadText(chatHistory);
                 Debug.Log($"chat_history:{chat_history}");
                 var requestBody = string.Format(@"{{
@@ -371,6 +372,7 @@ public class tongyi_AI : MonoBehaviour
     {
         writeAndLoadHistory.clearHistory();
         string name = "对话角色" + chapter.ToString();
+        writeAndLoadHistory.loadmodel(name);
         robotCollection bot = Array.Find(robots, x => x.name == name);
         send_button.onClick.AddListener(delegate { sendMessage(bot); });
     }
