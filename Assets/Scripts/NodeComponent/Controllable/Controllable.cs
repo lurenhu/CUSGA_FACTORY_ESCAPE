@@ -44,7 +44,7 @@ public class Controllable : MonoBehaviour
     /// </summary>
     private void InitializeReference()
     {
-        hammer = Instantiate(hammerPrefab, transform.position, Quaternion.identity, NodeMapBuilder.Instance.transform);
+        hammer = Instantiate(hammerPrefab, transform.position + new Vector3(1,1,1), Quaternion.identity, NodeMapBuilder.Instance.transform);
 
         line = LineCreator.Instance.CreateLine(transform, hammer.transform);
 
