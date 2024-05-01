@@ -284,7 +284,7 @@ public class tongyi_AI : MonoBehaviour
             reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
             Debug.Log(reply_text);
             reply_is_finished = true;
-            if (bot.name== "对话角色1")
+            if (bot.name== "对话角色1"|| bot.name == "对话角色2"||bot.name == "对话角色3")
             {   
                 writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text});
                 DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
@@ -298,7 +298,7 @@ public class tongyi_AI : MonoBehaviour
             { 
                 Debug.Log("被屏蔽力");
                 
-                if (bot.name == "对话角色1")
+                if (bot.name == "对话角色1" || bot.name == "对话角色2" || bot.name == "对话角色3")
                 {
                     reply_text = "...陶特，这不是我们应该讨论的话题，我们来谈些别的吧";
                     Debug.Log(reply_text);
