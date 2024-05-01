@@ -3174,14 +3174,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CutScene
       objectReference: {fileID: 0}
-    - target: {fileID: 1548020500928652084, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4302707063941859685, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3208,11 +3200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3224,7 +3216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3248,7 +3240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3263,21 +3255,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8753333942592236105, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f979eb6be14ead429d5a87a4d395bd5, type: 2}
-    - target: {fileID: 8753333942592236105, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 216529908475554503, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-    - {fileID: 4586438033952931595, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-    - {fileID: 5575054915358408217, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-    - {fileID: 6357494949849601970, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-    - {fileID: 5239180697051244637, guid: 1acf42199cf33814a876d755765841a3, type: 3}
-    - {fileID: 6361770923445041086, guid: 1acf42199cf33814a876d755765841a3, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1acf42199cf33814a876d755765841a3, type: 3}
