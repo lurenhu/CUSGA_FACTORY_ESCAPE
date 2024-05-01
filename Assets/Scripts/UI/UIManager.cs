@@ -121,7 +121,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         AIDialogLog.transform.localScale = Vector3.one * 0.3f;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(AIDialogLog.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
-        sequence.Append(textNodeUI.transform.DOScale(new Vector3(1f,1f,1),0.1f));
+        sequence.Append(AIDialogLog.transform.DOScale(new Vector3(1f,1f,1),0.1f));
     }
 
     public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSecounds, Color color)
