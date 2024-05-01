@@ -15,7 +15,7 @@ public class TimerToResultNodeSO : NodeSO
 
     public void Initialize(Rect rect, NodeGraphSO nodeGraph, NodeTypeSO NodeType)
     {
-        this.name = "ChangeSceneNode";
+        this.name = "TimerToResultNode";
         this.rect = rect;
         this.id = Guid.NewGuid().ToString();
         this.nodeGraph = nodeGraph;

@@ -124,11 +124,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             currentAnimationState = animationStateName;
             animator.Play(animationStateName);
         }
-
-        if (cutSceneCell.isAuto)
-        {
-            isPlayingAutoCutScene = true;
-        }
     }
 
     /// <summary>
@@ -142,10 +137,12 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             if (GameManager.Instance.gameState == GameState.Result)
             {
                 GameManager.Instance.StartChangeSceneCoroutine("GameScene","MainMenu",GameState.Result);
+                return;
             }
             else if (GameManager.Instance.gameState == GameState.Fail)
             {
                 GameManager.Instance.StartChangeSceneCoroutine("GameScene","FailMenu",GameState.Fail);
+                return;
             }
             else if (GameManager.Instance.gameState == GameState.Playing)
             {
@@ -295,6 +292,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         }
 
         ChangeAnimation(cutSceneCell);
+
+        isPlayingAutoCutScene = true;
     }
 
     /// <summary>
@@ -302,12 +301,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private IEnumerator PlayingAutoText()
     {
-        string rowText = textForShow.Dequeue();
-
-        while (rowText != Setting.stringDefaultValue)
+        while (textForShow.Count != 0)
         {
+            string rowText = textForShow.Dequeue();
             yield return StartCoroutine(PlayingAutoRowText(rowText));
-            rowText = textForShow.Dequeue();
         }
     }
 
