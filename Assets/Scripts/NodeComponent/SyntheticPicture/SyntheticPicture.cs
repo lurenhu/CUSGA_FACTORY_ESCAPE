@@ -53,8 +53,7 @@ public class SyntheticPicture : MonoBehaviour
             if (myNode.isSelected)
             {
                 // 节点交互内容
-                PopUpGraph();
-    
+                UIManager.Instance.PopUpGraph(image);
             }
             else
             {
@@ -81,17 +80,5 @@ public class SyntheticPicture : MonoBehaviour
         LineCreator.Instance.DeleteLine(targetNode);
 
         StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
-    }
-
-    /// <summary>
-    /// 弹出图片
-    /// </summary>
-    private void PopUpGraph()
-    {
-        Image image = UIManager.Instance.graphNodeUI.Find("Image").GetComponent<Image>();
-
-        image.sprite = this.image;
-
-        UIManager.Instance.graphNodeUI.gameObject.SetActive(true);
     }
 }
