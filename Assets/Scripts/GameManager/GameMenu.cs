@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameMenu : SingletonMonobehaviour<GameMenu>
 {
@@ -57,9 +58,20 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
         Application.Quit();
     }
 
+    public void ContinueFromMain(Node targetNode)
+    {
+        if (GameManager.Instance.levelIndex == -1)
+        {
+            Debug.Log("无游戏存档");
+            NoGameArchive(targetNode);
+            return;
+        }
+        GameManager.Instance.ChangeAndLoadGameScene("MainMenu");
+    }
+
     public void ContinueByLoad()
     {
-        GameManager.Instance.StartBackToGameSceneFromPauseMenu();
+        GameManager.Instance.ChangeAndLoadGameScene("PauseMenu");
     }
 
     public void PauseBackMain()
@@ -85,5 +97,31 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
     public void ChangeSFXVolume(float volume)
     {
         soundManager.Instance.setSfxVolume(volume);
+    }
+
+    private void NoGameArchive(Node currentNode)
+    {   
+        Node parentNode = startNodes.Find(x => x.id == currentNode.parentID);
+
+        currentNode.transform.position = parentNode.transform.position;
+        currentNode.transform.localScale = Vector3.one * 0.3f; 
+        currentNode.gameObject.SetActive(true);
+
+        Instance.CreateLine(currentNode);
+        soundManager.Instance.PlaySFX("NodeBorn");
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(currentNode.transform.DOMove(
+            new Vector2(-0.4f,0.4f) * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring
+            ).SetRelative().OnStart(() => 
+            {
+                currentNode.isPopping = true;
+            }).OnComplete(() => 
+            {
+                currentNode.isPopping = false;
+            }));
+            
+        sequence.Append(currentNode.transform.DOScale(new Vector3(1f,0.3f,1),0.1f));
+        sequence.Append(currentNode.transform.DOScale(new Vector3(1f,1f,1),0.1f));
     }
 }

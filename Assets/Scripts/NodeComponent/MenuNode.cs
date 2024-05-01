@@ -27,7 +27,7 @@ public class MenuNode : MonoBehaviour
                 // 弹出子节点
                 if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
-                    StartCoroutine(PopUpChildNode(myNode.nodeInfos));
+                    StartCoroutine(PopUpChildNodes(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                     return;
                 }
@@ -63,7 +63,7 @@ public class MenuNode : MonoBehaviour
     }
 
 
-    private IEnumerator PopUpChildNode(List<NodeInfo> nodeInfos)
+    private IEnumerator PopUpChildNodes(List<NodeInfo> nodeInfos)
     {
         foreach (NodeInfo childNode in nodeInfos)
         {
@@ -76,7 +76,6 @@ public class MenuNode : MonoBehaviour
             GameMenu.Instance.CreateLine(currentNode);
             soundManager.Instance.PlaySFX("NodeBorn");
 
-            soundManager.Instance.PlaySFX("NodeBorn");
             Sequence sequence = DOTween.Sequence();
             sequence.Append(currentNode.transform.DOMove(
                 childNode.direction * GameManager.Instance.popUpForce,GameManager.Instance.tweenDuring

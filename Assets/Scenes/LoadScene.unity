@@ -170,6 +170,7 @@ MonoBehaviour:
   currentAnxiety: 0
   maxAnxiety: 0
   rate: 0
+  previousChapterBot: 0
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
@@ -182,7 +183,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}
   - {fileID: 11400000, guid: 8d40aab09abf8be4eb9fb4f21578ac29, type: 2}
   - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
-  levelIndex: 0
+  levelIndex: -1
   graphIndex: 0
   isGettingNextLevel: 0
   canvasGroup: {fileID: 112346908}

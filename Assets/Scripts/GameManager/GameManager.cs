@@ -41,16 +41,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public List<NodeLevelSO> nodeLevelSOs;
     [Tooltip("进入对应索引节点图的次数")]
     private List<int> enterNodeGraphTimesList = new List<int>();
-    public int levelIndex = 0;// 关卡索引
+    public int levelIndex = -1;// 关卡索引
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
-    public bool isGettingNextLevel = false;
+    [SerializeField] public bool isGettingNextLevel = false;
     Coroutine ChangeNodeGraph;
     Coroutine GetNextLevel;
     Coroutine ResultCoroutine;
     Coroutine ChangeScene;
-    Coroutine UnLoadScene;
     Coroutine BackGameSceneFromPause;
+    Coroutine BackGameSceneFromOther;
 
     [Space(10)]
     [Header("场景过度")]
@@ -185,7 +185,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             previousChapterBot = currentNodeLevel.chapterBot;
             tongyi_AI.instance.changeRobot(previousChapterBot);
         }
-        
+
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;
@@ -417,32 +417,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
-    public void UnloadGameScene(string unLoadSceneName)
-    {
-        if (UnLoadScene != null)
-        {
-            StopCoroutine(UnLoadScene);
-        }
-        UnLoadScene = StartCoroutine(UnloadGameSceneCoroutine(unLoadSceneName));
-    }
-
-    /// <summary>
-    /// 关闭场景
-    /// </summary>
-    IEnumerator UnloadGameSceneCoroutine(string unLoadSceneName)
-    {
-        canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
-
-        SceneManager.UnloadSceneAsync(unLoadSceneName);
-
-        soundManager.Instance.StopMusicInFade();
-        soundManager.Instance.PlaySFX("ChangeScene");
-        
-        canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
-    }
-
     /// <summary>
     /// 添加暂停场景
     /// </summary>
@@ -463,6 +437,46 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
+    /// <summary>
+    /// 载入原游戏
+    /// </summary>
+    public void ChangeAndLoadGameScene(string fromSceneName)
+    {
+        if (BackGameSceneFromOther != null)
+        {
+            StopCoroutine(BackGameSceneFromOther);
+        }
+
+        BackGameSceneFromOther = StartCoroutine(ChangeLoadGameSceneCoroutine(fromSceneName));
+    }
+
+    /// <summary>
+    /// 载入原游戏数据
+    /// </summary>
+    IEnumerator ChangeLoadGameSceneCoroutine(string fromSceneName)
+    {
+        canvasGroup.blocksRaycasts = true;
+        yield return StartCoroutine(Fade(0,1,2,Color.black));
+
+        SceneManager.UnloadSceneAsync(fromSceneName);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
+
+        while (!asyncOperation.isDone) 
+        {
+            yield return null;
+        }
+        soundManager.Instance.StopMusicInFade();
+        soundManager.Instance.PlaySFX("ChangeScene");
+
+        LoadNodeGraph();
+        
+        canvasGroup.blocksRaycasts = false;
+        yield return StartCoroutine(Fade(1,0,2,Color.black));
+    }
+
+    /// <summary>
+    /// 暂停界面继续游戏事件
+    /// </summary>
     public void StartBackToGameSceneFromPauseMenu()
     {
         if (BackGameSceneFromPause != null)
@@ -498,11 +512,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
     /// <summary>
-    /// 载入节点图以
+    /// 根据当前的关卡数据载入节点图与关卡
     /// </summary>
     private void LoadNodeGraph()
     {
-        Debug.Log(1);
         NodeLevelSO currentNodeLevel = nodeLevelSOs[levelIndex];
 
         MatchRightAndLeftNodeGraphName(currentNodeLevel);
