@@ -30,7 +30,7 @@ MonoBehaviour:
     music: {fileID: 0}
     sfx: {fileID: 0}
   - animationStateName: L3_A3
-    text: {fileID: 4900000, guid: 643822edae620eb478e14af2dca823b3, type: 3}
+    text: {fileID: 4900000, guid: 9f8911bf8a02c9548ad464b149bb260e, type: 3}
     isAuto: 0
     music: {fileID: 0}
     sfx: {fileID: 0}
