@@ -24,8 +24,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 942
-    y: 376
+    x: 540
+    y: 542
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -46,11 +46,11 @@ MonoBehaviour:
   id: ec63bad6-8a10-4d98-abd5-75592b407721
   parentNodeIdList: []
   childrenNodeIdList:
-  - cc3d3ab1-fa78-4f7e-b551-c1b8838c2658
   - 6663b964-9f9c-4d3a-99d9-cd5f10f5b7e0
   - 8af8920b-54a0-4497-a092-134e353e4570
   - d06b81ea-3fba-402e-814e-030033668e28
   - d7859bea-718b-4f23-9e7b-74f5351761a2
+  - 58b03299-c567-464f-a3ee-56bb44eafb71
   audioList: []
   nodeTextForShow: "\u4E00\u95F4\u5C0F\u578B\u8F66\u95F4\uFF0C\u7B97\u4E0D\u4E0A\u72ED\u5C0F\uFF0C\u5230\u5904\u90FD\u662F\u770B\u8D77\u6765\u5341\u5206\u9AD8\u7EA7\u7684\u4EEA\u5668\u4E0E\u673A\u68B0"
   nodeGraph: {fileID: 11400000}
@@ -58,8 +58,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 673
-    y: 287
+    x: 271
+    y: 453
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -88,8 +88,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 417
-    y: 206
+    x: 15
+    y: 372
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 867
-    y: 496
+    x: 465
+    y: 662
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -148,8 +148,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 571
-    y: 492
+    x: 169
+    y: 658
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   nodeText: "\u63A5\u53E3"
   id: cc3d3ab1-fa78-4f7e-b551-c1b8838c2658
   parentNodeIdList:
-  - ec63bad6-8a10-4d98-abd5-75592b407721
+  - 58b03299-c567-464f-a3ee-56bb44eafb71
   childrenNodeIdList: []
   audioList: []
   nodeTextForShow: "\u548C\u773C\u955C\u7684\u7269\u7406\u63A5\u5165\u6570\u636E\u7EBF\u4E00\u6837\uFF0C\u662F\u901A\u7528\u7684\u63A5\u53E3\uFF0C\u53EF\u4EE5\u8BA9823\u63A5\u5165\u7EC8\u7AEF"
@@ -179,8 +179,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 694
-    y: 121
+    x: 470
+    y: 164.99995
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -218,8 +218,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 364
-    y: 404
+    x: -38
+    y: 570
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -250,5 +250,43 @@ MonoBehaviour:
   - {fileID: -2875278233769702552}
   - {fileID: -2880375971010999907}
   - {fileID: -5142483941492360909}
+  - {fileID: 9008845478944894495}
   nodeToDrawLineFrom: {fileID: 0}
   linePosition: {x: 0, y: 0}
+--- !u!114 &9008845478944894495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cec69b22141e4f97601027f8823cd, type: 3}
+  m_Name: DialogNode
+  m_EditorClassIdentifier: 
+  nodeText: "\u63A5\u53E3"
+  id: 58b03299-c567-464f-a3ee-56bb44eafb71
+  parentNodeIdList:
+  - ec63bad6-8a10-4d98-abd5-75592b407721
+  childrenNodeIdList:
+  - cc3d3ab1-fa78-4f7e-b551-c1b8838c2658
+  audioList: []
+  nodeTextForShow: 
+  nodeGraph: {fileID: 11400000}
+  nodeType: {fileID: 11400000, guid: 9f14a741bea149048b740135ae4ad77b, type: 2}
+  nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 384
+    y: 286.66663
+    width: 160
+    height: 100
+  isLeftClickDragging: 0
+  isSelected: 0
+  textAssets:
+  - {fileID: 4900000, guid: b3ca1bee22b632b48b2ae4c0ba6fdeb9, type: 3}
+  stopAfterDialog: 1
+  DisplayNodeID: 
+  DisappearNodeID: 
+  changeBackGroundImage: {fileID: 0}
