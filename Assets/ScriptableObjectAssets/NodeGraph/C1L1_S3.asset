@@ -326,7 +326,7 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0
   submissionTimes: 5
   openingRemark: "\u9676\u7279\uFF0C\u6211\u662F823\uFF0C\u6211\u611F\u89C9\u6709\u4E9B\u7126\u8651......\u6211\u5DF2\u7ECF\u538C\u70E6\u90A3\u4E9B\u9AD8\u6807\u51C6\u7684\u8981\u6C42\u4E86\uFF0C\u771F\u7684\u5F88\u7D2F......"
   AIName: 823
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee85aa57824ed0343aab9e3f76241c5b, type: 3}
   m_Name: AIAnxietyChangedNode
   m_EditorClassIdentifier: 
-  nodeText: 
+  nodeText: "\u964D\u4F4E\u7834\u89E3\u96BE\u5EA6"
   id: 92fafe2f-dd19-42e7-a6ca-45b7f3b7d704
   parentNodeIdList:
   - 728016f4-7599-4f98-bada-64fc528da805
@@ -593,7 +593,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 582
-    y: 215
+    y: 214
     width: 160
     height: 100
   isLeftClickDragging: 0
