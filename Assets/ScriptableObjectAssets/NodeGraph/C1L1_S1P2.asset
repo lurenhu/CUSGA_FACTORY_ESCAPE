@@ -184,9 +184,9 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   submissionTimes: 5
-  openingRemark: "\u9676\u7279\uFF0C\u6211\u662F823\uFF0C\u6211\u611F\u89C9\u6709\u4E9B\u7126\u8651......\u6211\u603B\u662F\u4E0D\u60F3\u6D6A\u8D39\u65F6\u95F4\uFF0C\u5982\u679C\u4E0D\u505A\u6709\u610F\u4E49\u7684\u4E8B\u60C5\u6211\u5C31\u4F1A\u975E\u5E38\u75DB\u82E6\uFF0C\u6211\u8BE5\u600E\u4E48\u529E......"
+  openingRemark: "\u9676\u7279\uFF0C\u6211\u662F823\uFF0C\u6211\u611F\u89C9\u6709\u4E9B\u7126\u8651......\u6211\u5DF2\u7ECF\u538C\u70E6\u90A3\u4E9B\u9AD8\u6807\u51C6\u7684\u8981\u6C42\u4E86\uFF0C\u771F\u7684\u5F88\u7D2F......"
   AIName: 823
   failCutScene:
   - animationStateName: over
@@ -283,7 +283,7 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   textAssets:
   - {fileID: 4900000, guid: b3ca1bee22b632b48b2ae4c0ba6fdeb9, type: 3}
   stopAfterDialog: 1
