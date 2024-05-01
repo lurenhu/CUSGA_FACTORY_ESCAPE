@@ -1546,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4078605803744118555, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: m_text
-      value: "\u7B56\u5212/\u7A0B\u5E8F\uFF1A\u5218\u4E91\u5347"
+      value: "\u7B56\u5212/\u7A0B\u5E8F\uFF1A\u5218\u8FD0\u5347"
       objectReference: {fileID: 0}
     - target: {fileID: 4078605803744118555, guid: 7be5b5f25a3fb4443a3443ec2bcbd912, type: 3}
       propertyPath: m_fontSize
