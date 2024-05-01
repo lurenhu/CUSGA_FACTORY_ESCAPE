@@ -40,6 +40,7 @@ public class Graph : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else
         {

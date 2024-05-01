@@ -18,8 +18,7 @@ public class ChangeScene : MonoBehaviour
         {
             if (myNode.isSelected)
             {
-                GameManager.Instance.levelIndex++;
-                GameManager.Instance.gameState = GameState.Generating;
+                StaticEventHandler.CallGetNextNodeLevel();
             }
             else
             {

@@ -24,12 +24,12 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 235
-    y: 519
+    x: 482
+    y: 464
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   targetNodeID: fa3b2b18-e93d-4ad8-bc99-c25245bed77f
 --- !u!114 &11400000
 MonoBehaviour:
@@ -80,12 +80,12 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 657
-    y: 138.99995
+    x: 900
+    y: 51.999954
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1
   chasingTargetId: b006eeb9-e3b2-414d-9231-9b3ddedc9342
   failCutScene:
   - animationStateName: over
@@ -117,8 +117,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -56
-    y: 166.99995
+    x: 187
+    y: 79.999954
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: -184
-    y: 547
+    x: 59
+    y: 460
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -178,8 +178,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 290
-    y: 357.99994
+    x: 533
+    y: 270.99994
     width: 160
     height: 100
   isLeftClickDragging: 0

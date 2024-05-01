@@ -63,6 +63,7 @@ public class SyntheticPicture : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else
         {

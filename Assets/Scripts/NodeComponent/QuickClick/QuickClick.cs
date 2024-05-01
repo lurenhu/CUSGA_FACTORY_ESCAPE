@@ -49,6 +49,7 @@ public class QuickClick : MonoBehaviour
     
                 myNode.isSelected = true;
             }
+            UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else
         {
