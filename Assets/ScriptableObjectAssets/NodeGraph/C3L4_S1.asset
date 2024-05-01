@@ -25,8 +25,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1300
-    y: 537
+    x: 875
+    y: -194
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1298
-    y: 793
+    x: 890
+    y: 62
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -90,8 +90,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 904
-    y: 679
+    x: 479
+    y: -52
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 570
-    y: 415
+    x: 145
+    y: -316
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1469
-    y: 903
+    x: 1044
+    y: 172
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1266
-    y: 1161
+    x: 841
+    y: 430
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -195,7 +195,6 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 9c1207bcfd4a572439423ce86ab21348, type: 3}
   stopAfterDialog: 1
   DisplayNodeID: 
-  DisappearNodeID: 
   changeBackGroundImage: {fileID: 0}
 --- !u!114 &-4455342736421160890
 MonoBehaviour:
@@ -221,8 +220,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1081
-    y: 956
+    x: 656
+    y: 225
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -255,8 +254,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 996
-    y: 516
+    x: 571
+    y: -215
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -286,8 +285,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 395
-    y: 892
+    x: -30
+    y: 161
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -315,8 +314,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 7
-    y: 1035
+    x: -418
+    y: 304
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -351,8 +350,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 920
-    y: 236
+    x: 495
+    y: -495
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -382,8 +381,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 213
-    y: 1019
+    x: -212
+    y: 288
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -416,8 +415,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 690
-    y: 274
+    x: 265
+    y: -457
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -501,8 +500,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1531
-    y: 323
+    x: 1106
+    y: -408
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -532,8 +531,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1699
-    y: 469
+    x: 1274
+    y: -262
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -566,8 +565,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1314
-    y: 267
+    x: 889
+    y: -464
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -597,8 +596,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1140
-    y: 664
+    x: 715
+    y: -67
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -627,8 +626,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1678
-    y: 124
+    x: 1253
+    y: -607
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -657,8 +656,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1508
-    y: 652
+    x: 1083
+    y: -79
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -687,8 +686,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 489
-    y: 264
+    x: 64
+    y: -467
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -718,8 +717,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1461
-    y: 13
+    x: 1036
+    y: -718
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -750,8 +749,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 895
-    y: 1300
+    x: 470
+    y: 569
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -782,8 +781,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1469
-    y: 1164
+    x: 1044
+    y: 433
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -813,8 +812,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1036
-    y: 1137
+    x: 611
+    y: 406
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -846,8 +845,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 266
-    y: 1159
+    x: -159
+    y: 428
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -878,8 +877,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1022
-    y: 39
+    x: 597
+    y: -692
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -888,7 +887,6 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 087c250d46811a8428abccb9f9282608, type: 3}
   stopAfterDialog: 0
   DisplayNodeID: 
-  DisappearNodeID: 
   changeBackGroundImage: {fileID: 0}
 --- !u!114 &4915611364100270724
 MonoBehaviour:
@@ -915,8 +913,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 186
-    y: 893
+    x: -239
+    y: 162
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -945,8 +943,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1596
-    y: 1015
+    x: 1171
+    y: 284
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -975,8 +973,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 429
-    y: 762
+    x: 4
+    y: 31
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1005,8 +1003,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 443
-    y: 528
+    x: 18
+    y: -203
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1037,8 +1035,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1448
-    y: 164
+    x: 1023
+    y: -567
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1068,8 +1066,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 366
-    y: 955
+    x: -59
+    y: 224
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1102,8 +1100,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 803
-    y: 837
+    x: 378
+    y: 106
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1134,8 +1132,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 614
-    y: 892
+    x: 189
+    y: 161
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -1144,5 +1142,4 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 0778251e746f4d64d8b12fadb2ae0ebe, type: 3}
   stopAfterDialog: 1
   DisplayNodeID: 
-  DisappearNodeID: 
   changeBackGroundImage: {fileID: 0}
