@@ -10,6 +10,7 @@ public class Controll : MonoBehaviour
     public float frequency = 5f; // 设置弹簧频率
     public float dampingRatio = 0.5f; // 设置阻尼比
     public GameObject hammerPrefab;
+    public float Friction = 0.5f;
     private Rigidbody2D BeControlledRb;
     private SpringJoint2D springJoint;
     [HideInInspector] public GameObject line;
@@ -29,7 +30,9 @@ public class Controll : MonoBehaviour
     {
         // 给目标节点添加速度检测
         if (!hasSetSpeed && !myNode.isPopping)
-            AddSpeedDetectorToTargetNode();
+            AddCollisionTriggerToTargetNode();
+
+        LimitVelocity();
     }
 
     public void InitializeControl(NodeSO nodeSO)
@@ -85,7 +88,7 @@ public class Controll : MonoBehaviour
         }       
     }
 
-    private void AddSpeedDetectorToTargetNode()
+    private void AddCollisionTriggerToTargetNode()
     {
         NodeMapBuilder.Instance.nodeHasCreated.TryGetValue(targetNodeID,out Node targetNode);
         if (targetNode != null)
@@ -99,6 +102,21 @@ public class Controll : MonoBehaviour
         else
         {
             Debug.Log("目标节点不存在");
+        }
+
+    }
+
+    void LimitVelocity()
+    {
+        Vector2 velocity = BeControlledRb.velocity;
+        if (velocity.magnitude > maxSpeed)
+        {
+            BeControlledRb.velocity = velocity.normalized * maxSpeed;
+        }
+
+        if (velocity.magnitude > 0)
+        {
+            BeControlledRb.velocity -= velocity.normalized * Time.deltaTime * Friction;
         }
     }
 }

@@ -10,6 +10,7 @@ public class Moving : MonoBehaviour
     public float frequency = 5f; // 设置弹簧频率
     public float dampingRatio = 0.5f; // 设置阻尼比
     public GameObject hammerPrefab;
+    public float Friction = 0.5f;
 
     private Node myNode;
     private float triggerDistance;
@@ -108,6 +109,22 @@ public class Moving : MonoBehaviour
             {
                 StaticEventHandler.CallGetNextNodeLevel();
             }
+        }
+
+        LimitVelocity();
+    }
+
+    void LimitVelocity()
+    {
+        Vector2 velocity = BeControlledRb.velocity;
+        if (velocity.magnitude > maxSpeed)
+        {
+            BeControlledRb.velocity = velocity.normalized * maxSpeed;
+        }
+
+        if (velocity.magnitude > 0)
+        {
+            BeControlledRb.velocity -= velocity.normalized * Time.deltaTime * Friction;
         }
     }
 }
