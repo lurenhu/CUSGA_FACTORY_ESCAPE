@@ -6,10 +6,6 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class writeAndLoadHistory : MonoBehaviour
 {
     public static writeAndLoadHistory instance;
-    List<string> name_list = new List<string>();
-    List<string> role_list = new List<string>();
-    List<string> content_list = new List<string>();
-    // Start is called before the first frame update
     private void Awake()
     {
         if (instance != null)
@@ -54,9 +50,6 @@ public class writeAndLoadHistory : MonoBehaviour
     }
     static public string loadText(TextAsset textFile)
     {
-        //instance.name_list.Clear();
-        //instance.role_list.Clear();
-        //instance.content_list.Clear();
         string[] rows = textFile.text.Split('\n');
         string final_request_body = "";
         foreach (string row in rows)
@@ -69,9 +62,6 @@ public class writeAndLoadHistory : MonoBehaviour
             string name = row_list[0];
             string role = row_list[1];
             string content = row_list[2];
-            //instance.name_list.Add(name);
-            //instance.role_list.Add(role);
-            //instance.content_list.Add(content);
             string partRequestbody = string.Format(@"
             {{
                     ""name"": ""{0}"",
@@ -81,8 +71,27 @@ public class writeAndLoadHistory : MonoBehaviour
             final_request_body += partRequestbody;
         }
         return final_request_body;
-        
     }
+
+    static public void loadmodel(string name) 
+    {
+        string folderPath = Application.dataPath + "/chatHistory";
+        string filePath = folderPath + $"/{name}.txt";
+        string content;
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            content = reader.ReadToEnd();
+        }
+        filePath = folderPath + "/chatHistory.txt";
+        // 将内容写入目标文件
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.Write(content);
+            writer.Close();
+        }
+    }
+
+    
     static public void clearHistory()
     {
         string folderPath = Application.dataPath + "/chatHistory";
