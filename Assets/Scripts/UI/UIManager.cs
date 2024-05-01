@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 public class UIManager : SingletonMonobehaviour<UIManager>
 {
     [Space(10)]

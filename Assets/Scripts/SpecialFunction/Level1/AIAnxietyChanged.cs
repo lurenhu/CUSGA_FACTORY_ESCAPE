@@ -11,7 +11,7 @@ public class AIAnxietyChanged : MonoBehaviour
     {
         AIAnxietyChangedSO aIAnxietyChangedSO= (AIAnxietyChangedSO)nodeSO;
 
-        targetRate = aIAnxietyChangedSO.targetRate;
+        targetRate = aIAnxietyChangedSO.changeRate;
 
         myNode = GetComponent<Node>();
     }
@@ -54,7 +54,7 @@ public class AIAnxietyChanged : MonoBehaviour
 
     private void GetAIAnxietyRateChanged()
     {
-        GameManager.Instance.rate = targetRate;
+        GameManager.Instance.rate += targetRate;
 
         gameObject.SetActive(false);
         LineCreator.Instance.DeleteLine(myNode);

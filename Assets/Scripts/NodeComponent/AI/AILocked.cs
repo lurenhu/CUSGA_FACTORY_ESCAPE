@@ -99,7 +99,14 @@ public class AILocked : MonoBehaviour
         {
             DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(false);
             UIManager.Instance.UIShow = false;
-            CheckAnxietyValue();
+            if (myNode.nodeInfos.Count > 0)
+            {
+                StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
+            }
+            else
+            {
+                CheckAnxietyValue();
+            }
         }
     }
 

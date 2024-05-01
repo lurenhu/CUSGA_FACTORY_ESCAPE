@@ -8,7 +8,7 @@ public class AIAnxietyChangedSO : NodeSO
     [Space(10)]
     [Header("AI焦虑值变化节点参数")]
     [Tooltip("AI锁成功比例变化目标值")]
-    public float targetRate;
+    public float changeRate;
 
     #if UNITY_EDITOR
 

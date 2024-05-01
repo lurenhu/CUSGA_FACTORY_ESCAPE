@@ -97,6 +97,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator GetResult(List<CutSceneCell> cutSceneCells)
     {
         canvasGroup.blocksRaycasts = true;
+        UIManager.Instance.UIShow = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
         soundManager.Instance.StopMusicInFade();
@@ -105,6 +106,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         VideoManager.Instance.ShowCutScenes(cutSceneCells);
 
         canvasGroup.blocksRaycasts = false;
+        UIManager.Instance.UIShow = false;  
         yield return StartCoroutine(Fade(1,0,2,Color.black));
     }
 
