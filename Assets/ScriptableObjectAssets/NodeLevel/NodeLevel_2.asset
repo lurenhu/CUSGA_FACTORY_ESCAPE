@@ -19,6 +19,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 41523cc57328e3a4e938c2f3bfd15894, type: 3}
   initialAnxietyValue: 100
   rate: 0.8
+  chapterBot: 2
   cutSceneList:
   - animationStateName: L2_A1
     text: {fileID: 4900000, guid: ae8168c1ebecb8141b9c5242a2715c06, type: 3}

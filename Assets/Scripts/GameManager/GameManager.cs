@@ -26,6 +26,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public float maxAnxiety;
     [Tooltip("AI解锁成功条件(胜利概率)")]
     public float rate;
+    [SerializeField] private int previousChapterBot = 0;
 
     [Space(10)]
     [Header("弹出动画参数")]
@@ -40,7 +41,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public List<NodeLevelSO> nodeLevelSOs;
     [Tooltip("进入对应索引节点图的次数")]
     private List<int> enterNodeGraphTimesList = new List<int>();
-    [SerializeField] public int levelIndex = 0;// 关卡索引
+    public int levelIndex = 0;// 关卡索引
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
     public bool isGettingNextLevel = false;
@@ -179,7 +180,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         maxAnxiety = currentNodeLevel.initialAnxietyValue;
         currentAnxiety = maxAnxiety;
         rate = currentNodeLevel.rate;
-
+        if (currentNodeLevel.chapterBot != previousChapterBot) 
+        {
+            previousChapterBot = currentNodeLevel.chapterBot;
+            tongyi_AI.instance.changeRobot(previousChapterBot);
+        }
+        
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;

@@ -16,6 +16,8 @@ public class NodeLevelSO : ScriptableObject
     public float initialAnxietyValue;
     [Range(0,1)]
     public float rate;
+    [Tooltip("AI角色编号")]
+    public int chapterBot;
 
     [Space(5)]
     [Header("进入该关卡时播放过场演出")]
