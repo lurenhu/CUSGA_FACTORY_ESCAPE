@@ -30,7 +30,7 @@ public class Chasing : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if (chasingTargetNode == null) return;
 
-        if (collider.GetComponent<Node>() == chasingTargetNode)
+        if (collider.GetComponent<Node>() == chasingTargetNode && !GameManager.Instance.isGettingNextLevel)
         {
             StaticEventHandler.CallGetResult(failCutScene);
             GameManager.Instance.gameState = GameState.Fail;

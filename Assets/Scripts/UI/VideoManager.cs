@@ -208,6 +208,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             {
                 textForShow.Enqueue(row);
             }
+            StartCoroutine(PlayingRowText(textForShow.Dequeue()));
         }
 
         if (cutSceneCell.music != null)
@@ -223,7 +224,6 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         }
         
         ChangeAnimation(cutSceneCell);
-        StartCoroutine(PlayingRowText(textForShow.Dequeue()));
     }
 
     /// <summary>
@@ -298,7 +298,7 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     {
         string rowText = textForShow.Dequeue();
 
-        while (rowText != null)
+        while (rowText != Setting.stringDefaultValue)
         {
             yield return StartCoroutine(PlayingAutoRowText(rowText));
             rowText = textForShow.Dequeue();
