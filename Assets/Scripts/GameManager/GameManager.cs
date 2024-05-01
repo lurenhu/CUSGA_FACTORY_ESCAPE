@@ -43,6 +43,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] public int levelIndex = 0;// 关卡索引
     [SerializeField] private int graphIndex = 0;// 节点图索引
     private List<List<string>> nodeIdsInGraph = new List<List<string>>(); // 对应节点图索引的节点ID列表，用于存取节点状态数据
+    public bool isGettingNextLevel = false;
     Coroutine ChangeNodeGraph;
     Coroutine GetNextLevel;
     Coroutine ResultCoroutine;
@@ -117,11 +118,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             StopCoroutine(GetNextLevel);
         }
+        isGettingNextLevel = true;
         GetNextLevel = StartCoroutine(GetNextNodeLevel());
     }
 
     IEnumerator GetNextNodeLevel()
     {
+        UIManager.Instance.UIShow = true;
         canvasGroup.blocksRaycasts = true;
         yield return StartCoroutine(Fade(0,1,2,Color.black));
 
@@ -131,9 +134,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         levelIndex++;
         gameState = GameState.Generating;
 
+        UIManager.Instance.UIShow = false; 
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
-
+        isGettingNextLevel = true;
     }
 
     private void Update() {

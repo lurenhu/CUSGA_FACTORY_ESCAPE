@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
   levelIndex: 0
   graphIndex: 0
+  isGettingNextLevel: 0
   canvasGroup: {fileID: 112346908}
   gameState: 0
   level1GetResultTimes: 0
