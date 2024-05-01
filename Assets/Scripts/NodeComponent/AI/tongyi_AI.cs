@@ -371,7 +371,7 @@ public class tongyi_AI : MonoBehaviour
     {
         writeAndLoadHistory.clearHistory();
         string name = "对话角色" + chapter.ToString();
-        writeAndLoadHistory.loadmodel(name);
+        writeAndLoadHistory.loadmodel(chapter.ToString());
         robotCollection bot = Array.Find(robots, x => x.name == name);
         send_button.onClick.AddListener(delegate { sendMessage(bot); });
     }
