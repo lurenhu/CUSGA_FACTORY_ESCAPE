@@ -61,8 +61,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     private List<CutSceneCell> cutSceneCellList = new List<CutSceneCell>();
     private Queue<string> textForShow = new Queue<string>();
 
-    private bool textFinished;// 判断当前文本是否结束
-    private bool cancelTyping;// 判断是否取消打字
+    private bool textFinished = true;// 判断当前文本是否结束
+    private bool cancelTyping = false;// 判断是否取消打字
 
     [Header("连续播发过场动画")]
     private bool isPlayingAutoCutScene = false;
@@ -201,6 +201,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     /// </summary>
     private void ShowCutScene(CutSceneCell cutSceneCell)
     {
+        tmpText.text = Setting.stringDefaultValue;
+        
         if (cutSceneCell.text != null)  
         {
             var rows = cutSceneCell.text.text.Split("\n");
@@ -209,6 +211,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
                 textForShow.Enqueue(row);
             }
             StartCoroutine(PlayingRowText(textForShow.Dequeue()));
+        }
+        else
+        {
+            tmpText.text = Setting.stringDefaultValue;
         }
 
         if (cutSceneCell.music != null)
