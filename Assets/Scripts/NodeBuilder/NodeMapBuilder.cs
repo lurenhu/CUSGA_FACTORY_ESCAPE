@@ -409,6 +409,13 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
                 Destroy(controllable.line);
                 Destroy(controllable.hammer);
             }
+            else if (currentNode.nodeType.isMoving)
+            {
+                Moving controllable = currentNode.GetComponent<Moving>();
+                Destroy(controllable.line);
+                Destroy(controllable.hammer);
+            }
+
 
             Destroy(currentNode.gameObject);
 

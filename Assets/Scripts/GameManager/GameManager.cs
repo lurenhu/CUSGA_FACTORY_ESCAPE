@@ -183,7 +183,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (currentNodeLevel.chapterBot != previousChapterBot) 
         {
             previousChapterBot = currentNodeLevel.chapterBot;
-            tongyi_AI.instance.changeRobot(previousChapterBot);
+            if (previousChapterBot != 0)
+            {
+                tongyi_AI.instance.changeRobot(previousChapterBot);
+            }
         }
 
         NodeMapBuilder.Instance.DeleteNodeMap();
