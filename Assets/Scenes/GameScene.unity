@@ -1638,12 +1638,12 @@ RectTransform:
   - {fileID: 285454114}
   - {fileID: 328559274}
   - {fileID: 1520149495}
+  - {fileID: 2142775732}
   - {fileID: 38135551}
   - {fileID: 962800976}
   - {fileID: 1488312983}
   - {fileID: 134772934}
   - {fileID: 444224530}
-  - {fileID: 2142775732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2956,7 +2956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 45.474487}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 27.997, y: 31.0512}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2142775733
@@ -3157,6 +3157,18 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8f979eb6be14ead429d5a87a4d395bd5, type: 2}
+    - target: {fileID: 9184620300839283666, guid: c89d338d1c9c23540a31eac9b8126690, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1120416614473179194, guid: 8f979eb6be14ead429d5a87a4d395bd5, type: 2}
+    - target: {fileID: 9184620300839283666, guid: c89d338d1c9c23540a31eac9b8126690, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294111914
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184620300839283666, guid: c89d338d1c9c23540a31eac9b8126690, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
