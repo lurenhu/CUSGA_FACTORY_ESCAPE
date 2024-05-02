@@ -86,9 +86,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7e641594f10482b4f83a34f687450b75, type: 3}
   - name: 8DE
     sprite: {fileID: 21300000, guid: 3a962d8daafdf90418b3dc57753421a4, type: 3}
-  musics: []
-  SFXs: []
-  videos: []
   QTESprites:
   - direction: 0
     sprite: {fileID: 21300000, guid: cd690e21171891242a4db8dbf066eae0, type: 3}
@@ -98,3 +95,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d33b4cd502dcc5e478d4fe7cd6107f2f, type: 3}
   - direction: 3
     sprite: {fileID: 21300000, guid: e437a9cd38afaec4ebdc2dad08f3c182, type: 3}
+  botTextAsset:
+  - {fileID: 4900000, guid: f917d54b1cefe1c47b7ebbfa5a2e412e, type: 3}
+  - {fileID: 4900000, guid: 12967cb2930d4d343a74cf3c893c849c, type: 3}
+  - {fileID: 4900000, guid: 966edb603f8320f4ea8651f28b7d87ab, type: 3}

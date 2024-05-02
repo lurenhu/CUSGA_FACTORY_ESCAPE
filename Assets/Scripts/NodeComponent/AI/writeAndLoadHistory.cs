@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
+using System.Linq.Expressions;
 public class writeAndLoadHistory : MonoBehaviour
 {
     public static writeAndLoadHistory instance;
@@ -73,28 +74,23 @@ public class writeAndLoadHistory : MonoBehaviour
         return final_request_body;
     }
 
-    static public void loadmodel(string name) 
+    static public void loadmodel(int name) 
     {
         string folderPath = Application.dataPath + "/chatHistory";
-        string filePath = folderPath + $"/{name}.txt";
-        string content;
+        string filePath = folderPath + "/chatHistory.txt";
+        // 获取对应关卡的AI模板
+        string content = GameResources.Instance.botTextAsset[name - 1].text;
         // 检查文件夹是否存在，不存在则创建
         if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
-
         // 检查文件是否存在
         if (!File.Exists(filePath))
         {
             // 创建文件
             File.Create(filePath).Close();
         }
-        using (StreamReader reader = new StreamReader(filePath))
-        {
-            content = reader.ReadToEnd();
-        }
-        filePath = folderPath + "/chatHistory.txt";
         // 将内容写入目标文件
         using (StreamWriter writer = new StreamWriter(filePath, true))
         {
