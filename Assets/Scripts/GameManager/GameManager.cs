@@ -190,9 +190,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
         enterNodeGraphTimesList[graphIndex]++;
 
-        if (levelIndex == 6)
+        if (levelIndex == 8)
         {
             UIManager.Instance.SkyUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            UIManager.Instance.SkyUI.gameObject.SetActive(false);
         }
     }
 
