@@ -515,7 +515,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeLevelSO currentLevel = nodeLevelSOs[levelIndex];
 
         soundManager.Instance.StopMusicInFade();
-        soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
+        if (currentLevel.audioClip != null)
+        {
+            soundManager.Instance.PlayMusicInFade(currentLevel.audioClip);
+        }
     }
 
 }
