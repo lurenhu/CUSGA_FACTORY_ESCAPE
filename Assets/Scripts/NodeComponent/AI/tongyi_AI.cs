@@ -97,6 +97,11 @@ public class tongyi_AI : MonoBehaviour
         if (bot_name == "焦虑评估器")
         {
             int seed = 1683806810;
+            System.Random random = new System.Random();
+            int randomNumber = random.Next(1, 1683806810);
+
+
+            seed -=randomNumber;
             var requestBody = string.Format(@"{{
     ""input"": {{
         ""messages"": [            
@@ -140,10 +145,17 @@ public class tongyi_AI : MonoBehaviour
 
         }
         else if (bot_name == "对话角色1"|| bot_name == "对话角色2" || bot_name == "对话角色3")
-        {   
+        {
+
             int seed = 1683806810;
+            System.Random random = new System.Random();
+            int randomNumber = random.Next(1, 1683806810);
+
+
+            seed = seed-randomNumber;
+            //seed = 1683806810;
             //用对话历史
-            if(use_history)
+            if (use_history)
             {
                 string chat_history =writeAndLoadHistory.loadText(chatHistory);
                 Debug.Log($"chat_history:{chat_history}");
@@ -158,13 +170,11 @@ public class tongyi_AI : MonoBehaviour
         ],
         ""aca"": {{
             ""botProfile"": {{
-                ""characterId"": ""{2}"",
-                ""version"": 1
+                ""characterId"": ""{2}""                    
+                
             }},
             ""userProfile"": {{
-                ""userId"": ""123456789"",
-                ""userName"": ""云账号名称"",
-                ""basicInfo"": """"
+                ""userId"": ""1185606582354469""                
             }},
             ""scenario"": {{
                 ""description"": ""我是陶特，是你的朋友""
@@ -294,6 +304,8 @@ public class tongyi_AI : MonoBehaviour
         else
         {
             Debug.Log("请求失败，状态码：" + request.responseCode);
+            Debug.Log("请求失败，文本：" + request.result);
+            
             if (request.responseCode == 400)
             { 
                 Debug.Log("被屏蔽力");
