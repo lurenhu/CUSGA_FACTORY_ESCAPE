@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8d47d61be78f144ac44e2949d1875a, type: 3}
   m_Name: AnimatorNode
   m_EditorClassIdentifier: 
-  nodeText: 
+  nodeText: "\u6253\u5F00\u5927\u95E8"
   id: 274300bb-421b-42b5-9e65-9537029dd0be
   parentNodeIdList:
   - 80aea917-8fbd-4a83-9691-ceef9707a44a
@@ -198,7 +198,7 @@ MonoBehaviour:
   - c74c99c7-9443-42bb-8584-669eea6ddc8e
   - 58428818-5905-4ee4-86dc-2a6a47d29c5f
   audioList:
-  - {fileID: 8300000, guid: 6cac6981c657b51469603c69c863782f, type: 3}
+  - {fileID: 8300000, guid: dc88f38701932f14c9737d369714423e, type: 3}
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: da90eb5be98ed7d43a255ff7b7ac2e70, type: 2}
@@ -210,4 +210,4 @@ MonoBehaviour:
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 1
+  isSelected: 0

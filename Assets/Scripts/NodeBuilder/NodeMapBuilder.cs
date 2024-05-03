@@ -374,7 +374,6 @@ public class NodeMapBuilder : SingletonMonobehaviour<NodeMapBuilder>
         }
         else
         {
-            Debug.Log($"No this node {nodeID} in nodeMap");
             return null;  
         }
     }

@@ -2232,12 +2232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087ea38cfe0f37c4fa1410c9a391dd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 520462943}
-  canvas: {fileID: 292482522}
   cutSceneUIPanel: {fileID: 1634577547}
   tmpText: {fileID: 1789335688}
   animator: {fileID: 2067005728635170700}
   playingTimeInterval: 0.05
+  currentAnimationState: 
   isPlayingCutScene: 0
 --- !u!1 &1101488710
 GameObject:
@@ -2591,7 +2590,7 @@ MonoBehaviour:
   three_change_value: -15
   reply_text: 
   reply_is_finished: 0
-  test_SFX: {fileID: 0}
+  test_SFX: {fileID: 8300000, guid: 71f2bb6742039a24b88eedb4c0d5efd7, type: 3}
 --- !u!4 &1328269125
 Transform:
   m_ObjectHideFlags: 0
@@ -2900,7 +2899,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: f706ed1b3925fdb4aa34fb03b37e56a4, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: f706ed1b3925fdb4aa34fb03b37e56a4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -3185,6 +3185,10 @@ PrefabInstance:
     - target: {fileID: 1548020500928652084, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_Name
       value: CutScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548020500928652084, guid: 1acf42199cf33814a876d755765841a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8737514649295001747, guid: 1acf42199cf33814a876d755765841a3, type: 3}
       propertyPath: m_Pivot.x
