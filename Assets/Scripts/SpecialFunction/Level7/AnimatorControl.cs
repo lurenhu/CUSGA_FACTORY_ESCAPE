@@ -24,6 +24,10 @@ public class AnimatorControl : MonoBehaviour
                 if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
                     UIManager.Instance.AnimatorUI.gameObject.SetActive(true);
+
+                    soundManager.Instance.StopMusicInFade();
+                    soundManager.Instance.PlayMusicInFade(myNode.audios[0]);
+
                     StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
                     myNode.hasPopUp = true;
                     return;
@@ -38,12 +42,6 @@ public class AnimatorControl : MonoBehaviour
                 myNode.isSelected = true;
             }
 
-            // 播放音频
-            if (myNode.audios.Count != 0)
-            {
-                soundManager.Instance.PlayMusic(myNode.audios[0]);
-            }
-            // UIManager.Instance.StartDisplayNodeTextForShowRoutine(myNode.nodeTextForShow);
             UIManager.Instance.DisplayNodeText(myNode.nodeTextForShow);
         }
         else

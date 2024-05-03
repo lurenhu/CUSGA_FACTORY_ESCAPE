@@ -24,8 +24,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 568
-    y: 470
+    x: 499
+    y: 539
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 1005
-    y: 314
+    x: 936
+    y: 383
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 854
-    y: 116
+    x: 785
+    y: 185
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -116,8 +116,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 932
-    y: 530
+    x: 863
+    y: 599
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 486
-    y: 122
+    x: 417
+    y: 191
     width: 160
     height: 100
   isLeftClickDragging: 0
@@ -197,16 +197,17 @@ MonoBehaviour:
   childrenNodeIdList:
   - c74c99c7-9443-42bb-8584-669eea6ddc8e
   - 58428818-5905-4ee4-86dc-2a6a47d29c5f
-  audioList: []
+  audioList:
+  - {fileID: 8300000, guid: 6cac6981c657b51469603c69c863782f, type: 3}
   nodeTextForShow: 
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: da90eb5be98ed7d43a255ff7b7ac2e70, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
   rect:
     serializedVersion: 2
-    x: 731
-    y: 269
+    x: 662
+    y: 338
     width: 160
     height: 100
   isLeftClickDragging: 0
-  isSelected: 0
+  isSelected: 1

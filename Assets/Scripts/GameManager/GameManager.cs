@@ -49,7 +49,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     Coroutine GetNextLevel;
     Coroutine ResultCoroutine;
     Coroutine ChangeScene;
-    Coroutine BackGameSceneFromPause;
     Coroutine BackGameSceneFromOther;
 
     [Space(10)]
@@ -93,6 +92,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             StopCoroutine(ResultCoroutine);
         }
+        haveNodeDrag = false;
         ResultCoroutine = StartCoroutine(GetResult(result.cutSceneCells));
     }
 
@@ -119,6 +119,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             StopCoroutine(GetNextLevel);
         }
+        haveNodeDrag = false;
         isGettingNextLevel = true;
         GetNextLevel = StartCoroutine(GetNextNodeLevel());
     }
@@ -138,7 +139,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         UIManager.Instance.UIShow = false; 
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
-        isGettingNextLevel = true;
+        isGettingNextLevel = false;
     }
 
     private void Update() {
@@ -182,11 +183,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         rate = currentNodeLevel.rate;
         if (currentNodeLevel.chapterBot != previousChapterBot) 
         {
-            previousChapterBot = currentNodeLevel.chapterBot;
-            if (previousChapterBot != 0)
+            if (currentNodeLevel.chapterBot != 0)
             {
-                tongyi_AI.instance.changeRobot(previousChapterBot);
+                tongyi_AI.instance.changeRobot(currentNodeLevel.chapterBot);
+                Debug.Log($"Change Bot to {currentNodeLevel.chapterBot}");
             }
+            previousChapterBot = currentNodeLevel.chapterBot;
         }
 
         NodeMapBuilder.Instance.DeleteNodeMap();
@@ -476,43 +478,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         soundManager.Instance.PlaySFX("ChangeScene");
 
         LoadNodeGraph();
-        
-        canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
-    }
-
-    /// <summary>
-    /// 暂停界面继续游戏事件
-    /// </summary>
-    public void StartBackToGameSceneFromPauseMenu()
-    {
-        if (BackGameSceneFromPause != null)
-        {
-            StopCoroutine(BackGameSceneFromPause);
-        }
-
-        BackGameSceneFromPause = StartCoroutine(BackToGameSceneFromPauseMenu());
-    }
-
-    /// <summary>
-    /// 从暂停界面返回至游戏场景
-    /// </summary>
-    IEnumerator BackToGameSceneFromPauseMenu()
-    {
-        canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
-
-        SceneManager.UnloadSceneAsync("PauseMenu");
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
-
-        while (!asyncOperation.isDone) 
-        {
-            yield return null;
-        }
-        soundManager.Instance.StopMusicInFade();
-        soundManager.Instance.PlaySFX("ChangeScene");
-
-        LoadNodeGraph();
+        PlayCurrentLevelAudio();
         
         canvasGroup.blocksRaycasts = false;
         yield return StartCoroutine(Fade(1,0,2,Color.black));
