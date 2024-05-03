@@ -23,6 +23,7 @@ public class AnimatorControl : MonoBehaviour
                 // 弹出子节点
                 if (!myNode.hasPopUp && myNode.nodeInfos.Count != 0)
                 {
+                    UIManager.Instance.pauseButton.gameObject.SetActive(false);
                     UIManager.Instance.AnimatorUI.gameObject.SetActive(true);
 
                     soundManager.Instance.StopMusicInFade();

@@ -1691,6 +1691,7 @@ MonoBehaviour:
   leftNodeGraphButton: {fileID: 1520149495}
   AnimatorUI: {fileID: 1855675081}
   SkyUI: {fileID: 84847181}
+  pauseButton: {fileID: 2142775732}
   UIShow: 0
 --- !u!4 &457837503
 Transform:

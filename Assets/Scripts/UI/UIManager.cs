@@ -32,6 +32,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform AnimatorUI;
     [Tooltip("第七关的天空UI")]
     public Transform SkyUI;
+    [Tooltip("暂停按钮UI")]
+    public Transform pauseButton;
 
     Coroutine OpenPause;    
     
