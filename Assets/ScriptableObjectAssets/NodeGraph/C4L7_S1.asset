@@ -92,7 +92,7 @@ MonoBehaviour:
   isSelected: 0
   startNodeId: c74c99c7-9443-42bb-8584-669eea6ddc8e
   stopNodeId: 42ef9743-c37c-485f-b910-0e7358cd09f0
-  duration: 1
+  duration: 109
 --- !u!114 &-2837984553600554366
 MonoBehaviour:
   m_ObjectHideFlags: 0

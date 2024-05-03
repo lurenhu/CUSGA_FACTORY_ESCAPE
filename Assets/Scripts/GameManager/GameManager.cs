@@ -70,7 +70,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         base.Awake();
         Screen.SetResolution(1920, 1080, true);
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Additive);
-        StartCoroutine(Fade(1,0,2,Color.black));
+        StartCoroutine(Fade(1,0,0.8f,Color.black));
         DontDestroyOnLoad(gameObject);
     }
     
@@ -100,7 +100,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         canvasGroup.blocksRaycasts = true;
         UIManager.Instance.UIShow = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");
@@ -109,7 +109,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         canvasGroup.blocksRaycasts = false;
         UIManager.Instance.UIShow = false;  
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     private void StaticEventHandler_OnGetNextNodeLevel(GetNextNodeLevel args)
@@ -128,7 +128,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         UIManager.Instance.UIShow = true;
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         soundManager.Instance.StopMusicInFade();
         soundManager.Instance.PlaySFX("ChangeScene");
@@ -138,7 +138,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         UIManager.Instance.UIShow = false; 
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
         isGettingNextLevel = false;
     }
 
@@ -272,14 +272,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator ChangeToRightGraphCoroutine()
     {
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         soundManager.Instance.PlaySFX("ChangeScene");
 
         GetRightNodeGraph();
 
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     /// <summary>
@@ -324,14 +324,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator ChangeToLeftGraphCoroutine()
     {
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         soundManager.Instance.PlaySFX("ChangeScene");
 
         GetLeftNodeGraph();
 
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     /// <summary>
@@ -412,7 +412,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator ChangeSceneCoroutine(string unLoadSceneName, string loadSceneName, GameState gameState)
     {
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         SceneManager.UnloadSceneAsync(unLoadSceneName);
         SceneManager.LoadSceneAsync(loadSceneName,LoadSceneMode.Additive);
@@ -423,7 +423,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         this.gameState = gameState;
         
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     /// <summary>
@@ -432,7 +432,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public IEnumerator LoadPauseMenu()
     {
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         NodeMapBuilder.Instance.SaveNodeMap(nodeIdsInGraph[graphIndex]);
 
@@ -443,7 +443,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         soundManager.Instance.PlaySFX("ChangeScene");
         
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     /// <summary>
@@ -465,7 +465,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     IEnumerator ChangeLoadGameSceneCoroutine(string fromSceneName)
     {
         canvasGroup.blocksRaycasts = true;
-        yield return StartCoroutine(Fade(0,1,2,Color.black));
+        yield return StartCoroutine(Fade(0,1,0.8f,Color.black));
 
         SceneManager.UnloadSceneAsync(fromSceneName);
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
@@ -481,7 +481,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         PlayCurrentLevelAudio();
         
         canvasGroup.blocksRaycasts = false;
-        yield return StartCoroutine(Fade(1,0,2,Color.black));
+        yield return StartCoroutine(Fade(1,0,0.8f,Color.black));
     }
 
     /// <summary>

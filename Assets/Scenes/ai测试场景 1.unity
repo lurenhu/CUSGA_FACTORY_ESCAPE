@@ -197,7 +197,7 @@ PrefabInstance:
     - target: {fileID: 3204766640537358780, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
       propertyPath: AIDialogText
       value: 
-      objectReference: {fileID: 272408992}
+      objectReference: {fileID: 1781428375}
     - target: {fileID: 3204766640537358780, guid: d59153e727e42974d870e1ca7f74d13b, type: 3}
       propertyPath: anxietyValue
       value: 
@@ -375,6 +375,7 @@ MonoBehaviour:
   leftNodeGraphButton: {fileID: 0}
   AnimatorUI: {fileID: 0}
   SkyUI: {fileID: 0}
+  pauseButton: {fileID: 0}
   UIShow: 0
 --- !u!4 &181597710
 Transform:
@@ -410,6 +411,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 331641259}
     m_Modifications:
+    - target: {fileID: 607416698301777947, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607416698301777947, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661817993692979778, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+      propertyPath: m_Content
+      value: 
+      objectReference: {fileID: 1781428376}
     - target: {fileID: 2018628324210894688, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -449,6 +462,10 @@ PrefabInstance:
     - target: {fileID: 2483663739654880763, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayAndCloseAILog
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862259855976012155, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593721442240235534, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
       propertyPath: m_Name
@@ -633,17 +650,6 @@ MonoBehaviour:
 --- !u!114 &272408991 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6145748189467833319, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
-  m_PrefabInstance: {fileID: 272408985}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &272408992 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2815211531034263540, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
   m_PrefabInstance: {fileID: 272408985}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1507,6 +1513,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1781428375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7907382521492864763, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 272408985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1781428376 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2862259855976012155, guid: ef5b28c5e12d12944aaae3bce3f48326, type: 3}
+  m_PrefabInstance: {fileID: 272408985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1960546269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,12 +1626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087ea38cfe0f37c4fa1410c9a391dd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 1132895044}
-  canvas: {fileID: 730251497}
   cutSceneUIPanel: {fileID: 849038976}
   tmpText: {fileID: 849038975}
   animator: {fileID: 849038974}
   playingTimeInterval: 0.05
+  currentAnimationState: 
   isPlayingCutScene: 0
 --- !u!4 &2082305999
 Transform:
