@@ -20,6 +20,11 @@ MonoBehaviour:
   rate: 0.8
   chapterBot: 1
   cutSceneList:
+  - animationStateName: Intro1
+    text: {fileID: 0}
+    isAuto: 1
+    music: {fileID: 0}
+    sfx: {fileID: 8300000, guid: deb83ad78d53edb4cb7db22665f5dc4a, type: 3}
   - animationStateName: L0_A1
     text: {fileID: 4900000, guid: 96ee5bae7e3fcb34781ce64b7da490f9, type: 3}
     isAuto: 0

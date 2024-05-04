@@ -1682,7 +1682,7 @@ MonoBehaviour:
   childrenNodeIdList:
   - d0293ac2-e3ef-49c6-9717-a9c63f8597c8
   audioList: []
-  nodeTextForShow: "\u5956\u724C\u4E0A\u5199\u7740\u201C\u884C\u4E1A\u7B2C\u4E00\u5757\u9AD8\u901F\u8FD1\u8DDD\u4FE1\u606F\u4F20\u8F93\u82AF\u7247\u201D\uFF0C\u73BB\u7483\u8D28\u5730 "
+  nodeTextForShow: "\u5956\u724C\u4E0A\u5199\u7740\u201C\u884C\u4E1A\u7B2C\u4E00\u5757\u9AD8\u901F\u8FD1\u8DDD\u4FE1\u606F\u4F20\u8F93\u82AF\u7247\u201D\uFF0C\u8F7B\u8584\u73BB\u7483\u8D28\u5730 "
   nodeGraph: {fileID: 11400000}
   nodeType: {fileID: 11400000, guid: f47e22fcbd54c5843988bc0a1db74608, type: 2}
   nodeTypeList: {fileID: 11400000, guid: a09d136a66fb65145b1a2ac281ee73e8, type: 2}
@@ -1694,7 +1694,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  ClickNumber: 15
+  ClickNumber: 12
 --- !u!114 &8677136297583668537
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -159,7 +159,7 @@ MonoBehaviour:
     height: 100
   isLeftClickDragging: 0
   isSelected: 0
-  ClickNumber: 5
+  ClickNumber: 8
 --- !u!114 &-4637174888823441828
 MonoBehaviour:
   m_ObjectHideFlags: 0
