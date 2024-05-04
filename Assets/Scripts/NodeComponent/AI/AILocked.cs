@@ -49,8 +49,8 @@ public class AILocked : MonoBehaviour
                 // 节点交互内容
                 if(!hasResult)
                 {
-                    DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(true);
                     UIManager.Instance.UIShow = true;
+                    DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(true);
                     DialogSystem.Instance.AINameText.text = AIName;
                     DialogSystem.Instance.AIDialogText.text = openingRemark;
                     DialogSystem.Instance.PopUpAIDialogPanel();
@@ -83,8 +83,11 @@ public class AILocked : MonoBehaviour
     {
         GameManager.Instance.currentAnxiety += args.anxiety_change_value;
         submissionTimes--;
-        DialogSystem.Instance.SubmitTimer[submissionTimes].color = green;
 
+        if (DialogSystem.Instance.SubmitTimer[submissionTimes] != null)
+        {
+            DialogSystem.Instance.SubmitTimer[submissionTimes].color = green;
+        }
         DialogSystem.Instance.anxietyValue.localScale = new Vector3(GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety, 1, 1);
         DialogSystem.Instance.value.text = (GameManager.Instance.currentAnxiety/GameManager.Instance.maxAnxiety * 100).ToString("F0") + "%";
 
