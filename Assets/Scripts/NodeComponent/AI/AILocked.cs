@@ -49,7 +49,7 @@ public class AILocked : MonoBehaviour
                 // 节点交互内容
                 if(!hasResult)
                 {
-                    tongyi_AI.instance.SubmitTimer = 5;
+                    tongyi_AI.instance.SubmitTimer = submissionTimes;
                     DialogSystem.Instance.AICharacter_1.sprite = GameResources.Instance.characters.Find(x => x.name == "8DE").sprite;
                     UIManager.Instance.UIShow = true;
                     DialogSystem.Instance.AIDialogPanel.gameObject.SetActive(true);
@@ -84,6 +84,7 @@ public class AILocked : MonoBehaviour
     private void StaticEventHandler_OnCommit(CommitArgs args)
     {
         GameManager.Instance.currentAnxiety += args.anxiety_change_value;
+        submissionTimes--;
         tongyi_AI.instance.SubmitTimer--;
 
         if (DialogSystem.Instance.SubmitTimer[tongyi_AI.instance.SubmitTimer] != null)
