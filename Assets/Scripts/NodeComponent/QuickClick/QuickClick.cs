@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class QuickClick : MonoBehaviour
@@ -7,6 +8,7 @@ public class QuickClick : MonoBehaviour
     [Header("观测数据")]
     private Node myNode;
     public int ClickNumber;
+    private int counter = 0;
 
     private void Start() {
         myNode = transform.GetComponent<Node>();
@@ -30,6 +32,13 @@ public class QuickClick : MonoBehaviour
         {
             if (myNode.isSelected)
             {
+                counter++;
+                if (counter == 4)
+                {
+                    transform.DOShakePosition(1,0.25f);
+                    counter = 0;
+                }
+
                 if (ClickNumber > 0)
                     ClickNumber--;
     

@@ -17,6 +17,8 @@ public class UIManager : SingletonMonobehaviour<UIManager>
     public Transform textNodeUI;
     [Tooltip("AI对话日志")]
     public Transform AIDialogLog;
+    [Tooltip("AI对话界面")]
+    public Transform AIDialogPanel;
 
     [Space(5)]
     [Header("场景UI对象")]
@@ -153,5 +155,13 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         }
         OpenPause = StartCoroutine(GameManager.Instance.LoadPauseMenu());
     }
-   
+    
+    /// <summary>
+    /// 关闭AI对话框
+    /// </summary>
+    public void CloseAIDialogPanel()
+    {
+        AIDialogPanel.gameObject.SetActive(false);
+        UIShow = false;
+    }
 }

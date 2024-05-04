@@ -10,6 +10,7 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
 {
     public List<Node> startNodes = new List<Node>();
     public GameObject LinePrefab;
+    public Dictionary<Node,Line> nodeLineBinding = new Dictionary<Node,Line>();
 
     public void ClearAllSelectedNode(Node node)
     {
@@ -45,6 +46,16 @@ public class GameMenu : SingletonMonobehaviour<GameMenu>
             Debug.Log($"{node.name} has create Line");
         }
 
+        nodeLineBinding.Add(node, lineComponent);
+    }
+
+    public void DeleteLine(Node node)
+    {
+        Line line = nodeLineBinding[node];
+        if (line != null)
+        {
+            line.gameObject.SetActive(false);
+        }
     }
 
     public void StartGame()
