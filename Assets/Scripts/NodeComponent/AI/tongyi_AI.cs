@@ -34,6 +34,8 @@ public class tongyi_AI : MonoBehaviour
     public AudioClip test_SFX;
     public static tongyi_AI instance;
 
+    public int SubmitTimer = 5;
+
     private void Awake()   //单例的默认写法
     {
         if (instance != null)
@@ -294,10 +296,21 @@ public class tongyi_AI : MonoBehaviour
             reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
             Debug.Log(reply_text);
             reply_is_finished = true;
-            if (bot.name== "对话角色1")
+            if (bot.name== "对话角色1" && SubmitTimer > 1)
             {   
                 writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text});
-                DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+                DialogSystem.Instance.get_text_in_other_ways("823", reply_text);//最后一个是演出列表
+            }
+            else if (bot.name== "对话角色1" && SubmitTimer == 1)
+            {   
+                if (GameManager.Instance.CheckAnxietyValue())
+                {
+                    DialogSystem.Instance.get_text_in_other_ways("823", "感谢你的努力，陶特","8N");//最后一个是演出列表
+                }
+                else
+                {
+                    DialogSystem.Instance.get_text_in_other_ways("823","陶特，我感觉不太好......","8AN");
+                }
             }
            
         }
@@ -316,7 +329,7 @@ public class tongyi_AI : MonoBehaviour
                     Debug.Log(reply_text);
                     reply_is_finished = true;
                     writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text });
-                    DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
+                    DialogSystem.Instance.get_text_in_other_ways("823", reply_text);//最后一个是演出列表
                     anxiety_change_value = 0;
                     Debug.Log($"anxiety_change_value:{anxiety_change_value}");
                     StaticEventHandler.CallCommit(anxiety_change_value);

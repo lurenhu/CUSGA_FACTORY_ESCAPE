@@ -276,13 +276,11 @@ public class DialogSystem : SingletonMonobehaviour<DialogSystem>
     }
 
     //从ai处获取文本
-    public void get_text_in_other_ways(string name, string text, string[] image_display)
+    public void get_text_in_other_ways(string name, string text, string AiState = "8DE")
     {
         ClearReference();
 
-        // nameList.Add(name);
-        // textList.Add(text);
-        // imageList.Add(image_display);
+        AICharacter_1.sprite = GameResources.Instance.characters.Find(x => x.name == AiState).sprite;
 
         AINameText.text = name;
         StartCoroutine(PlayingRowTextForAI(text));
