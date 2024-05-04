@@ -44,9 +44,9 @@ public class tongyi_AI : MonoBehaviour
         robots=new robotCollection[]
             { 
               new robotCollection("焦虑评估器","1816f35255d946519e4494862bf6cb4a"),
-              new robotCollection("对话角色1","89f40467361e43ecb565ab323063bea4") ,              
-              new robotCollection("对话角色2","71f7547370eb454bbc79b5e4f491591b") ,             
-              new robotCollection("对话角色3","9aee25c1b3d049f39f6fd225b174557b")               
+              new robotCollection("对话角色1","fa748c249a1347a281fcb1138a7b11f6") ,              
+              new robotCollection("对话角色2","18aabf6a7f5749769ea00a2c11034ccf") ,             
+              new robotCollection("对话角色3","f685a6502412492c8949cf1b50933bae")               
             };
     }
     // Start is called before the first frame update
@@ -294,7 +294,8 @@ public class tongyi_AI : MonoBehaviour
             reply_text = (string)jsonObject["choices"][0]["messages"][0]["content"];
             Debug.Log(reply_text);
             reply_is_finished = true;
-            if (bot.name== "对话角色1")
+            string bot_name=bot.name;
+            if (bot_name == "对话角色1" || bot_name == "对话角色2" || bot_name == "对话角色3")
             {   
                 writeAndLoadHistory.writeText(new string[] { "823", "assistant", reply_text});
                 DialogSystem.Instance.get_text_in_other_ways("823", reply_text, new string[2]);//最后一个是演出列表
