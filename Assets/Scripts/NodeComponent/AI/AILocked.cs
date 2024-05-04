@@ -95,6 +95,15 @@ public class AILocked : MonoBehaviour
 
         if (tongyi_AI.instance.SubmitTimer == 0)
         {
+            if (GameManager.Instance.CheckAnxietyValue())
+            {
+                DialogSystem.Instance.get_text_in_other_ways("823", "感谢你的努力，陶特","8N");
+            }
+            else
+            {
+                DialogSystem.Instance.get_text_in_other_ways("823","陶特，我感觉不太好......","8AN");
+            }
+
             hasResult = true;
         }
     }
