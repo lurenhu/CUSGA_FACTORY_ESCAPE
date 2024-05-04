@@ -28,8 +28,8 @@ MonoBehaviour:
   - animationStateName: L6_Video
     text: {fileID: 4900000, guid: 31a1f4488ff1f8c41b182b7746d2d15f, type: 3}
     isAuto: 1
-    music: {fileID: 8300000, guid: 5a626f871ee6b174480cfcd93fee5d5f, type: 3}
-    sfx: {fileID: 0}
+    music: {fileID: 0}
+    sfx: {fileID: 8300000, guid: 5a626f871ee6b174480cfcd93fee5d5f, type: 3}
   - animationStateName: L6_A8
     text: {fileID: 4900000, guid: e87a19825f49dc647ad1daa28a269a1a, type: 3}
     isAuto: 0
