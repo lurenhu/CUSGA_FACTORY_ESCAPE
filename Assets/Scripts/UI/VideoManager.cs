@@ -31,6 +31,8 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
     private bool isPlayingAutoCutScene = false;
     public bool isPlayingCutScene = false;
 
+    Coroutine playingRowText;
+
     private void Update() {
         if (!cutSceneUIPanel.gameObject.activeSelf) return;
 
@@ -38,7 +40,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         {
             if (textFinished && textForShow.Count > 0)
             {
-                StartCoroutine(PlayingRowText(textForShow.Dequeue()));
+                if (playingRowText != null)
+                {
+                    StopCoroutine(playingRowText);
+                }
+                playingRowText = StartCoroutine(PlayingRowText(textForShow.Dequeue()));
             }
             else if (!textFinished && !cancelTyping)
             {
@@ -144,13 +150,13 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
         this.cutSceneCellList = cutSceneCellList;
         cutSceneUIPanel.gameObject.SetActive(true);
 
-        if (cutSceneCellList[animationIndex].isAuto)
+        if (this.cutSceneCellList[animationIndex].isAuto)
         {
-            ShowAutoCutScene(cutSceneCellList[animationIndex]);
+            ShowAutoCutScene(this.cutSceneCellList[animationIndex]);
         }
         else
         {
-            ShowCutScene(cutSceneCellList[animationIndex]);
+            ShowCutScene(this.cutSceneCellList[animationIndex]);
         }
 
         UIManager.Instance.UIShow = true;
@@ -171,7 +177,11 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             {
                 textForShow.Enqueue(row);
             }
-            StartCoroutine(PlayingRowText(textForShow.Dequeue()));
+            if (playingRowText != null)
+            {
+                StopCoroutine(playingRowText);
+            }
+            playingRowText = StartCoroutine(PlayingRowText(textForShow.Dequeue()));
         }
         else
         {
@@ -240,7 +250,12 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
             {
                 textForShow.Enqueue(row);
             }
-            StartCoroutine(PlayingAutoText());
+
+            if (playingRowText != null)
+            {
+                StopCoroutine(playingRowText);
+            }
+            playingRowText = StartCoroutine(PlayingAutoText());
         }
 
         if (cutSceneCell.music != null)
