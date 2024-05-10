@@ -179,6 +179,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         InitializeReference(currentNodeLevel);
         
         VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
+        if (currentNodeLevel.cutSceneList.Count == 0)
+        {
+            PlayCurrentLevelAudio();
+        }
 
         NodeMapBuilder.Instance.DeleteNodeMap();
         NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
