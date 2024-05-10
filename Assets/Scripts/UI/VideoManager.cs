@@ -147,7 +147,10 @@ public class VideoManager : SingletonMonobehaviour<VideoManager>
 
         RestoreInitialState();
 
-        this.cutSceneCellList = cutSceneCellList;
+        foreach (CutSceneCell cutSceneCell in cutSceneCellList)
+        {
+            this.cutSceneCellList.Add(cutSceneCell);
+        }
         cutSceneUIPanel.gameObject.SetActive(true);
 
         if (this.cutSceneCellList[animationIndex].isAuto)

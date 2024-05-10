@@ -177,7 +177,36 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         NodeGraphSO currentNodeGraph = currentNodeLevel.levelGraphs[graphIndex];
 
         InitializeReference(currentNodeLevel);
+        
+        VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
 
+        NodeMapBuilder.Instance.DeleteNodeMap();
+        NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
+        enterNodeGraphTimesList[graphIndex]++;
+    }
+
+    /// <summary>
+    /// 初始化相关参数与函数回调
+    /// </summary>
+    private void InitializeReference(NodeLevelSO currentNodeLevel)
+    {
+        // 清理数据
+        nodeIdsInGraph.Clear();
+        enterNodeGraphTimesList.Clear();
+
+        // 初始化存档
+        foreach (NodeGraphSO nodeGraph in currentNodeLevel.levelGraphs)
+        {
+            nodeIdsInGraph.Add(new List<string>());
+            enterNodeGraphTimesList.Add(0);
+        }   
+
+        // 按钮初始化
+        MatchRightAndLeftNodeGraphName(currentNodeLevel);
+        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
+        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
+
+        // 初始化AI
         maxAnxiety = currentNodeLevel.initialAnxietyValue;
         currentAnxiety = maxAnxiety;
         rate = currentNodeLevel.rate;
@@ -191,10 +220,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             previousChapterBot = currentNodeLevel.chapterBot;
         }
 
-        NodeMapBuilder.Instance.DeleteNodeMap();
-        NodeMapBuilder.Instance.GenerateNodeMap(currentNodeGraph,enterNodeGraphTimesList[graphIndex]);
-        enterNodeGraphTimesList[graphIndex]++;
-
+        // 初始化天空UI(针对最后一个关卡)
         if (levelIndex == 8)
         {
             UIManager.Instance.SkyUI.gameObject.SetActive(true);
@@ -205,29 +231,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
-    /// <summary>
-    /// 初始化相关参数与函数回调
-    /// </summary>
-    private void InitializeReference(NodeLevelSO currentNodeLevel)
-    {
-        nodeIdsInGraph.Clear();
-        enterNodeGraphTimesList.Clear();
-
-        foreach (NodeGraphSO nodeGraph in currentNodeLevel.levelGraphs)
-        {
-            nodeIdsInGraph.Add(new List<string>());
-            enterNodeGraphTimesList.Add(0);
-        }   
-
-        MatchRightAndLeftNodeGraphName(currentNodeLevel);
-        UIManager.Instance.rightNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToRightGraph);
-        UIManager.Instance.leftNodeGraphButton.GetComponent<Button>().onClick.AddListener(ChangeToLeftGraph);
-
-        if (currentNodeLevel.cutSceneList.Count > 0)
-        {
-            VideoManager.Instance.ShowCutScenes(currentNodeLevel.cutSceneList);
-        }
-    }
 #region 左右两侧节点图切换按钮脚本
     /// <summary>
     /// 匹配左右两侧的切换节点图按钮
