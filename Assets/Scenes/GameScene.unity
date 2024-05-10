@@ -2633,6 +2633,7 @@ MonoBehaviour:
   reply_text: 
   reply_is_finished: 0
   test_SFX: {fileID: 8300000, guid: 71f2bb6742039a24b88eedb4c0d5efd7, type: 3}
+  SubmitTimer: 5
 --- !u!4 &1328269125
 Transform:
   m_ObjectHideFlags: 0
@@ -3336,7 +3337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1904379016259397995, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 834.04
+      value: 215.8
       objectReference: {fileID: 0}
     - target: {fileID: 2781960425831103730, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3440,7 +3441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906699660225358983, guid: 75728a7b66fb55c4b8786e9411b61f1a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.09675795
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3538,6 +3539,10 @@ PrefabInstance:
     - target: {fileID: 3528428256397450921, guid: 001292b8a94b95a45986262c8560a19b, type: 3}
       propertyPath: m_Name
       value: GraphNodeUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528428256397450921, guid: 001292b8a94b95a45986262c8560a19b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7987696440560365975, guid: 001292b8a94b95a45986262c8560a19b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
