@@ -323,7 +323,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.5, y: 4.25}
+    oldSize: {x: 1.5454545, y: 0.77272725}
     newSize: {x: 2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -375,6 +375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerPrefab: {fileID: 7337153538114554917, guid: 305d26cf4f4d8504d845bfe55586a269, type: 3}
-  angelRange: 10
+  angelRange: 15
   pointers: []
   angles: []
