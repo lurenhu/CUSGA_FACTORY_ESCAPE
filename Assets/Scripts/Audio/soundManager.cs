@@ -151,16 +151,18 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     {
 
         float elapsedTime = 0.0f;
+
+        float currentVolume = musicSource.volume;
+
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
             float volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / fadeDuration);
-            volume=musicSource.volume*volume;
-            musicSource.volume=volume;
+            musicSource.volume = volume * currentVolume;
             yield return null;
         }
 
-        musicSource.volume = targetVolume; // 确保最终音量为目标音量
+        musicSource.volume = currentVolume * targetVolume;
     }
 
     private void StopFadeCoroutine()
