@@ -11,10 +11,15 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     public bool is_update_text = false;
     [Header("音量控制")]
     public float totalVolume=1f;
+    public float currentMusicVolume;
+    public float currentSFXVolume;
 
     protected override void Awake()
     {
         base.Awake();
+
+        currentMusicVolume = musicSource.volume;
+        currentSFXVolume = sfxSource.volume;
 
         PlayMusicInFade("Theme");
     }
@@ -29,12 +34,12 @@ public class soundManager : SingletonMonobehaviour<soundManager>
     public void setMusicVolume(float volume)
     {
         musicSource.volume = volume*totalVolume;
-        
+        currentMusicVolume = volume;
     }
     public void setSfxVolume(float volume)
     {
         sfxSource.volume = volume*totalVolume;
-
+        currentSFXVolume = volume;
     }
 
     public void PlayMusic(string name,bool loop = true)
@@ -135,12 +140,12 @@ public class soundManager : SingletonMonobehaviour<soundManager>
         {
              fadeDuration = 2.0f; // 渐强的持续时间
              startVolume = 0.0f;
-             targetVolume = 1.0f;
+             targetVolume = currentMusicVolume;
         }
         else 
         {
              fadeDuration = 2.0f; // 渐强的持续时间
-             startVolume = 1.0f;
+             startVolume = currentMusicVolume;
              targetVolume = 0.0f;
         }
         StopFadeCoroutine();
@@ -149,20 +154,17 @@ public class soundManager : SingletonMonobehaviour<soundManager>
 
     private IEnumerator FadeInCoroutine(float fadeDuration,float startVolume,float targetVolume)
     {
-
         float elapsedTime = 0.0f;
-
-        float currentVolume = musicSource.volume;
 
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
             float volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / fadeDuration);
-            musicSource.volume = volume * currentVolume;
+            musicSource.volume = volume;
             yield return null;
         }
 
-        musicSource.volume = currentVolume * targetVolume;
+        musicSource.volume = targetVolume;
     }
 
     private void StopFadeCoroutine()

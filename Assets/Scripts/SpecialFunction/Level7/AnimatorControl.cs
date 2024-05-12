@@ -27,7 +27,7 @@ public class AnimatorControl : MonoBehaviour
                     UIManager.Instance.AnimatorUI.gameObject.SetActive(true);
 
                     soundManager.Instance.StopMusicInFade();
-                    soundManager.Instance.PlayMusicInFade(myNode.audios[0]);
+                    soundManager.Instance.PlaySFX(myNode.audios[0]);
 
                     StartCoroutine(myNode.PopUpChildNodes(myNode.nodeInfos));
                     myNode.hasPopUp = true;
