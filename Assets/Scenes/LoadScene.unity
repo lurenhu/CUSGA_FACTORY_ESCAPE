@@ -174,7 +174,6 @@ MonoBehaviour:
   tweenDuring: 0.5
   popUpForce: 3
   nodeLevelSOs:
-  - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
   - {fileID: 11400000, guid: 7ff408f64e2aff744b03cf827e679500, type: 2}
   - {fileID: 11400000, guid: ea476c7f32568c04eb22e674e52d5e6b, type: 2}
   - {fileID: 11400000, guid: 88ef099a4375d074e9e0e901012d5dae, type: 2}
@@ -183,6 +182,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08bbb8749cc2de3468fea077d4b46650, type: 2}
   - {fileID: 11400000, guid: a1802127918da8342adfd016fdf462eb, type: 2}
   - {fileID: 11400000, guid: 8d40aab09abf8be4eb9fb4f21578ac29, type: 2}
+  - {fileID: 11400000, guid: b533d24627c451c48aaac88e15355ca4, type: 2}
   levelIndex: -1
   graphIndex: 0
   isGettingNextLevel: 0
@@ -493,6 +493,8 @@ MonoBehaviour:
   sfxSource: {fileID: 1453675096}
   is_update_text: 0
   totalVolume: 1
+  currentMusicVolume: 0
+  currentSFXVolume: 0
 --- !u!4 &567580276
 Transform:
   m_ObjectHideFlags: 0
