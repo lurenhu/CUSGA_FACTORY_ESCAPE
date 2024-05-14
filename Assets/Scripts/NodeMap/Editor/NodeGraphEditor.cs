@@ -5,27 +5,27 @@ using System.Collections.Generic;
 
 public class NodeGraphEditor : EditorWindow
 {
-    private GUIStyle nodeStyle;
-    private GUIStyle nodeSelectedStyle;
+    private GUIStyle nodeStyle;// 未选中样式
+    private GUIStyle nodeSelectedStyle;// 选中样式
 
-    private Vector2 graphOffset;
-    private Vector2 graphDrag;
+    private Vector2 graphOffset;// 图片偏移
+    private Vector2 graphDrag;// 图片拖动
 
-    private NodeTypeListSO nodeTypeList;
-    private NodeSO currentNode = null;
+    private NodeTypeListSO nodeTypeList;// 节点样式列表
+    private NodeSO currentNode = null;// 当前的节点
 
-    private const float nodeWidth = 160f;
-    private const float nodeHeight = 100f;
-    private const int nodePadding = 25;
-    private const int nodeBorder = 12;
+    private const float nodeWidth = 160f;// 节点宽度
+    private const float nodeHeight = 100f;// 节点长度
+    private const int nodePadding = 25;// 节点内容举例边缘的距离
+    private const int nodeBorder = 12;// 背景边框
 
-    private const float connectingLineWidth = 3f;
-    private const float connectingLineArrowSize = 6f;
+    private const float connectingLineWidth = 3f;// 连接线条的宽度
+    private const float connectingLineArrowSize = 6f;// 连接线条箭头的大小
 
-    private const float gridLarge = 100f;
-    private const float gridSmall = 25f;
+    private const float gridLarge = 100f;// 大网格的间距
+    private const float gridSmall = 25f;// 小网格的间距
 
-    private static NodeGraphSO currentNodeGraph;
+    private static NodeGraphSO currentNodeGraph;// 当前的节点图
 
     /// <summary>
     /// 打开编辑器窗口
