@@ -3,7 +3,7 @@
 ## 介绍
 
 - 这是一款文字节点解密类型的游戏，线性讲述一名高中生在废弃工厂中的冒险故事
-- 此处是该项目所有系统架构的实现西路 [思路链接](https://github.com/lurenhu/CUSGA_FACTORY_ESCAPE/tree/main/ProgramDesign)
+- 此处是该项目所有系统架构的实现西路 [思路链接](https://github.com/lurenhu/CUSGA_FACTORY_ESCAPE/tree/main/ProgramDesign/程序设计思路.md)
 - 以下是该项目开发过程中的一些注意事项
 
 :smirk:
